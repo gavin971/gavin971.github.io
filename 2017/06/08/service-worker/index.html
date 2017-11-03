@@ -74,7 +74,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Never_yu's Blog" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="climate2weather" type="application/atom+xml" />
 
 
 
@@ -90,20 +90,20 @@
 <meta name="keywords" content="Service-worker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用 Service worker 实现加速&#x2F;离线访问博客">
-<meta property="og:url" content="https://neveryu.github.io/2017/06/08/service-worker/index.html">
-<meta property="og:site_name" content="Never_yu&#39;s Blog">
+<meta property="og:url" content="https://gavin971.github.io/2017/06/08/service-worker/index.html">
+<meta property="og:site_name" content="climate2weather">
 <meta property="og:description" content="有一个困扰 web 用户多年的难题——丢失网络连接。即使是世界上最好的 web app，如果下载不了它，也是非常糟糕的体验。如今虽然已经有很多种技术去尝试着解决这一问题。而随着离线页面的出现，一些问题已经得到了解决。有一个叫做 APP Cache 的 API 可以提供离线体验，但它的问题比较多。最重要的问题是，仍然没有一个好的统筹机制对资源缓存和自定义的网络请求进行控制。 Service work">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://neveryu.github.io/images/service-worker-1.png">
-<meta property="og:image" content="https://neveryu.github.io/images/service-worker-2.png">
-<meta property="og:image" content="https://neveryu.github.io/images/service-worker-3.png">
-<meta property="og:image" content="https://neveryu.github.io/images/service-worker-4.png">
-<meta property="og:image" content="https://neveryu.github.io/images/service-worker-5.png">
+<meta property="og:image" content="https://gavin971.github.io/images/service-worker-1.png">
+<meta property="og:image" content="https://gavin971.github.io/images/service-worker-2.png">
+<meta property="og:image" content="https://gavin971.github.io/images/service-worker-3.png">
+<meta property="og:image" content="https://gavin971.github.io/images/service-worker-4.png">
+<meta property="og:image" content="https://gavin971.github.io/images/service-worker-5.png">
 <meta property="og:updated_time" content="2017-10-31T00:01:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用 Service worker 实现加速&#x2F;离线访问博客">
 <meta name="twitter:description" content="有一个困扰 web 用户多年的难题——丢失网络连接。即使是世界上最好的 web app，如果下载不了它，也是非常糟糕的体验。如今虽然已经有很多种技术去尝试着解决这一问题。而随着离线页面的出现，一些问题已经得到了解决。有一个叫做 APP Cache 的 API 可以提供离线体验，但它的问题比较多。最重要的问题是，仍然没有一个好的统筹机制对资源缓存和自定义的网络请求进行控制。 Service work">
-<meta name="twitter:image" content="https://neveryu.github.io/images/service-worker-1.png">
+<meta name="twitter:image" content="https://gavin971.github.io/images/service-worker-1.png">
 
 
 
@@ -124,12 +124,12 @@
 
 
 
-  <link rel="canonical" href="https://neveryu.github.io/2017/06/08/service-worker/"/>
+  <link rel="canonical" href="https://gavin971.github.io/2017/06/08/service-worker/"/>
 
 
 <!-- 网页加载条 -->
 <script src="/js/src/pace.min.js"></script>
-  <title> 使用 Service worker 实现加速/离线访问博客 | Never_yu's Blog </title>
+  <title> 使用 Service worker 实现加速/离线访问博客 | climate2weather </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -160,11 +160,11 @@
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Never_yu's Blog</span>
+      <span class="site-title">climate2weather</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle">认真的人才有资格开玩笑</p>
+  <p class="site-subtitle">人生在世其实就一辈子</p>
 </div>
 
 <div class="site-nav-toggle">
@@ -584,7 +584,7 @@
 <p>以上代码会先检测 Service worker 在浏览器中是否可用，可用的话一个 Service worker（/service-worker.js）将被注册，如果这个 Service worker 已经注册过了，浏览器这会忽略以上代码。<br><code>{scope: &#39;/&#39;}</code> 表示 Service worker 作用的范围。<br>需要说明的是 service-worker.js 文件被放在这个域的根目录下，这意味着 service worker 是跟网站同源的。换句话说，这个 service worker 将会获取到这个域下的所有 fetch 事件。<br>如果 service worker 文件注册到 /example/service-worker.js ，那么 service worker 只能收到 /example/ 路径下的 fetch 事件（比如： /example/page1/, /example/page2/）。<br>如果 service worker 文件注册到根目录下 /service-worker.js ，同时 <code>{scope: &#39;/example&#39;}</code> ，那么 service worker 也只能收到 /example/ 路径下的 fetch 事件。</p>
 <p>service-worker.js 文件，我建议是放在网站的跟目录下，scope 不作修改，这样 service worker 拥有最大的使用范围。</p>
 <h2 id="安装-Service-worker"><a href="#安装-Service-worker" class="headerlink" title="安装 Service worker"></a>安装 Service worker</h2><p><img src="/images/service-worker-2.png" alt=""></p>
-<p><a href="https://neveryu.github.io/service-worker.js">我的 service-worker.js</a><br>关于这个 service-worker.js 怎么写，具体可以查看 API ，<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Service_Worker_API" target="_blank" rel="external">MDN Service Worker API</a>。</p>
+<p><a href="https://neveryu.github.io/service-worker.js" target="_blank" rel="external">我的 service-worker.js</a><br>关于这个 service-worker.js 怎么写，具体可以查看 API ，<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Service_Worker_API" target="_blank" rel="external">MDN Service Worker API</a>。</p>
 <p id="div-border-left-red">注意：将 service-worker.js 放到域的根目录下哦，这样 Service worker 才能拥有最大的使用范围。</p>
 
 <p>现在你可以到 chrome://inspect/#service-workers 这里，检查 service worker 是否对你的网站启用了。<br>或者在 chrome://serviceworker-internals/ 中管理你的 Service worker 。<br>或者在浏览器的开发者工具中也可以详细的查看 service worker 的缓存。<br><img src="/images/service-worker-3.png" alt=""></p>
@@ -625,7 +625,7 @@
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/reward/reward_wechat.png" alt="Never_yu WeChat Pay"/>
+          <img id="wechat_qr" src="/reward/reward_wechat.png" alt="Gavin WeChat Pay"/>
           <p>微信打赏</p>
         </div>
       
@@ -739,9 +739,9 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/avatar/avatar.png"
-               alt="Never_yu" />
-          <p class="site-author-name" itemprop="name">Never_yu</p>
-          <p class="site-description motion-element" itemprop="description">Stay Hungry,Stay Foolish</p>
+               alt="Gavin" />
+          <p class="site-author-name" itemprop="name">Gavin</p>
+          <p class="site-description motion-element" itemprop="description">Still Waters Run Deep!</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
@@ -886,7 +886,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Never_yu</span>
+  <span class="author" itemprop="copyrightHolder">Gavin</span>
 </div>
 
 <div class="powered-by">
