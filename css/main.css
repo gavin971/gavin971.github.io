@@ -1663,7 +1663,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #44f5b1;
+  background: #c84bff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -1792,11 +1792,11 @@ pre .javascript .function {
   display: inline-block;
 }
 .powered-by {
-  margin-right: 10px;
+  margin-right: 5px;
 }
 .powered-by::after {
   content: "|";
-  padding-left: 10px;
+  padding-left: 5px;
 }
 .cc-license {
   margin-top: 10px;
@@ -2174,7 +2174,7 @@ p.search-result {
 }
 .busuanzi-count:before {
   content: " ";
-  float: left;
+  float: center;
   width: 260px;
   min-height: 25px;
 }
@@ -2205,7 +2205,7 @@ p.search-result {
   margin: 0 5px;
 }
 .site-uv {
-  margin-right: 10px;
+  margin-right: 0px;
 }
 .site-uv::after {
   content: "|";
