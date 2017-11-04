@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gavin971.github.io/"/>
-  <updated>2017-11-04T06:29:29.428Z</updated>
+  <updated>2017-11-04T13:20:20.253Z</updated>
   <id>https://gavin971.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Password-log</title>
+    <link href="https://gavin971.github.io/2017/11/04/Password-log/"/>
+    <id>https://gavin971.github.io/2017/11/04/Password-log/</id>
+    <published>2017-11-04T13:17:29.000Z</published>
+    <updated>2017-11-04T13:20:20.253Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="测试页"><a href="#测试页" class="headerlink" title="测试页"></a>测试页</h4>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;测试页&quot;&gt;&lt;a href=&quot;#测试页&quot; class=&quot;headerlink&quot; title=&quot;测试页&quot;&gt;&lt;/a&gt;测试页&lt;/h4&gt;
+      
+    
+    </summary>
+    
+      <category term="Hexo" scheme="https://gavin971.github.io/categories/Hexo/"/>
+    
+    
+      <category term="文章密码" scheme="https://gavin971.github.io/tags/%E6%96%87%E7%AB%A0%E5%AF%86%E7%A0%81/"/>
+    
+  </entry>
   
   <entry>
     <title>CPP-History</title>
