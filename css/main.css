@@ -1663,7 +1663,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #2b4199;
+  background: #fff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -1799,7 +1799,7 @@ pre .javascript .function {
   padding-left: 10px;
 }
 .busuanzi-count:before {
-  content: " xxxxx";
+  content: " ";
   float: left;
   width: 260px;
   min-height: 25px;
