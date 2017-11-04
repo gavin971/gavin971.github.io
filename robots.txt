@@ -10,5 +10,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: https://gavin971.github.io/sitemap.xml
-Sitemap: https://gavin971.github.io/baidusitemap.xml
+Sitemap: https://climate2weather.cc/sitemap.xml
+Sitemap: https://climate2weather.cc/baidusitemap.xml
