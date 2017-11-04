@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>climate2weather</title>
+  <icon>https://www.gravatar.com/avatar/ecdc7d2d48e8378c4cde932c19852e82</icon>
+  <subtitle>人生不妨大胆一点，反正只有一次！</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://gavin971.github.io/"/>
+  <updated>2017-11-04T02:54:43.867Z</updated>
+  <id>https://gavin971.github.io/</id>
+  
+  <author>
+    <name>Gavin</name>
+    <email>zhpfu.atm@gmail.com</email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python-Algorithmic</title>
+    <link href="https://gavin971.github.io/2017/11/04/Python-Algorithmic/"/>
+    <id>https://gavin971.github.io/2017/11/04/Python-Algorithmic/</id>
+    <published>2017-11-04T01:51:41.000Z</published>
+    <updated>2017-11-04T02:54:43.867Z</updated>
+    
+    <content type="html"><![CDATA[<p id="div-border-top-purple"><span style="color:red;">探讨核心：</span> 代码搭配核心思想！</p><p><img src="http://file.epubit.com.cn/ScreenShow/1512c1ffed069404a57e" alt=""></p><hr><a id="more"></a><p>Python算法教程  作者：挪威，Magnus Lie Hetland</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p id=&quot;div-border-top-purple&quot;&gt;&lt;span style=&quot;color:red;&quot;&gt;探讨核心：&lt;/span&gt; 代码搭配核心思想！&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://file.epubit.com.cn/ScreenShow/1512c1ffed069404a57e&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;hr&gt;
+    
+    </summary>
+    
+      <category term="算法" scheme="https://gavin971.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="Python" scheme="https://gavin971.github.io/tags/Python/"/>
+    
+  </entry>
+  
+</feed>
