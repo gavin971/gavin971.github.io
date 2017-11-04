@@ -1663,7 +1663,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #d65d69;
+  background: #ffffc3;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2197,13 +2197,12 @@ p.search-result {
 }
 .busuanzi-count:before {
   content: " ";
-  float: center;
+  float: left;
   width: 260px;
   min-height: 25px;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .busuanzi-count {
-    float: center;
     width: auto;
   }
   .busuanzi-count:before {
@@ -2212,7 +2211,6 @@ p.search-result {
 }
 @media (max-width: 767px) {
   .busuanzi-count {
-    float: center;
     width: auto;
   }
   .busuanzi-count:before {
@@ -2234,7 +2232,6 @@ p.search-result {
 }
 .site-uv::after {
   content: "|";
-  float: center;
   padding-left: 10px;
 }
 #gitment-display-button {
