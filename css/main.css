@@ -1663,7 +1663,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #91ffd1;
+  background: #1d12ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -1781,7 +1781,7 @@ pre .javascript .function {
   border: none;
 }
 .footer-inner {
-  text-align: right;
+  text-align: center;
 }
 .with-love {
   display: inline-block;
@@ -1798,32 +1798,9 @@ pre .javascript .function {
   content: "|";
   padding-left: 10px;
 }
-.busuanzi-count:before {
-  content: " ";
-  float: right;
-  width: 260px;
-  min-height: 25px;
-}
-.site-uv,
-.site-pv,
-.page-pv {
-  display: inline-block;
-}
-.site-uv .busuanzi-value,
-.site-pv .busuanzi-value,
-.page-pv .busuanzi-value {
-  margin: 0 5px;
-}
-.site-uv {
-  margin-right: 10px;
-}
-.site-uv::after {
-  content: "|";
-  padding-left: 10px;
-}
 .cc-license {
   margin-top: 10px;
-  text-align: right;
+  text-align: center;
 }
 .cc-license .cc-opacity {
   opacity: 0.7;
