@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>climate2weather</title>
+  <title>Climate2Weather</title>
   <icon>https://www.gravatar.com/avatar/ecdc7d2d48e8378c4cde932c19852e82</icon>
-  <subtitle>人生不妨大胆一点，反正只有一次！</subtitle>
+  <subtitle>人生不妨大胆一点, 反正只有一次</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gavin971.github.io/"/>
