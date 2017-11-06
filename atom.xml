@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gavin971.github.io/"/>
-  <updated>2017-11-04T06:29:29.428Z</updated>
+  <updated>2017-11-06T11:20:26.754Z</updated>
   <id>https://gavin971.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>生活的选择</title>
+    <link href="https://gavin971.github.io/2017/11/06/Life-style-and-choice/"/>
+    <id>https://gavin971.github.io/2017/11/06/Life-style-and-choice/</id>
+    <published>2017-11-06T11:03:47.000Z</published>
+    <updated>2017-11-06T11:20:26.754Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/lifestyle.jpg" alt=""></p><p id="div-border-top-green">离开家乡，千里万里，曾为了远方，如今身处远方，是不是还是只抓住了苟且？有远方还不够，生活虽然不易，可能也会遇到诸多不顺，但不妨碍你内心拥有宁静和一种特立独行的态度！只是别再找借口了。<br></p><p><br></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;/images/lifestyle.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p id=&quot;div-border-top-green&quot;&gt;离开家乡，千里万里，曾为了远方，如今身处远方，是不是还是只抓住了苟且？有远方还不够，生活虽然不易，可能也会遇到诸多不顺，但不妨
+      
+    
+    </summary>
+    
+      <category term="生活随笔" scheme="https://gavin971.github.io/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="Life" scheme="https://gavin971.github.io/tags/Life/"/>
+    
+  </entry>
   
   <entry>
     <title>CPP-History</title>
