@@ -4,6 +4,26 @@
   
     
     <entry>
+      <title><![CDATA[回归坚持]]></title>
+      <url>https://gavin971.github.io/2018/04/22/I-am-back/</url>
+      <content type="html"></content>
+      
+        <categories>
+            
+            <category> 生活随笔 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> -Life </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[C++编程思想-学习笔记(1)]]></title>
       <url>https://gavin971.github.io/2017/11/09/Thinking-in-CPP-note-1/</url>
       <content type="html"><![CDATA[<p><strong>《C++编程思想》作者: Bruce Eckel, Chuck Allison</strong><br>共计两卷：</p>
@@ -37,7 +57,7 @@
       <title><![CDATA[【转】我和我的博士生导师之间的故事]]></title>
       <url>https://gavin971.github.io/2017/11/08/Phd-supervisor/</url>
       <content type="html"><![CDATA[<p><img src="http://www.phdcomics.com/comics/archive/phd110117s.gif" alt=""></p>
-<p><em>原文链接：<a href="https://www.timeshighereducation.com/features/me-and-my-phd-supervisor-tales-of-love-and-loathing/2012205.article" target="_blank" rel="external">https://www.timeshighereducation.com/features/me-and-my-phd-supervisor-tales-of-love-and-loathing/2012205.article</a></em></p>
+<p><em>原文链接：<a href="https://www.timeshighereducation.com/features/me-and-my-phd-supervisor-tales-of-love-and-loathing/2012205.article" target="_blank" rel="noopener">https://www.timeshighereducation.com/features/me-and-my-phd-supervisor-tales-of-love-and-loathing/2012205.article</a></em></p>
 <a id="more"></a>
 <p>学者们讨论了他们的博士生导师对其教学方式的影响。</p>
 <p>如果博士督导会议上包含不能参与其中的一小时，那么博士导师可能忽视了该会议可能对博士生接下来的研究生涯的造成的影响。</p>
@@ -128,7 +148,7 @@
     <entry>
       <title><![CDATA[GrADs学习笔记(1)]]></title>
       <url>https://gavin971.github.io/2017/11/07/GrADs-tutorial-one/</url>
-      <content type="html"><![CDATA[<p><img src="/images/grads-1.png" alt=""><br><em>图片引自:<a href="http://gradsaddict.blogspot.com" target="_blank" rel="external">http://gradsaddict.blogspot.com</a></em></p>
+      <content type="html"><![CDATA[<p><img src="/images/grads-1.png" alt=""><br><em>图片引自:<a href="http://gradsaddict.blogspot.com" target="_blank" rel="noopener">http://gradsaddict.blogspot.com</a></em></p>
 <p>待补充内容！</p>
 <a id="more"></a>
 <h3 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h3><h3 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h3><h3 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h3><h3 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h3>]]></content>
@@ -196,7 +216,7 @@
       <content type="html"><![CDATA[<p><img src="https://images-cn.ssl-images-amazon.com/images/I/61wrNBnyIkL.jpg" alt=""></p>
 <hr>
 <a id="more"></a>
-<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">C++ Primer(中文版)(第5版) 平装 – 2013年9月28日</div><div class="line">斯坦利·李普曼 (Stanley B. Lippman) (作者), 约瑟·拉乔伊 (Josee Lajoie) (作者), 芭芭拉·默 (Barbara E. Moo) (作者), 王刚 (译者), 杨巨峰 (译者)</div></pre></td></tr></table></figure>]]></content>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">C++ Primer(中文版)(第5版) 平装 – 2013年9月28日</span><br><span class="line">斯坦利·李普曼 (Stanley B. Lippman) (作者), 约瑟·拉乔伊 (Josee Lajoie) (作者), 芭芭拉·默 (Barbara E. Moo) (作者), 王刚 (译者), 杨巨峰 (译者)</span><br></pre></td></tr></table></figure>]]></content>
       
         <categories>
             
@@ -221,7 +241,7 @@
       <content type="html"><![CDATA[<p><img src="http://file.epubit.com.cn/ScreenShow/1512c1ffed069404a57e" alt=""></p>
 <hr>
 <a id="more"></a>
-<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Python算法教程  作者：挪威，Magnus Lie Hetland</div></pre></td></tr></table></figure>]]></content>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Python算法教程  作者：挪威，Magnus Lie Hetland</span><br></pre></td></tr></table></figure>]]></content>
       
         <categories>
             
