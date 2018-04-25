@@ -4,18 +4,42 @@
   
     
     <entry>
-      <title><![CDATA[Grads-China-southsea]]></title>
+      <title><![CDATA[GrADs绘制包含南海九段线中国地图]]></title>
       <url>https://gavin971.github.io/2018/04/26/Grads-China-southsea/</url>
       <content type="html"></content>
       
+        <categories>
+            
+            <category> 气象绘图 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> GrADs </tag>
+            
+        </tags>
         
     </entry>
     
     <entry>
-      <title><![CDATA[Grads-install-Mac]]></title>
+      <title><![CDATA[在Mac上安装GrADs]]></title>
       <url>https://gavin971.github.io/2018/04/26/Grads-install-Mac/</url>
       <content type="html"></content>
       
+        <categories>
+            
+            <category> 气象绘图 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> GrADs Mac </tag>
+            
+        </tags>
         
     </entry>
     
