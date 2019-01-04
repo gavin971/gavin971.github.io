@@ -1,8 +1,8 @@
-[博客地址](https://cliamte2weather.cc/)
+[博客地址](https://climate2weather.cc/)
 
 [建站日志](https://gavin971.github.io/weblog/)
 
-<!--[给我留言](https://gavin971.github.io/guestbook/)-->
+[给我留言](https://gavin971.github.io/guestbook/)
 
 ### 浏览器支持 Browser support
 
