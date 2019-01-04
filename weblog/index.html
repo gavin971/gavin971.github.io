@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="Climate2Weather">
 <meta property="og:description" content="建站日志2017-11-03:启用Neveryu的模板.此模板基于Hexo,基础主题为-NexT.Pisces.在此感谢无私的开发者们.2017-11-05:替换GitMent的评论模块，采用DISQUS.并且微调页面底部不对称问题。2019-01-04:    处理页面底部访问统计失效的问题，修复具体方法详见“不蒜子”给出的解决方案。 增加了书籍页面。具体方法参考：如何使hexo显得自己更有逼格">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-04T13:46:27.719Z">
+<meta property="og:updated_time" content="2019-01-04T14:45:00.663Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="weblog">
 <meta name="twitter:description" content="建站日志2017-11-03:启用Neveryu的模板.此模板基于Hexo,基础主题为-NexT.Pisces.在此感谢无私的开发者们.2017-11-05:替换GitMent的评论模块，采用DISQUS.并且微调页面底部不对称问题。2019-01-04:    处理页面底部访问统计失效的问题，修复具体方法详见“不蒜子”给出的解决方案。 增加了书籍页面。具体方法参考：如何使hexo显得自己更有逼格">
@@ -139,7 +139,17 @@
 
 <!-- 网页加载条 -->
 <script src="/js/src/pace.min.js"></script>
+ 
   
+<script type="text/javascript" color="0,0,255" opacity='0.7' zIndex="-2" count="70" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+
+<!-- <div class="bg_content">
+  <canvas id="canvas"></canvas>
+</div> -->   
+<!-- 配合后面的 <script type="text/javascript" src="/js/src/dynamic_bg.js"></script>  使用 -->
+
 
   <title>
   
@@ -525,9 +535,9 @@
       <h3 id="建站日志"><a href="#建站日志" class="headerlink" title="建站日志"></a>建站日志</h3><p><strong>2017-11-03:</strong>启用Neveryu的模板.此模板基于Hexo,基础主题为-NexT.Pisces.在此感谢无私的开发者们.<br><strong>2017-11-05:</strong>替换GitMent的评论模块，采用DISQUS.并且微调页面底部不对称问题。<br><strong>2019-01-04:</strong>  </p>
 <ol>
 <li>处理页面底部访问统计失效的问题，修复具体方法详见<a href="http://ibruce.info/2015/04/04/busuanzi/#more" target="_blank" rel="noopener">“不蒜子”给出的解决方案</a>。</li>
-<li>增加了书籍页面。具体方法参考：<a href="https://aak1247.coding.me/hexo-next-2.html" target="_blank" rel="noopener">如何使hexo显得自己更有逼格（二）——功能补充</a>；图标引用<a href="http://fontawesome.io/cheatsheet/" target="_blank" rel="noopener">fontawesome</a>中的图标名。</li>
+<li>增加了书籍页面。具体方法参考：<a href="https://aak1247.coding.me/hexo-next-2.html" target="_blank" rel="noopener">如何使hexo显得自己更有逼格（二）——功能补充</a>；图标引用<a href="http://fontawesome.io/cheatsheet/" target="_blank" rel="noopener">fontawesome</a>中的图标名。更合理办法：hexo new page “categories”</li>
 <li>修复social_icons（主题配置文件_config.yml中调整link和icon设置的位置）；添加打赏的方式。</li>
-<li>修改背景动画，参考<a href="https://mrsoong.com/posts/2018-02-01-65d44c2d.html" target="_blank" rel="noopener">方法</a>。鼠标点击小红心&amp;背景的设置<a href="https://thief.one/2017/03/03/Hexo搭建博客教程/" target="_blank" rel="noopener">设置</a>,其他背景动画版本NEXT 5.1.1之后才支持配置文件意见修改，具体参考<a href="http://shenzekun.cn/hexo%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E5%8A%A8%E6%80%81%E8%83%8C%E6%99%AF.html" target="_blank" rel="noopener">next主题如何添加动态背景</a></li>
+<li>修改背景动画，参考<a href="https://mrsoong.com/posts/2018-02-01-65d44c2d.html" target="_blank" rel="noopener">1</a><a href="http://www.xudajian.com/2017/07/30/hexo-动态背景/" target="_blank" rel="noopener">2</a><a href="https://asdfv1929.github.io/2018/07/07/next-add-dynamicbg/" target="_blank" rel="noopener">3</a>。鼠标点击小红心&amp;背景的设置<a href="https://thief.one/2017/03/03/Hexo搭建博客教程/" target="_blank" rel="noopener">设置</a>,其他背景动画版本NEXT 5.1.1之后才支持配置文件意见修改，具体参考<a href="http://shenzekun.cn/hexo%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E5%8A%A8%E6%80%81%E8%83%8C%E6%99%AF.html" target="_blank" rel="noopener">next主题如何添加动态背景</a>。尝试了多种方法还是难以实现three_wave的背景动画，初步怀疑是NEXT主题版本的问题（*带解决）。红心采用的修改js文件名称，love.js===&gt;&gt;block_love.js。</li>
 </ol>
 
     
@@ -965,6 +975,9 @@
 </script>
 
 
+
+<!-- <script type="text/javascript" src="/js/src/dynamic_bg.js"></script> -->
+<!-- <script type="text/javascript" src="/js/three/three-waves.min.js"></script> -->
   <!-- 按需加载背景 -->
   <!-- <!-- 按需加载背景 -->
 <!-- 识别手机或电脑的js开始 -->  

@@ -1663,7 +1663,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #a1ff0e;
+  background: #f439ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2985,6 +2985,13 @@ span#yu-2 {
   -ms-animation: pace-spinner 400ms linear infinite;
   -o-animation: pace-spinner 400ms linear infinite;
   animation: pace-spinner 400ms linear infinite;
+}
+.bg_content {
+  position: fixed;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
 }
 @-webkit-keyframes pace-spinner {
   0% {
