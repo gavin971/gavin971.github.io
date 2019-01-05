@@ -151,7 +151,7 @@
     <link href="https://gavin971.github.io/2017/11/09/Thinking-in-CPP-note-1/"/>
     <id>https://gavin971.github.io/2017/11/09/Thinking-in-CPP-note-1/</id>
     <published>2017-11-09T14:56:55.000Z</published>
-    <updated>2017-11-09T15:25:55.000Z</updated>
+    <updated>2019-01-05T04:19:46.984Z</updated>
     
     <content type="html"><![CDATA[<p><strong>《C++编程思想》作者: Bruce Eckel, Chuck Allison</strong><br>共计两卷：</p><ul><li>第一卷-标准C++导引（第二版）</li><li>第二卷-实用编程技术</li></ul><p>本篇学习笔记主要内容：介绍各章节概要 </p><hr><a id="more"></a><h2 id="第一章：对象导言"><a href="#第一章：对象导言" class="headerlink" title="第一章：对象导言"></a>第一章：对象导言</h2><h2 id="第二章：对象的创建与使用"><a href="#第二章：对象的创建与使用" class="headerlink" title="第二章：对象的创建与使用"></a>第二章：对象的创建与使用</h2><h2 id="第三章：C-中的C"><a href="#第三章：C-中的C" class="headerlink" title="第三章：C++中的C"></a>第三章：C++中的C</h2><h2 id="第四章：-数据抽象"><a href="#第四章：-数据抽象" class="headerlink" title="第四章： 数据抽象"></a>第四章： 数据抽象</h2><h2 id="第五章：-隐藏实现"><a href="#第五章：-隐藏实现" class="headerlink" title="第五章： 隐藏实现"></a>第五章： 隐藏实现</h2><h2 id="第六章：-初始化与清除"><a href="#第六章：-初始化与清除" class="headerlink" title="第六章： 初始化与清除"></a>第六章： 初始化与清除</h2><h2 id="第七章：-函数重载与默认参数"><a href="#第七章：-函数重载与默认参数" class="headerlink" title="第七章： 函数重载与默认参数"></a>第七章： 函数重载与默认参数</h2><h2 id="第八章：-常量"><a href="#第八章：-常量" class="headerlink" title="第八章： 常量"></a>第八章： 常量</h2><h2 id="第九章：-内联函数"><a href="#第九章：-内联函数" class="headerlink" title="第九章： 内联函数"></a>第九章： 内联函数</h2><h2 id="第十章：-名字控制"><a href="#第十章：-名字控制" class="headerlink" title="第十章： 名字控制"></a>第十章： 名字控制</h2><h2 id="第十一章：-引用和拷贝构造函数"><a href="#第十一章：-引用和拷贝构造函数" class="headerlink" title="第十一章： 引用和拷贝构造函数"></a>第十一章： 引用和拷贝构造函数</h2><h2 id="第十二章：运算符重载"><a href="#第十二章：运算符重载" class="headerlink" title="第十二章：运算符重载"></a>第十二章：运算符重载</h2><h2 id="第十三章：-动态对象创建"><a href="#第十三章：-动态对象创建" class="headerlink" title="第十三章： 动态对象创建"></a>第十三章： 动态对象创建</h2><h2 id="第十四章：继承和组合"><a href="#第十四章：继承和组合" class="headerlink" title="第十四章：继承和组合"></a>第十四章：继承和组合</h2><h2 id="第十五章：-多态性和虚函数"><a href="#第十五章：-多态性和虚函数" class="headerlink" title="第十五章： 多态性和虚函数"></a>第十五章： 多态性和虚函数</h2><h2 id="第十六章：-模板介绍"><a href="#第十六章：-模板介绍" class="headerlink" title="第十六章： 模板介绍"></a>第十六章： 模板介绍</h2>]]></content>
     
@@ -172,7 +172,7 @@
     
       <category term="CPP" scheme="https://gavin971.github.io/tags/CPP/"/>
     
-      <category term="编程" scheme="https://gavin971.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+      <category term="Programming" scheme="https://gavin971.github.io/tags/Programming/"/>
     
   </entry>
   

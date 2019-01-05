@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://gavin971.github.io/2017/11/09/Thinking-in-CPP-note-1/</loc>
+    
+    <lastmod>2019-01-05T04:19:46.984Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://gavin971.github.io/2019/01/05/podcast/</loc>
     
     <lastmod>2019-01-05T03:43:46.278Z</lastmod>
@@ -54,13 +61,6 @@
     <loc>https://gavin971.github.io/2018/04/26/Grads-China-southsea/</loc>
     
     <lastmod>2018-04-25T17:20:49.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://gavin971.github.io/2017/11/09/Thinking-in-CPP-note-1/</loc>
-    
-    <lastmod>2017-11-09T15:25:55.000Z</lastmod>
     
   </url>
   
