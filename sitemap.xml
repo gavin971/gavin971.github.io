@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://gavin971.github.io/books/index.html</loc>
+    
+    <lastmod>2019-01-05T09:43:34.575Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://gavin971.github.io/weblog/index.html</loc>
     
     <lastmod>2019-01-05T05:21:06.935Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://gavin971.github.io/2019/01/05/podcast/</loc>
     
     <lastmod>2019-01-05T03:43:46.278Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://gavin971.github.io/books/index.html</loc>
-    
-    <lastmod>2019-01-05T03:19:06.289Z</lastmod>
     
   </url>
   
