@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT, Blog, C++, Python, NCL, GrADs, Java" />
+  <meta name="keywords" content="Linux,Mac,Network," />
 
 
 
@@ -103,16 +103,18 @@
 
 
 
-<meta name="description" content="Still Waters Run Deep!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Climate2Weather">
-<meta property="og:url" content="https://gavin971.github.io/categories/科研之路/index.html">
+<meta name="description" content="实现centos内网机器访问外网【转】环境：一台带外网和内网的机器，另一台只有内网，默认不能上网。两台机器都是centos系统带外网机器的外网ip为 123.221.20.11， 内网ip为 192.168.15.100内网机器的内网ip为 192.168.15.101设置方法很简单：  在带外网的机器上设置iptables规则：iptables -t nat -A POSTROUTING -s">
+<meta name="keywords" content="Linux,Mac,Network">
+<meta property="og:type" content="article">
+<meta property="og:title" content="内网机器访问外网">
+<meta property="og:url" content="https://gavin971.github.io/2019/01/16/link-internet/index.html">
 <meta property="og:site_name" content="Climate2Weather">
-<meta property="og:description" content="Still Waters Run Deep!">
+<meta property="og:description" content="实现centos内网机器访问外网【转】环境：一台带外网和内网的机器，另一台只有内网，默认不能上网。两台机器都是centos系统带外网机器的外网ip为 123.221.20.11， 内网ip为 192.168.15.100内网机器的内网ip为 192.168.15.101设置方法很简单：  在带外网的机器上设置iptables规则：iptables -t nat -A POSTROUTING -s">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-16T02:43:14.997Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Climate2Weather">
-<meta name="twitter:description" content="Still Waters Run Deep!">
+<meta name="twitter:title" content="内网机器访问外网">
+<meta name="twitter:description" content="实现centos内网机器访问外网【转】环境：一台带外网和内网的机器，另一台只有内网，默认不能上网。两台机器都是centos系统带外网机器的外网ip为 123.221.20.11， 内网ip为 192.168.15.100内网机器的内网ip为 192.168.15.101设置方法很简单：  在带外网的机器上设置iptables规则：iptables -t nat -A POSTROUTING -s">
 
 
 
@@ -133,7 +135,7 @@
 
 
 
-  <link rel="canonical" href="https://gavin971.github.io/categories/科研之路/"/>
+  <link rel="canonical" href="https://gavin971.github.io/2019/01/16/link-internet/"/>
 
 
 <!-- 网页加载条 -->
@@ -150,7 +152,7 @@
 <!-- 配合后面的 <script type="text/javascript" src="/js/src/dynamic_bg.js"></script>  使用 -->
 
 
-  <title> 分类: 科研之路 | Climate2Weather </title>
+  <title> 内网机器访问外网 | Climate2Weather </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -171,7 +173,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
   <a href="https://github.com/gavin971"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
@@ -522,46 +524,232 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        科研之路
-        <small>分类</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                内网机器访问外网
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2019-01-16T10:37:37+08:00" content="2019-01-16">
+              2019-01-16
+            </time>
+          </span>
+
+
+
+
+          
+            <span class="post-letters-count">
+              &nbsp; | &nbsp;
+            <span>365 字</span>
+              &nbsp; | &nbsp;
+            <span>1 min</span>
+            </span>
+          
+
+
+
+
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术积累/" itemprop="url" rel="index">
+                    <span itemprop="name">技术积累</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2019/01/16/link-internet/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/16/link-internet/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv">热度
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>℃
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h4 id="实现centos内网机器访问外网【转】"><a href="#实现centos内网机器访问外网【转】" class="headerlink" title="实现centos内网机器访问外网【转】"></a><a href="https://teakki.com/p/57dbc1e740a05a0609bc0e6b" target="_blank" rel="noopener">实现centos内网机器访问外网【转】</a></h4><p>环境：一台带外网和内网的机器，另一台只有内网，默认不能上网。两台机器都是centos系统<br>带外网机器的外网ip为 123.221.20.11， 内网ip为 192.168.15.100<br>内网机器的内网ip为 192.168.15.101<br>设置方法很简单：</p>
+<ol>
+<li>在带外网的机器上设置iptables规则：<br>iptables -t nat -A POSTROUTING -s 192.168.15.101 -j SNAT –to 123.221.20.11<br>// 如果想让整个内网的机器全部上网，只需要把 -s 192.168.15.101 换成<br>-s 192.168.15.0/255.255.255.0 即可</li>
+<li>在带带外网机器上打开转发<br>首先查看是否已经打开<br>sysctl -a |grep ‘net.ipv4.ip_forward’<br>如果值为1，则说明已经打开，否则需要修改配置文件 /etc/sysctl.conf<br>打开该配置文件，找到该参数，使其变为<br>net.ipv4.ip_forward = 1<br>然后运行 sysctl -p</li>
+<li>在内网机器上，设置其网关为 192.168.15.100<br>vim  /etc/sysconfig/network-scripts/ifcfg-eth0<br>添加<br>GATEWAY=192.168.15.100<br>重启网络服务即可。 service network restart</li>
+<li>测试内网机器是否可以上网。</li>
+</ol>
+<h4 id="问题：如果手头是redhat的服务器不能连接外网，局域网内的Mac可以连接外网，如果没有服务器root权限，能否采用端口映射来share网络？目前可行的方案是，使用firefox的X11账号密码登陆校园网。"><a href="#问题：如果手头是redhat的服务器不能连接外网，局域网内的Mac可以连接外网，如果没有服务器root权限，能否采用端口映射来share网络？目前可行的方案是，使用firefox的X11账号密码登陆校园网。" class="headerlink" title="问题：如果手头是redhat的服务器不能连接外网，局域网内的Mac可以连接外网，如果没有服务器root权限，能否采用端口映射来share网络？目前可行的方案是，使用firefox的X11账号密码登陆校园网。"></a>问题：如果手头是redhat的服务器不能连接外网，局域网内的Mac可以连接外网，如果没有服务器root权限，能否采用端口映射来share网络？目前可行的方案是，使用firefox的X11账号密码登陆校园网。</h4>
+      
+    </div>
 
-      <h1 class="post-title">
+    <div>
+      
         
-            <a class="post-title-link" href="/2017/11/08/Phd-supervisor/" itemprop="url">
-              
-                <span itemprop="name">【转】我和我的博士生导师之间的故事</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-08T16:46:08+08:00"
-              content="2017-11-08" >
-          11-08
-        </time>
-      </div>
+<blockquote class="blockquote-center" style="color: #ccc;">
+    -------------本文结束 <i class="fa fa-paw"></i> 感谢阅读-------------
+</blockquote>
 
-    </header>
+  <span id="inline-green" style="border-radius:3px;">作者</span>：<a class="link-blue" href="https://github.com/gavin971" target="_blank">Gavin</a><br/>有问题请在相应<a class="link-blue" href="https://gavin971.github.io/" target="_blank">页面留言</a>(评论系统DISQUS需要"翻墙"才可见)<br/>或者私信给我 <a class="link-blue" href="https://climate2weather.cc" target="_blank">GMAIL: zhpfu.atm@gmail.com</a>。
+
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>满分是10分的话，这篇文章你给几分</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/reward/reward_wechat.png" alt="Gavin WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/reward/reward_alipay.png" alt="Gavin Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+          
+            <a href="/tags/Mac/" rel="tag"><i class="fa fa-tag"></i> Mac</a>
+          
+            <a href="/tags/Network/" rel="tag"><i class="fa fa-tag"></i> Network</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/09/New-journey-01/" rel="next" title="《 Tendency Bias Correction in Coupled and Uncoupled Global Climate Models with a Focus on Impacts over North America》">
+                <i class="fa fa-chevron-left"></i> 《 Tendency Bias Correction in Coupled and Uncoupled Global Climate Models with a Focus on Impacts over North America》
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
 
 
 
@@ -570,6 +758,18 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
         </div>
         
           
@@ -588,8 +788,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/avatar/avatar.png"
@@ -702,6 +911,17 @@
         
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现centos内网机器访问外网【转】"><span class="nav-number">1.</span> <span class="nav-text">实现centos内网机器访问外网【转】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题：如果手头是redhat的服务器不能连接外网，局域网内的Mac可以连接外网，如果没有服务器root权限，能否采用端口映射来share网络？目前可行的方案是，使用firefox的X11账号密码登陆校园网。"><span class="nav-number">2.</span> <span class="nav-text">问题：如果手头是redhat的服务器不能连接外网，局域网内的Mac可以连接外网，如果没有服务器root权限，能否采用端口映射来share网络？目前可行的方案是，使用firefox的X11账号密码登陆校园网。</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
       <!-- hack一个虚线出来 -->
       <section style="border-top:1px dotted #ccc;height:10px;"></section>
@@ -833,6 +1053,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
@@ -849,9 +1073,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'www-climate2weather-cc';
-      var disqus_identifier = 'categories/科研之路/index.html';
-      var disqus_title = "";
-      var disqus_url = '';
+      var disqus_identifier = '2019/01/16/link-internet/';
+      var disqus_title = "内网机器访问外网";
+      var disqus_url = 'https://gavin971.github.io/2019/01/16/link-internet/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
@@ -862,6 +1086,8 @@
       }
 
       run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
       
     </script>
   

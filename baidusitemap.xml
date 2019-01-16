@@ -4,8 +4,32 @@
 
     
   <url>
+    <loc>https://gavin971.github.io/2019/01/16/link-internet/</loc>
+    <lastmod>2019-01-16T02:43:14.997Z</lastmod>
+    <data>
+        <display>
+        <title>内网机器访问外网</title>
+        <pubTime>2019-01-16T02:37:37.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>Mac</tag>
+         
+        <tag>Network</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术积累" url="https://gavin971.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://gavin971.github.io/2019/01/09/New-journey-01/</loc>
-    <lastmod>2019-01-09T15:03:48.837Z</lastmod>
+    <lastmod>2019-01-09T15:03:55.664Z</lastmod>
     <data>
         <display>
         <title>《 Tendency Bias Correction in Coupled and Uncoupled Global Climate Models with a Focus on Impacts over North America》</title>
@@ -216,26 +240,6 @@
     
     
   <url>
-    <loc>https://gavin971.github.io/2017/11/04/Python-Algorithmic/</loc>
-    <lastmod>2017-11-04T06:29:29.000Z</lastmod>
-    <data>
-        <display>
-        <title>Python-Algorithmic</title>
-        <pubTime>2017-11-04T01:51:41.000Z</pubTime>
-        
-        <tag>Python</tag>
-         
-         
-           
-             
-              <breadCrumb title="算法" url="https://gavin971.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://gavin971.github.io/2017/11/04/CPP-History/</loc>
     <lastmod>2017-11-04T06:29:29.000Z</lastmod>
     <data>
@@ -251,6 +255,26 @@
            
              
               <breadCrumb title="编程基础" url="https://gavin971.github.io/categories/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://gavin971.github.io/2017/11/04/Python-Algorithmic/</loc>
+    <lastmod>2017-11-04T06:29:29.000Z</lastmod>
+    <data>
+        <display>
+        <title>Python-Algorithmic</title>
+        <pubTime>2017-11-04T01:51:41.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="算法" url="https://gavin971.github.io/categories/%E7%AE%97%E6%B3%95/"/>
           
         </display>
     </data>
