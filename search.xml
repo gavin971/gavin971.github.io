@@ -13,6 +13,7 @@
 <li>在内网机器上，设置其网关为 192.168.15.100<br>vim  /etc/sysconfig/network-scripts/ifcfg-eth0<br>添加<br>GATEWAY=192.168.15.100<br>重启网络服务即可。 service network restart</li>
 <li>测试内网机器是否可以上网。</li>
 </ol>
+<p><a href="https://serverfault.com/questions/102416/iptables-equivalent-for-mac-os-x" target="_blank" rel="noopener">参考2</a><br><a href="https://www.lostend.com/index.php/archives/18/" target="_blank" rel="noopener">参考3</a></p>
 <h4 id="问题：如果手头是redhat的服务器不能连接外网，局域网内的Mac可以连接外网，如果没有服务器root权限，能否采用端口映射来share网络？目前可行的方案是，使用firefox的X11账号密码登陆校园网。"><a href="#问题：如果手头是redhat的服务器不能连接外网，局域网内的Mac可以连接外网，如果没有服务器root权限，能否采用端口映射来share网络？目前可行的方案是，使用firefox的X11账号密码登陆校园网。" class="headerlink" title="问题：如果手头是redhat的服务器不能连接外网，局域网内的Mac可以连接外网，如果没有服务器root权限，能否采用端口映射来share网络？目前可行的方案是，使用firefox的X11账号密码登陆校园网。"></a>问题：如果手头是redhat的服务器不能连接外网，局域网内的Mac可以连接外网，如果没有服务器root权限，能否采用端口映射来share网络？目前可行的方案是，使用firefox的X11账号密码登陆校园网。</h4>]]></content>
       
         <categories>
