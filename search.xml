@@ -4,6 +4,30 @@
   
     
     <entry>
+      <title><![CDATA[穷啊！]]></title>
+      <url>https://gavin971.github.io/2019/03/03/buybuybuy/</url>
+      <content type="html"><![CDATA[<p>夫人、娃为主，我有瓶参天护护眼就好了！😢😢😢😢😢😢，夫人太忙，只能我给她列一下了。穷苦的日子，买啥都要看价格，何日能财务自由呢？</p>
+<p><img src="/images/buy1.png" alt=""></p>
+<p><img src="/images/buy2.png" alt=""></p>
+<p><img src="/images/buy3.png" alt=""></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 生活随笔 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Life </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[内网机器访问外网]]></title>
       <url>https://gavin971.github.io/2019/01/16/link-internet/</url>
       <content type="html"><![CDATA[<h4 id="实现centos内网机器访问外网【转】"><a href="#实现centos内网机器访问外网【转】" class="headerlink" title="实现centos内网机器访问外网【转】"></a><a href="https://teakki.com/p/57dbc1e740a05a0609bc0e6b" target="_blank" rel="noopener">实现centos内网机器访问外网【转】</a></h4><p>环境：一台带外网和内网的机器，另一台只有内网，默认不能上网。两台机器都是centos系统<br>带外网机器的外网ip为 123.221.20.11， 内网ip为 192.168.15.100<br>内网机器的内网ip为 192.168.15.101<br>设置方法很简单：</p>
