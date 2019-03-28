@@ -103,13 +103,13 @@
 
 
 
-<meta name="description" content="之前处理北美五大湖的数据，湖表温度为卫星观测数据，官方有提供.asc文本格式的阵列像素数据，但是缺少地理坐标信息，Great Lakes Surface Environmental Analysis（GLSEA，https://coastwatch.glerl.noaa.gov/glsea/）。官网并没有相关的地理数据文件，只有一些描述性的文件。不得已就采用这些零碎的信息，最终也获得了像素文件相">
+<meta name="description" content="之前处理北美五大湖的数据，湖表温度为卫星观测数据，官方有提供.asc文本格式的阵列像素数据，但是缺少地理坐标信息，官网并没有相关的地理数据文件，只有一些描述性的文件。Great Lakes Surface Environmental Analysis（GLSEA，https://coastwatch.glerl.noaa.gov/glsea/）不得已就采用这些零碎的信息，最终也获得了像素文件相匹">
 <meta name="keywords" content="R语言,坐标转换,地理信息">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何把附带地理信息的.tif文件转换为包含经纬度信息.csv文件？">
 <meta property="og:url" content="https://gavin971.github.io/2019/03/28/tif-to-latlon/index.html">
 <meta property="og:site_name" content="Climate2Weather">
-<meta property="og:description" content="之前处理北美五大湖的数据，湖表温度为卫星观测数据，官方有提供.asc文本格式的阵列像素数据，但是缺少地理坐标信息，Great Lakes Surface Environmental Analysis（GLSEA，https://coastwatch.glerl.noaa.gov/glsea/）。官网并没有相关的地理数据文件，只有一些描述性的文件。不得已就采用这些零碎的信息，最终也获得了像素文件相">
+<meta property="og:description" content="之前处理北美五大湖的数据，湖表温度为卫星观测数据，官方有提供.asc文本格式的阵列像素数据，但是缺少地理坐标信息，官网并没有相关的地理数据文件，只有一些描述性的文件。Great Lakes Surface Environmental Analysis（GLSEA，https://coastwatch.glerl.noaa.gov/glsea/）不得已就采用这些零碎的信息，最终也获得了像素文件相匹">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://gavin971.github.io/images/geo.jpeg">
 <meta property="og:image" content="https://gavin971.github.io/images/R1.png">
@@ -119,10 +119,10 @@
 <meta property="og:image" content="https://gavin971.github.io/images/glsea_mercator_2015_180_origin.png">
 <meta property="og:image" content="https://gavin971.github.io/images/glsea_latlon_2015_180_0.1Deg.png">
 <meta property="og:image" content="https://gavin971.github.io/images/my_wechat.jpg">
-<meta property="og:updated_time" content="2019-03-28T13:39:42.159Z">
+<meta property="og:updated_time" content="2019-03-28T13:51:13.222Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何把附带地理信息的.tif文件转换为包含经纬度信息.csv文件？">
-<meta name="twitter:description" content="之前处理北美五大湖的数据，湖表温度为卫星观测数据，官方有提供.asc文本格式的阵列像素数据，但是缺少地理坐标信息，Great Lakes Surface Environmental Analysis（GLSEA，https://coastwatch.glerl.noaa.gov/glsea/）。官网并没有相关的地理数据文件，只有一些描述性的文件。不得已就采用这些零碎的信息，最终也获得了像素文件相">
+<meta name="twitter:description" content="之前处理北美五大湖的数据，湖表温度为卫星观测数据，官方有提供.asc文本格式的阵列像素数据，但是缺少地理坐标信息，官网并没有相关的地理数据文件，只有一些描述性的文件。Great Lakes Surface Environmental Analysis（GLSEA，https://coastwatch.glerl.noaa.gov/glsea/）不得已就采用这些零碎的信息，最终也获得了像素文件相匹">
 <meta name="twitter:image" content="https://gavin971.github.io/images/geo.jpeg">
 
 
@@ -642,7 +642,7 @@
 
       
         <!--<p></p>-->
-<p id="div-border-top-green">之前处理北美五大湖的数据，湖表温度为卫星观测数据，官方有提供.asc文本格式的阵列像素数据，但是缺少地理坐标信息，Great Lakes Surface Environmental Analysis（GLSEA，<a href="https://coastwatch.glerl.noaa.gov/glsea/）。官网并没有相关的地理数据文件，只有一些描述性的文件。" target="_blank" rel="noopener">https://coastwatch.glerl.noaa.gov/glsea/）。官网并没有相关的地理数据文件，只有一些描述性的文件。</a><br><br>不得已就采用这些零碎的信息，最终也获得了像素文件相匹配的经纬度信息，但是方法比较繁琐，采用ArcGIS来转换的，先转换为shapefile相关文件，再导出latlon为.csv文件。好在把图用NCL画出来匹配度还可以，就基本用起来了。但是作为一个没有Windows电脑的人，用ArcGIS显得很笨重有奢侈。后来就发邮件给数据负责人，是个很热心的华人管理员，就把包含地理信息的.tif文件发给我了。完全没有什么相关坐标转换的经验，但也不能浪费这个地理文件，潜意识告诉我，这个应该是优雅的解决方案。摸索着，算是把这个问题解决了。</p>
+<p id="div-border-top-green">之前处理北美五大湖的数据，湖表温度为卫星观测数据，官方有提供.asc文本格式的阵列像素数据，但是缺少地理坐标信息，官网并没有相关的地理数据文件，只有一些描述性的文件。Great Lakes Surface Environmental Analysis（GLSEA，<a href="https://coastwatch.glerl.noaa.gov/glsea/）" target="_blank" rel="noopener">https://coastwatch.glerl.noaa.gov/glsea/）</a><br><br>不得已就采用这些零碎的信息，最终也获得了像素文件相匹配的经纬度信息，但是方法比较繁琐，采用ArcGIS来转换的，先转换为shapefile相关文件，再导出latlon为.csv文件。好在把图用NCL画出来匹配度还可以，就基本用起来了。但是作为一个没有Windows电脑的人，用ArcGIS显得很笨重有奢侈。后来就发邮件给数据负责人，是个很热心的华人管理员，就把包含地理信息的.tif文件发给我了。完全没有什么相关坐标转换的经验，但也不能浪费这个地理文件，潜意识告诉我，这个应该是优雅的解决方案。摸索着，算是把这个问题解决了。</p>
 
 <p><br></p>
 <a id="more"></a>
