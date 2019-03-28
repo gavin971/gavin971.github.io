@@ -112,7 +112,7 @@
 <meta property="og:description" content="之前处理北美五大湖的数据，湖表温度为卫星观测数据，官方有提供.asc文本格式的阵列像素数据，但是缺少地理坐标信息，Great Lakes Surface Environmental Analysis（GLSEA，https://coastwatch.glerl.noaa.gov/glsea/）的官网并没有相关的地理数据文件，只有一些描述性的文件。不得已就采用这些零碎的信息，最终也获得了像素文件相">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://gavin971.github.io/images/geo.jpeg">
-<meta property="og:updated_time" content="2019-03-28T12:56:03.773Z">
+<meta property="og:updated_time" content="2019-03-28T12:58:30.010Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何把附带地理信息的.tif文件转换为包含经纬度信息.csv文件？">
 <meta name="twitter:description" content="之前处理北美五大湖的数据，湖表温度为卫星观测数据，官方有提供.asc文本格式的阵列像素数据，但是缺少地理坐标信息，Great Lakes Surface Environmental Analysis（GLSEA，https://coastwatch.glerl.noaa.gov/glsea/）的官网并没有相关的地理数据文件，只有一些描述性的文件。不得已就采用这些零碎的信息，最终也获得了像素文件相">
@@ -570,7 +570,7 @@
           
             <span class="post-letters-count">
               &nbsp; | &nbsp;
-            <span>443 字</span>
+            <span>442 字</span>
               &nbsp; | &nbsp;
             <span>2 min</span>
             </span>
@@ -635,7 +635,7 @@
 
       
         <!--<p></p>-->
-<p id="div-border-top-green">之前处理北美五大湖的数据，湖表温度为卫星观测数据，官方有提供.asc文本格式的阵列像素数据，但是缺少地理坐标信息，Great Lakes Surface Environmental Analysis（GLSEA，<a href="https://coastwatch.glerl.noaa.gov/glsea/）的官网并没有相关的地理数据文件，只有一些描述性的文件。" target="_blank" rel="noopener">https://coastwatch.glerl.noaa.gov/glsea/）的官网并没有相关的地理数据文件，只有一些描述性的文件。</a><br><br><br><br>不得已就采用这些零碎的信息，最终也获得了像素文件相匹配的经纬度信息，但是方法比较繁琐，采用ArcGIS来转换的，先转换为shapefile相关文件，再导出latlon为.csv文件。好在把图用NCL画出来匹配度还可以，就基本用起来了。但是作为一个没有Windows电脑的人，用ArcGIS显得很笨重有奢侈。后来就发邮件给数据负责人，是个很热心的华人管理员，就把包含地理信息的.tif文件发给我了。完全没有什么相关坐标转换的经验，但也不能浪费这个地理文件，潜意识告诉我，这个应该是优雅的解决方案。摸索着，算是把这个问题解决了。</p>
+<p id="div-border-top-green">之前处理北美五大湖的数据，湖表温度为卫星观测数据，官方有提供.asc文本格式的阵列像素数据，但是缺少地理坐标信息，Great Lakes Surface Environmental Analysis（GLSEA，<a href="https://coastwatch.glerl.noaa.gov/glsea/）的官网并没有相关的地理数据文件，只有一些描述性的文件。" target="_blank" rel="noopener">https://coastwatch.glerl.noaa.gov/glsea/）的官网并没有相关的地理数据文件，只有一些描述性的文件。</a><br><br>不得已就采用这些零碎的信息，最终也获得了像素文件相匹配的经纬度信息，但是方法比较繁琐，采用ArcGIS来转换的，先转换为shapefile相关文件，再导出latlon为.csv文件。好在把图用NCL画出来匹配度还可以，就基本用起来了。但是作为一个没有Windows电脑的人，用ArcGIS显得很笨重有奢侈。后来就发邮件给数据负责人，是个很热心的华人管理员，就把包含地理信息的.tif文件发给我了。完全没有什么相关坐标转换的经验，但也不能浪费这个地理文件，潜意识告诉我，这个应该是优雅的解决方案。摸索着，算是把这个问题解决了。</p>
 
 <p><br></p>
 <a id="more"></a>
@@ -647,14 +647,10 @@
 <p>1.cs2cs;  2.R语言； 3.NCL  （操作环境为macOS或者Linux）     </p>
 </blockquote>
 </li>
-<li><h4 id="查看tif文件信息，确定地理坐标"><a href="#查看tif文件信息，确定地理坐标" class="headerlink" title="查看tif文件信息，确定地理坐标"></a>查看tif文件信息，确定地理坐标</h4><h5 id="进到R语言的终端环境："><a href="#进到R语言的终端环境：" class="headerlink" title="进到R语言的终端环境："></a>进到R语言的终端环境：</h5>`<blockquote>
-<p>library(raster)<br>Loading required package: sp<br>str_name&lt;-‘2018_252_glsea.tif’<br>imported_raster=raster(str_name)<br>imported_raster</p>
+<li><h4 id="查看tif文件信息，确定地理坐标"><a href="#查看tif文件信息，确定地理坐标" class="headerlink" title="查看tif文件信息，确定地理坐标"></a>查看tif文件信息，确定地理坐标</h4><h5 id="进到R语言的终端环境："><a href="#进到R语言的终端环境：" class="headerlink" title="进到R语言的终端环境："></a>进到R语言的终端环境：</h5>`&gt; library(raster)<br>Loading required package: sp<blockquote>
+<p>str_name&lt;-‘2018_252_glsea.tif’<br>imported_raster=raster(str_name)<br>imported_raster<br>class       : RasterLayer<br>dimensions  : 1024, 1024, 1048576  (nrow, ncol, ncell)<br>resolution  : 1800, 1800  (x, y)<br>extent      : -10288922, -8445722, 4676874, 6520074  (xmin, xmax, ymin, ymax)<br>coord. ref. : +proj=merc +lon_0=0 +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0<br>data source : /Users/zhpfu/Downloads/DATA_MAC/2018_252_glsea.tif<br>names       : X2018_252_glsea<br>values      : 0, 255  (min, max)<br>`* #### 转换过程</p>
 </blockquote>
 </li>
-</ul>
-<p>class       : RasterLayer<br>dimensions  : 1024, 1024, 1048576  (nrow, ncol, ncell)<br>resolution  : 1800, 1800  (x, y)<br>extent      : -10288922, -8445722, 4676874, 6520074  (xmin, xmax, ymin, ymax)<br>coord. ref. : +proj=merc +lon_0=0 +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0<br>data source : /Users/zhpfu/Downloads/DATA_MAC/2018_252_glsea.tif<br>names       : X2018_252_glsea<br>values      : 0, 255  (min, max)<br>`</p>
-<ul>
-<li><h4 id="转换过程"><a href="#转换过程" class="headerlink" title="转换过程"></a>转换过程</h4></li>
 </ul>
 
       
@@ -935,7 +931,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#需要的库-软件"><span class="nav-number">1.</span> <span class="nav-text">需要的库/软件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看tif文件信息，确定地理坐标"><span class="nav-number">2.</span> <span class="nav-text">查看tif文件信息，确定地理坐标</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#进到R语言的终端环境："><span class="nav-number">2.1.</span> <span class="nav-text">进到R语言的终端环境：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转换过程"><span class="nav-number">3.</span> <span class="nav-text">转换过程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#需要的库-软件"><span class="nav-number">1.</span> <span class="nav-text">需要的库/软件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看tif文件信息，确定地理坐标"><span class="nav-number">2.</span> <span class="nav-text">查看tif文件信息，确定地理坐标</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#进到R语言的终端环境："><span class="nav-number">2.1.</span> <span class="nav-text">进到R语言的终端环境：</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
