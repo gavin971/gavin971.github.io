@@ -23,9 +23,8 @@
 <h4 id="以上可以确定这个tif文件是附带了地理坐标信息的"><a href="#以上可以确定这个tif文件是附带了地理坐标信息的" class="headerlink" title="以上可以确定这个tif文件是附带了地理坐标信息的"></a>以上可以确定这个tif文件是附带了地理坐标信息的</h4></li>
 <li><h4 id="转换过程"><a href="#转换过程" class="headerlink" title="转换过程"></a>转换过程</h4><p><img src="/images/R2.png" width="800" height="650" alt="" align="center"></p>
 <h5 id="1-参考点击·stackexchange上的方法。再结合上一步的地理坐标信息，使用cs2cs来进行转换。"><a href="#1-参考点击·stackexchange上的方法。再结合上一步的地理坐标信息，使用cs2cs来进行转换。" class="headerlink" title="1.参考点击·stackexchange上的方法。再结合上一步的地理坐标信息，使用cs2cs来进行转换。"></a>1.参考<a href="https://gis.stackexchange.com/questions/277780/transform-data-stored-in-a-tiff-file-to-a-csv-with-latitude-longitude-and-data" target="_blank" rel="noopener">点击·stackexchange</a>上的方法。再结合上一步的地理坐标信息，使用cs2cs来进行转换。</h5><h5 id="2-参考点击·cs2cs介绍和转换模板"><a href="#2-参考点击·cs2cs介绍和转换模板" class="headerlink" title="2.参考点击·cs2cs介绍和转换模板"></a>2.参考<a href="https://mygeodata.cloud/cs2cs/" target="_blank" rel="noopener">点击·cs2cs介绍和转换模板</a></h5><h5 id="3-参考点击·在R中读取-tif文件"><a href="#3-参考点击·在R中读取-tif文件" class="headerlink" title="3.参考点击·在R中读取.tif文件"></a>3.参考<a href="https://codeday.me/bug/20181220/457615.html" target="_blank" rel="noopener">点击·在R中读取.tif文件</a></h5></li>
-</ul>
-<ul>
-<li><h4 id="经纬度展示"><a href="#经纬度展示" class="headerlink" title="经纬度展示"></a>经纬度展示</h4><img src="/images/R3.png" width="800" height="650" alt="" align="center"><h5 id="和实际北美五大湖的范围是匹配的。"><a href="#和实际北美五大湖的范围是匹配的。" class="headerlink" title="和实际北美五大湖的范围是匹配的。"></a>和实际北美五大湖的范围是匹配的。</h5></li>
+<li><h4 id="经纬度展示"><a href="#经纬度展示" class="headerlink" title="经纬度展示"></a>经纬度展示</h4><p><img src="/images/R3.png" width="800" height="650" alt="" align="center"></p>
+<h5 id="和实际北美五大湖的范围是匹配的。"><a href="#和实际北美五大湖的范围是匹配的。" class="headerlink" title="和实际北美五大湖的范围是匹配的。"></a>和实际北美五大湖的范围是匹配的。</h5></li>
 <li><h4 id="绘图检验"><a href="#绘图检验" class="headerlink" title="绘图检验"></a>绘图检验</h4><p><img src="/images/glsea_cur.png" width="800" height="650" alt="" align="center"></p>
 <h5 id="上图为Great-Lakes-Surface-Environmental-Analysis（GLSEA-官网提供的样图。"><a href="#上图为Great-Lakes-Surface-Environmental-Analysis（GLSEA-官网提供的样图。" class="headerlink" title="上图为Great Lakes Surface Environmental Analysis（GLSEA)官网提供的样图。"></a>上图为Great Lakes Surface Environmental Analysis（GLSEA)官网提供的样图。</h5><p> <img src="/images/glsea_mercator_2015_180_origin.png" width="800" height="650" alt="" align="center"></p>
 <h5 id="上图为原始高分辨率的湖表温度图"><a href="#上图为原始高分辨率的湖表温度图" class="headerlink" title="上图为原始高分辨率的湖表温度图"></a>上图为原始高分辨率的湖表温度图</h5><p> <img src="/images/glsea_latlon_2015_180_0.1Deg.png" width="800" height="650" alt="" align="center"></p>
@@ -34,7 +33,7 @@
 <!--glsea_cur.png
 glsea_latlon_2015_180_0.1Deg.png
 glsea_mercator_2015_180_origin.png-->
-<h3 id="综上就是处理数据的部分流程，重点是格式转换，比较初步的工作，如果有需要将这一套卫星观测数据处理为经纬度格点的netCDF文件存储，可以和我私下交流（邮件-微信）。上面的几步基本涵盖了数据处理的基础性工作了。"><a href="#综上就是处理数据的部分流程，重点是格式转换，比较初步的工作，如果有需要将这一套卫星观测数据处理为经纬度格点的netCDF文件存储，可以和我私下交流（邮件-微信）。上面的几步基本涵盖了数据处理的基础性工作了。" class="headerlink" title="综上就是处理数据的部分流程，重点是格式转换，比较初步的工作，如果有需要将这一套卫星观测数据处理为经纬度格点的netCDF文件存储，可以和我私下交流（邮件/微信）。上面的几步基本涵盖了数据处理的基础性工作了。"></a>综上就是处理数据的部分流程，重点是格式转换，比较初步的工作，如果有需要将这一套卫星观测数据处理为经纬度格点的netCDF文件存储，可以和我私下交流（邮件/微信）。上面的几步基本涵盖了数据处理的基础性工作了。</h3><p> <img src="/images/my_wechat.jpg" width="200" height="250" alt="" align="center"></p>
+<h4 id="综上就是处理数据的部分流程，重点是格式转换，比较初步的工作，如果有需要将这一套卫星观测数据处理为经纬度格点的netCDF文件存储，可以和我私下交流（邮件-微信）。上面的几步基本涵盖了数据处理的基础性工作了。"><a href="#综上就是处理数据的部分流程，重点是格式转换，比较初步的工作，如果有需要将这一套卫星观测数据处理为经纬度格点的netCDF文件存储，可以和我私下交流（邮件-微信）。上面的几步基本涵盖了数据处理的基础性工作了。" class="headerlink" title="综上就是处理数据的部分流程，重点是格式转换，比较初步的工作，如果有需要将这一套卫星观测数据处理为经纬度格点的netCDF文件存储，可以和我私下交流（邮件/微信）。上面的几步基本涵盖了数据处理的基础性工作了。"></a>综上就是处理数据的部分流程，重点是格式转换，比较初步的工作，如果有需要将这一套卫星观测数据处理为经纬度格点的netCDF文件存储，可以和我私下交流（邮件/微信）。上面的几步基本涵盖了数据处理的基础性工作了。</h4><p> <img src="/images/my_wechat.jpg" width="200" height="250" alt="" align="center"></p>
 ]]></content>
       
         <categories>
