@@ -11,19 +11,29 @@
 
 <p><br></p>
 <a id="more"></a>
-<p> <img src="/images/geo.jpeg" width="800" height="650" alt="" align="center"><br> </p><p align="center">官网的地理描述信息</p><p></p>
-<p> <br><br> <br></p>
+<p> </p><p align="center">官网的地理描述信息</p><br> <img src="/images/geo.jpeg" width="800" height="650" alt="" align="center"><p></p>
+<p> <br></p>
 <p>  <strong><p align="center"><font color="#gc002k" size="4" face="黑体">优雅转换.tif文件到经纬度.csv文件操作流程</font></p></strong></p>
 <ul>
 <li><h4 id="需要的库-软件"><a href="#需要的库-软件" class="headerlink" title="需要的库/软件"></a>需要的库/软件</h4><blockquote>
-<p>1.cs2cs;  2.R语言； 3.NCL  （操作环境为macOS或者Linux）     </p>
+<p>1.cs2cs;  2.R语言； 3.gdal； 4.NCL  （操作环境为macOS或者Linux）     </p>
 </blockquote>
 </li>
-<li><h4 id="查看tif文件信息，确定地理坐标"><a href="#查看tif文件信息，确定地理坐标" class="headerlink" title="查看tif文件信息，确定地理坐标"></a>查看tif文件信息，确定地理坐标</h4><h5 id="进到R语言的终端环境："><a href="#进到R语言的终端环境：" class="headerlink" title="进到R语言的终端环境："></a>进到R语言的终端环境：</h5>`&gt; library(raster)<br>Loading required package: sp<blockquote>
-<p>str_name&lt;-‘2018_252_glsea.tif’<br>imported_raster=raster(str_name)<br>imported_raster<br>class       : RasterLayer<br>dimensions  : 1024, 1024, 1048576  (nrow, ncol, ncell)<br>resolution  : 1800, 1800  (x, y)<br>extent      : -10288922, -8445722, 4676874, 6520074  (xmin, xmax, ymin, ymax)<br>coord. ref. : +proj=merc +lon_0=0 +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0<br>data source : /Users/zhpfu/Downloads/DATA_MAC/2018_252_glsea.tif<br>names       : X2018_252_glsea<br>values      : 0, 255  (min, max)<br>`* #### 转换过程</p>
-</blockquote>
-</li>
+<li><h4 id="查看tif文件信息，确定地理坐标"><a href="#查看tif文件信息，确定地理坐标" class="headerlink" title="查看tif文件信息，确定地理坐标"></a>查看tif文件信息，确定地理坐标</h4><h5 id="进到R语言的终端环境："><a href="#进到R语言的终端环境：" class="headerlink" title="进到R语言的终端环境："></a>进到<font color="#fa350b" size="2" face="黑体">R语言</font>的终端环境：</h5><p><img src="/images/R1.png" width="800" height="650" alt="" align="center"></p>
+<h4 id="以上可以确定这个tif文件是附带了地理坐标信息的"><a href="#以上可以确定这个tif文件是附带了地理坐标信息的" class="headerlink" title="以上可以确定这个tif文件是附带了地理坐标信息的"></a>以上可以确定这个tif文件是附带了地理坐标信息的</h4></li>
+<li><h4 id="转换过程"><a href="#转换过程" class="headerlink" title="转换过程"></a>转换过程</h4><p><img src="/images/R2.png" width="800" height="650" alt="" align="center"></p>
+<h5 id="1-参考点击·stackexchange上的方法。再结合上一步的地理坐标信息，使用cs2cs来进行转换。"><a href="#1-参考点击·stackexchange上的方法。再结合上一步的地理坐标信息，使用cs2cs来进行转换。" class="headerlink" title="1.参考点击·stackexchange上的方法。再结合上一步的地理坐标信息，使用cs2cs来进行转换。"></a>1.参考<a href="https://gis.stackexchange.com/questions/277780/transform-data-stored-in-a-tiff-file-to-a-csv-with-latitude-longitude-and-data" target="_blank" rel="noopener">点击·stackexchange</a>上的方法。再结合上一步的地理坐标信息，使用cs2cs来进行转换。</h5><h5 id="2-参考点击·cs2cs介绍和转换模板"><a href="#2-参考点击·cs2cs介绍和转换模板" class="headerlink" title="2.参考点击·cs2cs介绍和转换模板"></a>2.参考<a href="https://mygeodata.cloud/cs2cs/" target="_blank" rel="noopener">点击·cs2cs介绍和转换模板</a></h5></li>
 </ul>
+<h5 id="3-参考点击·在R中读取-tif文件"><a href="#3-参考点击·在R中读取-tif文件" class="headerlink" title="3.参考点击·在R中读取.tif文件"></a>3.参考<a href="https://codeday.me/bug/20181220/457615.html" target="_blank" rel="noopener">点击·在R中读取.tif文件</a></h5><ul>
+<li><h4 id="经纬度展示"><a href="#经纬度展示" class="headerlink" title="经纬度展示"></a>经纬度展示</h4><img src="/images/R3.png" width="800" height="650" alt="" align="center"><h5 id="和实际北美五大湖的范围是匹配的。"><a href="#和实际北美五大湖的范围是匹配的。" class="headerlink" title="和实际北美五大湖的范围是匹配的。"></a>和实际北美五大湖的范围是匹配的。</h5></li>
+<li><h4 id="绘图检验"><a href="#绘图检验" class="headerlink" title="绘图检验"></a>绘图检验</h4><p><img src="/images/glsea_cur.png" width="800" height="650" alt="" align="center"></p>
+<h5 id="上图为Great-Lakes-Surface-Environmental-Analysis（GLSEA-官网提供的样图。"><a href="#上图为Great-Lakes-Surface-Environmental-Analysis（GLSEA-官网提供的样图。" class="headerlink" title="上图为Great Lakes Surface Environmental Analysis（GLSEA)官网提供的样图。"></a>上图为Great Lakes Surface Environmental Analysis（GLSEA)官网提供的样图。</h5><p> <img src="/images/glsea_mercator_2015_180_origin.png" width="800" height="650" alt="" align="center"></p>
+<h5 id="上图为原始高分辨率的湖表温度图"><a href="#上图为原始高分辨率的湖表温度图" class="headerlink" title="上图为原始高分辨率的湖表温度图"></a>上图为原始高分辨率的湖表温度图</h5><p> <img src="/images/glsea_latlon_2015_180_0.1Deg.png" width="800" height="650" alt="" align="center"></p>
+<h5 id="上图为0-1°分辨率经纬度格点数据绘制的湖表温度图，可见匹配关系很不错"><a href="#上图为0-1°分辨率经纬度格点数据绘制的湖表温度图，可见匹配关系很不错" class="headerlink" title="上图为0.1°分辨率经纬度格点数据绘制的湖表温度图，可见匹配关系很不错"></a>上图为0.1°分辨率经纬度格点数据绘制的湖表温度图，可见匹配关系很不错</h5></li>
+</ul>
+<!--glsea_cur.png
+glsea_latlon_2015_180_0.1Deg.png
+glsea_mercator_2015_180_origin.png-->
 ]]></content>
       
         <categories>
