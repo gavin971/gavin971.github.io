@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>https://gavin971.github.io/2019/04/04/tips/</loc>
+    <lastmod>2019-04-04T05:03:13.111Z</lastmod>
+    <data>
+        <display>
+        <title>日常实用小技巧(1)</title>
+        <pubTime>2019-04-04T04:34:51.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>MacOS</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术积累" url="https://gavin971.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://gavin971.github.io/2019/03/28/tif-to-latlon/</loc>
     <lastmod>2019-03-28T17:33:46.367Z</lastmod>
     <data>
@@ -330,26 +352,6 @@
     
     
   <url>
-    <loc>https://gavin971.github.io/2017/11/04/Python-Algorithmic/</loc>
-    <lastmod>2017-11-04T06:29:29.000Z</lastmod>
-    <data>
-        <display>
-        <title>Python-Algorithmic</title>
-        <pubTime>2017-11-04T01:51:41.000Z</pubTime>
-        
-        <tag>Python</tag>
-         
-         
-           
-             
-              <breadCrumb title="算法" url="https://gavin971.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://gavin971.github.io/2017/11/04/CPP-History/</loc>
     <lastmod>2017-11-04T06:29:29.000Z</lastmod>
     <data>
@@ -365,6 +367,26 @@
            
              
               <breadCrumb title="编程基础" url="https://gavin971.github.io/categories/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://gavin971.github.io/2017/11/04/Python-Algorithmic/</loc>
+    <lastmod>2017-11-04T06:29:29.000Z</lastmod>
+    <data>
+        <display>
+        <title>Python-Algorithmic</title>
+        <pubTime>2017-11-04T01:51:41.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="算法" url="https://gavin971.github.io/categories/%E7%AE%97%E6%B3%95/"/>
           
         </display>
     </data>
