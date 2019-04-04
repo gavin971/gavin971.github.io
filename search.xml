@@ -80,9 +80,7 @@
       <title><![CDATA[如何把附带地理信息的.tif文件转换为包含经纬度信息.csv文件？]]></title>
       <url>https://gavin971.github.io/2019/03/28/tif-to-latlon/</url>
       <content type="html"><![CDATA[<!--<p></p>-->
-<p id="div-border-top-green">之前处理北美五大湖的数据，湖表温度为卫星观测数据，官方有提供.asc文本格式的阵列像素数据，但是缺少地理坐标信息(这也是比较麻烦的地方，需要自己根据已有的信息进行坐标转换)，官网并没有相关的地理数据文件，只有一些描述性的文件。Great Lakes Surface Environmental Analysis（GLSEA，<a href="https://coastwatch.glerl.noaa.gov/glsea/）" target="_blank" rel="noopener">https://coastwatch.glerl.noaa.gov/glsea/）</a><br><br>不得已就采用这些零碎的信息，最终也获得了像素文件相匹配的经纬度信息，但是方法比较繁琐，采用ArcGIS来转换的（此处，感谢南大环境学院博士生YJ鼎力相助！），先转换为shapefile相关文件，再导出latlon为.csv文件。好在把图用NCL画出来匹配度还可以，就基本用起来了。但是作为一个没有Windows电脑的人，用ArcGIS显得很笨重有奢侈。后来就发邮件给数据负责人，是个很热心的华人管理员，就把包含地理信息的.tif文件发给我了。完全没有什么相关坐标转换的经验，但也不能浪费这个地理文件，潜意识告诉我，这个应该是优雅的解决方案。摸索着，算是把这个问题解决了。<br><br><br>后面我会单独给出地理坐标信息完整的.tif文件转换方式，那种就比较简单了。</p>
-
-<p><br></p>
+<p></p><p id="div-border-top-green">之前处理北美五大湖的数据，湖表温度为卫星观测数据，官方有提供.asc文本格式的阵列像素数据，但是缺少地理坐标信息(这也是比较麻烦的地方，需要自己根据已有的信息进行坐标转换)，官网并没有相关的地理数据文件，只有一些描述性的文件。Great Lakes Surface Environmental Analysis（GLSEA，<a href="https://coastwatch.glerl.noaa.gov/glsea/）" target="_blank" rel="noopener">https://coastwatch.glerl.noaa.gov/glsea/）</a><br><br>不得已就采用这些零碎的信息，最终也获得了像素文件相匹配的经纬度信息，但是方法比较繁琐，采用ArcGIS来转换的（此处，感谢南大环境学院博士生YJ鼎力相助！），先转换为shapefile相关文件，再导出latlon为.csv文件。好在把图用NCL画出来匹配度还可以，就基本用起来了。但是作为一个没有Windows电脑的人，用ArcGIS显得很笨重又奢侈。后来就发邮件给数据负责人，是一位很热心的华人管理员，就把包含地理信息的.tif文件发给我了。对于我完全没有什么相关坐标转换的经验，但也不能浪费这个.tif文件，潜意识告诉我，这个应该有更加优雅的解决方案。于是另辟蹊径，算是把这个问题再一次解决了。<br><br><br>后续，我会单独给出地理坐标信息完整的geotif文件转换方式，相对简单，基本一键式操作。</p><br><br><p></p>
 <a id="more"></a>
 <p> </p><p align="center">官网的地理描述信息</p><br> <img src="/images/geo.jpeg" width="800" height="650" alt="" align="center"><p></p>
 <p> <br></p>
