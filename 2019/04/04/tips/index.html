@@ -111,7 +111,7 @@
 <meta property="og:site_name" content="Climate2Weather">
 <meta property="og:description" content="日常使用技巧整理，主要针对于macOS High Sierra以及Linux的Ubuntu和红帽发行版本！    wget反爬虫机器人设置   可以使用wget对整站进行递归下载，但是有时候一些站点会通过配置robots.txt对访问进行限制，使用如下命令即可：  1wget -r -p -np -k -e robots=off  http://mirrors.163.com/debian/dis">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-04T05:06:04.320Z">
+<meta property="og:updated_time" content="2019-04-04T05:20:33.853Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日常实用小技巧(1)">
 <meta name="twitter:description" content="日常使用技巧整理，主要针对于macOS High Sierra以及Linux的Ubuntu和红帽发行版本！    wget反爬虫机器人设置   可以使用wget对整站进行递归下载，但是有时候一些站点会通过配置robots.txt对访问进行限制，使用如下命令即可：  1wget -r -p -np -k -e robots=off  http://mirrors.163.com/debian/dis">
@@ -568,7 +568,7 @@
           
             <span class="post-letters-count">
               &nbsp; | &nbsp;
-            <span>2,193 字</span>
+            <span>2,215 字</span>
               &nbsp; | &nbsp;
             <span>10 min</span>
             </span>
@@ -651,7 +651,11 @@
 <li><h4 id="安装和使用screen-普通用户"><a href="#安装和使用screen-普通用户" class="headerlink" title="安装和使用screen(普通用户)"></a>安装和使用screen(普通用户)</h4></li>
 </ul>
 <h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><blockquote>
-<p>1.下载地址：<a href="http://ftp.gnu.org/gnu/screen/；" target="_blank" rel="noopener">http://ftp.gnu.org/gnu/screen/；</a><br>2.运行源码目录下的: <font color="#fa350b" size="2" face="黑体"> ./configure</font>，运行配置文件；<br>3.编译源码: <font color="#fa350b" size="2" face="黑体"> make</font><br>4.配置环境变量:<font color="#fa350b" size="2" face="黑体"> vi ~/.bashrc; 可以将第三步生成的screen可执行文件加进来, alias=“/your_path/screen”;退出后，source ~/.bashrc,即可生效！</font></p>
+<p>1.下载地址：<a href="http://ftp.gnu.org/gnu/screen/" target="_blank" rel="noopener">http://ftp.gnu.org/gnu/screen/</a></p>
+<p>2.运行源码目录下的: <font color="#fa350b" size="2" face="黑体"> ./configure</font>，运行配置文件；</p>
+<p>3.编译源码: <font color="#fa350b" size="2" face="黑体"> make</font></p>
+<p>4.配置环境变量:</p>
+<font color="#fa350b" size="2" face="黑体"><br><br>vi ~/.bashrc;<br><br>可以将第三步生成的screen可执行文件加进来, alias=“/your_path/screen”;<br><br>退出后，source ~/.bashrc,即可生效！</font>
 </blockquote>
 <h5 id="screen使用"><a href="#screen使用" class="headerlink" title="screen使用"></a>screen使用</h5><blockquote>
 <p>1.创建screen会话： screen -S xxxx<br>2.暂时离开，保留screen会话中的任务或程序:当需要临时离开时（会话中的程序不会关闭，仍在运行）可以用快捷键<font color="#fa350b" size="2" face="黑体"> Ctrl+a d</font>(即按住Ctrl，依次再按a,d)<br>3.恢复screen会话: screen -r xxxx或者 忘记了可以先列出会话名称 screen -ls screen,也可以将会话名称换为进程ID号，譬如，screen -r 11791</p>
@@ -671,7 +675,9 @@
 <li><h4 id="ssh远程登录如何避免频繁断开"><a href="#ssh远程登录如何避免频繁断开" class="headerlink" title="ssh远程登录如何避免频繁断开"></a>ssh远程登录如何避免频繁断开</h4><h5 id="错误如下"><a href="#错误如下" class="headerlink" title="错误如下"></a>错误如下</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[zhpfu ~/disk2/WRF4.0/WRF/run]$ packet_write_wait: Connection to 114.212.xxx.xxx port 22: Broken pipe</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#### 解决办法</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> 编辑本地的 ssh 配置： sudo vim /etc/ssh/ssh_config</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> 添加两行配置：即每隔10秒，向服务器发出一次心跳。若超过10次请求，都没有发送成功，则会主动断开与服务器端的连接</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>ServerAliveInterval 10<br>ServerAliveCountMax 10<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&gt; 或者在登录时直接加入：</span><br><span class="line"></span><br><span class="line">```shell</span><br><span class="line"> ssh -o ServerAliveInterval=60 uersname@ip</span><br></pre></td></tr></table></figure></p>
+<p>ServerAliveInterval 10<br>ServerAliveCountMax 10<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&gt; 或者在登录时直接加入：</span><br><span class="line"></span><br><span class="line">```shell</span><br><span class="line"> ssh -o ServerAliveInterval=60 uersname@ip</span><br><span class="line"></span><br><span class="line"> 或者，</span><br><span class="line"></span><br><span class="line"> ssh -o TCPKeepAlive=yes -o ServerAliveInterval=300 pswzyu@nuihq.com -p 12345678</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>未完待续。。。</p>
 
       
     </div>
