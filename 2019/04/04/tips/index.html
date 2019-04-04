@@ -111,7 +111,7 @@
 <meta property="og:site_name" content="Climate2Weather">
 <meta property="og:description" content="日常使用技巧整理，主要针对于macOS High Sierra以及Linux的Ubuntu和红帽发行版本！    wget反爬虫机器人设置   可以使用wget对整站进行递归下载，但是有时候一些站点会通过配置robots.txt对访问进行限制，使用如下命令即可：  1wget -r -p -np -k -e robots=off  http://mirrors.163.com/debian/dis">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-04T05:32:54.412Z">
+<meta property="og:updated_time" content="2019-04-04T05:34:54.150Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日常实用小技巧(1)">
 <meta name="twitter:description" content="日常使用技巧整理，主要针对于macOS High Sierra以及Linux的Ubuntu和红帽发行版本！    wget反爬虫机器人设置   可以使用wget对整站进行递归下载，但是有时候一些站点会通过配置robots.txt对访问进行限制，使用如下命令即可：  1wget -r -p -np -k -e robots=off  http://mirrors.163.com/debian/dis">
@@ -675,16 +675,11 @@
 <li><h4 id="ssh远程登录如何避免频繁断开"><a href="#ssh远程登录如何避免频繁断开" class="headerlink" title="ssh远程登录如何避免频繁断开"></a>ssh远程登录如何避免频繁断开</h4><h5 id="错误如下"><a href="#错误如下" class="headerlink" title="错误如下"></a>错误如下</h5></li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">zhpfu ~/disk2/WRF4.0/WRF/run $  </span><br><span class="line">packet_write_wait: Connection to 114.212.xxx.xxx port 22: Broken pipe</span><br></pre></td></tr></table></figure>
-<h5 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h5><blockquote>
-<p>编辑本地的 ssh 配置： sudo vim /etc/ssh/ssh_config</p>
-</blockquote>
-<blockquote>
+<h5 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h5><p>编辑本地的 ssh 配置： sudo vim /etc/ssh/ssh_config</p>
 <p>添加两行配置：即每隔10秒，向服务器发出一次心跳。若超过10次请求，都没有发送成功，则会主动断开与服务器端的连接</p>
-</blockquote>
 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ServerAliveInterval <span class="number">10</span></span><br><span class="line">ServerAliveCountMax <span class="number">10</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">或者在登录时直接加入：</span><br><span class="line"> ssh -o ServerAliveInterval=60 uersname@ip</span><br></pre></td></tr></table></figure>
-<blockquote>
-</blockquote>
+<p>或者在登录时直接加入：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ssh -o ServerAliveInterval=60 uersname@ip</span><br></pre></td></tr></table></figure>
 <h5 id="或者，"><a href="#或者，" class="headerlink" title="或者，"></a>或者，</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -o TCPKeepAlive=yes -o ServerAliveInterval=300 pswzyu@nuihq.com -p 12345678</span><br></pre></td></tr></table></figure>
 <hr>
 <p>未完待续。。。</p>
