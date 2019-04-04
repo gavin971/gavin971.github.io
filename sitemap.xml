@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://gavin971.github.io/about/index.html</loc>
+    
+    <lastmod>2019-04-04T06:55:49.847Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://gavin971.github.io/weblog/index.html</loc>
     
     <lastmod>2019-04-04T06:32:56.763Z</lastmod>
@@ -89,13 +96,6 @@
     <loc>https://gavin971.github.io/2018/04/22/I-am-back/</loc>
     
     <lastmod>2019-01-04T14:45:11.973Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://gavin971.github.io/about/index.html</loc>
-    
-    <lastmod>2019-01-04T10:07:29.677Z</lastmod>
     
   </url>
   
