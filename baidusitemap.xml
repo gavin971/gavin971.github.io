@@ -4,8 +4,30 @@
 
     
   <url>
+    <loc>https://gavin971.github.io/2019/04/14/do-it/</loc>
+    <lastmod>2019-04-13T17:03:46.295Z</lastmod>
+    <data>
+        <display>
+        <title>没那么多道理！</title>
+        <pubTime>2019-04-13T16:52:04.000Z</pubTime>
+        
+        <tag>Life</tag>
+         
+        <tag>Words of Wisdom</tag>
+         
+         
+           
+             
+              <breadCrumb title="生活随笔" url="https://gavin971.github.io/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://gavin971.github.io/2019/04/13/paper-3/</loc>
-    <lastmod>2019-04-13T16:49:21.330Z</lastmod>
+    <lastmod>2019-04-13T16:49:32.688Z</lastmod>
     <data>
         <display>
         <title>使用卷积神经网络改进降水估计</title>
@@ -29,7 +51,7 @@
     
   <url>
     <loc>https://gavin971.github.io/2019/04/12/paper-2/</loc>
-    <lastmod>2019-04-13T15:45:35.637Z</lastmod>
+    <lastmod>2019-04-13T16:49:32.686Z</lastmod>
     <data>
         <display>
         <title>贝叶斯模型方法后处理全球气候模式输出的逐日次季节到季节降水预报及评估</title>
@@ -496,6 +518,26 @@
     
     
   <url>
+    <loc>https://gavin971.github.io/2017/11/04/Python-Algorithmic/</loc>
+    <lastmod>2017-11-04T06:29:29.000Z</lastmod>
+    <data>
+        <display>
+        <title>Python-Algorithmic</title>
+        <pubTime>2017-11-04T01:51:41.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="算法" url="https://gavin971.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://gavin971.github.io/2017/11/04/CPP-History/</loc>
     <lastmod>2017-11-04T06:29:29.000Z</lastmod>
     <data>
@@ -511,26 +553,6 @@
            
              
               <breadCrumb title="编程基础" url="https://gavin971.github.io/categories/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://gavin971.github.io/2017/11/04/Python-Algorithmic/</loc>
-    <lastmod>2017-11-04T06:29:29.000Z</lastmod>
-    <data>
-        <display>
-        <title>Python-Algorithmic</title>
-        <pubTime>2017-11-04T01:51:41.000Z</pubTime>
-        
-        <tag>Python</tag>
-         
-         
-           
-             
-              <breadCrumb title="算法" url="https://gavin971.github.io/categories/%E7%AE%97%E6%B3%95/"/>
           
         </display>
     </data>
