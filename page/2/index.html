@@ -351,6 +351,152 @@
             
               
                 
+                <a class="post-title-link" href="/2019/01/16/link-internet/" itemprop="url">
+                  内网机器访问外网
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2019-01-16T10:37:37+08:00" content="2019-01-16">
+              2019-01-16
+            </time>
+          </span>
+
+
+
+
+          
+            <span class="post-letters-count">
+              &nbsp; | &nbsp;
+            <span>371 字</span>
+              &nbsp; | &nbsp;
+            <span>2 min</span>
+            </span>
+          
+
+
+
+
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术积累/" itemprop="url" rel="index">
+                    <span itemprop="name">技术积累</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2019/01/16/link-internet/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/16/link-internet/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+<!-- 自定义，用于添加摘要图片，文章中不显示 -->
+        
+<!-- 自定义结束 -->
+        
+          
+            <h4 id="实现centos内网机器访问外网【转】"><a href="#实现centos内网机器访问外网【转】" class="headerlink" title="实现centos内网机器访问外网【转】"></a><a href="https://teakki.com/p/57dbc1e740a05a0609bc0e6b" target="_blank" rel="noopener">实现centos内网机器访问外网【转】</a></h4><p>环境：一台带外网和内网的机器，另一台只有内网，默认不能上网。两台机器都是centos系统<br>带外网机器的外网ip为 123.221.20.11， 内网ip为 192.168.15.100<br>内网机器的内网ip为 192.168.15.101<br>设置方法很简单：</p>
+<ol>
+<li>在带外网的机器上设置iptables规则：<br>iptables -t nat -A POSTROUTING -s 192.168.15.101 -j SNAT –to 123.221.20.11<br>// 如果想让整个内网的机器全部上网，只需要把 -s 192.168.15.101 换成<br>-s 192.168.15.0/255.255.255.0 即可</li>
+<li>在带带外网机器上打开转发<br>首先查看是否已经打开<br>sysctl -a |grep ‘net.ipv4.ip_forward’<br>如果值为1，则说明已经打开，否则需要修改配置文件 /etc/sysctl.conf<br>打开该配置文件，找到该参数，使其变为<br>net.ipv4.ip_forward = 1<br>然后运行 sysctl -p</li>
+<li>在内网机器上，设置其网关为 192.168.15.100<br>vim  /etc/sysconfig/network-scripts/ifcfg-eth0<br>添加<br>GATEWAY=192.168.15.100<br>重启网络服务即可。 service network restart</li>
+<li>测试内网机器是否可以上网。</li>
+</ol>
+<p><a href="https://serverfault.com/questions/102416/iptables-equivalent-for-mac-os-x" target="_blank" rel="noopener">参考2</a><br><a href="https://www.lostend.com/index.php/archives/18/" target="_blank" rel="noopener">参考3</a></p>
+<h4 id="问题：如果手头是redhat的服务器不能连接外网，局域网内的Mac可以连接外网，如果没有服务器root权限，能否采用端口映射来share网络？目前可行的方案是，使用firefox的X11账号密码登陆校园网。"><a href="#问题：如果手头是redhat的服务器不能连接外网，局域网内的Mac可以连接外网，如果没有服务器root权限，能否采用端口映射来share网络？目前可行的方案是，使用firefox的X11账号密码登陆校园网。" class="headerlink" title="问题：如果手头是redhat的服务器不能连接外网，局域网内的Mac可以连接外网，如果没有服务器root权限，能否采用端口映射来share网络？目前可行的方案是，使用firefox的X11账号密码登陆校园网。"></a>问题：如果手头是redhat的服务器不能连接外网，局域网内的Mac可以连接外网，如果没有服务器root权限，能否采用端口映射来share网络？目前可行的方案是，使用firefox的X11账号密码登陆校园网。</h4>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2019/01/09/New-journey-01/" itemprop="url">
                   《 Tendency Bias Correction in Coupled and Uncoupled Global Climate Models with a Focus on Impacts over North America》
                 </a>
@@ -1610,149 +1756,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/11/06/Life-style-and-choice/" itemprop="url">
-                  生活的选择
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-11-06T19:03:47+08:00" content="2017-11-06">
-              2017-11-06
-            </time>
-          </span>
-
-
-
-
-          
-            <span class="post-letters-count">
-              &nbsp; | &nbsp;
-            <span>535 字</span>
-              &nbsp; | &nbsp;
-            <span>2 min</span>
-            </span>
-          
-
-
-
-
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/生活随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">生活随笔</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/11/06/Life-style-and-choice/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/11/06/Life-style-and-choice/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-<!-- 自定义，用于添加摘要图片，文章中不显示 -->
-        
-<!-- 自定义结束 -->
-        
-          <p><img src="/images/lifestyle.jpg" alt=""></p>
-<p><strong><p id="div-border-top-green">王国维先生在《人间词话》中写到：古今之成大事业大学问者，必经过三种之境界。“昨夜西风凋碧树，独上高楼，望尽天涯路”，此第一境也。“衣带渐宽终不悔，为伊消得人憔悴”，此第二境也。“众里寻他千百度，暮然回首，那人却在灯火阑珊处”，此第三境也。<br></p></strong></p>
-<p><br></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/11/06/Life-style-and-choice/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1797,7 +1800,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1814,7 +1817,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1962,7 +1965,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count" style="padding-left:5px; color: #e90f92;">全站共 24.9k 字</span>
+  <span class="post-count" style="padding-left:5px; color: #e90f92;">全站共 25.7k 字</span>
 </div>
 
         

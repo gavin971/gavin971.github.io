@@ -4,6 +4,55 @@
   
     
     <entry>
+      <title><![CDATA[贝叶斯模型方法后处理全球气候模式输出的逐日次季节到季节降水预报及评估]]></title>
+      <url>https://gavin971.github.io/2019/04/12/paper-2/</url>
+      <content type="html"><![CDATA[<p><img src="/images/paper_2-1.png" alt=""></p>
+<blockquote>
+<p><strong>Title</strong>：<strong><font color="#0000ff">A Bayesian modelling method for post-processing daily sub-seasonal to seasonal rainfall forecasts from global climate models and evaluation for 12 Australian catchments</font></strong></p>
+<p><strong>标题</strong>：<strong><font color="#0000ff">贝叶斯模型方法后处理全球气候模式输出的逐日次季节到季节降水预报和评估，并选取澳大利亚12个流域进行评估</font></strong></p>
+<p><strong>作者</strong>：Andrew Schepen<strong><font color="#f40707"><sup>1</sup></font></strong>, Tongtiegang Zhao<strong><font color="#f40707"><sup>2</sup></font></strong>, Quan J. Wang<strong><font color="#f40707"><sup>2</sup></font></strong>, and David E. Robertson<strong><font color="#f40707"><sup>3</sup></font></strong></p>
+<p><strong><font color="#f40707"><sup>1</sup></font></strong>CSIRO Land and Water, Dutton Park 4102, Australia</p>
+<p><strong><font color="#f40707"><sup>2</sup></font></strong>Department of Infrastructure Engineering, The University of Melbourne, Parkville 3010, Australia</p>
+<p><strong><font color="#f40707"><sup>3</sup></font></strong>CSIRO Land and Water, Clayton 3168, Australia</p>
+<p><strong>期刊</strong>：Hydrol. Earth Syst. Sci.,  2018</p>
+<p><strong>DOI</strong>： <a href="https://www.hydrol-earth-syst-sci.net/22/1615/2018/" target="_blank" rel="noopener"><strong><font color="#0000ff">https://doi.org/10.5194/hess-22-1615-2018</font></strong></a></p>
+</blockquote>
+<hr>
+
+<a id="more"></a>
+<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract:"></a>Abstract:</h3><font face="Calibri" color="#0727f7" size="3">Rainfall forecasts are an integral part of hydrological forecasting systems at sub-seasonal to seasonal timescales. In seasonal forecasting, global climate models (GCMs) are now the go-to source for rainfall forecasts. For hydrological applications however, GCM forecasts are often biased and unreliable in uncertainty spread, and calibration is therefore required before use. There are sophisticated statistical techniques for calibrating monthly and seasonal aggregations of the forecasts. However, calibration of seasonal forecasts at the daily time step typically uses very simple statistical methods or climate analogue methods. These methods generally lack the sophistication to achieve unbiased, reliable and coherent forecasts of daily amounts and seasonal accumulated totals. In this study, we propose and evaluate a Rainfall Post-Processing method for Seasonal forecasts (RPP-S), which is based on the Bayesian joint probability modelling approach for calibrating daily forecasts and the Schaake Shuffle for connecting the daily ensemble members of different lead times. We apply the method to post-process ACCESS-S forecasts for 12 perennial and ephemeral catchments across Australia and for 12 initialisation dates. RPP-S significantly reduces bias in raw forecasts and improves both skill and reliability. RPP-S forecasts are also more skilful and reliable than forecasts derived from ACCESS-S forecasts that have been post-processed using quantile mapping, especially for monthly and seasonal accumulations. Several opportunities to improve the robustness and skill of RPP-S are identified. The new RPP-S post-processed forecasts will be used in ensemble sub-seasonal to seasonal streamflow applications.</font>
+
+<hr>
+
+
+<h3 id="原文摘要"><a href="#原文摘要" class="headerlink" title="原文摘要:"></a>原文摘要:</h3><font face="Calibri" color="#131316" size="3">降水预报是水文预报系统中次季节到季节时间尺度上不可分割的一部分。在季节预报中，全球气候系统（GCMs）是降水预报的重要来源。但是在水文应用中，GCM预报通常都存在误差和不可靠的不确定性传播，因而在使用之前进行校正是非常有必要的。过去有多种巧妙的统计方法用于月或者季节的集合预报。但是，针对于日时间步长上季节预报的校正都只局限于简单的统计方法和气候相似理论。这些方法通常难以巧妙地获得去除偏差、可靠和一致的日总量或季节累计降水预报。在本文的研究中，我们提出并评估了一种季节降水预报的后处理方法(RPP-S),其基于贝叶斯联合概率模型来校正日降水预报，并利用“Schaake Shuffle”方法使得日降水集合成员在不同超前时间产生关联。我们应用这种方法后处理了ACCESS-S预报的12个横跨澳大利亚的常流河与季节性流域，模式采用了12个初始化日期。RPP-S显著地减小了原有模式预报的偏差，改善了预报技巧和可靠性。ACCESS-S预报结果采用RPP-S也要比于分位映射法(“quantile mapping”)更加有技巧性和可靠性，尤其是在月和季节的累计降水预报。对于提升RPP-S的稳健性和技巧存在诸多机会，这种集成了新型RPP-S后处理方案的预报，将在径流次季节到季节时间尺度集合预报中应用。</font>
+
+
+<hr>
+
+<h3 id="图文"><a href="#图文" class="headerlink" title="图文"></a>图文</h3><p><img src="/images/paper_2_1.png" alt=""><br><img src="/images/paper_2_2.png" alt=""><br><img src="/images/paper_2_3.png" alt=""><br><img src="/images/paper_2_4.png" alt=""><br><img src="/images/paper_2_5.png" alt=""><br><img src="/images/paper_2_6.png" alt=""><br><img src="/images/paper_2_7.png" alt=""><br><img src="/images/paper_2_8.png" alt=""><br><img src="/images/paper_2_9.png" alt=""></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 文献阅读 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Bayesian modelling </tag>
+            
+            <tag> Subseasonal to Seasonal rainfall </tag>
+            
+            <tag> climate model </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[大气科学考(保)研，你当年是如何考(保)上的？]]></title>
       <url>https://gavin971.github.io/2019/04/12/Postgraduate-Admission-Test/</url>
       <content type="html"><![CDATA[<p><img src="/images/kaoyan.jpg" alt=""></p>
@@ -227,9 +276,9 @@
         
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> MacOS </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
         

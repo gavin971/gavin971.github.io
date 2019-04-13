@@ -1,0 +1,1158 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="google-site-verification" content="_olLbqJsLPaypjGvvPnkJqjV5uDLUrmRKJ-aE5YTFnQ" />
+<meta name="baidu-site-verification" content="eskIgPwJM1" />
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Courier New:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Bayesian modelling,Subseasonal to Seasonal rainfall,climate model," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Climate2Weather" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Title：A Bayesian modelling method for post-processing daily sub-seasonal to seasonal rainfall forecasts from global climate models and evaluation for 12 Australian catchments 标题：贝叶斯模型方法后处理全球气候模式输出的逐">
+<meta name="keywords" content="Bayesian modelling,Subseasonal to Seasonal rainfall,climate model">
+<meta property="og:type" content="article">
+<meta property="og:title" content="贝叶斯模型方法后处理全球气候模式输出的逐日次季节到季节降水预报及评估">
+<meta property="og:url" content="https://gavin971.github.io/2019/04/12/paper-2/index.html">
+<meta property="og:site_name" content="Climate2Weather">
+<meta property="og:description" content="Title：A Bayesian modelling method for post-processing daily sub-seasonal to seasonal rainfall forecasts from global climate models and evaluation for 12 Australian catchments 标题：贝叶斯模型方法后处理全球气候模式输出的逐">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://gavin971.github.io/images/paper_2-1.png">
+<meta property="og:image" content="https://gavin971.github.io/images/paper_2_1.png">
+<meta property="og:image" content="https://gavin971.github.io/images/paper_2_2.png">
+<meta property="og:image" content="https://gavin971.github.io/images/paper_2_3.png">
+<meta property="og:image" content="https://gavin971.github.io/images/paper_2_4.png">
+<meta property="og:image" content="https://gavin971.github.io/images/paper_2_5.png">
+<meta property="og:image" content="https://gavin971.github.io/images/paper_2_6.png">
+<meta property="og:image" content="https://gavin971.github.io/images/paper_2_7.png">
+<meta property="og:image" content="https://gavin971.github.io/images/paper_2_8.png">
+<meta property="og:image" content="https://gavin971.github.io/images/paper_2_9.png">
+<meta property="og:updated_time" content="2019-04-13T14:28:56.768Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="贝叶斯模型方法后处理全球气候模式输出的逐日次季节到季节降水预报及评估">
+<meta name="twitter:description" content="Title：A Bayesian modelling method for post-processing daily sub-seasonal to seasonal rainfall forecasts from global climate models and evaluation for 12 Australian catchments 标题：贝叶斯模型方法后处理全球气候模式输出的逐">
+<meta name="twitter:image" content="https://gavin971.github.io/images/paper_2-1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://gavin971.github.io/2019/04/12/paper-2/"/>
+
+
+<!-- 网页加载条 -->
+<script src="/js/src/pace.min.js"></script>
+ 
+  
+<script type="text/javascript" color="0,0,255" opacity='0.7' zIndex="-2" count="70" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+
+<!-- <div class="bg_content">
+  <canvas id="canvas"></canvas>
+</div> -->   
+<!-- 配合后面的 <script type="text/javascript" src="/js/src/dynamic_bg.js"></script>  使用 -->
+
+
+  <title> 贝叶斯模型方法后处理全球气候模式输出的逐日次季节到季节降水预报及评估 | Climate2Weather </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+<!--   <a href="https://github.com/gavin971"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a> -->
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Climate2Weather</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">人生不妨大胆一点, 反正只有一次</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            书籍
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+
+     
+
+
+
+
+
+
+
+
+
+
+     
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search fa-lg"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                贝叶斯模型方法后处理全球气候模式输出的逐日次季节到季节降水预报及评估
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2019-04-12T22:09:24+08:00" content="2019-04-12">
+              2019-04-12
+            </time>
+          </span>
+
+
+
+
+          
+            <span class="post-letters-count">
+              &nbsp; | &nbsp;
+            <span>840 字</span>
+              &nbsp; | &nbsp;
+            <span>4 min</span>
+            </span>
+          
+
+
+
+
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/文献阅读/" itemprop="url" rel="index">
+                    <span itemprop="name">文献阅读</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2019/04/12/paper-2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/04/12/paper-2/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv">热度
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>℃
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/images/paper_2-1.png" alt=""></p>
+<blockquote>
+<p><strong>Title</strong>：<strong><font color="#0000ff">A Bayesian modelling method for post-processing daily sub-seasonal to seasonal rainfall forecasts from global climate models and evaluation for 12 Australian catchments</font></strong></p>
+<p><strong>标题</strong>：<strong><font color="#0000ff">贝叶斯模型方法后处理全球气候模式输出的逐日次季节到季节降水预报和评估，并选取澳大利亚12个流域进行评估</font></strong></p>
+<p><strong>作者</strong>：Andrew Schepen<strong><font color="#f40707"><sup>1</sup></font></strong>, Tongtiegang Zhao<strong><font color="#f40707"><sup>2</sup></font></strong>, Quan J. Wang<strong><font color="#f40707"><sup>2</sup></font></strong>, and David E. Robertson<strong><font color="#f40707"><sup>3</sup></font></strong></p>
+<p><strong><font color="#f40707"><sup>1</sup></font></strong>CSIRO Land and Water, Dutton Park 4102, Australia</p>
+<p><strong><font color="#f40707"><sup>2</sup></font></strong>Department of Infrastructure Engineering, The University of Melbourne, Parkville 3010, Australia</p>
+<p><strong><font color="#f40707"><sup>3</sup></font></strong>CSIRO Land and Water, Clayton 3168, Australia</p>
+<p><strong>期刊</strong>：Hydrol. Earth Syst. Sci.,  2018</p>
+<p><strong>DOI</strong>： <a href="https://www.hydrol-earth-syst-sci.net/22/1615/2018/" target="_blank" rel="noopener"><strong><font color="#0000ff">https://doi.org/10.5194/hess-22-1615-2018</font></strong></a></p>
+</blockquote>
+<hr>
+
+<a id="more"></a>
+<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract:"></a>Abstract:</h3><font face="Calibri" color="#0727f7" size="3">Rainfall forecasts are an integral part of hydrological forecasting systems at sub-seasonal to seasonal timescales. In seasonal forecasting, global climate models (GCMs) are now the go-to source for rainfall forecasts. For hydrological applications however, GCM forecasts are often biased and unreliable in uncertainty spread, and calibration is therefore required before use. There are sophisticated statistical techniques for calibrating monthly and seasonal aggregations of the forecasts. However, calibration of seasonal forecasts at the daily time step typically uses very simple statistical methods or climate analogue methods. These methods generally lack the sophistication to achieve unbiased, reliable and coherent forecasts of daily amounts and seasonal accumulated totals. In this study, we propose and evaluate a Rainfall Post-Processing method for Seasonal forecasts (RPP-S), which is based on the Bayesian joint probability modelling approach for calibrating daily forecasts and the Schaake Shuffle for connecting the daily ensemble members of different lead times. We apply the method to post-process ACCESS-S forecasts for 12 perennial and ephemeral catchments across Australia and for 12 initialisation dates. RPP-S significantly reduces bias in raw forecasts and improves both skill and reliability. RPP-S forecasts are also more skilful and reliable than forecasts derived from ACCESS-S forecasts that have been post-processed using quantile mapping, especially for monthly and seasonal accumulations. Several opportunities to improve the robustness and skill of RPP-S are identified. The new RPP-S post-processed forecasts will be used in ensemble sub-seasonal to seasonal streamflow applications.</font>
+
+<hr>
+
+
+<h3 id="原文摘要"><a href="#原文摘要" class="headerlink" title="原文摘要:"></a>原文摘要:</h3><font face="Calibri" color="#131316" size="3">降水预报是水文预报系统中次季节到季节时间尺度上不可分割的一部分。在季节预报中，全球气候系统（GCMs）是降水预报的重要来源。但是在水文应用中，GCM预报通常都存在误差和不可靠的不确定性传播，因而在使用之前进行校正是非常有必要的。过去有多种巧妙的统计方法用于月或者季节的集合预报。但是，针对于日时间步长上季节预报的校正都只局限于简单的统计方法和气候相似理论。这些方法通常难以巧妙地获得去除偏差、可靠和一致的日总量或季节累计降水预报。在本文的研究中，我们提出并评估了一种季节降水预报的后处理方法(RPP-S),其基于贝叶斯联合概率模型来校正日降水预报，并利用“Schaake Shuffle”方法使得日降水集合成员在不同超前时间产生关联。我们应用这种方法后处理了ACCESS-S预报的12个横跨澳大利亚的常流河与季节性流域，模式采用了12个初始化日期。RPP-S显著地减小了原有模式预报的偏差，改善了预报技巧和可靠性。ACCESS-S预报结果采用RPP-S也要比于分位映射法(“quantile mapping”)更加有技巧性和可靠性，尤其是在月和季节的累计降水预报。对于提升RPP-S的稳健性和技巧存在诸多机会，这种集成了新型RPP-S后处理方案的预报，将在径流次季节到季节时间尺度集合预报中应用。</font>
+
+
+<hr>
+
+<h3 id="图文"><a href="#图文" class="headerlink" title="图文"></a>图文</h3><p><img src="/images/paper_2_1.png" alt=""><br><img src="/images/paper_2_2.png" alt=""><br><img src="/images/paper_2_3.png" alt=""><br><img src="/images/paper_2_4.png" alt=""><br><img src="/images/paper_2_5.png" alt=""><br><img src="/images/paper_2_6.png" alt=""><br><img src="/images/paper_2_7.png" alt=""><br><img src="/images/paper_2_8.png" alt=""><br><img src="/images/paper_2_9.png" alt=""></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+<blockquote class="blockquote-center" style="color: #ccc;">
+    -------------本文结束 <i class="fa fa-paw"></i> 感谢阅读-------------
+</blockquote>
+
+  <span id="inline-green" style="border-radius:3px;">作者</span>：<a class="link-blue" href="https://github.com/gavin971" target="_blank">Gavin</a><br/>有问题请在相应<a class="link-blue" href="https://gavin971.github.io/" target="_blank">页面留言</a>(评论系统DISQUS需要"翻墙"才可见)<br/>或者私信给我 <a class="link-blue" href="https://climate2weather.cc" target="_blank">GMAIL: zhpfu.atm@gmail.com</a>。
+
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>满分是10分的话，这篇文章你给几分</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/reward/reward_wechat.png" alt="Gavin WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/reward/reward_alipay.png" alt="Gavin Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Bayesian-modelling/" rel="tag"><i class="fa fa-tag"></i> Bayesian modelling</a>
+          
+            <a href="/tags/Subseasonal-to-Seasonal-rainfall/" rel="tag"><i class="fa fa-tag"></i> Subseasonal to Seasonal rainfall</a>
+          
+            <a href="/tags/climate-model/" rel="tag"><i class="fa fa-tag"></i> climate model</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/12/Postgraduate-Admission-Test/" rel="next" title="大气科学考(保)研，你当年是如何考(保)上的？">
+                <i class="fa fa-chevron-left"></i> 大气科学考(保)研，你当年是如何考(保)上的？
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/avatar/avatar.png"
+               alt="Gavin" />
+          <p class="site-author-name" itemprop="name">Gavin</p>
+          <p class="site-description motion-element" itemprop="description">Still Waters Run Deep!</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/gavin971" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/Gavin_Fu971" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/escapelanzhou" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="/weblog" title="建站日志" target="_blank">建站日志</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://neveryu.github.io" title="Never_yu" target="_blank">Never_yu</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://novarizark.github.io/" title="LZN's Blog" target="_blank">LZN's Blog</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原文摘要"><span class="nav-number">2.</span> <span class="nav-text">原文摘要:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图文"><span class="nav-number">3.</span> <span class="nav-text">图文</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+      <!-- hack一个虚线出来 -->
+      <section style="border-top:1px dotted #ccc;height:10px;"></section>
+      
+<script type="text/javascript" src="//ra.revolvermaps.com/0/0/6.js?i=031trf1l7h9&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
+
+      
+      
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">您是第<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>个小伙伴</span>
+  
+
+  
+    <span class="site-pv">本站总浏览<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        <div class="copyright" >
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-thumbs-up"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gavin</span>
+</div>
+
+<!--<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io" rel="external nofollow">Hexo</a> 强力驱动
+</div>
+-->
+
+<div class="theme-info">
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Pisces
+  </a>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count" style="padding-left:5px; color: #e90f92;">全站共 25.7k 字</span>
+</div>
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'www-climate2weather-cc';
+      var disqus_identifier = '2019/04/12/paper-2/';
+      var disqus_title = "贝叶斯模型方法后处理全球气候模式输出的逐日次季节到季节降水预报及评估";
+      var disqus_url = 'https://gavin971.github.io/2019/04/12/paper-2/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+
+<!-- <script type="text/javascript" src="/js/src/dynamic_bg.js"></script> -->
+<!-- <script type="text/javascript" src="/js/three/three-waves.min.js"></script> -->
+  <!-- 按需加载背景 -->
+  <!-- <!-- 按需加载背景 -->
+<!-- 识别手机或电脑的js开始 -->  
+<script type="text/javascript">   
+(function(){  
+var res = GetRequest();  
+var par = res['index'];  
+if(par!='gfan'){  
+  var ua=navigator.userAgent.toLowerCase();  
+  var contains=function (a, b){  
+      if(a.indexOf(b)!=-1){return true;}  
+  };   
+  if((contains(ua,"android") && contains(ua,"mobile"))||(contains(ua,"android") && contains(ua,"mozilla"))||(contains(ua,"android") && contains(ua,"opera"))||contains(ua,"ucweb7")||contains(ua,"iphone")){
+    return false;
+  } else {
+    $.getScript("/js/src/particle.js?v=5.0.1");
+  }
+}  
+})();  
+function GetRequest() {  
+var url = location.search;
+var theRequest = new Object();  
+if (url.indexOf("?") != -1) {  
+  var str = url.substr(1);  
+  strs = str.split("&");  
+  for(var i = 0; i < strs.length; i ++) {  
+    theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);  
+  }  
+}  
+return theRequest;  
+}  
+</script>  
+<!-- 识别手机或电脑的js结束 -->   -->
+  <!-- 页面点击小红心 -->
+<!--   <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js?v=5.0.1"></script> -->
+  <!-- 页面移动stars -->
+  <!-- <script type="text/javascript" src="/js/src/jquery-stars.js?v=5.0.1"></script>
+<script type="text/javascript">
+jQuery('body').jstars({
+	image_path: '/images',
+	image: 'candy-cane-stars.png',
+	style: 'white',
+	width: 34,
+	height: 34,
+	delay: 700,
+	frequency: 5
+});
+</script> -->
+  <script type="text/javascript">var OriginTitile=document.title,st;document.addEventListener("visibilitychange",function(){document.hidden?(document.title="Geek is sexy!",clearTimeout(st)):(document.title="Wecome Back! "+OriginTitile,st=setTimeout(function(){document.title=OriginTitile},4e3))})</script>
+<!--   
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.7;
+    right: 0px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -20px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    document.getElementById("live2dcanvas").style.width = '75px';
+    document.getElementById("live2dcanvas").style.height = '150px';
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/z16.model.json", 0.5);});
+})();
+</script>
+ -->
+</body>
+</html>

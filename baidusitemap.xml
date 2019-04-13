@@ -4,6 +4,30 @@
 
     
   <url>
+    <loc>https://gavin971.github.io/2019/04/12/paper-2/</loc>
+    <lastmod>2019-04-13T14:28:56.768Z</lastmod>
+    <data>
+        <display>
+        <title>贝叶斯模型方法后处理全球气候模式输出的逐日次季节到季节降水预报及评估</title>
+        <pubTime>2019-04-12T14:09:24.000Z</pubTime>
+        
+        <tag>Bayesian modelling</tag>
+         
+        <tag>Subseasonal to Seasonal rainfall</tag>
+         
+        <tag>climate model</tag>
+         
+         
+           
+             
+              <breadCrumb title="文献阅读" url="https://gavin971.github.io/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://gavin971.github.io/2019/04/05/paper-1/</loc>
     <lastmod>2019-04-12T13:15:03.672Z</lastmod>
     <data>
@@ -134,9 +158,9 @@
         <title>日常实用小技巧(1)</title>
         <pubTime>2019-04-04T04:34:51.000Z</pubTime>
         
-        <tag>Linux</tag>
-         
         <tag>MacOS</tag>
+         
+        <tag>Linux</tag>
          
          
            
