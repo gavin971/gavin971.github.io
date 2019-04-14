@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://gavin971.github.io/about/resume.html</loc>
+    
+    <lastmod>2019-04-14T01:39:26.696Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://gavin971.github.io/about/index.html</loc>
     
     <lastmod>2019-04-14T01:07:48.151Z</lastmod>
@@ -233,14 +240,14 @@
   </url>
   
   <url>
-    <loc>https://gavin971.github.io/tags/index.html</loc>
+    <loc>https://gavin971.github.io/yu/css-hack.html</loc>
     
     <lastmod>2017-10-31T00:01:50.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://gavin971.github.io/yu/css-hack.html</loc>
+    <loc>https://gavin971.github.io/tags/index.html</loc>
     
     <lastmod>2017-10-31T00:01:50.000Z</lastmod>
     
