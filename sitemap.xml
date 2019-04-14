@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://gavin971.github.io/about/resume.html</loc>
+    <loc>https://gavin971.github.io/about/index.html</loc>
     
-    <lastmod>2019-04-14T01:39:26.696Z</lastmod>
+    <lastmod>2019-04-14T02:09:26.135Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://gavin971.github.io/about/index.html</loc>
+    <loc>https://gavin971.github.io/weblog/index.html</loc>
     
-    <lastmod>2019-04-14T01:07:48.151Z</lastmod>
+    <lastmod>2019-04-14T02:08:22.108Z</lastmod>
     
   </url>
   
@@ -19,13 +19,6 @@
     <loc>https://gavin971.github.io/resources/index.html</loc>
     
     <lastmod>2019-04-14T00:43:31.966Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://gavin971.github.io/weblog/index.html</loc>
-    
-    <lastmod>2019-04-13T17:52:22.313Z</lastmod>
     
   </url>
   
@@ -205,14 +198,14 @@
   </url>
   
   <url>
-    <loc>https://gavin971.github.io/2017/11/04/Python-Algorithmic/</loc>
+    <loc>https://gavin971.github.io/2017/11/04/CPP-History/</loc>
     
     <lastmod>2017-11-04T06:29:29.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://gavin971.github.io/2017/11/04/CPP-History/</loc>
+    <loc>https://gavin971.github.io/2017/11/04/Python-Algorithmic/</loc>
     
     <lastmod>2017-11-04T06:29:29.000Z</lastmod>
     
