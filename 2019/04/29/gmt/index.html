@@ -133,7 +133,7 @@
 <meta property="og:image" content="http://ppjd2562a.bkt.clouddn.com/anim01.gif">
 <meta property="og:image" content="http://ppjd2562a.bkt.clouddn.com/GMT_tutor3.png">
 <meta property="og:image" content="https://gavin971.github.io/images/my_wechat.jpg">
-<meta property="og:updated_time" content="2019-04-29T13:25:04.441Z">
+<meta property="og:updated_time" content="2019-04-29T13:31:03.765Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GMT5(The General Mapping Tools)初探の安装、配置、运行">
 <meta name="twitter:description" content="由于日常接触的地图和地形文件比较多，而日常使用的NCL、Python、R就绘制地形图或者行政区域地图，就功能上还是没那么专一，而作为气象背景的人，天然地长期处于技术封闭、交流不畅的氛围之下。源于之前处理GeoTIFF的一点启发，觉得把地图绘制得科学性很强，同时又极具视觉感，是大有裨益的。而暂时手头没有Windows的电脑，无法使用arcGIS，那就自然想到了更多跨平台、开源的软件，GMT是不二">
@@ -476,18 +476,9 @@
 </blockquote>
 <a id="more"></a>
 <h1 id="0-啥也别说，先上图！（床图，七牛云免费服务器空间，macOS上开源客户端：Qbox）"><a href="#0-啥也别说，先上图！（床图，七牛云免费服务器空间，macOS上开源客户端：Qbox）" class="headerlink" title="0.啥也别说，先上图！（床图，七牛云免费服务器空间，macOS上开源客户端：Qbox）"></a>0.啥也别说，先上图！（床图，七牛云免费服务器空间，macOS上开源客户端：Qbox）</h1><p><img src="http://ppjd2562a.bkt.clouddn.com/afar_3D.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/topo44.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/hillshading_fig5.jpg" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/topo33.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/topo22.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/beachball_3.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/CN-Rivers.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/cn.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/dataset_dcw_03.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/chinese-texts.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/chinese-weeks.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/example_28.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/GMT_Chinese.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/GMT_tutor2_5.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/GMT_tutor3.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/map3.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/map22.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/plot_subduction.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/anim01.gif" alt=""></p>
-<h1 id="1-GMT安装-以macOS为例"><a href="#1-GMT安装-以macOS为例" class="headerlink" title="1.GMT安装,以macOS为例"></a>1.GMT安装,以macOS为例</h1><p>安装 Homebrew:</p>
-<blockquote>
-<p>$ /usr/bin/ruby -e “$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;" target="_blank" rel="noopener">https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</a></p>
-</blockquote>
-<p>安装 GMT:</p>
-<blockquote>
-<p>$ brew update &amp;&amp; brew upgrade<br>$ brew install gmt</p>
-</blockquote>
-<p>安装 ghostscript:</p>
-<blockquote>
-<p>$ brew install ghostscript</p>
-</blockquote>
+<h1 id="1-GMT安装-以macOS为例"><a href="#1-GMT安装-以macOS为例" class="headerlink" title="1.GMT安装,以macOS为例"></a>1.GMT安装,以macOS为例</h1><p>安装 Homebrew:<br><code>$ /usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></p>
+<p>安装 GMT:<br><code>$ brew update &amp;&amp; brew upgrade</code><br><code>$ brew install gmt</code></p>
+<p>安装 ghostscript:<br><code>$ brew install ghostscript</code></p>
 <p>测试安装是否成功:</p>
 <blockquote>
 <p>$ gmt –version<br>5.4.5</p>
