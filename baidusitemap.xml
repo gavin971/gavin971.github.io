@@ -4,8 +4,38 @@
 
     
   <url>
+    <loc>https://gavin971.github.io/2019/04/29/gmt/</loc>
+    <lastmod>2019-04-29T12:46:38.694Z</lastmod>
+    <data>
+        <display>
+        <title>GMT5(The General Mapping Tools)初探の安装、配置、运行</title>
+        <pubTime>2019-04-29T11:25:35.000Z</pubTime>
+        
+        <tag>GMT5</tag>
+         
+        <tag>Map Plot</tag>
+         
+        <tag>Raster</tag>
+         
+        <tag>DEM</tag>
+         
+        <tag>GeoTIFF</tag>
+         
+        <tag>Shapefile</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术积累" url="https://gavin971.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://gavin971.github.io/2019/04/29/atm-yml/</loc>
-    <lastmod>2019-04-29T11:22:28.742Z</lastmod>
+    <lastmod>2019-04-29T11:27:27.406Z</lastmod>
     <data>
         <display>
         <title>一键安装气象常用的Python库(大气科学Python库)</title>

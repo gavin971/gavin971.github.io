@@ -1,0 +1,1233 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="google-site-verification" content="_olLbqJsLPaypjGvvPnkJqjV5uDLUrmRKJ-aE5YTFnQ" />
+<meta name="baidu-site-verification" content="eskIgPwJM1" />
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Courier New:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="GMT5,Map Plot,Raster,DEM,GeoTIFF,Shapefile," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Climate2Weather" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="由于日常接触的地图和地形文件比较多，而日常使用的NCL、Python、R就绘制地形图或者行政区域地图，就功能上还是没那么专一，而作为气象背景的人，天然地长期处于技术封闭、交流不畅的氛围之下。源于之前处理GeoTIFF的一点启发，觉得把地图绘制得科学性很强，同时又极具视觉感，是大有裨益的。而暂时手头没有Windows的电脑，无法使用arcGIS，那就自然想到了更多跨平台、开源的软件，GMT是不二">
+<meta name="keywords" content="GMT5,Map Plot,Raster,DEM,GeoTIFF,Shapefile">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GMT5(The General Mapping Tools)初探の安装、配置、运行">
+<meta property="og:url" content="https://gavin971.github.io/2019/04/29/gmt/index.html">
+<meta property="og:site_name" content="Climate2Weather">
+<meta property="og:description" content="由于日常接触的地图和地形文件比较多，而日常使用的NCL、Python、R就绘制地形图或者行政区域地图，就功能上还是没那么专一，而作为气象背景的人，天然地长期处于技术封闭、交流不畅的氛围之下。源于之前处理GeoTIFF的一点启发，觉得把地图绘制得科学性很强，同时又极具视觉感，是大有裨益的。而暂时手头没有Windows的电脑，无法使用arcGIS，那就自然想到了更多跨平台、开源的软件，GMT是不二">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ppjd2562a.bkt.clouddn.com/GMT_tutor3.png">
+<meta property="og:image" content="http://ppjd2562a.bkt.clouddn.com/afar_3D.png">
+<meta property="og:image" content="http://ppjd2562a.bkt.clouddn.com/topo44.png">
+<meta property="og:image" content="http://gmt-tutorials.org/_images/hillshading_fig5.png">
+<meta property="og:image" content="http://ppjd2562a.bkt.clouddn.com/topo33.png">
+<meta property="og:image" content="http://ppjd2562a.bkt.clouddn.com/topo22.png">
+<meta property="og:image" content="http://ppjd2562a.bkt.clouddn.com/beachball_3.png">
+<meta property="og:image" content="http://ppjd2562a.bkt.clouddn.com/CN-Rivers.png">
+<meta property="og:image" content="http://ppjd2562a.bkt.clouddn.com/cn.png">
+<meta property="og:image" content="http://ppjd2562a.bkt.clouddn.com/dataset_dcw_03.png">
+<meta property="og:image" content="http://ppjd2562a.bkt.clouddn.com/chinese-texts.png">
+<meta property="og:image" content="http://ppjd2562a.bkt.clouddn.com/chinese-weeks.png">
+<meta property="og:image" content="http://ppjd2562a.bkt.clouddn.com/example_28.png">
+<meta property="og:image" content="http://ppjd2562a.bkt.clouddn.com/GMT_Chinese.png">
+<meta property="og:image" content="http://ppjd2562a.bkt.clouddn.com/GMT_tutor2_5.png">
+<meta property="og:image" content="http://ppjd2562a.bkt.clouddn.com/GMT_tutor3.png">
+<meta property="og:image" content="http://ppjd2562a.bkt.clouddn.com/map3.png">
+<meta property="og:image" content="http://ppjd2562a.bkt.clouddn.com/map22.png">
+<meta property="og:image" content="http://ppjd2562a.bkt.clouddn.com/plot_subduction.png">
+<meta property="og:image" content="http://ppjd2562a.bkt.clouddn.com/anim01.gif">
+<meta property="og:image" content="http://ppjd2562a.bkt.clouddn.com/GMT_tutor3.png">
+<meta property="og:image" content="https://gavin971.github.io/images/my_wechat.jpg">
+<meta property="og:updated_time" content="2019-04-29T12:46:38.694Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GMT5(The General Mapping Tools)初探の安装、配置、运行">
+<meta name="twitter:description" content="由于日常接触的地图和地形文件比较多，而日常使用的NCL、Python、R就绘制地形图或者行政区域地图，就功能上还是没那么专一，而作为气象背景的人，天然地长期处于技术封闭、交流不畅的氛围之下。源于之前处理GeoTIFF的一点启发，觉得把地图绘制得科学性很强，同时又极具视觉感，是大有裨益的。而暂时手头没有Windows的电脑，无法使用arcGIS，那就自然想到了更多跨平台、开源的软件，GMT是不二">
+<meta name="twitter:image" content="http://ppjd2562a.bkt.clouddn.com/GMT_tutor3.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://gavin971.github.io/2019/04/29/gmt/"/>
+
+
+<!-- 网页加载条 -->
+<script src="/js/src/pace.min.js"></script>
+ 
+  
+<script type="text/javascript" color="0,0,255" opacity='0.7' zIndex="-2" count="70" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+
+<!-- <div class="bg_content">
+  <canvas id="canvas"></canvas>
+</div> -->   
+<!-- 配合后面的 <script type="text/javascript" src="/js/src/dynamic_bg.js"></script>  使用 -->
+
+
+  <title> GMT5(The General Mapping Tools)初探の安装、配置、运行 | Climate2Weather </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+<!--   <a href="https://github.com/gavin971"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a> -->
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Climate2Weather</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">人生不妨大胆一点, 反正只有一次</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            书籍
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-resources">
+          <a href="/resources" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-bell"></i> <br />
+            
+            资源
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+
+     
+
+
+
+
+
+
+
+
+
+
+     
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search fa-lg"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                GMT5(The General Mapping Tools)初探の安装、配置、运行
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2019-04-29T19:25:35+08:00" content="2019-04-29">
+              2019-04-29
+            </time>
+          </span>
+
+
+
+
+          
+            <span class="post-letters-count">
+              &nbsp; | &nbsp;
+            <span>1,491 字</span>
+              &nbsp; | &nbsp;
+            <span>7 min</span>
+            </span>
+          
+
+
+
+
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术积累/" itemprop="url" rel="index">
+                    <span itemprop="name">技术积累</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2019/04/29/gmt/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/04/29/gmt/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv">热度
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>℃
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://ppjd2562a.bkt.clouddn.com/GMT_tutor3.png" alt=""></p>
+<blockquote>
+<p><strong><font color="#0000ff">由于日常接触的地图和地形文件比较多，而日常使用的NCL、Python、R就绘制地形图或者行政区域地图，就功能上还是没那么专一，而作为气象背景的人，天然地长期处于技术封闭、交流不畅的氛围之下。源于之前处理GeoTIFF的一点启发，觉得把地图绘制得科学性很强，同时又极具视觉感，是大有裨益的。而暂时手头没有Windows的电脑，无法使用arcGIS，那就自然想到了更多跨平台、开源的软件，GMT是不二之选！</font></strong></p>
+</blockquote>
+<a id="more"></a>
+<p>0.啥也别说，先上图！（床图，七牛云免费服务器空间，macOS上开源客户端：Qbox）</p>
+<p><img src="http://ppjd2562a.bkt.clouddn.com/afar_3D.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/topo44.png" alt=""><br><img src="http://gmt-tutorials.org/_images/hillshading_fig5.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/topo33.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/topo22.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/beachball_3.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/CN-Rivers.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/cn.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/dataset_dcw_03.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/chinese-texts.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/chinese-weeks.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/example_28.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/GMT_Chinese.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/GMT_tutor2_5.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/GMT_tutor3.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/map3.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/map22.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/plot_subduction.png" alt=""><br><img src="http://ppjd2562a.bkt.clouddn.com/anim01.gif" alt=""></p>
+<h1 id="1-GMT安装-以macOS为例"><a href="#1-GMT安装-以macOS为例" class="headerlink" title="1.GMT安装,以macOS为例"></a>1.GMT安装,以macOS为例</h1><p>安装 Homebrew:</p>
+<blockquote>
+<p>$ /usr/bin/ruby -e “$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;" target="_blank" rel="noopener">https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</a></p>
+</blockquote>
+<p>安装 GMT:</p>
+<blockquote>
+<p>$ brew update &amp;&amp; brew upgrade<br>$ brew install gmt</p>
+</blockquote>
+<p>安装 ghostscript:</p>
+<blockquote>
+<p>$ brew install ghostscript</p>
+</blockquote>
+<p>测试安装是否成功:</p>
+<blockquote>
+<p>$ gmt –version<br>5.4.5</p>
+</blockquote>
+<p><strong>如果是使用的dmg<a href="http://mirrors.ustc.edu.cn/gmt/bin/gmt-5.4.5-darwin-x86_64.dmg" target="_blank" rel="noopener">安装包</a>安装的话，
+</strong></p>
+<blockquote>
+<p>1.下载：<a href="http://mirrors.ustc.edu.cn/gmt/bin/gmt-5.4.5-darwin-x86_64.dmg" target="_blank" rel="noopener">gmt-5.4.5-darwin-x86_64.dmg</a></p>
+</blockquote>
+<blockquote>
+<p>2.双击 dmg 包以解压，将解压得到的 GMT-5.4.5.app 拖动到 Applications 目录即可。GMT 默认会安装到 /Applications/GMT-5.4.5.app/ 目录下。</p>
+<p>3.将如下语句:</p>
+</blockquote>
+<p><code>export PATH=${PATH}:/Applications/GMT-5.4.5.app/Contents/Resources/bin</code></p>
+<blockquote>
+<p>加入到 ~/.bashrc 中即可。</p>
+</blockquote>
+<blockquote>
+<p>4.测试安装是否成功:</p>
+</blockquote>
+<p><code>$ gmt --version
+5.4.5</code></p>
+<h1 id="2-GMT环境变量配置、中文支持、运行"><a href="#2-GMT环境变量配置、中文支持、运行" class="headerlink" title="2.GMT环境变量配置、中文支持、运行"></a>2.GMT环境变量配置、中文支持、运行</h1><ul>
+<li>以macOS为例，如果之前用是zsh的终端环境，在此最好，切换为bash环境，至少是环境变量文件:~/.bashrc或~/.bash_profile要修改过来，并添加。(homebrew安装最为推荐！！！)</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> GMT</span></span><br><span class="line">export GMT5HOME=/usr/local/Cellar/gmt/5.4.5_3/</span><br><span class="line">export PATH=$&#123;GMT5HOME&#125;/bin:$PATH</span><br><span class="line">export LD_LIBRARY_PATH=$&#123;LD_LIBRARY_PATH&#125;:$&#123;GMT5HOME&#125;/lib</span><br><span class="line">export GMT_DATADIR=/Users/zhpfu/Downloads/GMT/GMTDB</span><br></pre></td></tr></table></figure>
+<ul>
+<li>中文支持</li>
+</ul>
+<p>ghostscript的中文支持</p>
+<ol>
+<li>下载脚本 cjk-gs-integrate.pl 3. cjk-gs-integrate.pl 脚本的执行依赖于命令 kpsewhich，该命令由 TeXLive 提供。</li>
+</ol>
+<p>执行 kpsewhich –version 检查 kpsewhich 这个命令是否存在。若不存在，则需要单独安装。使用homebrew安装安装:</p>
+<p><code>brew cask install basictex</code></p>
+<p>执行脚本:</p>
+<p><code>$ sudo perl cjk-gs-integrate.pl</code><br>该脚本会自动搜索系统中自带的中文字体，并生成gs支持中文所需的配置文件。</p>
+<p>GMT的中文支持<br>在 ~/.gmt（若无该文件夹，请自行新建）下创建字体配置文件:</p>
+<p><code>$ touch ~/.gmt/PSL_custom_fonts.txt</code><br><code>$ open ~/.gmt/PSL_custom_fonts.txt</code><br>打开 GMT 字体配置文件，在文件中加入如下语句:</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">STSong-Light-UniGB-UTF8-H  <span class="number">0.700</span>    <span class="number">1</span></span><br><span class="line">STFangsong-Light-UniGB-UTF8-H  <span class="number">0.700</span>    <span class="number">1</span></span><br><span class="line">STHeiti-Regular-UniGB-UTF8-H   <span class="number">0.700</span>   <span class="number">1</span></span><br><span class="line">STKaiti-Regular-UniGB-UTF8-H   <span class="number">0.700</span>   <span class="number">1</span></span><br><span class="line">STSong-Light-UniGB-UTF8-V  <span class="number">0.700</span>    <span class="number">1</span></span><br><span class="line">STFangsong-Light-UniGB-UTF8-V  <span class="number">0.700</span>    <span class="number">1</span></span><br><span class="line">STHeiti-Regular-UniGB-UTF8-V   <span class="number">0.700</span>   <span class="number">1</span></span><br><span class="line">STKaiti-Regular-UniGB-UTF8-V   <span class="number">0.700</span>   <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>这几句话分别添加了宋体、仿宋、黑体和楷体四种字体的横排和竖排两种方式。</p>
+<p>用<code>gmt pstext -L</code>命令查看 GMT 当前的字体配置:</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ gmt pstext -L</span><br><span class="line">Font #  Font Name</span><br><span class="line">------------------------------------</span><br><span class="line">0   Helvetica</span><br><span class="line">1   Helvetica-Bold</span><br><span class="line"><span class="bullet">...    </span>......</span><br><span class="line">39 STSong-Light-UniGB-UTF8-H</span><br><span class="line">40 STFangsong-Light-UniGB-UTF8-H</span><br><span class="line">41 STHeiti-Regular-UniGB-UTF8-H</span><br><span class="line">42 STKaiti-Regular-UniGB-UTF8-H</span><br><span class="line">43 STSong-Light-UniGB-UTF8-V</span><br><span class="line">44 STFangsong-Light-UniGB-UTF8-V</span><br><span class="line">45 STHeiti-Regular-UniGB-UTF8-V</span><br><span class="line">46 STKaiti-Regular-UniGB-UTF8-V</span><br></pre></td></tr></table></figure>
+<p>其中 39-46 号字体为新添加的中文字体。以后要用中文字体时，需要用这些编号来指定字体，也许你的机器上的编号和这里不同。请自行确认你的中文字体编号。如果编号不是39到46，请自行修改以下测试脚本。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">gmt set FONT_TITLE 25p,41,black</span><br><span class="line">gmt set FONT_LABEL 15p,39,black</span><br><span class="line"></span><br><span class="line">gmt pstext -R0/8/0/4 -JX12c/4c -Bxaf+l"X轴" -Byaf+l"Y轴" \</span><br><span class="line">    -BWSen+t"中文标题" -F+f -P &gt; GMT_Chinese.ps &lt;&lt; EOF</span><br><span class="line">2 3.5 25p,39,black 宋体横排</span><br><span class="line">2 2.5 25p,40,blue  仿宋横排</span><br><span class="line">2 1.5 25p,41,red   黑体横排</span><br><span class="line">2 0.5 25p,42,green 楷体横排</span><br><span class="line">4 3.5 25p,43,black 宋体竖排</span><br><span class="line">5 3.5 25p,44,blue  仿宋竖排</span><br><span class="line">6 3.5 25p,45,red   黑体竖排</span><br><span class="line">7 3.5 25p,46,green 楷体竖排</span><br><span class="line">EOF</span><br><span class="line">gmt psconvert -A -P -Tf GMT_Chinese.ps</span><br><span class="line">gmt psconvert -A -P -Tg GMT_Chinese.ps</span><br><span class="line"></span><br><span class="line">rm gmt.*</span><br></pre></td></tr></table></figure>
+<p>注意：<strong>生成的 PNG、JPG格式的图片中可直接显示中文，而生成的 PDF 文件用 macOS 自带的 PDF 预览工具打开无法显示中文，使用 Adobe Reader 打开则可以正常显示中文。</strong></p>
+<h1 id="3-GMT绘图示例"><a href="#3-GMT绘图示例" class="headerlink" title="3.GMT绘图示例"></a>3.GMT绘图示例</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">R=65/18/117/45+r</span><br><span class="line">J=B90/0/40/30/6.5i</span><br><span class="line">PS=GMT_tutor3.ps</span><br><span class="line">D=earth_relief_03m.grd</span><br><span class="line"></span><br><span class="line">gmt gmtset FONT_ANNOT_PRIMARY 10p</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 裁剪区域地形数据</span></span><br><span class="line">gmt grdcut $D -R55/120/10/50 -GTibet.grd</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 计算区域地形梯度</span></span><br><span class="line">gmt grdgradient Tibet.grd -A0 -Nt -Gint.grad</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 利用psbasemap确定格网标注等参数</span></span><br><span class="line">gmt psbasemap -R$R -J$J -B10g10 -BwSEN -K &gt; $PS</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 绘制地形</span></span><br><span class="line">gmt grdimage -R$R -J$J -Bg10 Tibet.grd -Iint.grad -CTibet.cpt -K -O &gt;&gt; $PS</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 利用pscoast绘制水系、比例尺</span></span><br><span class="line">gmt pscoast -R$R -J$J -N1/0.5p,white -Ia/0.15p,177/178/183 -I1/0.5p,61/99/172 -C81/174/254 -Lg86/18+c30+w1000+u+f -K -O &gt;&gt; $PS</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 绘制两个色标</span></span><br><span class="line">gmt psscale -Dx-0.3i/1.4i+w2.5i/0.15i+ma -CTibet.cpt -G1600/9000 -By+lm -Bxa1000f200 -K -O &gt;&gt; $PS</span><br><span class="line">gmt psscale -Dx-0.3i/0+w1.3i/0.15i+ma -CTibet.cpt -G-3500/0 -L -O &gt;&gt; $PS</span><br><span class="line"></span><br><span class="line">gmt psconvert -A -P -Tg $PS</span><br><span class="line"></span><br><span class="line">rm gmt.* Tibet.grd int.grad</span><br></pre></td></tr></table></figure>
+<p><code>chmod 777  GMT_tutor3.sh</code><br><code>./GMT_tutor3.sh</code></p>
+<p>出图效果：</p>
+<p><img src="http://ppjd2562a.bkt.clouddn.com/GMT_tutor3.png" alt=""></p>
+<h1 id="4-GMT相关资源汇总"><a href="#4-GMT相关资源汇总" class="headerlink" title="4.GMT相关资源汇总"></a>4.GMT相关资源汇总</h1><p>参考网站：（表示感谢！）</p>
+<p><a href="http://gmt.soest.hawaii.edu/projects/gmt" target="_blank" rel="noopener">官方网站：夏威夷大学</a><br><a href="http://gmt-tutorials.org/en/index.html" target="_blank" rel="noopener">官方手册</a><br><a href="https://gmt-china.org/" target="_blank" rel="noopener">中文社区</a><br><a href="https://docs.gmt-china.org/5.4.5/" target="_blank" rel="noopener">中文手册</a><br><a href="http://gmt-tutorials.org/index.html" target="_blank" rel="noopener">台湾手册</a><br><a href="https://zhaozhiyuan.org/" target="_blank" rel="noopener">推荐博客：赵志远博客</a><br><a href="https://jimmytseng79.github.io/GMT5_tutorials/" target="_blank" rel="noopener">推荐博客：GMT5 教程 | 編者: Po-Chin Tseng</a><br><a href="https://blog.seisman.info/gmt-insert-map/" target="_blank" rel="noopener">推荐博客：SeiMan USTC地球物理学博士</a><br><a href="https://zhongpenggeo.github.io/sites/archives.html" target="_blank" rel="noopener">推荐博客：Beauty is life</a><br><a href="http://geodesygina.com/tag/etopo1.html" target="_blank" rel="noopener">推荐博客：Gina Schmalzle</a><br><a href="http://wap.sciencenet.cn/blog-2637373-974284.html" target="_blank" rel="noopener">推荐博客：科学网-杨峰峰</a><br><a href="http://soliton.vm.bytemark.co.uk/pub/cpt-city/" target="_blank" rel="noopener">colorbar一览(cpt-city)</a><br><a href="http://colorizer.org/" target="_blank" rel="noopener">Hue取色器</a></p>
+<p><strong><p align="center"><font color="#c8044b" size="2" face="黑体">有任何问题都欢迎交流探讨，共同学习进步！</font></p></strong><br> <img src="/images/my_wechat.jpg" width="150" height="200" alt="" align="center"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+<blockquote class="blockquote-center" style="color: #ccc;">
+    -------------本文结束 <i class="fa fa-paw"></i> 感谢阅读-------------
+</blockquote>
+
+  <span id="inline-green" style="border-radius:3px;">作者</span>：<a class="link-blue" href="https://github.com/gavin971" target="_blank">Gavin</a><br/>有问题请在相应<a class="link-blue" href="https://gavin971.github.io/" target="_blank">页面留言</a>(评论系统DISQUS需要"翻墙"才可见)<br/>或者私信给我 <a class="link-blue" href="https://climate2weather.cc" target="_blank">GMAIL: zhpfu.atm@gmail.com</a>。
+
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>满分是10分的话，这篇文章你给几分</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/reward/reward_wechat.png" alt="Gavin WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/reward/reward_alipay.png" alt="Gavin Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/GMT5/" rel="tag"><i class="fa fa-tag"></i> GMT5</a>
+          
+            <a href="/tags/Map-Plot/" rel="tag"><i class="fa fa-tag"></i> Map Plot</a>
+          
+            <a href="/tags/Raster/" rel="tag"><i class="fa fa-tag"></i> Raster</a>
+          
+            <a href="/tags/DEM/" rel="tag"><i class="fa fa-tag"></i> DEM</a>
+          
+            <a href="/tags/GeoTIFF/" rel="tag"><i class="fa fa-tag"></i> GeoTIFF</a>
+          
+            <a href="/tags/Shapefile/" rel="tag"><i class="fa fa-tag"></i> Shapefile</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/29/atm-yml/" rel="next" title="一键安装气象常用的Python库(大气科学Python库)">
+                <i class="fa fa-chevron-left"></i> 一键安装气象常用的Python库(大气科学Python库)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/avatar/avatar.png"
+               alt="Gavin" />
+          <p class="site-author-name" itemprop="name">Gavin</p>
+          <p class="site-description motion-element" itemprop="description">Still Waters Run Deep!</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/gavin971" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/Gavin_Fu971" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/escapelanzhou" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="/weblog" title="建站日志" target="_blank">建站日志</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://neveryu.github.io" title="Never_yu" target="_blank">Never_yu</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://novarizark.github.io/" title="LZN's Blog" target="_blank">LZN's Blog</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-GMT安装-以macOS为例"><span class="nav-number">1.</span> <span class="nav-text">1.GMT安装,以macOS为例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-GMT环境变量配置、中文支持、运行"><span class="nav-number">2.</span> <span class="nav-text">2.GMT环境变量配置、中文支持、运行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-GMT绘图示例"><span class="nav-number">3.</span> <span class="nav-text">3.GMT绘图示例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-GMT相关资源汇总"><span class="nav-number">4.</span> <span class="nav-text">4.GMT相关资源汇总</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+      <!-- hack一个虚线出来 -->
+      <section style="border-top:1px dotted #ccc;height:10px;"></section>
+      
+<script type="text/javascript" src="//ra.revolvermaps.com/0/0/6.js?i=031trf1l7h9&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
+
+      
+      
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">您是第<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>个小伙伴</span>
+  
+
+  
+    <span class="site-pv">本站总浏览<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        <div class="copyright" >
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-thumbs-up"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gavin</span>
+</div>
+
+<!--<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io" rel="external nofollow">Hexo</a> 强力驱动
+</div>
+-->
+
+<div class="theme-info">
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Pisces
+  </a>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count" style="padding-left:5px; color: #e90f92;">全站共 44.4k 字</span>
+</div>
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'www-climate2weather-cc';
+      var disqus_identifier = '2019/04/29/gmt/';
+      var disqus_title = "GMT5(The General Mapping Tools)初探の安装、配置、运行";
+      var disqus_url = 'https://gavin971.github.io/2019/04/29/gmt/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+
+<!-- <script type="text/javascript" src="/js/src/dynamic_bg.js"></script> -->
+<!-- <script type="text/javascript" src="/js/three/three-waves.min.js"></script> -->
+  <!-- 按需加载背景 -->
+  <!-- <!-- 按需加载背景 -->
+<!-- 识别手机或电脑的js开始 -->  
+<script type="text/javascript">   
+(function(){  
+var res = GetRequest();  
+var par = res['index'];  
+if(par!='gfan'){  
+  var ua=navigator.userAgent.toLowerCase();  
+  var contains=function (a, b){  
+      if(a.indexOf(b)!=-1){return true;}  
+  };   
+  if((contains(ua,"android") && contains(ua,"mobile"))||(contains(ua,"android") && contains(ua,"mozilla"))||(contains(ua,"android") && contains(ua,"opera"))||contains(ua,"ucweb7")||contains(ua,"iphone")){
+    return false;
+  } else {
+    $.getScript("/js/src/particle.js?v=5.0.1");
+  }
+}  
+})();  
+function GetRequest() {  
+var url = location.search;
+var theRequest = new Object();  
+if (url.indexOf("?") != -1) {  
+  var str = url.substr(1);  
+  strs = str.split("&");  
+  for(var i = 0; i < strs.length; i ++) {  
+    theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);  
+  }  
+}  
+return theRequest;  
+}  
+</script>  
+<!-- 识别手机或电脑的js结束 -->   -->
+  <!-- 页面点击小红心 -->
+<!--   <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js?v=5.0.1"></script> -->
+  <!-- 页面移动stars -->
+  <!-- <script type="text/javascript" src="/js/src/jquery-stars.js?v=5.0.1"></script>
+<script type="text/javascript">
+jQuery('body').jstars({
+	image_path: '/images',
+	image: 'candy-cane-stars.png',
+	style: 'white',
+	width: 34,
+	height: 34,
+	delay: 700,
+	frequency: 5
+});
+</script> -->
+  <script type="text/javascript">var OriginTitile=document.title,st;document.addEventListener("visibilitychange",function(){document.hidden?(document.title="Geek is sexy!",clearTimeout(st)):(document.title="Wecome Back! "+OriginTitile,st=setTimeout(function(){document.title=OriginTitile},4e3))})</script>
+<!--   
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.7;
+    right: 0px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -20px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    document.getElementById("live2dcanvas").style.width = '75px';
+    document.getElementById("live2dcanvas").style.height = '150px';
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/z16.model.json", 0.5);});
+})();
+</script>
+ -->
+</body>
+</html>
