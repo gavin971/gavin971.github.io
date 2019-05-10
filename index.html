@@ -361,6 +361,151 @@
             
               
                 
+                <a class="post-title-link" href="/2019/05/10/era5-download/" itemprop="url">
+                  分享并行下载ERA-5的Python脚本
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2019-05-10T13:00:53+08:00" content="2019-05-10">
+              2019-05-10
+            </time>
+          </span>
+
+
+
+
+          
+            <span class="post-letters-count">
+              &nbsp; | &nbsp;
+            <span>1,383 字</span>
+              &nbsp; | &nbsp;
+            <span>7 min</span>
+            </span>
+          
+
+
+
+
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/科研之路/" itemprop="url" rel="index">
+                    <span itemprop="name">科研之路</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2019/05/10/era5-download/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/05/10/era5-download/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+<!-- 自定义，用于添加摘要图片，文章中不显示 -->
+        
+<!-- 自定义结束 -->
+        
+          <blockquote>
+<p><strong><font color="#0000ff">方便下载ERA5的单层（single level）数据以及多层（pressure）数据，使用ECMWF的Python cds API去下载还是很方便和快捷的。目前，ERA5的数据能够提供1979年-Present了，而且是逐小时的数据，对于多层数据能够提供:</font></strong></p>
+</blockquote>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">'pressure_level</span><span class="symbol">':</span>[</span><br><span class="line">                      <span class="symbol">'1</span>',<span class="symbol">'2</span>',<span class="symbol">'3</span>',</span><br><span class="line">                      <span class="symbol">'5</span>',<span class="symbol">'7</span>',<span class="symbol">'10</span>',</span><br><span class="line">                      <span class="symbol">'20</span>',<span class="symbol">'30</span>',<span class="symbol">'50</span>',</span><br><span class="line">                      <span class="symbol">'70</span>',<span class="symbol">'100</span>',<span class="symbol">'125</span>',</span><br><span class="line">                      <span class="symbol">'150</span>',<span class="symbol">'175</span>',<span class="symbol">'200</span>',</span><br><span class="line">                      <span class="symbol">'225</span>',<span class="symbol">'250</span>',<span class="symbol">'300</span>',</span><br><span class="line">                      <span class="symbol">'350</span>',<span class="symbol">'400</span>',<span class="symbol">'450</span>',</span><br><span class="line">                      <span class="symbol">'500</span>',<span class="symbol">'550</span>',<span class="symbol">'600</span>',</span><br><span class="line">                      <span class="symbol">'650</span>',<span class="symbol">'700</span>',<span class="symbol">'750</span>',</span><br><span class="line">                      <span class="symbol">'775</span>',<span class="symbol">'800</span>',<span class="symbol">'825</span>',</span><br><span class="line">                      <span class="symbol">'850</span>',<span class="symbol">'875</span>',<span class="symbol">'900</span>',</span><br><span class="line">                      <span class="symbol">'925</span>',<span class="symbol">'950</span>',<span class="symbol">'975</span>',</span><br><span class="line">                      <span class="symbol">'1000</span>'</span><br><span class="line">                  ]</span><br></pre></td></tr></table></figure>
+<p>根据个人的实际需求，可以最多采用4线程来进行数据下载，实测日常下载速度还是比较可观的，在教育网基本都能稳定在4~5MB/S。考虑到数据量的大小，有两点建议：1.方便数据处理，可以定制需要的数据范围以及有限的时间段，导出为netcdf格式；2.并行多线线程下载；</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2019/05/10/era5-download/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2019/05/03/real-life/" itemprop="url">
                   生活真实的一面
                 </a>
@@ -1642,152 +1787,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/04/12/s2s-book/" itemprop="url">
-                  次季节或季节内到季节预报
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2019-04-12T16:38:23+08:00" content="2019-04-12">
-              2019-04-12
-            </time>
-          </span>
-
-
-
-
-          
-            <span class="post-letters-count">
-              &nbsp; | &nbsp;
-            <span>320 字</span>
-              &nbsp; | &nbsp;
-            <span>2 min</span>
-            </span>
-          
-
-
-
-
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/科研之路/" itemprop="url" rel="index">
-                    <span itemprop="name">科研之路</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2019/04/12/s2s-book/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/04/12/s2s-book/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-<!-- 自定义，用于添加摘要图片，文章中不显示 -->
-        
-<!-- 自定义结束 -->
-        
-          <p><img src="/images/s2s_1.png" alt=""></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2019/04/12/s2s-book/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1827,7 +1831,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">31</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1844,7 +1848,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1992,7 +1996,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count" style="padding-left:5px; color: #e90f92;">全站共 45.4k 字</span>
+  <span class="post-count" style="padding-left:5px; color: #e90f92;">全站共 46.8k 字</span>
 </div>
 
         
