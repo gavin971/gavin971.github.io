@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gavin971.github.io/"/>
-  <updated>2019-05-10T14:12:53.772Z</updated>
+  <updated>2019-05-15T11:15:50.928Z</updated>
   <id>https://gavin971.github.io/</id>
   
   <author>
@@ -15,6 +15,57 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>气象家园自动登录、签到Python脚本</title>
+    <link href="https://gavin971.github.io/2019/05/15/bbs06/"/>
+    <id>https://gavin971.github.io/2019/05/15/bbs06/</id>
+    <published>2019-05-15T10:39:32.000Z</published>
+    <updated>2019-05-15T11:15:50.928Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/bbs04.png" alt=""></p><blockquote><p><strong><font color="#0000ff">利用Python简单的模拟登陆气象家园BBS，提供一种比较容易理解的思路，用于自动签到和访问空间，获取积分。目的不在于鼓励大家不劳而获，而从论坛只拿好处不谈贡献。主要还是简单实践一下，利用已有的工具去做点好玩的事情，解决自己的小麻烦，人非圣贤，也不是机器，毕竟每天签到也还是偶尔会中断的。</font></strong></p></blockquote><a id="more"></a><h3 id="需要的工具"><a href="#需要的工具" class="headerlink" title="需要的工具"></a>需要的工具</h3><ol><li>Python3.6+  selenium ; ChromeDriver(版本需要匹配，<a href="http://chromedriver.chromium.org/downloads" target="_blank" rel="noopener">下载链接</a>)  </li><li>Shell 环境支持 crontab 命令</li></ol><h3 id="Python代码（discuz-click-py）"><a href="#Python代码（discuz-click-py）" class="headerlink" title="Python代码（discuz_click.py）"></a>Python代码（discuz_click.py）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ======================================================================</span></span><br><span class="line"><span class="comment"># Author: Gavin | Affiliation: NJU</span></span><br><span class="line"><span class="comment"># Email : Zhpfu.atm@gmail.com</span></span><br><span class="line"><span class="comment"># Last modified: 2019-05-15 18:31</span></span><br><span class="line"><span class="comment"># Filename: discuz_click.py</span></span><br><span class="line"><span class="comment"># Description: 1.气象家园自动签到脚本（签到+访问别人空间）</span></span><br><span class="line"><span class="comment">#              2.非静默方式,比较初级的版本</span></span><br><span class="line"><span class="comment">#              3.需要借助Chrome、Firefox驱动模块</span></span><br><span class="line"><span class="comment"># ======================================================================</span></span><br><span class="line"><span class="comment">#-*- coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.keys <span class="keyword">import</span> Keys</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.chrome.options <span class="keyword">import</span> Options</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.action_chains <span class="keyword">import</span> ActionChains</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">option = Options()</span><br><span class="line"><span class="comment"># option.add_argument('--headless')</span></span><br><span class="line"><span class="comment"># option.add_argument('--disable-gpu')</span></span><br><span class="line"></span><br><span class="line">username=<span class="string">r"风往北吹"</span>    <span class="comment">#需要自己用户名修改</span></span><br><span class="line">passwd=<span class="string">"12345678"</span>       <span class="comment">#需要自己的密码修改</span></span><br><span class="line">browser = webdriver.Chrome( chrome_options=option)</span><br><span class="line">browser.get(<span class="string">'http://bbs.06climate.com/forum.php'</span>)</span><br><span class="line">print(browser.title)</span><br><span class="line">browser.maximize_window()</span><br><span class="line"></span><br><span class="line"><span class="comment">#自动填充用户名和密码，勾选自动登录，自动点击登录。</span></span><br><span class="line">elem=browser.find_element_by_id(<span class="string">"ls_username"</span>).send_keys(username)</span><br><span class="line">elem=browser.find_element_by_id(<span class="string">"ls_password"</span>).send_keys(passwd)</span><br><span class="line">elem=browser.find_element_by_id(<span class="string">"ls_cookietime"</span>).click()</span><br><span class="line">browser.find_element_by_xpath(<span class="string">'/html/body/div[5]/div/div[1]/form/div/div[1]/table/tbody/tr[2]/td[3]/button/em'</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#点击空间头像</span></span><br><span class="line">browser.find_element_by_xpath(<span class="string">'/html/body/div[5]/div/div[1]/div/div/a/img'</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#访问空间好友</span></span><br><span class="line">browser.find_element_by_xpath(<span class="string">'/html/body/div[6]/div/div/div[3]/div[1]/div[2]/ul/li[1]/a/img'</span>).click()</span><br><span class="line"></span><br><span class="line">browser.find_element_by_xpath(<span class="string">'/html/body/div[6]/div/div/div[3]/div[1]/div[2]/ul/li[2]/a/img'</span>).click()</span><br><span class="line"></span><br><span class="line">browser.find_element_by_xpath(<span class="string">'/html/body/div[6]/div/div/div[3]/div[1]/div[2]/ul/li[3]/a/img'</span>).click()</span><br><span class="line"></span><br><span class="line">browser.find_element_by_xpath(<span class="string">'/html/body/div[6]/div/div/div[3]/div[1]/div[2]/ul/li[4]/a/img'</span>).click()</span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># print(browser.window_handles)</span></span><br><span class="line"><span class="comment">#退出浏览器</span></span><br><span class="line">browser.quit()</span><br><span class="line"><span class="comment">#打印任务时间戳</span></span><br><span class="line">i = datetime.datetime.now()</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"完成时间 %s"</span> % i)</span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">selenium可以通过以下各个方法获取元素并进行各种操作，主要有以下几种：</span><br><span class="line"></span><br><span class="line">* find_element_by_id</span><br><span class="line">* find_element_by_name</span><br><span class="line">* find_element_by_xpath</span><br><span class="line">* find_element_by_link_text</span><br><span class="line">* find_element_by_partial_link_text</span><br><span class="line">* find_element_by_tag_name</span><br><span class="line">* find_element_by_class_name</span><br><span class="line">* find_element_by_css_selector</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">选取firefox来查看元素会更加直观！！！（强烈推荐，也同样有适用于firefox的驱动,geckodriver,在Mac下需要移动到/usr/local/bin目录下，或者，自定义，也OK！）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### 搭配 crontab 使用</span></span><br><span class="line"></span><br><span class="line">创建sh脚本：`click.sh`</span><br><span class="line"></span><br><span class="line">先找到python：</span><br><span class="line">&gt; `which python`</span><br><span class="line">&gt; /Users/zhpfu/anaconda3/bin/python</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">/Users/zhpfu/anaconda3/bin/python  /Users/zhpfu/Downloads/Discuz/discuz_click.py</span><br></pre></td></tr></table></figure><p>修改sh脚本权限：<br><code>chmod 777 click.sh</code></p><p>设置自动执行命令：</p><blockquote><p>$<code>crontab e</code></p></blockquote><p>输入：（每隔10小时运行一次）</p><blockquote><p><code>* 10 * * * /bin/sh /Users/zhpfu/Downloads/Discuz/click.sh</code>  # 需要根据自己的路径来修改。</p></blockquote><h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>方法比较简单，还不够静默，必须要打开浏览器才行。后面再改进吧！</p><h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><ol><li><a href="http://bbs.06climate.com/forum.php" target="_blank" rel="noopener">链接</a></li><li><a href="https://blog.csdn.net/lijun538/article/details/50695914" target="_blank" rel="noopener">链接</a> </li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/bbs04.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;&lt;font color=&quot;#0000ff&quot;&gt;利用Python简单的模拟登陆气象家园BBS，提供一种比较容易理解的思路，用于自动签到和访问空间，获取积分。目的不在于鼓励大家不劳而获，而从论坛只拿好处不谈贡献。主要还是简单实践一下，利用已有的工具去做点好玩的事情，解决自己的小麻烦，人非圣贤，也不是机器，毕竟每天签到也还是偶尔会中断的。&lt;/font&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="技术积累" scheme="https://gavin971.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF/"/>
+    
+    
+      <category term="Python" scheme="https://gavin971.github.io/tags/Python/"/>
+    
+      <category term="bbs06" scheme="https://gavin971.github.io/tags/bbs06/"/>
+    
+      <category term="AutoSignIn" scheme="https://gavin971.github.io/tags/AutoSignIn/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>利用PyCINRAD处理、显示天气雷达基数据</title>
+    <link href="https://gavin971.github.io/2019/05/12/radar/"/>
+    <id>https://gavin971.github.io/2019/05/12/radar/</id>
+    <published>2019-05-12T11:19:36.000Z</published>
+    <updated>2019-05-15T10:43:27.051Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="技术积累" scheme="https://gavin971.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF/"/>
+    
+    
+      <category term="Python" scheme="https://gavin971.github.io/tags/Python/"/>
+    
+      <category term="Radar" scheme="https://gavin971.github.io/tags/Radar/"/>
+    
+      <category term="PyCINRAD" scheme="https://gavin971.github.io/tags/PyCINRAD/"/>
+    
+  </entry>
   
   <entry>
     <title>并行下载ERA-5的Python脚本</title>
@@ -547,61 +598,6 @@
     
     
       <category term="Life" scheme="https://gavin971.github.io/tags/Life/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>内网机器访问外网</title>
-    <link href="https://gavin971.github.io/2019/01/16/link-internet/"/>
-    <id>https://gavin971.github.io/2019/01/16/link-internet/</id>
-    <published>2019-01-16T02:37:37.000Z</published>
-    <updated>2019-01-16T03:48:46.703Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="实现centos内网机器访问外网【转】"><a href="#实现centos内网机器访问外网【转】" class="headerlink" title="实现centos内网机器访问外网【转】"></a><a href="https://teakki.com/p/57dbc1e740a05a0609bc0e6b" target="_blank" rel="noopener">实现centos内网机器访问外网【转】</a></h4><p>环境：一台带外网和内网的机器，另一台只有内网，默认不能上网。两台机器都是centos系统<br>带外网机器的外网ip为 123.221.20.11， 内网ip为 192.168.15.100<br>内网机器的内网ip为 192.168.15.101<br>设置方法很简单：</p><ol><li>在带外网的机器上设置iptables规则：<br>iptables -t nat -A POSTROUTING -s 192.168.15.101 -j SNAT –to 123.221.20.11<br>// 如果想让整个内网的机器全部上网，只需要把 -s 192.168.15.101 换成<br>-s 192.168.15.0/255.255.255.0 即可</li><li>在带带外网机器上打开转发<br>首先查看是否已经打开<br>sysctl -a |grep ‘net.ipv4.ip_forward’<br>如果值为1，则说明已经打开，否则需要修改配置文件 /etc/sysctl.conf<br>打开该配置文件，找到该参数，使其变为<br>net.ipv4.ip_forward = 1<br>然后运行 sysctl -p</li><li>在内网机器上，设置其网关为 192.168.15.100<br>vim  /etc/sysconfig/network-scripts/ifcfg-eth0<br>添加<br>GATEWAY=192.168.15.100<br>重启网络服务即可。 service network restart</li><li>测试内网机器是否可以上网。</li></ol><p><a href="https://serverfault.com/questions/102416/iptables-equivalent-for-mac-os-x" target="_blank" rel="noopener">参考2</a><br><a href="https://www.lostend.com/index.php/archives/18/" target="_blank" rel="noopener">参考3</a></p><h4 id="问题：如果手头是redhat的服务器不能连接外网，局域网内的Mac可以连接外网，如果没有服务器root权限，能否采用端口映射来share网络？目前可行的方案是，使用firefox的X11账号密码登陆校园网。"><a href="#问题：如果手头是redhat的服务器不能连接外网，局域网内的Mac可以连接外网，如果没有服务器root权限，能否采用端口映射来share网络？目前可行的方案是，使用firefox的X11账号密码登陆校园网。" class="headerlink" title="问题：如果手头是redhat的服务器不能连接外网，局域网内的Mac可以连接外网，如果没有服务器root权限，能否采用端口映射来share网络？目前可行的方案是，使用firefox的X11账号密码登陆校园网。"></a>问题：如果手头是redhat的服务器不能连接外网，局域网内的Mac可以连接外网，如果没有服务器root权限，能否采用端口映射来share网络？目前可行的方案是，使用firefox的X11账号密码登陆校园网。</h4>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h4 id=&quot;实现centos内网机器访问外网【转】&quot;&gt;&lt;a href=&quot;#实现centos内网机器访问外网【转】&quot; class=&quot;headerlink&quot; title=&quot;实现centos内网机器访问外网【转】&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://teakki.com/p
-      
-    
-    </summary>
-    
-      <category term="技术积累" scheme="https://gavin971.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF/"/>
-    
-    
-      <category term="Linux" scheme="https://gavin971.github.io/tags/Linux/"/>
-    
-      <category term="Mac" scheme="https://gavin971.github.io/tags/Mac/"/>
-    
-      <category term="Network" scheme="https://gavin971.github.io/tags/Network/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《 Tendency Bias Correction in Coupled and Uncoupled Global Climate Models with a Focus on Impacts over North America》</title>
-    <link href="https://gavin971.github.io/2019/01/09/New-journey-01/"/>
-    <id>https://gavin971.github.io/2019/01/09/New-journey-01/</id>
-    <published>2019-01-09T14:34:29.000Z</published>
-    <updated>2019-01-09T15:03:55.664Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://doi.org/10.1175/JCLI-D-18-0598.1" target="_blank" rel="noopener">论文下载链接</a></p><h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a><center>Abstract</center></h3><p><strong><p id="div-border-top-green">We revisit the bias correction problem in current climate models, taking advantage of state-of-the-art atmospheric reanalysis data and new data assimilation tools that simplify the estimation of short-term (6 hourly) atmospheric tendency errors. The focus is on the extent to which correcting biases in atmospheric tendencies improves the model’s climatology, variability, and ultimately forecast skill at subseasonal and seasonal time scales. Results are presented for the NASA GMAO GEOS model in both uncoupled (atmosphere only) and coupled (atmosphere–ocean) modes. For the uncoupled model, the focus is on correcting a stunted North Pacific jet and a dry bias over the central United States during boreal summer—long-standing errors that are indeed common to many current AGCMs. The results show that the tendency bias correction (TBC) eliminates the jet bias and substantially increases the precipitation over the Great Plains. These changes are accompanied by much improved (increased) storm-track activity throughout the northern midlatitudes. For the coupled model, the atmospheric TBCs produce substantial improvements in the simulated mean climate and its variability, including a much reduced SST warm bias, more realistic ENSO-related SST variability and teleconnections, and much improved subtropical jets and related submonthly transient wave activity. Despite these improvements, the improvement in subseasonal and seasonal forecast skill over North America is only modest at best. The reasons for this, which are presumably relevant to any forecast system, involve the competing influences of predictability loss with time and the time it takes for climate drift to first have a significant impact on forecast skill.</p></strong> <strong>Keywords:</strong> <em>Bias; Climate models; Model errors; Model evaluation/performance; Reanalysis data</em></p><p><br></p><a id="more"></a>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;https://doi.org/10.1175/JCLI-D-18-0598.1&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;论文下载链接&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;&lt;center&gt;Abstract&lt;/center&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;&lt;p id=&quot;div-border-top-green&quot;&gt;We revisit the bias correction problem in current climate models, taking advantage of state-of-the-art atmospheric reanalysis data and new data assimilation tools that simplify the estimation of short-term (6 hourly) atmospheric tendency errors. The focus is on the extent to which correcting biases in atmospheric tendencies improves the model’s climatology, variability, and ultimately forecast skill at subseasonal and seasonal time scales. Results are presented for the NASA GMAO GEOS model in both uncoupled (atmosphere only) and coupled (atmosphere–ocean) modes. For the uncoupled model, the focus is on correcting a stunted North Pacific jet and a dry bias over the central United States during boreal summer—long-standing errors that are indeed common to many current AGCMs. The results show that the tendency bias correction (TBC) eliminates the jet bias and substantially increases the precipitation over the Great Plains. These changes are accompanied by much improved (increased) storm-track activity throughout the northern midlatitudes. For the coupled model, the atmospheric TBCs produce substantial improvements in the simulated mean climate and its variability, including a much reduced SST warm bias, more realistic ENSO-related SST variability and teleconnections, and much improved subtropical jets and related submonthly transient wave activity. Despite these improvements, the improvement in subseasonal and seasonal forecast skill over North America is only modest at best. The reasons for this, which are presumably relevant to any forecast system, involve the competing influences of predictability loss with time and the time it takes for climate drift to first have a significant impact on forecast skill.&lt;/p&gt;&lt;/strong&gt; &lt;strong&gt;Keywords:&lt;/strong&gt; &lt;em&gt;Bias; Climate models; Model errors; Model evaluation/performance; Reanalysis data&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="文献阅读" scheme="https://gavin971.github.io/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
-    
-    
-      <category term="Subseasonal Forecast" scheme="https://gavin971.github.io/tags/Subseasonal-Forecast/"/>
-    
-      <category term="Paper Reading" scheme="https://gavin971.github.io/tags/Paper-Reading/"/>
     
   </entry>
   
