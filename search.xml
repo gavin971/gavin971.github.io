@@ -76,7 +76,7 @@
       <url>https://gavin971.github.io/2019/05/12/radar/</url>
       <content type="html"><![CDATA[<p><img src="/images/Z9250_20160701001005_0.6_230_REF_31.2N117.0E_32.4N120.0E.jpg" alt=""></p>
 <blockquote>
-<p><strong><font color="#0000ff">只是简单的安装测试了一下SA/SB/SC格式雷达基数据，不知道什么原因，CD格式的数据读取还存在问题。内容基本参照气象家园上的相关帖子。具体的更多细节可以参照气象家园的帖子，后续我会给出链接。本人不是中尺度研究方向，也是抱着学习的态度来安装测试，也推荐大家业务和科研方面使用PyCINRAD。感谢<a href="https://github.com/CyanideCN/PyCINRAD" target="_blank" rel="noopener">PyCINRAD</a>的开发者<a href="http://bbs.06climate.com/home.php?mod=space&amp;uid=36747" target="_blank" rel="noopener">@eeee</a><a href="http://bbs.06climate.com/home.php?mod=space&amp;uid=83309" target="_blank" rel="noopener">@高空急流</a>，花费大量的时间和精力来贡献这款开源库。</font></strong></p>
+<p><strong><font color="#0000ff">只是简单的安装测试了一下SA/SB/SC格式雷达基数据，不知道什么原因，CD格式的数据读取还存在问题。内容基本参照气象家园上的相关帖子。具体的更多细节可以参照气象家园的帖子，后续我会给出链接。本人不是中尺度研究方向，也是抱着学习的态度来安装测试，也推荐大家业务和科研方面使用PyCINRAD。感谢<a href="https://github.com/CyanideCN/PyCINRAD" target="_blank" rel="noopener">PyCINRAD</a>的开发者<a href="http://bbs.06climate.com/home.php?mod=space&amp;uid=36747" target="_blank" rel="noopener">@eeeee</a><a href="http://bbs.06climate.com/home.php?mod=space&amp;uid=83309" target="_blank" rel="noopener">@高空急流</a>，花费大量的时间和精力来贡献这款开源库。</font></strong></p>
 </blockquote>
 <a id="more"></a>
 <p><img src="/images/Z9250_20160701001005_0.6_230_REF.jpg" alt=""><br>注：图片较大显示为压缩后的，点击可<a href="https://box.nju.edu.cn/f/2cfeae7d25214c30b995/" target="_blank" rel="noopener">下载1</a><a href="https://box.nju.edu.cn/f/d18e654f25914469b211/" target="_blank" rel="noopener">下载2</a>原图。</p>
