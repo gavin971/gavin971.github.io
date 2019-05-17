@@ -6,8 +6,9 @@
     <entry>
       <title><![CDATA[NCL系列经典图书の脚本和测试数据]]></title>
       <url>https://gavin971.github.io/2019/05/17/ncl/</url>
-      <content type="html"><![CDATA[<blockquote>
-<p><strong><font color="#0000ff">我学习的第一种气象绘图工具其实是IDL，只是后来为了完成本科毕业论文才自学NCL的。所以，NCL也算是我最熟悉的气象专属软件了。NCL官网有最完备的参考指南，近几年国内也陆陆续续有NCL书籍出版，个人觉得施宁老师的书编写的最好。在这个时刻万众高呼“人生苦短，我用Python”，对于NCL的爱好者而言，它依旧强大实用。各喜各爱，NCL虽然已经拥抱Python了，也不妨碍继续使用它的既有库，使用NCL更多还是情怀所在。故，在此推介。对于初学者而言，我觉得Python并不真正友好，选择过多也是一种烦恼，千万不要误以为Python很简单，深入下去Python的学习曲线会比较陡峭，如果有C的基础那就是另外一回事了。就编程零基础的人而言，学习的边际可控，NCL是个让人注意力很集中的工具，依葫芦画瓢，轻松出图。我的GitHub上也有其中部分<a href="https://github.com/gavin971/NCL_meteorology_libs" target="_blank" rel="noopener">代码的仓库</a>，需要的可以Clone。另外，需要说明的是，代码有些关键部分是缺失的，只有图书里的例子是完整的。</font></strong></p>
+      <content type="html"><![CDATA[<p><img src="/images/ncl2.jpg" alt=""></p>
+<blockquote>
+<p><strong><font color="#0000ff">我学习的第一种气象绘图工具其实是IDL，只是后来为了完成本科毕业论文才自学NCL的。所以，NCL也算是我最熟悉的气象专属软件了。NCL官网有最完备的参考指南，近几年国内也陆陆续续有NCL书籍出版，个人觉得施宁老师的书编写的最好。在这个时刻万众高呼“人生苦短，我用Python”，对于NCL的爱好者而言，它依旧强大实用。各喜各爱，NCL虽然已经拥抱Python了，也不妨碍继续使用它的既有库，使用NCL更多还是情怀所在。故，在此推介。对于初学者而言，我觉得Python并不真正友好，选择过多也是一种烦恼，千万不要误以为Python很简单，深入下去Python的学习曲线还是会比较陡峭，如果有C语言的基础那就是另外一回事了。就编程零基础的人而言，学习的边际可控，NCL是个让人注意力很集中的工具，依葫芦画瓢，轻松出图。我的GitHub上也有其中部分<a href="https://github.com/gavin971/NCL_meteorology_libs" target="_blank" rel="noopener">代码的仓库</a>，需要的可以Clone。另外，需要说明的是，代码有些关键部分是缺失的，只有图书里的例子是完整的。</font></strong></p>
 </blockquote>
 <a id="more"></a>
 <h2 id="书本简介"><a href="#书本简介" class="headerlink" title="书本简介"></a>书本简介</h2><p><a href="http://www.qxcbs.com/news/newsdetail.jsp?id=164670&amp;nodeid=383&amp;siteid=2" target="_blank" rel="noopener">《NCL数据处理与绘图实习教程》</a></p>
