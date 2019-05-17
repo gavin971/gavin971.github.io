@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://gavin971.github.io/2019/05/17/ncl/</loc>
-    <lastmod>2019-05-17T07:45:21.174Z</lastmod>
+    <lastmod>2019-05-17T08:33:51.651Z</lastmod>
     <data>
         <display>
         <title>NCL系列经典图书の脚本和测试数据</title>
@@ -741,6 +741,26 @@
     
     
   <url>
+    <loc>https://gavin971.github.io/2017/11/04/Python-Algorithmic/</loc>
+    <lastmod>2017-11-04T06:29:29.000Z</lastmod>
+    <data>
+        <display>
+        <title>Python-Algorithmic</title>
+        <pubTime>2017-11-04T01:51:41.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="算法" url="https://gavin971.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://gavin971.github.io/2017/11/04/CPP-History/</loc>
     <lastmod>2017-11-04T06:29:29.000Z</lastmod>
     <data>
@@ -756,26 +776,6 @@
            
              
               <breadCrumb title="编程基础" url="https://gavin971.github.io/categories/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://gavin971.github.io/2017/11/04/Python-Algorithmic/</loc>
-    <lastmod>2017-11-04T06:29:29.000Z</lastmod>
-    <data>
-        <display>
-        <title>Python-Algorithmic</title>
-        <pubTime>2017-11-04T01:51:41.000Z</pubTime>
-        
-        <tag>Python</tag>
-         
-         
-           
-             
-              <breadCrumb title="算法" url="https://gavin971.github.io/categories/%E7%AE%97%E6%B3%95/"/>
           
         </display>
     </data>
