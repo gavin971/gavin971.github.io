@@ -565,6 +565,167 @@
 <li>简单计算器: 在插入模式下，输入 C-r =，然后输入表达式，就能在 光标处得到计算结果。</li>
 </ul>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/jiqingwu/archive/2012/06/14/vim_notes.html#id60" target="_blank" rel="noopener">1.Linuxer</a><sup>1</sup></p>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<h2 id="简化版本"><a href="#简化版本" class="headerlink" title="简化版本"></a>简化版本</h2><blockquote>
+<p>本文由 <a href="http://ksria.com/simpread/" target="_blank" rel="noopener">简悦 SimpRead</a> 转码， 原文地址 <a href="https://blog.qxzzf.com/361" target="_blank" rel="noopener">https://blog.qxzzf.com/361</a></p>
+</blockquote>
+<h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><pre>vim filename    
+:w              
+:w filename     
+:q              
+:q!             
+:wq             
+
+</pre>
+
+<h3 id="进入插入模式"><a href="#进入插入模式" class="headerlink" title="进入插入模式"></a>进入插入模式</h3><pre>i   
+a   
+I   
+A   
+s   
+cw  
+c$  
+cc  
+o   
+O   
+R   
+r   
+
+</pre>
+
+<h3 id="复制、粘贴"><a href="#复制、粘贴" class="headerlink" title="复制、粘贴"></a>复制、粘贴</h3><pre>yy          
+nyy、yny    
+yw          
+nyw         
+y^          
+y$          
+
+p           
+P           
+
+</pre>
+
+<h3 id="删除、撤销"><a href="#删除、撤销" class="headerlink" title="删除、撤销"></a>删除、撤销</h3><pre>x           
+nx          
+dw          
+d$          
+dd          
+dnd、ndd    
+
+u       
+U       
+
+</pre>
+
+<h3 id="移动"><a href="#移动" class="headerlink" title="移动"></a>移动</h3><pre>h,j,k,l     
+空格键      
+Backspace   
+Enter       
+-           
+w           
+e           
+b           
+ge          
+gg          
+G           
+n+          
+n-          
+ngg、nG     
+
+f{char}     
+F{char}     
+t{char}     
+T{char}     
+
+``  
+`.  
+`^  
+`[  
+`]  
+`<  
+`>  
+
+</pre>
+
+<h3 id="查找和替换"><a href="#查找和替换" class="headerlink" title="查找和替换"></a>查找和替换</h3><pre>/str        //向光标下搜索 str 字符串
+?str        //向光标上搜索 str 字符串
+n           //向下搜索前一个搜素动作
+N           //向上搜索前一个搜索动作
+
+:s/old/new          
+:s/old/new/g        //用new替换行中所有的old
+:n,m s/old/new/g    //用new替换从n到m行里所有的old
+:%s/old/new/g       //用new替换当前文件里所有的old
+
+</pre>
+
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><pre>=               //格式化，例 gg=G 格式化整个文件
+:e otherfile    //编辑文件名为 otherfile 的文件，支持编辑远程文件，可通过 ftp、sftp、scp、http、rsync 等多种方式访问
+:r otherfile    //将 otherfile 文件中的内容写到当前文件，和 :e 一样可以支持远程文件，详见文末参考文档
+:set  nu        //显示行号
+:set nonu       //取消显示行号
+:set paste      //设置插入模式为 paste，这个在复制代码块时很有用，粘贴的代码会保持原有的缩进而不会被 vim 的自动缩进打乱
+:set fileformat=unix    //将文件修改为unix格式，如win下面的文本文件在linux下会出现^M
+:w !sudo tee %          //保存时获取sudo权限
+
+</pre>
+
+<h3 id="vim-的常规语法"><a href="#vim-的常规语法" class="headerlink" title="vim 的常规语法"></a>vim 的常规语法</h3><h4 id="动词"><a href="#动词" class="headerlink" title="动词"></a>动词</h4><p>动词代表了我们打算对文本进行什么样的操作。例如：</p>
+<ul>
+<li>d 表示删除（delete）</li>
+<li>r 表示替换（replace）</li>
+<li>c 表示修改（change）</li>
+<li>y 表示复制（yank）</li>
+<li>v 表示选取（visual select）</li>
+</ul>
+<h4 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h4><p>名词代表了我们即将处理的文本。Vim 中有一个专门的术语叫做文本对象（text object），下面是一些文本对象的示例：</p>
+<ul>
+<li>$ 表示行尾</li>
+<li>^ 表示行首</li>
+<li>w 表示一个单词（word）</li>
+<li>s 表示一个句子（sentence）</li>
+<li>p 表示一个段落（paragraph）</li>
+<li>t 表示一个 HTML 标签（tag）</li>
+<li>引号或者各种括号所包含的文本称作一个文本块。</li>
+</ul>
+<h4 id="介词"><a href="#介词" class="headerlink" title="介词"></a>介词</h4><p>介词界定了待编辑文本的范围或者位置。例如：</p>
+<ul>
+<li>i 表示 “在… 之内”（inside）</li>
+<li>a 表示 “环绕…”（around）</li>
+<li>t 表示 “到… 位置前”（to）</li>
+<li>f 表示 “到… 位置上”（forward）</li>
+</ul>
+<p><img src="/images/vim.png" alt=""></p>
+<h4 id="组词为句"><a href="#组词为句" class="headerlink" title="组词为句"></a>组词为句</h4><p>动词 + 介词 + 名词 （介词可选，默认介词为 i）</p>
+<pre>dip //删除一个段落: delete inside paragraph
+vis //选取一个句子: visual select inside sentence
+ciw //修改一个单词: change inside word
+caw //修改一个单词: change around word
+dtx //删除文本直到字符“x”（不包括字符“x”）: delete to x
+dfx //删除文本直到字符“x”（包括字符“x”）: delete forward x
+
+</pre>
+
+<p>动词 + 数词 + 名词 or 数词 + 动词 + 名词 （数词可选，默认数词为 1）</p>
+<pre>c3w //修改三个单词：change three words
+d2w //删除两个单词：delete two words
+
+2dw //两次删除单词（等价于删除两个单词）: twice delete word
+3x  //三次删除字符（等价于删除三个字符）：three times delete character
+
+</pre>
+
+<h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><ul>
+<li><a href="https://mp.weixin.qq.com/s/zZAWpZbDtSFK6EROxaBRKw" target="_blank" rel="noopener">有关 vi(vim) 的常用命令</a></li>
+<li><a href="https://www.jianshu.com/p/52b1b41de71f" target="_blank" rel="noopener">Vim 常用文档动作命令总结</a></li>
+<li><a href="https://www.jianshu.com/p/a361ce8c97bc" target="_blank" rel="noopener">一起来说 Vim 语</a></li>
+<li><a href="https://blog.csdn.net/lovelirui/article/details/6272536" target="_blank" rel="noopener">用 Vim 编辑远程文件</a></li>
+</ul>
 <p><strong><p align="center"><font color="#c8044b" size="2" face="黑体">有任何问题都欢迎交流探讨，共同学习进步！</font></p></strong><br> <img src="/images/my_wechat.jpg" width="150" height="200" alt="" align="center"></p>
 ]]></content>
       
