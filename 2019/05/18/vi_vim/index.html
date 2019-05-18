@@ -1,0 +1,1693 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="google-site-verification" content="_olLbqJsLPaypjGvvPnkJqjV5uDLUrmRKJ-aE5YTFnQ" />
+<meta name="baidu-site-verification" content="eskIgPwJM1" />
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Courier New:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="VIM,vimtutor," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Climate2Weather" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="本文由 简悦 SimpRead 转码， 原文地址 http://www.cnblogs.com/jiqingwu/archive/2012/06/14/vim_notes.html#id50  | Author: | jiqing Wu || email: | jiqingwu@gmail.com || Date: | 2012-06-14 | vim 是我最喜欢的编辑器，也是 linux 下">
+<meta name="keywords" content="VIM,vimtutor">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【转】Vim使用笔记">
+<meta property="og:url" content="https://gavin971.github.io/2019/05/18/vi_vim/index.html">
+<meta property="og:site_name" content="Climate2Weather">
+<meta property="og:description" content="本文由 简悦 SimpRead 转码， 原文地址 http://www.cnblogs.com/jiqingwu/archive/2012/06/14/vim_notes.html#id50  | Author: | jiqing Wu || email: | jiqingwu@gmail.com || Date: | 2012-06-14 | vim 是我最喜欢的编辑器，也是 linux 下">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://gavin971.github.io/images/vim3.png">
+<meta property="og:image" content="https://gavin971.github.io/images/my_wechat.jpg">
+<meta property="og:updated_time" content="2019-05-18T11:32:20.417Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【转】Vim使用笔记">
+<meta name="twitter:description" content="本文由 简悦 SimpRead 转码， 原文地址 http://www.cnblogs.com/jiqingwu/archive/2012/06/14/vim_notes.html#id50  | Author: | jiqing Wu || email: | jiqingwu@gmail.com || Date: | 2012-06-14 | vim 是我最喜欢的编辑器，也是 linux 下">
+<meta name="twitter:image" content="https://gavin971.github.io/images/vim3.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://gavin971.github.io/2019/05/18/vi_vim/"/>
+
+
+<!-- 网页加载条 -->
+<script src="/js/src/pace.min.js"></script>
+ 
+  
+<script type="text/javascript" color="0,0,255" opacity='0.7' zIndex="-2" count="70" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+
+<!-- <div class="bg_content">
+  <canvas id="canvas"></canvas>
+</div> -->   
+<!-- 配合后面的 <script type="text/javascript" src="/js/src/dynamic_bg.js"></script>  使用 -->
+
+
+  <title> 【转】Vim使用笔记 | Climate2Weather </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+<!--   <a href="https://github.com/gavin971"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a> -->
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Climate2Weather</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">人生不妨大胆一点, 反正只有一次</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            书籍
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-resources">
+          <a href="/resources" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-bell"></i> <br />
+            
+            资源
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+
+     
+
+
+
+
+
+
+
+
+
+
+     
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search fa-lg"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                【转】Vim使用笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2019-05-18T19:10:33+08:00" content="2019-05-18">
+              2019-05-18
+            </time>
+          </span>
+
+
+
+
+          
+            <span class="post-letters-count">
+              &nbsp; | &nbsp;
+            <span>7,244 字</span>
+              &nbsp; | &nbsp;
+            <span>28 min</span>
+            </span>
+          
+
+
+
+
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/编程基础/" itemprop="url" rel="index">
+                    <span itemprop="name">编程基础</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2019/05/18/vi_vim/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/05/18/vi_vim/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv">热度
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>℃
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/images/vim3.png" alt=""></p>
+<blockquote>
+<p>本文由 <a href="http://ksria.com/simpread/" target="_blank" rel="noopener">简悦 SimpRead</a> 转码， 原文地址 <a href="http://www.cnblogs.com/jiqingwu/archive/2012/06/14/vim_notes.html#id50" target="_blank" rel="noopener">http://www.cnblogs.com/jiqingwu/archive/2012/06/14/vim_notes.html#id50</a></p>
+</blockquote>
+<p>| Author: | jiqing Wu |<br>| email: | <a href="mailto:jiqingwu@gmail.com" target="_blank" rel="noopener">jiqingwu@gmail.com</a> |<br>| Date: | 2012-06-14 |</p>
+<p>vim 是我最喜欢的编辑器，也是 linux 下第二强大的编辑器。 虽然 emacs 是公认的世界第一，我认为使用 emacs 并没有使用 vi 进行编辑来得高效。 如果是初学 vi，运行一下 vimtutor 是个聪明的决定。 （如果你的系统环境不是中文，而你想使用中文的 vimtutor，就运行 vimtutor zh）</p>
+<a id="more"></a>
+<h2 id="1-1-Vim-的几种模式"><a href="#1-1-Vim-的几种模式" class="headerlink" title="1.1 Vim 的几种模式"></a><a href="#id60">1.1 Vim 的几种模式</a></h2><ul>
+<li>正常模式：可以使用快捷键命令，或按: 输入命令行。</li>
+<li>插入模式：可以输入文本，在正常模式下，按 i、a、o 等都可以进入插入模式。</li>
+<li>可视模式：正常模式下按 v 可以进入可视模式， 在可视模式下，移动光标可以选择文本。按 V 进入可视行模式， 总是整行整行的选中。ctrl+v 进入可视块模式。</li>
+<li><p>替换模式：正常模式下，按 R 进入。</p>
+</li>
+<li><p>vim -c cmd file: 在打开文件前，先执行指定的命令；</p>
+</li>
+<li>vim -r file: 恢复上次异常退出的文件；</li>
+<li>vim -R file: 以只读的方式打开文件，但可以强制保存；</li>
+<li>vim -M file: 以只读的方式打开文件，不可以强制保存；</li>
+<li>vim -y num file: 将编辑窗口的大小设为 num 行；</li>
+<li>vim + file: 从文件的末尾开始；</li>
+<li>vim +num file: 从第 num 行开始；</li>
+<li>vim +/string file: 打开 file，并将光标停留在第一个找到的 string 上。</li>
+<li><p>vim –remote file: 用已有的 vim 进程打开指定的文件。 如果你不想启用多个 vim 会话，这个很有用。但要注意， 如果你用 vim，会寻找名叫 VIM 的服务器；如果你已经有一个 gvim 在运行了， 你可以用 gvim –remote file 在已有的 gvim 中打开文件。</p>
+</li>
+<li><p>:e file – 关闭当前编辑的文件，并开启新的文件。 如果对当前文件的修改未保存，vi 会警告。</p>
+</li>
+<li>:e! file – 放弃对当前文件的修改，编辑新的文件。</li>
+<li>:e+file – 开始新的文件，并从文件尾开始编辑。</li>
+<li>:e+n file – 开始新的文件，并从第 n 行开始编辑。</li>
+<li>:enew – 编译一个未命名的新文档。(CTRL-W n)</li>
+<li>:e – 重新加载当前文档。</li>
+<li>:e! – 重新加载当前文档，并丢弃已做的改动。</li>
+<li>:e# 或 ctrl+^ – 回到刚才编辑的文件，很实用。</li>
+<li>:f 或 ctrl+g – 显示文档名，是否修改，和光标位置。</li>
+<li>:f filename – 改变编辑的文件名，这时再保存相当于另存为。</li>
+<li>gf – 打开以光标所在字符串为文件名的文件。</li>
+<li>:w – 保存修改。</li>
+<li>:n1,n2w filename – 选择性保存从某 n1 行到另 n2 行的内容。</li>
+<li>:wq – 保存并退出。</li>
+<li>ZZ – 保存并退出。</li>
+<li>:x – 保存并退出。</li>
+<li>:q[uit] ——退出当前窗口。(CTRL-W q 或 CTRL-W CTRL-Q)</li>
+<li>:saveas newfilename – 另存为</li>
+<li>:browse e – 会打开一个文件浏览器让你选择要编辑的文件。 如果是终端中，则会打开 netrw 的文件浏览窗口； 如果是 gvim，则会打开一个图形界面的浏览窗口。 实际上: browse 后可以跟任何编辑文档的命令，如 sp 等。 用 browse 打开的起始目录可以由 browsedir 来设置：<ul>
+<li>:set browsedir=last – 用上次访问过的目录（默认）；</li>
+<li>:set browsedir=buffer – 用当前文件所在目录；</li>
+<li>:set browsedir=current – 用当前工作目录；</li>
+</ul>
+</li>
+<li>:Sex – 水平分割一个窗口，浏览文件系统；</li>
+<li>:Vex – 垂直分割一个窗口，浏览文件系统；</li>
+</ul>
+<h2 id="4-1-基本移动"><a href="#4-1-基本移动" class="headerlink" title="4.1 基本移动"></a><a href="#id64">4.1 基本移动</a></h2><p>以下移动都是在 normal 模式下。</p>
+<ul>
+<li>h 或退格: 左移一个字符；</li>
+<li>l 或空格: 右移一个字符；</li>
+<li>j: 下移一行；</li>
+<li>k: 上移一行；</li>
+<li>gj: 移动到一段内的下一行；</li>
+<li>gk: 移动到一段内的上一行；</li>
+<li><ul>
+<li>或 Enter: 把光标移至下一行第一个非空白字符。</li>
+</ul>
+</li>
+<li>-: 把光标移至上一行第一个非空白字符。</li>
+<li>w: 前移一个单词，光标停在下一个单词开头；</li>
+<li>W: 移动下一个单词开头，但忽略一些标点；</li>
+<li>e: 前移一个单词，光标停在下一个单词末尾；</li>
+<li>E: 移动到下一个单词末尾，如果词尾有标点，则移动到标点；</li>
+<li>b: 后移一个单词，光标停在上一个单词开头；</li>
+<li>B: 移动到上一个单词开头，忽略一些标点；</li>
+<li>ge: 后移一个单词，光标停在上一个单词末尾；</li>
+<li>gE: 同 <cite>ge</cite> ，不过‘单词’包含单词相邻的标点。</li>
+<li>(: 前移 1 句。</li>
+<li>): 后移 1 句。</li>
+<li>{: 前移 1 段。</li>
+<li>}: 后移 1 段。</li>
+<li>fc: 把光标移到同一行的下一个 c 字符处</li>
+<li>Fc: 把光标移到同一行的上一个 c 字符处</li>
+<li>tc: 把光标移到同一行的下一个 c 字符前</li>
+<li>Tc: 把光标移到同一行的上一个 c 字符后</li>
+<li>;: 配合 f &amp; t 使用，重复一次</li>
+<li>,: 配合 f &amp; t 使用，反向重复一次</li>
+</ul>
+<p>上面的操作都可以配合 n 使用，比如在正常模式 (下面会讲到) 下输入 3h， 则光标向左移动 3 个字符。</p>
+<ul>
+<li>0: 移动到行首。</li>
+<li>g0: 移到光标所在屏幕行行首。</li>
+<li>^: 移动到本行第一个非空白字符。</li>
+<li>g^: 同 <cite>^</cite> ，但是移动到当前屏幕行第一个非空字符处。</li>
+<li>$: 移动到行尾。</li>
+<li>g$: 移动光标所在屏幕行行尾。</li>
+<li>n|: 把光标移到递 n 列上。</li>
+<li>nG: 到文件第 n 行。</li>
+<li>:n<cr> 移动到第 n 行。</cr></li>
+<li>:$<cr> 移动到最后一行。</cr></li>
+<li>H: 把光标移到屏幕最顶端一行。</li>
+<li>M: 把光标移到屏幕中间一行。</li>
+<li>L: 把光标移到屏幕最底端一行。</li>
+<li>gg: 到文件头部。</li>
+<li>G: 到文件尾部。</li>
+</ul>
+<h2 id="4-2-翻屏"><a href="#4-2-翻屏" class="headerlink" title="4.2 翻屏"></a><a href="#id65">4.2 翻屏</a></h2><ul>
+<li>ctrl+f: 下翻一屏。</li>
+<li>ctrl+b: 上翻一屏。</li>
+<li>ctrl+d: 下翻半屏。</li>
+<li>ctrl+u: 上翻半屏。</li>
+<li>ctrl+e: 向下滚动一行。</li>
+<li>ctrl+y: 向上滚动一行。</li>
+<li>n%: 到文件 n% 的位置。</li>
+<li>zz: 将当前行移动到屏幕中央。</li>
+<li>zt: 将当前行移动到屏幕顶端。</li>
+<li>zb: 将当前行移动到屏幕底端。</li>
+</ul>
+<h2 id="4-3-标记"><a href="#4-3-标记" class="headerlink" title="4.3 标记"></a><a href="#id66">4.3 标记</a></h2><p>使用标记可以快速移动。到达标记后，可以用 Ctrl+o 返回原来的位置。 Ctrl+o 和 Ctrl+i 很像浏览器上的 _后退_ 和 _前进_ 。</p>
+<ul>
+<li>m{a-z}: 标记光标所在位置，局部标记，只用于当前文件。</li>
+<li>m{A-Z}: 标记光标所在位置，全局标记。标记之后，退出 Vim， 重新启动，标记仍然有效。</li>
+<li>`{a-z}: 移动到标记位置。</li>
+<li>‘{a-z}: 移动到标记行的行首。</li>
+<li>`{0-9}：回到上 [2-10] 次关闭 vim 时最后离开的位置。</li>
+<li><code>: 移动到上次编辑的位置。&#39;&#39;也可以，不过</code> 精确到列，而’’精确到行 。如果想跳转到更老的位置，可以按 C-o，跳转到更新的位置用 C-i。</li>
+<li>`”: 移动到上次离开的地方。</li>
+<li>`.: 移动到最后改动的地方。</li>
+<li>:marks 显示所有标记。</li>
+<li>:delmarks a b – 删除标记 a 和 b。</li>
+<li>:delmarks a-c – 删除标记 a、b 和 c。</li>
+<li>:delmarks a c-f – 删除标记 a、c、d、e、f。</li>
+<li>:delmarks! – 删除当前缓冲区的所有标记。</li>
+<li>:help mark-motions 查看更多关于 mark 的知识。</li>
+</ul>
+<h2 id="5-1-基本插入"><a href="#5-1-基本插入" class="headerlink" title="5.1 基本插入"></a><a href="#id68">5.1 基本插入</a></h2><ul>
+<li>i: 在光标前插入；一个小技巧：按 8，再按 i，进入插入模式，输入 =， 按 esc 进入命令模式，就会出现 8 个 =。 这在插入分割线时非常有用，如 30i+<esc> 就插入了 36 个 + 组成的分割线。</esc></li>
+<li>I: 在当前行第一个非空字符前插入；</li>
+<li>gI: 在当前行第一列插入；</li>
+<li>a: 在光标后插入；</li>
+<li>A: 在当前行最后插入；</li>
+<li>o: 在下面新建一行插入；</li>
+<li>O: 在上面新建一行插入；</li>
+<li>:r filename 在当前位置插入另一个文件的内容。</li>
+<li>:[n]r filename 在第 n 行插入另一个文件的内容。</li>
+<li>:r !date 在光标处插入当前日期与时间。同理，:r !command 可以将其它 shell 命令的输出插入当前文档。</li>
+</ul>
+<h2 id="5-2-改写插入"><a href="#5-2-改写插入" class="headerlink" title="5.2 改写插入"></a><a href="#id69">5.2 改写插入</a></h2><ul>
+<li>c[n]w: 改写光标后 1(n) 个词。</li>
+<li>c[n]l: 改写光标后 n 个字母。</li>
+<li>c[n]h: 改写光标前 n 个字母。</li>
+<li>[n]cc: 修改当前 [n] 行。</li>
+<li>[n]s: 以输入的文本替代光标之后 1(n) 个字符，相当于 c[n]l。</li>
+<li>[n]S: 删除指定数目的行，并以所输入文本代替之。</li>
+</ul>
+<p>注意，类似 cnw,dnw,ynw 的形式同样可以写为 ncw,ndw,nyw。</p>
+<h2 id="6-1-剪切和复制、粘贴"><a href="#6-1-剪切和复制、粘贴" class="headerlink" title="6.1 剪切和复制、粘贴"></a><a href="#id71">6.1 剪切和复制、粘贴</a></h2><ul>
+<li>[n]x: 剪切光标右边 n 个字符，相当于 d[n]l。</li>
+<li>[n]X: 剪切光标左边 n 个字符，相当于 d[n]h。</li>
+<li>y: 复制在可视模式下选中的文本。</li>
+<li>yy or Y: 复制整行文本。</li>
+<li>y[n]w: 复制一 (n) 个词。</li>
+<li>y[n]l: 复制光标右边 1(n) 个字符。</li>
+<li>y[n]h: 复制光标左边 1(n) 个字符。</li>
+<li>y$: 从光标当前位置复制到行尾。</li>
+<li>y0: 从光标当前位置复制到行首。</li>
+<li>:m,ny<cr> 复制 m 行到 n 行的内容。</cr></li>
+<li>y1G 或 ygg: 复制光标以上的所有行。</li>
+<li>yG: 复制光标以下的所有行。</li>
+<li>yaw 和 yas：复制一个词和复制一个句子，即使光标不在词首和句首也没关系。</li>
+<li>d: 删除（剪切）在可视模式下选中的文本。</li>
+<li>d$ or D: 删除（剪切）当前位置到行尾的内容。</li>
+<li>d[n]w: 删除（剪切）1(n) 个单词</li>
+<li>d[n]l: 删除（剪切）光标右边 1(n) 个字符。</li>
+<li>d[n]h: 删除（剪切）光标左边 1(n) 个字符。</li>
+<li>d0: 删除（剪切）当前位置到行首的内容</li>
+<li>[n] dd: 删除（剪切）1(n) 行。</li>
+<li>:m,nd<cr> 剪切 m 行到 n 行的内容。</cr></li>
+<li>d1G 或 dgg: 剪切光标以上的所有行。</li>
+<li>dG: 剪切光标以下的所有行。</li>
+<li>daw 和 das：剪切一个词和剪切一个句子，即使光标不在词首和句首也没关系。</li>
+<li>d/f<cr>：这是一个比较高级的组合命令，它将删除当前位置 到下一个 f 之间的内容。</cr></li>
+<li>p: 在光标之后粘贴。</li>
+<li>P: 在光标之前粘贴。</li>
+</ul>
+<h2 id="6-2-文本对象"><a href="#6-2-文本对象" class="headerlink" title="6.2 文本对象"></a><a href="#id72">6.2 文本对象</a></h2><ul>
+<li>aw：一个词</li>
+<li>as：一句。</li>
+<li>ap：一段。</li>
+<li>ab：一块（包含在圆括号中的）。</li>
+</ul>
+<p>y, d, c, v 都可以跟文本对象。</p>
+<h2 id="6-3-寄存器"><a href="#6-3-寄存器" class="headerlink" title="6.3 寄存器"></a><a href="#id73">6.3 寄存器</a></h2><ul>
+<li>a-z：都可以用作寄存器名。”ayy 把当前行的内容放入 a 寄存器。</li>
+<li>A-Z：用大写字母索引寄存器，可以在寄存器中追加内容。 如 “Ayy 把当前行的内容追加到 a 寄存器中。</li>
+<li>:reg 显示所有寄存器的内容。</li>
+<li>“”：不加寄存器索引时，默认使用的寄存器。</li>
+<li>“<em>：当前选择缓冲区，”</em>yy 把当前行的内容放入当前选择缓冲区。</li>
+<li>“+：系统剪贴板。”+yy 把当前行的内容放入系统剪贴板。</li>
+</ul>
+<h2 id="7-1-查找"><a href="#7-1-查找" class="headerlink" title="7.1 查找"></a><a href="#id75">7.1 查找</a></h2><ul>
+<li>/something: 在后面的文本中查找 something。</li>
+<li>?something: 在前面的文本中查找 something。</li>
+<li>/pattern/+number: 将光标停在包含 pattern 的行后面第 number 行上。</li>
+<li>/pattern/-number: 将光标停在包含 pattern 的行前面第 number 行上。</li>
+<li>n: 向后查找下一个。</li>
+<li>N: 向前查找下一个。</li>
+</ul>
+<p>可以用 grep 或 vimgrep 查找一个模式都在哪些地方出现过，</p>
+<p>其中: grep 是调用外部的 grep 程序，而: vimgrep 是 vim 自己的查找算法。</p>
+<p>用法为： :vim[grep]/pattern/[g] [j] files</p>
+<p>g 的含义是如果一个模式在一行中多次出现，则这一行也在结果中多次出现。</p>
+<p>j 的含义是 grep 结束后，结果停在第 j 项，默认是停在第一项。</p>
+<p>vimgrep 前面可以加数字限定搜索结果的上限，如</p>
+<p>:1vim/pattern/ % 只查找那个模式在本文件中的第一个出现。</p>
+<p>其实 vimgrep 在读纯文本电子书时特别有用，可以生成导航的目录。</p>
+<p>比如电子书中每一节的标题形式为：n. xxxx。你就可以这样：</p>
+<p>:vim/^d{1,}./ %</p>
+<p>然后用: cw 或: copen 查看结果，可以用 C-w H 把 quickfix 窗口移到左侧，</p>
+<p>就更像个目录了。</p>
+<h2 id="7-2-替换"><a href="#7-2-替换" class="headerlink" title="7.2 替换"></a><a href="#id76">7.2 替换</a></h2><ul>
+<li>:s/old/new - 用 new 替换当前行第一个 old。</li>
+<li>:s/old/new/g - 用 new 替换当前行所有的 old。</li>
+<li>:n1,n2s/old/new/g - 用 new 替换文件 n1 行到 n2 行所有的 old。</li>
+<li>:%s/old/new/g - 用 new 替换文件中所有的 old。</li>
+<li>:%s/^/xxx/g - 在每一行的行首插入 xxx，^ 表示行首。</li>
+<li>:%s/$/xxx/g - 在每一行的行尾插入 xxx，$ 表示行尾。</li>
+<li>所有替换命令末尾加上 c，每个替换都将需要用户确认。 如：%s/old/new/gc，加上 i 则忽略大小写 (ignore)。</li>
+</ul>
+<p>还有一种比替换更灵活的方式，它是匹配到某个模式后执行某种命令，</p>
+<p>语法为 :[range]g/pattern/command</p>
+<p>例如 :%g/^ xyz/normal dd。</p>
+<p>表示对于以一个空格和 xyz 开头的行执行 normal 模式下的 dd 命令。</p>
+<p>关于 range 的规定为：</p>
+<ul>
+<li>如果不指定 range，则表示当前行。</li>
+<li>m,n: 从 m 行到 n 行。</li>
+<li>0: 最开始一行（可能是这样）。</li>
+<li>$: 最后一行</li>
+<li>.: 当前行</li>
+<li>%: 所有行</li>
+</ul>
+<h2 id="7-3-正则表达式"><a href="#7-3-正则表达式" class="headerlink" title="7.3 正则表达式"></a><a href="#id77">7.3 正则表达式</a></h2><p>高级的查找替换就要用到正则表达式。</p>
+<ul>
+<li>\d: 表示十进制数（我猜的）</li>
+<li>\s: 表示空格</li>
+<li>\S: 非空字符</li>
+<li>\a: 英文字母</li>
+<li>|: 表示 或</li>
+<li>.: 表示.</li>
+<li>{m,n}: 表示 m 到 n 个字符。这要和 \s 与 \ a 等连用，如 \a{m,n} 表示 m 到 n 个英文字母。</li>
+<li>{m,}: 表示 m 到无限多个字符。</li>
+<li>**: 当前目录下的所有子目录。</li>
+</ul>
+<p>:help pattern 得到更多帮助。</p>
+<hr>
+<h2 id="8-1-基本排版"><a href="#8-1-基本排版" class="headerlink" title="8.1 基本排版"></a><a href="#id79">8.1 基本排版</a></h2><ul>
+<li>&lt;&lt; 向左缩进一个 shiftwidth</li>
+<li><blockquote>
+<blockquote>
+<p>向右缩进一个 shiftwidth</p>
+</blockquote>
+</blockquote>
+</li>
+<li>:ce(nter) 本行文字居中</li>
+<li>:le(ft) 本行文字靠左</li>
+<li>:ri(ght) 本行文字靠右</li>
+<li>gq 对选中的文字重排，即对过长的文字进行断行</li>
+<li>gqq 重排当前行</li>
+<li>gqnq 重排 n 行</li>
+<li>gqap 重排当前段</li>
+<li>gqnap 重排 n 段</li>
+<li>gqnj 重排当前行和下面 n 行</li>
+<li>gqQ 重排当前段对文章末尾</li>
+<li>J 拼接当前行和下一行</li>
+<li>gJ 同 <cite>J</cite> ，不过合并后不留空格。</li>
+</ul>
+<h2 id="8-2-拼写检查"><a href="#8-2-拼写检查" class="headerlink" title="8.2 拼写检查"></a><a href="#id80">8.2 拼写检查</a></h2><ul>
+<li>:set spell－开启拼写检查功能</li>
+<li>:set nospell－关闭拼写检查功能</li>
+<li>]s－移到下一个拼写错误的单词</li>
+<li>[s－作用与上一命令类似，但它是从相反方向进行搜索</li>
+<li>z=－显示一个有关拼写错误单词的列表，可从中选择</li>
+<li>zg－告诉拼写检查器该单词是拼写正确的</li>
+<li>zw－与上一命令相反，告诉拼写检查器该单词是拼写错误的</li>
+</ul>
+<h2 id="8-3-统计字数"><a href="#8-3-统计字数" class="headerlink" title="8.3 统计字数"></a><a href="#id81">8.3 统计字数</a></h2><p>g ^g 可以统计文档字符数，行数。 将光标放在最后一个字符上，用字符数减去行数可以粗略统计中文文档的字数。 以上对 Mac 或 Unix 的文件格式适用。 如果是 Windows 文件格式（即换行符有两个字节），字数的统计方法为： 字符数 - 行数 * 2。</p>
+<hr>
+<h2 id="9-1-一次编辑多个文件"><a href="#9-1-一次编辑多个文件" class="headerlink" title="9.1 一次编辑多个文件"></a><a href="#id83">9.1 一次编辑多个文件</a></h2><p>我们可以一次打开多个文件，如</p>
+<blockquote>
+<pre>vi a.txt b.txt c.txt
+
+</pre>
+</blockquote>
+<ul>
+<li>使用: next(:n) 编辑下一个文件。</li>
+<li>:2n 编辑下 2 个文件。</li>
+<li>使用: previous 或: N 编辑上一个文件。</li>
+<li>使用: wnext，保存当前文件，并编辑下一个文件。</li>
+<li>使用: wprevious，保存当前文件，并编辑上一个文件。</li>
+<li>使用: args 显示文件列表。</li>
+<li>:n filenames 或: args filenames 指定新的文件列表。</li>
+<li>vi -o filenames 在水平分割的多个窗口中编辑多个文件。</li>
+<li>vi -O filenames 在垂直分割的多个窗口中编辑多个文件。</li>
+</ul>
+<h2 id="9-2-多标签编辑"><a href="#9-2-多标签编辑" class="headerlink" title="9.2 多标签编辑"></a><a href="#id84">9.2 多标签编辑</a></h2><ul>
+<li>vim -p files: 打开多个文件，每个文件占用一个标签页。</li>
+<li>:tabe, tabnew – 如果加文件名，就在新的标签中打开这个文件， 否则打开一个空缓冲区。</li>
+<li>^w gf – 在新的标签页里打开光标下路径指定的文件。</li>
+<li>:tabn – 切换到下一个标签。Control + PageDown，也可以。</li>
+<li>:tabp – 切换到上一个标签。Control + PageUp，也可以。</li>
+<li>[n] gt – 切换到下一个标签。如果前面加了 <cite>n</cite> ， 就切换到第 n 个标签。第一个标签的序号就是 1。</li>
+<li>:tab split – 将当前缓冲区的内容在新页签中打开。</li>
+<li>:tabc[lose] – 关闭当前的标签页。</li>
+<li>:tabo[nly] – 关闭其它的标签页。</li>
+<li>:tabs – 列出所有的标签页和它们包含的窗口。</li>
+<li>:tabm[ove] [N] – 移动标签页，移动到第 N 个标签页之后。 如 <cite>tabm 0</cite> 当前标签页，就会变成第一个标签页。</li>
+</ul>
+<h2 id="9-3-缓冲区"><a href="#9-3-缓冲区" class="headerlink" title="9.3 缓冲区"></a><a href="#id85">9.3 缓冲区</a></h2><ul>
+<li>:buffers 或: ls 或: files 显示缓冲区列表。</li>
+<li>ctrl+^：在最近两个缓冲区间切换。</li>
+<li>:bn – 下一个缓冲区。</li>
+<li>:bp – 上一个缓冲区。</li>
+<li>:bl – 最后一个缓冲区。</li>
+<li>:b[n] 或:[n]b – 切换到第 n 个缓冲区。</li>
+<li>:nbw(ipeout) – 彻底删除第 n 个缓冲区。</li>
+<li>:nbd(elete) – 删除第 n 个缓冲区，并未真正删除，还在 unlisted 列表中。</li>
+<li><p>:ba[ll] – 把所有的缓冲区在当前页中打开，每个缓冲区占一个窗口。</p>
+</li>
+<li><p>vim -o file1 file2: 水平分割窗口，同时打开 file1 和 file2</p>
+</li>
+<li>vim -O file1 file2: 垂直分割窗口，同时打开 file1 和 file2</li>
+</ul>
+<h2 id="10-1-水平分割"><a href="#10-1-水平分割" class="headerlink" title="10.1 水平分割"></a><a href="#id87">10.1 水平分割</a></h2><ul>
+<li>:split(:sp) – 把当前窗水平分割成两个窗口。(CTRL-W s 或 CTRL-W CTRL-S) 注意如果在终端下，CTRL-S 可能会冻结终端，请按 CTRL-Q 继续。</li>
+<li>:split filename – 水平分割窗口，并在新窗口中显示另一个文件。</li>
+<li>:nsplit(:nsp) – 水平分割出一个 n 行高的窗口。</li>
+<li>:[N]new – 水平分割出一个 N 行高的窗口，并编辑一个新文件。 (CTRL-W n 或 CTRL-W CTRL-N)</li>
+<li>ctrl+w f – 水平分割出一个窗口，并在新窗口打开名称为光标所在词的文件 。</li>
+<li>C-w C-^ – 水平分割一个窗口，打开刚才编辑的文件。</li>
+</ul>
+<h2 id="10-2-垂直分割"><a href="#10-2-垂直分割" class="headerlink" title="10.2 垂直分割"></a><a href="#id88">10.2 垂直分割</a></h2><ul>
+<li>:vsplit(:vsp) – 把当前窗口分割成水平分布的两个窗口。 (CTRL-W v 或 CTRL CTRL-V)</li>
+<li>:[N]vne[w] – 垂直分割出一个新窗口。</li>
+<li>:vertical 水平分割的命令： 相应的垂直分割。</li>
+</ul>
+<h2 id="10-3-关闭子窗口"><a href="#10-3-关闭子窗口" class="headerlink" title="10.3 关闭子窗口"></a><a href="#id89">10.3 关闭子窗口</a></h2><ul>
+<li>:qall – 关闭所有窗口，退出 vim。</li>
+<li>:wall – 保存所有修改过的窗口。</li>
+<li>:only – 只保留当前窗口，关闭其它窗口。(CTRL-W o)</li>
+<li>:close – 关闭当前窗口，CTRL-W c 能实现同样的功能。 (象 :q :x 同样工作)</li>
+</ul>
+<h2 id="10-4-调整窗口大小"><a href="#10-4-调整窗口大小" class="headerlink" title="10.4 调整窗口大小"></a><a href="#id90">10.4 调整窗口大小</a></h2><ul>
+<li>ctrl+w + – 当前窗口增高一行。也可以用 n 增高 n 行。</li>
+<li>ctrl+w - – 当前窗口减小一行。也可以用 n 减小 n 行。</li>
+<li>ctrl+w _ – 当前窗口扩展到尽可能的大。也可以用 n 设定行数。</li>
+<li>:resize n – 当前窗口 n 行高。</li>
+<li>ctrl+w = – 所有窗口同样高度。</li>
+<li>n ctrl+w _ – 当前窗口的高度设定为 n 行。</li>
+<li>ctrl+w &lt; – 当前窗口减少一列。也可以用 n 减少 n 列。</li>
+<li>ctrl+w &gt; – 当前窗口增宽一列。也可以用 n 增宽 n 列。</li>
+<li>ctrl+w | – 当前窗口尽可能的宽。也可以用 n 设定列数。</li>
+</ul>
+<h2 id="10-5-切换和移动窗口"><a href="#10-5-切换和移动窗口" class="headerlink" title="10.5 切换和移动窗口"></a><a href="#id91">10.5 切换和移动窗口</a></h2><p>如果支持鼠标，切换和调整子窗口的大小就简单了。</p>
+<ul>
+<li>ctrl+w ctrl+w: 切换到下一个窗口。或者是 ctrl+w w。</li>
+<li>ctrl+w p: 切换到前一个窗口。</li>
+<li>ctrl+w h(l,j,k): 切换到左（右，下，上）的窗口。</li>
+<li>ctrl+w t(b): 切换到最上（下）面的窗口。<br></li>
+<li>ctrl+w H(L,K,J): 将当前窗口移动到最左（右、上、下）面。</li>
+<li>ctrl+w r：旋转窗口的位置。</li>
+<li>ctrl+w T: 将当前的窗口移动到新的标签页上。</li>
+</ul>
+<h2 id="11-1-改变大小写"><a href="#11-1-改变大小写" class="headerlink" title="11.1 改变大小写"></a><a href="#id93">11.1 改变大小写</a></h2><ul>
+<li>~: 反转光标所在字符的大小写。</li>
+<li>可视模式下的 U 或 u：把选中的文本变为大写或小写。</li>
+<li>gu(U) 接范围（如 $，或 G），可以把从光标当前位置到指定位置之间字母全部 转换成小写或大写。如 ggguG，就是把开头到最后一行之间的字母全部变为小 写。再如 gu5j，把当前行和下面四行全部变成小写。</li>
+</ul>
+<h2 id="11-3-撤消与重做（normal-模式）"><a href="#11-3-撤消与重做（normal-模式）" class="headerlink" title="11.3 撤消与重做（normal 模式）"></a><a href="#id95">11.3 撤消与重做（normal 模式）</a></h2><ul>
+<li>[n] u: 取消一 (n) 个改动。</li>
+<li>:undo 5 – 撤销 5 个改变。</li>
+<li>:undolist – 你的撤销历史。</li>
+<li>ctrl + r: 重做最后的改动。</li>
+<li>U: 取消当前行中所有的改动。</li>
+<li>:earlier 4m – 回到 4 分钟前</li>
+<li>:later 55s – 前进 55 秒</li>
+</ul>
+<h2 id="11-4-宏"><a href="#11-4-宏" class="headerlink" title="11.4 宏"></a><a href="#id96">11.4 宏</a></h2><ul>
+<li>. – 重复上一个编辑动作</li>
+<li>qa：开始录制宏 a（键盘操作记录）</li>
+<li>q：停止录制</li>
+<li>@a：播放宏 a</li>
+</ul>
+<h2 id="12-1-文件加解密"><a href="#12-1-文件加解密" class="headerlink" title="12.1 文件加解密"></a><a href="#id98">12.1 文件加解密</a></h2><ul>
+<li>vim -x file: 开始编辑一个加密的文件。</li>
+<li>:X – 为当前文件设置密码。</li>
+<li>:set key= – 去除文件的密码。</li>
+</ul>
+<p><a href="http://www.cnblogs.com/jiqingwu/admin/vim-quick-edit.html" target="_blank" rel="noopener">这里是</a> 滇狐总结的比较高级的 vi 技巧。</p>
+<h2 id="12-2-文件的编码"><a href="#12-2-文件的编码" class="headerlink" title="12.2 文件的编码"></a><a href="#id99">12.2 文件的编码</a></h2><ul>
+<li>:e ++enc=utf8 filename, 让 vim 用 utf-8 的编码打开这个文件。</li>
+<li>:w ++enc=gbk，不管当前文件什么编码，把它转存成 gbk 编码。</li>
+<li>:set fenc 或: set fileencoding，查看当前文件的编码。</li>
+<li>在 vimrc 中添加 set fileencoding=ucs-bom,utf-8,cp936，vim 会根据要打开的文件选择合适的编码。 注意：编码之间不要留空格。 cp936 对应于 gbk 编码。 ucs-bom 对应于 windows 下的文件格式。</li>
+</ul>
+<p>让 vim 正确处理文件格式和文件编码，有赖于 <a href="http://www.cnblogs.com/jiqingwu/admin/vimrc.html" target="_blank" rel="noopener">~/.vimrc 的正确配置</a></p>
+<h2 id="12-3-文件格式"><a href="#12-3-文件格式" class="headerlink" title="12.3 文件格式"></a><a href="#id100">12.3 文件格式</a></h2><p>大致有三种文件格式：unix, dos, mac. 三种格式的区别主要在于回车键的编码：dos 下是回车加换行，unix 下只有 换行符，mac 下只有回车符。</p>
+<ul>
+<li>:e ++ff=dos filename, 让 vim 用 dos 格式打开这个文件。</li>
+<li>:w ++ff=mac filename, 以 mac 格式存储这个文件。</li>
+<li>:set ff，显示当前文件的格式。</li>
+<li>在 vimrc 中添加 set fileformats=unix,dos,mac，让 vim 自动识别文件格式。</li>
+</ul>
+<h2 id="13-1-一些按键"><a href="#13-1-一些按键" class="headerlink" title="13.1 一些按键"></a><a href="#id102">13.1 一些按键</a></h2><ul>
+<li>gd: 跳转到局部变量的定义处；</li>
+<li>gD: 跳转到全局变量的定义处，从当前文件开头开始搜索；</li>
+<li>g;: 上一个修改过的地方；</li>
+<li>g,: 下一个修改过的地方；</li>
+<li>[[: 跳转到上一个函数块开始，需要有单独一行的 {。</li>
+<li>]]: 跳转到下一个函数块开始，需要有单独一行的 {。</li>
+<li>[]: 跳转到上一个函数块结束，需要有单独一行的}。</li>
+<li>][: 跳转到下一个函数块结束，需要有单独一行的}。</li>
+<li>[{: 跳转到当前块开始处；</li>
+<li>]}: 跳转到当前块结束处；</li>
+<li>[/: 跳转到当前注释块开始处；</li>
+<li>]/: 跳转到当前注释块结束处；</li>
+<li>%: 不仅能移动到匹配的 (),{} 或[]上，而且能在 #if，#else， #endif 之间跳跃。</li>
+</ul>
+<p>下面的括号匹配对编程很实用的。</p>
+<ul>
+<li>ci’, di’, yi’：修改、剪切或复制’之间的内容。</li>
+<li>ca’, da’, ya’：修改、剪切或复制’之间的内容，包含’。</li>
+<li>ci”, di”, yi”：修改、剪切或复制” 之间的内容。</li>
+<li>ca”, da”, ya”：修改、剪切或复制” 之间的内容，包含 “。</li>
+<li>ci(, di(, yi(：修改、剪切或复制 () 之间的内容。</li>
+<li>ca(, da(, ya(：修改、剪切或复制 () 之间的内容，包含()。</li>
+<li>ci[, di[, yi[：修改、剪切或复制 [] 之间的内容。</li>
+<li>ca[, da[, ya[：修改、剪切或复制 [] 之间的内容，包含[]。</li>
+<li>ci{, di{, yi{：修改、剪切或复制 {} 之间的内容。</li>
+<li>ca{, da{, ya{：修改、剪切或复制 {} 之间的内容，包含{}。</li>
+<li>ci&lt;, di&lt;, yi&lt;：修改、剪切或复制 &lt;&gt; 之间的内容。</li>
+<li>ca&lt;, da&lt;, ya&lt;：修改、剪切或复制 &lt;&gt; 之间的内容，包含&lt;&gt;。</li>
+</ul>
+<h2 id="13-3-cscope"><a href="#13-3-cscope" class="headerlink" title="13.3 cscope"></a><a href="#id104">13.3 cscope</a></h2><ul>
+<li>cscope -Rbq: 生成 cscope.out 文件</li>
+<li>:cs add /path/to/cscope.out /your/work/dir</li>
+<li>:cs find c func – 查找 func 在哪些地方被调用</li>
+<li>:cw – 打开 quickfix 窗口查看结果</li>
+</ul>
+<h2 id="13-5-编译"><a href="#13-5-编译" class="headerlink" title="13.5 编译"></a><a href="#id106">13.5 编译</a></h2><p>vim 提供了: make 来编译程序，默认调用的是 make， 如果你当前目录下有 makefile，简单地: make 即可。</p>
+<p>如果你没有 make 程序，你可以通过配置 makeprg 选项来更改 make 调用的程序。 如果你只有一个 abc.java 文件，你可以这样设置：</p>
+<pre>set makeprg=javac\ abc.java
+
+</pre>
+
+<p>然后: make 即可。如果程序有错，可以通过 quickfix 窗口查看错误。 不过如果要正确定位错误，需要设置好 errorformat，让 vim 识别错误信息。 如：</p>
+<pre>:setl efm=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
+
+</pre>
+
+<p>%f 表示文件名，%l 表示行号， %m 表示错误信息，其它的还不能理解。 请参考 :help errorformat。</p>
+<h2 id="13-6-快速修改窗口"><a href="#13-6-快速修改窗口" class="headerlink" title="13.6 快速修改窗口"></a><a href="#id107">13.6 快速修改窗口</a></h2><p>其实是 quickfix 插件提供的功能， 对编译调试程序非常有用 :)</p>
+<ul>
+<li>:copen – 打开快速修改窗口。</li>
+<li>:cclose – 关闭快速修改窗口。</li>
+</ul>
+<p>快速修改窗口在 make 程序时非常有用，当 make 之后：</p>
+<ul>
+<li>:cl – 在快速修改窗口中列出错误。</li>
+<li>:cn – 定位到下一个错误。</li>
+<li>:cp – 定位到上一个错误。</li>
+<li>:cr – 定位到第一个错误。</li>
+</ul>
+<h2 id="13-7-自动补全"><a href="#13-7-自动补全" class="headerlink" title="13.7 自动补全"></a><a href="#id108">13.7 自动补全</a></h2><ul>
+<li>C-x C-s – 拼写建议。</li>
+<li>C-x C-v – 补全 vim 选项和命令。</li>
+<li>C-x C-l – 整行补全。</li>
+<li>C-x C-f – 自动补全文件路径。弹出菜单后，按 C-f 循环选择，当然也可以按 C-n 和 C-p。</li>
+<li>C-x C-p 和 C-x C-n – 用文档中出现过的单词补全当前的词。 直接按 C-p 和 C-n 也可以。</li>
+<li>C-x C-o – 编程时可以补全关键字和函数名啊。</li>
+<li>C-x C-i – 根据头文件内关键字补全。</li>
+<li>C-x C-d – 补全宏定义。</li>
+<li>C-x C-n – 按缓冲区中出现过的关键字补全。 直接按 C-n 或 C-p 即可。</li>
+</ul>
+<p>当弹出补全菜单后：</p>
+<ul>
+<li>C-p 向前切换成员；</li>
+<li>C-n 向后切换成员；</li>
+<li>C-e 退出下拉菜单，并退回到原来录入的文字；</li>
+<li>C-y 退出下拉菜单，并接受当前选项。</li>
+</ul>
+<h2 id="13-8-多行缩进缩出"><a href="#13-8-多行缩进缩出" class="headerlink" title="13.8 多行缩进缩出"></a><a href="#id109">13.8 多行缩进缩出</a></h2><ul>
+<li>正常模式下，按两下 &gt;; 光标所在行会缩进。</li>
+<li>如果先按了 n，再按两下 &gt;;，光标以下的 n 行会缩进。</li>
+<li>对应的，按两下 &lt;;，光标所在行会缩出。</li>
+<li>如果在编辑代码文件，可以用 = 进行调整。</li>
+<li>在可视模式下，选择要调整的代码块，按 =，代码会按书写规则缩排好。</li>
+<li>或者 n =，调整 n 行代码的缩排。</li>
+</ul>
+<h2 id="13-9-折叠"><a href="#13-9-折叠" class="headerlink" title="13.9 折叠"></a><a href="#id110">13.9 折叠</a></h2><ul>
+<li>zf – 创建折叠的命令，可以在一个可视区域上使用该命令；</li>
+<li>zd – 删除当前行的折叠；</li>
+<li>zD – 删除当前行的折叠；</li>
+<li>zfap – 折叠光标所在的段；</li>
+<li>zo – 打开折叠的文本；</li>
+<li>zc – 收起折叠；</li>
+<li>za – 打开 / 关闭当前折叠；</li>
+<li>zr – 打开嵌套的折行；</li>
+<li>zm – 收起嵌套的折行；</li>
+<li>zR (zO) – 打开所有折行；</li>
+<li>zM (zC) – 收起所有折行；</li>
+<li>zj – 跳到下一个折叠处；</li>
+<li>zk – 跳到上一个折叠处；</li>
+<li>zi – enable/disable fold;</li>
+</ul>
+<p>normal 模式下按: 进入命令行模式</p>
+<h2 id="14-1-命令行模式下的快捷键："><a href="#14-1-命令行模式下的快捷键：" class="headerlink" title="14.1 命令行模式下的快捷键："></a><a href="#id112">14.1 命令行模式下的快捷键：</a></h2><ul>
+<li>上下方向键：上一条或者下一条命令。如果已经输入了部分命令，则找上一 条或者下一条匹配的命令。</li>
+<li>左右方向键：左 / 右移一个字符。</li>
+<li>C-w： 向前删除一个单词。</li>
+<li>C-h： 向前删除一个字符，等同于 Backspace。</li>
+<li>C-u： 从当前位置移动到命令行开头。</li>
+<li>C-b： 移动到命令行开头。</li>
+<li>C-e： 移动到命令行末尾。</li>
+<li>Shift-Left： 左移一个单词。</li>
+<li>Shift-Right： 右移一个单词。</li>
+<li>@： 重复上一次的冒号命令。</li>
+<li>q： 正常模式下，q 然后按’:’，打开命令行历史缓冲区， 可以像编辑文件一样编辑命令。</li>
+<li>q / 和 q? 可以打开查找历史记录。</li>
+</ul>
+<h2 id="14-2-执行外部命令"><a href="#14-2-执行外部命令" class="headerlink" title="14.2 执行外部命令"></a><a href="#id113">14.2 执行外部命令</a></h2><ul>
+<li>:! cmd 执行外部命令。</li>
+<li>:!! 执行上一次的外部命令。</li>
+<li>:sh 调用 shell，用 exit 返回 vim。</li>
+<li>:r !cmd 将命令的返回结果插入文件当前位置。</li>
+<li>:m,nw !cmd 将文件的 m 行到 n 行之间的内容做为命令输入执行命令。</li>
+</ul>
+<h2 id="15-1-工作目录"><a href="#15-1-工作目录" class="headerlink" title="15.1 工作目录"></a><a href="#id115">15.1 工作目录</a></h2><ul>
+<li>:pwd 显示 vim 的工作目录。</li>
+<li>:cd path 改变 vim 的工作目录。</li>
+<li>:set autochdir 可以让 vim 根据编辑的文件自动切换工作目录。</li>
+</ul>
+<h2 id="15-2-一些快捷键（收集中）"><a href="#15-2-一些快捷键（收集中）" class="headerlink" title="15.2 一些快捷键（收集中）"></a><a href="#id116">15.2 一些快捷键（收集中）</a></h2><ul>
+<li>K: 打开光标所在词的 manpage。</li>
+<li>*: 向下搜索光标所在词。</li>
+<li>g*: 同上，但部分符合即可。</li>
+<li>#: 向上搜索光标所在词。</li>
+<li>g#: 同上，但部分符合即可。</li>
+<li>g C-g: 统计全文或统计部分的字数。</li>
+</ul>
+<h2 id="15-3-在线帮助"><a href="#15-3-在线帮助" class="headerlink" title="15.3 在线帮助"></a><a href="#id117">15.3 在线帮助</a></h2><ul>
+<li>:h(elp) 或 F1 打开总的帮助。</li>
+<li>:help user-manual 打开用户手册。</li>
+<li>命令帮助的格式为：第一行指明怎么使用那个命令； 然后是缩进的一段解释这个命令的作用，然后是进一步的信息。</li>
+<li>:helptags somepath 为 somepath 中的文档生成索引。</li>
+<li>:helpgrep 可以搜索整个帮助文档，匹配的列表显示在 quickfix 窗口中。</li>
+<li>Ctrl+] 跳转到 tag 主题，Ctrl+t 跳回。</li>
+<li>:ver 显示版本信息。</li>
+</ul>
+<h2 id="15-4-一些小功能"><a href="#15-4-一些小功能" class="headerlink" title="15.4 一些小功能"></a><a href="#id118">15.4 一些小功能</a></h2><ul>
+<li>简单计算器: 在插入模式下，输入 C-r =，然后输入表达式，就能在 光标处得到计算结果。</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/jiqingwu/archive/2012/06/14/vim_notes.html#id60" target="_blank" rel="noopener">1.Linuxer</a><sup>1</sup></p>
+<p><strong><p align="center"><font color="#c8044b" size="2" face="黑体">有任何问题都欢迎交流探讨，共同学习进步！</font></p></strong><br> <img src="/images/my_wechat.jpg" width="150" height="200" alt="" align="center"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+<blockquote class="blockquote-center" style="color: #ccc;">
+    -------------本文结束 <i class="fa fa-paw"></i> 感谢阅读-------------
+</blockquote>
+
+  <span id="inline-green" style="border-radius:3px;">作者</span>：<a class="link-blue" href="https://github.com/gavin971" target="_blank">Gavin</a><br/>有问题请在相应<a class="link-blue" href="https://gavin971.github.io/" target="_blank">页面留言</a>(评论系统DISQUS需要"翻墙"才可见)<br/>或者私信给我 <a class="link-blue" href="https://climate2weather.cc" target="_blank">GMAIL: zhpfu.atm@gmail.com</a>。
+
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>满分是10分的话，这篇文章你给几分</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/reward/reward_wechat.png" alt="Gavin WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/reward/reward_alipay.png" alt="Gavin Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/VIM/" rel="tag"><i class="fa fa-tag"></i> VIM</a>
+          
+            <a href="/tags/vimtutor/" rel="tag"><i class="fa fa-tag"></i> vimtutor</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/17/ncl/" rel="next" title="NCL系列经典图书の脚本和测试数据">
+                <i class="fa fa-chevron-left"></i> NCL系列经典图书の脚本和测试数据
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/avatar/avatar.png"
+               alt="Gavin" />
+          <p class="site-author-name" itemprop="name">Gavin</p>
+          <p class="site-description motion-element" itemprop="description">Still Waters Run Deep!</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">69</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/gavin971" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/Gavin_Fu971" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/escapelanzhou" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="/weblog" title="建站日志" target="_blank">建站日志</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://neveryu.github.io" title="Never_yu" target="_blank">Never_yu</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://novarizark.github.io/" title="LZN's Blog" target="_blank">LZN's Blog</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-Vim-的几种模式"><span class="nav-number">1.</span> <span class="nav-text">1.1 Vim 的几种模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-基本移动"><span class="nav-number">2.</span> <span class="nav-text">4.1 基本移动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-翻屏"><span class="nav-number">3.</span> <span class="nav-text">4.2 翻屏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-标记"><span class="nav-number">4.</span> <span class="nav-text">4.3 标记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-基本插入"><span class="nav-number">5.</span> <span class="nav-text">5.1 基本插入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-改写插入"><span class="nav-number">6.</span> <span class="nav-text">5.2 改写插入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-剪切和复制、粘贴"><span class="nav-number">7.</span> <span class="nav-text">6.1 剪切和复制、粘贴</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-文本对象"><span class="nav-number">8.</span> <span class="nav-text">6.2 文本对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-3-寄存器"><span class="nav-number">9.</span> <span class="nav-text">6.3 寄存器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-查找"><span class="nav-number">10.</span> <span class="nav-text">7.1 查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-2-替换"><span class="nav-number">11.</span> <span class="nav-text">7.2 替换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-3-正则表达式"><span class="nav-number">12.</span> <span class="nav-text">7.3 正则表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-1-基本排版"><span class="nav-number">13.</span> <span class="nav-text">8.1 基本排版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-拼写检查"><span class="nav-number">14.</span> <span class="nav-text">8.2 拼写检查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-3-统计字数"><span class="nav-number">15.</span> <span class="nav-text">8.3 统计字数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-1-一次编辑多个文件"><span class="nav-number">16.</span> <span class="nav-text">9.1 一次编辑多个文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-2-多标签编辑"><span class="nav-number">17.</span> <span class="nav-text">9.2 多标签编辑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-3-缓冲区"><span class="nav-number">18.</span> <span class="nav-text">9.3 缓冲区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-1-水平分割"><span class="nav-number">19.</span> <span class="nav-text">10.1 水平分割</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-2-垂直分割"><span class="nav-number">20.</span> <span class="nav-text">10.2 垂直分割</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-3-关闭子窗口"><span class="nav-number">21.</span> <span class="nav-text">10.3 关闭子窗口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-4-调整窗口大小"><span class="nav-number">22.</span> <span class="nav-text">10.4 调整窗口大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-5-切换和移动窗口"><span class="nav-number">23.</span> <span class="nav-text">10.5 切换和移动窗口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-1-改变大小写"><span class="nav-number">24.</span> <span class="nav-text">11.1 改变大小写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-3-撤消与重做（normal-模式）"><span class="nav-number">25.</span> <span class="nav-text">11.3 撤消与重做（normal 模式）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-4-宏"><span class="nav-number">26.</span> <span class="nav-text">11.4 宏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-1-文件加解密"><span class="nav-number">27.</span> <span class="nav-text">12.1 文件加解密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-2-文件的编码"><span class="nav-number">28.</span> <span class="nav-text">12.2 文件的编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-3-文件格式"><span class="nav-number">29.</span> <span class="nav-text">12.3 文件格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-1-一些按键"><span class="nav-number">30.</span> <span class="nav-text">13.1 一些按键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-3-cscope"><span class="nav-number">31.</span> <span class="nav-text">13.3 cscope</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-5-编译"><span class="nav-number">32.</span> <span class="nav-text">13.5 编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-6-快速修改窗口"><span class="nav-number">33.</span> <span class="nav-text">13.6 快速修改窗口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-7-自动补全"><span class="nav-number">34.</span> <span class="nav-text">13.7 自动补全</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-8-多行缩进缩出"><span class="nav-number">35.</span> <span class="nav-text">13.8 多行缩进缩出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-9-折叠"><span class="nav-number">36.</span> <span class="nav-text">13.9 折叠</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-1-命令行模式下的快捷键："><span class="nav-number">37.</span> <span class="nav-text">14.1 命令行模式下的快捷键：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-2-执行外部命令"><span class="nav-number">38.</span> <span class="nav-text">14.2 执行外部命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-1-工作目录"><span class="nav-number">39.</span> <span class="nav-text">15.1 工作目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-2-一些快捷键（收集中）"><span class="nav-number">40.</span> <span class="nav-text">15.2 一些快捷键（收集中）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-3-在线帮助"><span class="nav-number">41.</span> <span class="nav-text">15.3 在线帮助</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-4-一些小功能"><span class="nav-number">42.</span> <span class="nav-text">15.4 一些小功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">43.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+      <!-- hack一个虚线出来 -->
+      <section style="border-top:1px dotted #ccc;height:10px;"></section>
+      
+<script type="text/javascript" src="//ra.revolvermaps.com/0/0/6.js?i=031trf1l7h9&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
+
+      
+      
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">您是第<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>个小伙伴</span>
+  
+
+  
+    <span class="site-pv">本站总浏览<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        <div class="copyright" >
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-thumbs-up"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gavin</span>
+</div>
+
+<!--<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io" rel="external nofollow">Hexo</a> 强力驱动
+</div>
+-->
+
+<div class="theme-info">
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Pisces
+  </a>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count" style="padding-left:5px; color: #e90f92;">全站共 60.5k 字</span>
+</div>
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'www-climate2weather-cc';
+      var disqus_identifier = '2019/05/18/vi_vim/';
+      var disqus_title = "【转】Vim使用笔记";
+      var disqus_url = 'https://gavin971.github.io/2019/05/18/vi_vim/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+
+<!-- <script type="text/javascript" src="/js/src/dynamic_bg.js"></script> -->
+<!-- <script type="text/javascript" src="/js/three/three-waves.min.js"></script> -->
+  <!-- 按需加载背景 -->
+  <!-- <!-- 按需加载背景 -->
+<!-- 识别手机或电脑的js开始 -->  
+<script type="text/javascript">   
+(function(){  
+var res = GetRequest();  
+var par = res['index'];  
+if(par!='gfan'){  
+  var ua=navigator.userAgent.toLowerCase();  
+  var contains=function (a, b){  
+      if(a.indexOf(b)!=-1){return true;}  
+  };   
+  if((contains(ua,"android") && contains(ua,"mobile"))||(contains(ua,"android") && contains(ua,"mozilla"))||(contains(ua,"android") && contains(ua,"opera"))||contains(ua,"ucweb7")||contains(ua,"iphone")){
+    return false;
+  } else {
+    $.getScript("/js/src/particle.js?v=5.0.1");
+  }
+}  
+})();  
+function GetRequest() {  
+var url = location.search;
+var theRequest = new Object();  
+if (url.indexOf("?") != -1) {  
+  var str = url.substr(1);  
+  strs = str.split("&");  
+  for(var i = 0; i < strs.length; i ++) {  
+    theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);  
+  }  
+}  
+return theRequest;  
+}  
+</script>  
+<!-- 识别手机或电脑的js结束 -->   -->
+  <!-- 页面点击小红心 -->
+<!--   <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js?v=5.0.1"></script> -->
+  <!-- 页面移动stars -->
+  <!-- <script type="text/javascript" src="/js/src/jquery-stars.js?v=5.0.1"></script>
+<script type="text/javascript">
+jQuery('body').jstars({
+	image_path: '/images',
+	image: 'candy-cane-stars.png',
+	style: 'white',
+	width: 34,
+	height: 34,
+	delay: 700,
+	frequency: 5
+});
+</script> -->
+  <script type="text/javascript">var OriginTitile=document.title,st;document.addEventListener("visibilitychange",function(){document.hidden?(document.title="Geek is sexy!",clearTimeout(st)):(document.title="Wecome Back! "+OriginTitile,st=setTimeout(function(){document.title=OriginTitile},4e3))})</script>
+<!--   
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.7;
+    right: 0px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -20px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    document.getElementById("live2dcanvas").style.width = '75px';
+    document.getElementById("live2dcanvas").style.height = '150px';
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/z16.model.json", 0.5);});
+})();
+</script>
+ -->
+</body>
+</html>
