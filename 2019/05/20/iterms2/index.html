@@ -1,0 +1,1232 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="google-site-verification" content="_olLbqJsLPaypjGvvPnkJqjV5uDLUrmRKJ-aE5YTFnQ" />
+<meta name="baidu-site-verification" content="eskIgPwJM1" />
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Courier New:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Linux,iTerm2," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Climate2Weather" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="在Mac下，日常使用终端的频率非常高，尽管达不到生活在terminal里的awesome级别，推荐一下终端下完美的组合是大有好处的。要打造属于自己的满意终端，一般而言需要以下几个组件：iTerm2 + Oh-my-Zsh + autojump + Go2Shell + Vim，具体安装和Vim的配置我不细说，只是单纯的推荐，用了都说好！本文主要指针对iTerm2终端上传下载文件做介绍，可以极大">
+<meta name="keywords" content="Linux,iTerm2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac下如何在iTerm2终端远程上传和下载Linux服务器端文件">
+<meta property="og:url" content="https://gavin971.github.io/2019/05/20/iterms2/index.html">
+<meta property="og:site_name" content="Climate2Weather">
+<meta property="og:description" content="在Mac下，日常使用终端的频率非常高，尽管达不到生活在terminal里的awesome级别，推荐一下终端下完美的组合是大有好处的。要打造属于自己的满意终端，一般而言需要以下几个组件：iTerm2 + Oh-my-Zsh + autojump + Go2Shell + Vim，具体安装和Vim的配置我不细说，只是单纯的推荐，用了都说好！本文主要指针对iTerm2终端上传下载文件做介绍，可以极大">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://gavin971.github.io/images/iterm2.png">
+<meta property="og:image" content="https://gavin971.github.io/images/iterm2_1.png">
+<meta property="og:image" content="https://gavin971.github.io/images/iterm2_2.png">
+<meta property="og:image" content="https://gavin971.github.io/images/iterm2_3">
+<meta property="og:image" content="https://gavin971.github.io/images/iterm2_4.png">
+<meta property="og:image" content="https://gavin971.github.io/images/cmder.png">
+<meta property="og:image" content="https://gavin971.github.io/images/my_wechat.jpg">
+<meta property="og:updated_time" content="2019-05-20T02:16:13.533Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mac下如何在iTerm2终端远程上传和下载Linux服务器端文件">
+<meta name="twitter:description" content="在Mac下，日常使用终端的频率非常高，尽管达不到生活在terminal里的awesome级别，推荐一下终端下完美的组合是大有好处的。要打造属于自己的满意终端，一般而言需要以下几个组件：iTerm2 + Oh-my-Zsh + autojump + Go2Shell + Vim，具体安装和Vim的配置我不细说，只是单纯的推荐，用了都说好！本文主要指针对iTerm2终端上传下载文件做介绍，可以极大">
+<meta name="twitter:image" content="https://gavin971.github.io/images/iterm2.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://gavin971.github.io/2019/05/20/iterms2/"/>
+
+
+<!-- 网页加载条 -->
+<script src="/js/src/pace.min.js"></script>
+ 
+  
+<script type="text/javascript" color="0,0,255" opacity='0.7' zIndex="-2" count="70" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+
+<!-- <div class="bg_content">
+  <canvas id="canvas"></canvas>
+</div> -->   
+<!-- 配合后面的 <script type="text/javascript" src="/js/src/dynamic_bg.js"></script>  使用 -->
+
+
+  <title> Mac下如何在iTerm2终端远程上传和下载Linux服务器端文件 | Climate2Weather </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+<!--   <a href="https://github.com/gavin971"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a> -->
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Climate2Weather</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">人生不妨大胆一点, 反正只有一次</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            书籍
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-resources">
+          <a href="/resources" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-bell"></i> <br />
+            
+            资源
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+
+     
+
+
+
+
+
+
+
+
+
+
+     
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search fa-lg"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Mac下如何在iTerm2终端远程上传和下载Linux服务器端文件
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2019-05-20T08:59:00+08:00" content="2019-05-20">
+              2019-05-20
+            </time>
+          </span>
+
+
+
+
+          
+            <span class="post-letters-count">
+              &nbsp; | &nbsp;
+            <span>1,014 字</span>
+              &nbsp; | &nbsp;
+            <span>4 min</span>
+            </span>
+          
+
+
+
+
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术积累/" itemprop="url" rel="index">
+                    <span itemprop="name">技术积累</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2019/05/20/iterms2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/05/20/iterms2/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv">热度
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>℃
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/images/iterm2.png" alt=""></p>
+<blockquote>
+<p><strong><font color="#0000ff">在Mac下，日常使用终端的频率非常高，尽管达不到生活在terminal里的awesome级别，推荐一下终端下完美的组合是大有好处的。要打造属于自己的满意终端，一般而言需要以下几个组件：<code>iTerm2 + Oh-my-Zsh + autojump + Go2Shell + Vim</code>，具体安装和Vim的配置我不细说，只是单纯的推荐，用了都说好！本文主要指针对iTerm2终端上传下载文件做介绍，可以极大地方面，服务器端数据文件的查看，就不需要再打开FileZilla和Transmit一类的FTP客户端，这种终端的操作显得简洁、优雅！</font></strong></p>
+</blockquote>
+<a id="more"></a>
+<h2 id="配置rz、sz"><a href="#配置rz、sz" class="headerlink" title="配置rz、sz"></a>配置rz、sz</h2><h3 id="在安装完iTerm2和Homebrew后，"><a href="#在安装完iTerm2和Homebrew后，" class="headerlink" title="在安装完iTerm2和Homebrew后，"></a>在安装完iTerm2和Homebrew后，</h3><p><code>brew install lrzsz</code></p>
+<h3 id="下载iTerm2-zmodem，"><a href="#下载iTerm2-zmodem，" class="headerlink" title="下载iTerm2-zmodem，"></a>下载iTerm2-zmodem，</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/bin</span><br><span class="line">sudo wget https://raw.github.com/mmastrac/iterm2-zmodem/master/iterm2-send-zmodem.sh</span><br><span class="line">sudo wget https://raw.github.com/mmastrac/iterm2-zmodem/master/iterm2-recv-zmodem.sh</span><br><span class="line">sudo chmod 777 /usr/<span class="built_in">local</span>/bin/iterm2-*</span><br></pre></td></tr></table></figure>
+<h3 id="配置-iTerm2"><a href="#配置-iTerm2" class="headerlink" title="配置 iTerm2"></a>配置 iTerm2</h3><p>打开iTerm2，点击preferences → profiles，选择某个profile，如Default，之后继续选择advanced → triggers，添加编辑添加如下triggers,</p>
+<table>
+<thead>
+<tr>
+<th>Regular Expression</th>
+<th>Action</th>
+<th>Parameters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rz waiting to receive.**B0100</td>
+<td>Run Silent Coprocess</td>
+<td>/usr/local/bin/iterm2-send-zmodem.sh</td>
+</tr>
+<tr>
+<td>**B00000000000000</td>
+<td>Run Silent Coprocess</td>
+<td>/usr/local/bin/iterm2-recv-zmodem.sh</td>
+</tr>
+</tbody>
+</table>
+<p>参考：<a href="https://github.com/mmastrac/iterm2-zmodem" target="_blank" rel="noopener">https://github.com/mmastrac/iterm2-zmodem</a></p>
+<p>此时，Mac本地端的安装配置就结束了。</p>
+<h2 id="接下来配置Linux服务器端lsz-lrz"><a href="#接下来配置Linux服务器端lsz-lrz" class="headerlink" title="接下来配置Linux服务器端lsz/lrz"></a>接下来配置Linux服务器端lsz/lrz</h2><h3 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装,"></a>编译安装,</h3><p>由于，多数情况下都是没有<code>root</code>权限的，下面的配置安装主要是针对于<code>普通用户</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /tmp</span><br><span class="line">$ wget http://www.ohse.de/uwe/releases/lrzsz-0.12.20.tar.gz</span><br><span class="line">$ tar zxvf lrzsz-0.12.20.tar.gz &amp;&amp; <span class="built_in">cd</span> lrzsz-0.12.20</span><br><span class="line">$ ./configure --prefix=/your_path/ &amp;&amp; make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<h3 id="bashrc文件里添加路径"><a href="#bashrc文件里添加路径" class="headerlink" title="~/.bashrc文件里添加路径,"></a>~/.bashrc文件里添加路径,</h3><ul>
+<li>打开</li>
+</ul>
+<blockquote>
+<p><code>vim ~/.bashrc</code></p>
+</blockquote>
+<ul>
+<li>添加 </li>
+</ul>
+<blockquote>
+<p> <code>export PATH=$PATH:/your_path/bin</code></p>
+</blockquote>
+<ul>
+<li>下面创建别名为rz/sz</li>
+</ul>
+<blockquote>
+<p><code>alias rc=&#39;/your_path/bin/lrc&#39;</code></p>
+<p><code>alias sz=&#39;/your_path/bin/lsz&#39;</code></p>
+</blockquote>
+<ul>
+<li>更新环境变量</li>
+</ul>
+<blockquote>
+<p><code>source ~/.bashrc</code></p>
+</blockquote>
+<p><code>完成。</code></p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p><code>随意从服务器下载一个文件：</code></p>
+<p>下载<code>netcdf-4.3.3.1.tar.gz</code>文件，<br>只需要在iTerm2终端输入：</p>
+<p><code>sz netcdf-4.3.3.1.tar.gz</code></p>
+<p>会首先弹出一个选择本地安放位置的窗口。</p>
+<p><img src="/images/iterm2_1.png" alt=""></p>
+<p>选择后，就会下载：</p>
+<p><img src="/images/iterm2_2.png" alt=""></p>
+<h3 id="另外，scp方法来上传-下载文件"><a href="#另外，scp方法来上传-下载文件" class="headerlink" title="另外，scp方法来上传/下载文件"></a>另外，scp方法来上传/下载文件</h3><p>先介绍下如何使用 scp 命令。</p>
+<p><strong>上传</strong></p>
+<p><code>scp -r local_folder remote_username@remote_ip:remote_folder</code><br>或者</p>
+<p><code>scp -r local_folder remote_ip:remote_folder</code></p>
+<p><strong>下载</strong></p>
+<p>下载和上传对应，只需要修改后两个参数顺序即可，即调整源文件和目标文件顺序。</p>
+<p><code>scp -r remote_username@remote_ip:remote_folder local_folder</code></p>
+<blockquote>
+<p>几个可能用到的参数：</p>
+<p>-v 和大多数 linux 命令中的 - v 意思一样, 用来显示进度。可以用来查看连接、认证、或是配置错误。</p>
+<p>-r 递归处理，将指定目录下的文档和子目录一并处理</p>
+<p>-C 使能压缩选项</p>
+<p>-P 选择端口。注意 - p 已经被 rcp 使用</p>
+<p>-4 强行使用 IPV4 地址</p>
+<p>-6 强行使用 IPV6 地址</p>
+</blockquote>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>Mac独有：Go2Shell、iTerm2<br>Linux共有： autojump、Oh-my-Zsh、Vim</p>
+<h3 id="autojump"><a href="#autojump" class="headerlink" title="autojump"></a>autojump</h3><p>重点安利autojump，它能记住你进到的路径，根据使用的频率来排序，就不需要再寻找输入路径了，以下为实例图：<br><img src="/images/iterm2_3" alt=""><br>具体安装参考：<a href="https://www.barretlee.com/blog/2015/03/30/autojump-in-mac/" target="_blank" rel="noopener">链接.1</a><br><a href="https://www.jianshu.com/p/51e71087f732" target="_blank" rel="noopener">链接.2</a></p>
+<h3 id="Oh-my-Zsh"><a href="#Oh-my-Zsh" class="headerlink" title="Oh-my-Zsh"></a>Oh-my-Zsh</h3><p>具体安装参考：</p>
+<p><a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="noopener">链接.1</a><br><a href="https://ohmyz.sh/" target="_blank" rel="noopener">链接.2</a></p>
+<h3 id="Go2Shell"><a href="#Go2Shell" class="headerlink" title="Go2Shell"></a>Go2Shell</h3><p>Mac安装Go2Shell 用于实现点击Finder上方勾选的图标直接打开iTerm2等终端（以前默认支持 Terminal，现在可选择iTerm2）。可直接访问当前Finder的文件路径。</p>
+<p>具体安装参考：<a href="https://zipzapmac.com/Go2Shell" target="_blank" rel="noopener">链接.1</a><br><a href="http://wanghengliang.cn/2016/11/go2shell/" target="_blank" rel="noopener">链接.2</a><br><a href="https://www.jianshu.com/p/8033956ab71d" target="_blank" rel="noopener">链接.3</a></p>
+<h3 id="Vim的配置"><a href="#Vim的配置" class="headerlink" title="Vim的配置"></a>Vim的配置</h3><p><img src="/images/iterm2_4.png" alt="效果图"><br>据说，牛人都是打造自己独一无二的Vim IDE，配置各取所需，但是确实实用，个人建议简单的vim实用技巧还是要会的，万一，你只能远程去编辑脚本，没有一点vim储备，一定会很抓狂的。不过，要想熟练使用，vim的学习曲线还是很陡峭的，长期积累是非常有必要的。</p>
+<p>具体安装参考：<a href="https://saul-mirone.github.io/2017/06/20/vim-config/" target="_blank" rel="noopener">链接.1</a><br><a href="https://blog.csdn.net/simple_the_best/article/details/52970992" target="_blank" rel="noopener">链接.2</a><br><a href="https://github.com/wklken/k-vim" target="_blank" rel="noopener">链接.3</a><br><a href="http://www.ruanyifeng.com/blog/2018/09/vimrc.html" target="_blank" rel="noopener">链接.4</a></p>
+<h3 id="cmder"><a href="#cmder" class="headerlink" title="cmder"></a>cmder</h3><p>另外，Windows上终端推荐cmder</p>
+<p><img src="/images/cmder.png" alt=""></p>
+<p>具体安装参考：<a href="https://cmder.net/" target="_blank" rel="noopener">链接.1</a><br><a href="https://www.jianshu.com/p/979db1a96f6d" target="_blank" rel="noopener">链接.2</a><br><a href="https://xiaogliu.github.io/2017/04/07/install-and-configure-cmder/" target="_blank" rel="noopener">链接.3</a></p>
+<p><strong><p align="center"><font color="#c8044b" size="2" face="黑体">有任何问题都欢迎交流探讨，共同学习进步！</font></p></strong><br> <img src="/images/my_wechat.jpg" width="150" height="200" alt="" align="center"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+<blockquote class="blockquote-center" style="color: #ccc;">
+    -------------本文结束 <i class="fa fa-paw"></i> 感谢阅读-------------
+</blockquote>
+
+  <span id="inline-green" style="border-radius:3px;">作者</span>：<a class="link-blue" href="https://github.com/gavin971" target="_blank">Gavin</a><br/>有问题请在相应<a class="link-blue" href="https://gavin971.github.io/" target="_blank">页面留言</a>(评论系统DISQUS需要"翻墙"才可见)<br/>或者私信给我 <a class="link-blue" href="https://climate2weather.cc" target="_blank">GMAIL: zhpfu.atm@gmail.com</a>。
+
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>满分是10分的话，这篇文章你给几分</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/reward/reward_wechat.png" alt="Gavin WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/reward/reward_alipay.png" alt="Gavin Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+          
+            <a href="/tags/iTerm2/" rel="tag"><i class="fa fa-tag"></i> iTerm2</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/18/vi_vim/" rel="next" title="【转】Vim使用笔记">
+                <i class="fa fa-chevron-left"></i> 【转】Vim使用笔记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/avatar/avatar.png"
+               alt="Gavin" />
+          <p class="site-author-name" itemprop="name">Gavin</p>
+          <p class="site-description motion-element" itemprop="description">Still Waters Run Deep!</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">36</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">70</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/gavin971" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/Gavin_Fu971" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/escapelanzhou" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="/weblog" title="建站日志" target="_blank">建站日志</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://neveryu.github.io" title="Never_yu" target="_blank">Never_yu</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://novarizark.github.io/" title="LZN's Blog" target="_blank">LZN's Blog</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置rz、sz"><span class="nav-number">1.</span> <span class="nav-text">配置rz、sz</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在安装完iTerm2和Homebrew后，"><span class="nav-number">1.1.</span> <span class="nav-text">在安装完iTerm2和Homebrew后，</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载iTerm2-zmodem，"><span class="nav-number">1.2.</span> <span class="nav-text">下载iTerm2-zmodem，</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-iTerm2"><span class="nav-number">1.3.</span> <span class="nav-text">配置 iTerm2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接下来配置Linux服务器端lsz-lrz"><span class="nav-number">2.</span> <span class="nav-text">接下来配置Linux服务器端lsz/lrz</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#编译安装"><span class="nav-number">2.1.</span> <span class="nav-text">编译安装,</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bashrc文件里添加路径"><span class="nav-number">2.2.</span> <span class="nav-text">~/.bashrc文件里添加路径,</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">3.</span> <span class="nav-text">测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#另外，scp方法来上传-下载文件"><span class="nav-number">3.1.</span> <span class="nav-text">另外，scp方法来上传/下载文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后记"><span class="nav-number">4.</span> <span class="nav-text">后记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#autojump"><span class="nav-number">4.1.</span> <span class="nav-text">autojump</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Oh-my-Zsh"><span class="nav-number">4.2.</span> <span class="nav-text">Oh-my-Zsh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Go2Shell"><span class="nav-number">4.3.</span> <span class="nav-text">Go2Shell</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vim的配置"><span class="nav-number">4.4.</span> <span class="nav-text">Vim的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cmder"><span class="nav-number">4.5.</span> <span class="nav-text">cmder</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+      <!-- hack一个虚线出来 -->
+      <section style="border-top:1px dotted #ccc;height:10px;"></section>
+      
+<script type="text/javascript" src="//ra.revolvermaps.com/0/0/6.js?i=031trf1l7h9&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
+
+      
+      
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">您是第<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>个小伙伴</span>
+  
+
+  
+    <span class="site-pv">本站总浏览<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        <div class="copyright" >
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-thumbs-up"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gavin</span>
+</div>
+
+<!--<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io" rel="external nofollow">Hexo</a> 强力驱动
+</div>
+-->
+
+<div class="theme-info">
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Pisces
+  </a>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count" style="padding-left:5px; color: #e90f92;">全站共 63.6k 字</span>
+</div>
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'www-climate2weather-cc';
+      var disqus_identifier = '2019/05/20/iterms2/';
+      var disqus_title = "Mac下如何在iTerm2终端远程上传和下载Linux服务器端文件";
+      var disqus_url = 'https://gavin971.github.io/2019/05/20/iterms2/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+
+<!-- <script type="text/javascript" src="/js/src/dynamic_bg.js"></script> -->
+<!-- <script type="text/javascript" src="/js/three/three-waves.min.js"></script> -->
+  <!-- 按需加载背景 -->
+  <!-- <!-- 按需加载背景 -->
+<!-- 识别手机或电脑的js开始 -->  
+<script type="text/javascript">   
+(function(){  
+var res = GetRequest();  
+var par = res['index'];  
+if(par!='gfan'){  
+  var ua=navigator.userAgent.toLowerCase();  
+  var contains=function (a, b){  
+      if(a.indexOf(b)!=-1){return true;}  
+  };   
+  if((contains(ua,"android") && contains(ua,"mobile"))||(contains(ua,"android") && contains(ua,"mozilla"))||(contains(ua,"android") && contains(ua,"opera"))||contains(ua,"ucweb7")||contains(ua,"iphone")){
+    return false;
+  } else {
+    $.getScript("/js/src/particle.js?v=5.0.1");
+  }
+}  
+})();  
+function GetRequest() {  
+var url = location.search;
+var theRequest = new Object();  
+if (url.indexOf("?") != -1) {  
+  var str = url.substr(1);  
+  strs = str.split("&");  
+  for(var i = 0; i < strs.length; i ++) {  
+    theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);  
+  }  
+}  
+return theRequest;  
+}  
+</script>  
+<!-- 识别手机或电脑的js结束 -->   -->
+  <!-- 页面点击小红心 -->
+<!--   <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js?v=5.0.1"></script> -->
+  <!-- 页面移动stars -->
+  <!-- <script type="text/javascript" src="/js/src/jquery-stars.js?v=5.0.1"></script>
+<script type="text/javascript">
+jQuery('body').jstars({
+	image_path: '/images',
+	image: 'candy-cane-stars.png',
+	style: 'white',
+	width: 34,
+	height: 34,
+	delay: 700,
+	frequency: 5
+});
+</script> -->
+  <script type="text/javascript">var OriginTitile=document.title,st;document.addEventListener("visibilitychange",function(){document.hidden?(document.title="Geek is sexy!",clearTimeout(st)):(document.title="Wecome Back! "+OriginTitile,st=setTimeout(function(){document.title=OriginTitile},4e3))})</script>
+<!--   
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.7;
+    right: 0px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -20px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    document.getElementById("live2dcanvas").style.width = '75px';
+    document.getElementById("live2dcanvas").style.height = '150px';
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/z16.model.json", 0.5);});
+})();
+</script>
+ -->
+</body>
+</html>
