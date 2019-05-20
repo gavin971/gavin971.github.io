@@ -72,7 +72,7 @@
 <p><img src="/images/iterm2_1.png" alt=""></p>
 <p>选择后，就会下载：</p>
 <p><img src="/images/iterm2_2.png" alt=""></p>
-<h3 id="另外，scp方法来上传-下载文件"><a href="#另外，scp方法来上传-下载文件" class="headerlink" title="另外，scp方法来上传/下载文件"></a>另外，scp方法来上传/下载文件</h3><p>先介绍下如何使用 scp 命令。</p>
+<h2 id="上传-下载文件scp方法"><a href="#上传-下载文件scp方法" class="headerlink" title="上传/下载文件scp方法"></a>上传/下载文件scp方法</h2><p>先介绍下如何使用 scp 命令。</p>
 <p><strong>上传</strong></p>
 <p><code>scp -r local_folder remote_username@remote_ip:remote_folder</code><br>或者</p>
 <p><code>scp -r local_folder remote_ip:remote_folder</code></p>
