@@ -460,8 +460,10 @@
 <p><strong><font color="#0000ff">在Mac下，日常使用终端的频率非常高，尽管达不到生活在Terminal里的awesome级别，推荐一下终端下完美的组合是大有好处的。要打造属于自己的满意终端，一般而言需要以下几个组件：<code>iTerm2 + Oh-my-Zsh + autojump + Go2Shell + Vim</code>，具体安装和Vim的配置我不细说，只是单纯的推荐，用了都说好！本文主要指针对iTerm2终端上传下载文件做介绍，可以极大地方面，服务器端数据文件的查看，就不需要再打开FileZilla和Transmit一类的FTP客户端，这种终端的操作显得简洁、优雅！</font></strong></p>
 </blockquote>
 <a id="more"></a>
+
 <h2 id="配置rz、sz"><a href="#配置rz、sz" class="headerlink" title="配置rz、sz"></a>配置rz、sz</h2><h3 id="在安装完iTerm2和Homebrew后，"><a href="#在安装完iTerm2和Homebrew后，" class="headerlink" title="在安装完iTerm2和Homebrew后，"></a>在安装完iTerm2和Homebrew后，</h3><p><code>brew install lrzsz</code></p>
 <h3 id="下载iTerm2-zmodem，"><a href="#下载iTerm2-zmodem，" class="headerlink" title="下载iTerm2-zmodem，"></a>下载iTerm2-zmodem，</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/bin</span><br><span class="line">sudo wget https://raw.github.com/mmastrac/iterm2-zmodem/master/iterm2-send-zmodem.sh</span><br><span class="line">sudo wget https://raw.github.com/mmastrac/iterm2-zmodem/master/iterm2-recv-zmodem.sh</span><br><span class="line">sudo chmod 777 /usr/<span class="built_in">local</span>/bin/iterm2-*</span><br></pre></td></tr></table></figure>
+
 <h3 id="配置-iTerm2"><a href="#配置-iTerm2" class="headerlink" title="配置 iTerm2"></a>配置 iTerm2</h3><p>打开iTerm2，点击<code>preferences → profiles</code>，选择某个<code>profile</code>，如Default，之后继续选择<code>advanced → triggers</code>，添加编辑添加如下triggers,</p>
 <table>
 <thead>
@@ -471,8 +473,7 @@
 <th>Parameters</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>rz waiting to receive.**B0100</td>
 <td>Run Silent Coprocess</td>
 <td>/usr/local/bin/iterm2-send-zmodem.sh</td>
@@ -482,12 +483,12 @@
 <td>Run Silent Coprocess</td>
 <td>/usr/local/bin/iterm2-recv-zmodem.sh</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>参考：<a href="https://github.com/mmastrac/iterm2-zmodem" target="_blank" rel="noopener">https://github.com/mmastrac/iterm2-zmodem</a></p>
 <p>此时，Mac本地端的安装配置就结束了。</p>
 <h2 id="接下来配置Linux服务器端lsz-lrz"><a href="#接下来配置Linux服务器端lsz-lrz" class="headerlink" title="接下来配置Linux服务器端lsz/lrz"></a>接下来配置Linux服务器端lsz/lrz</h2><h3 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装,"></a>编译安装,</h3><p>由于，多数情况下都是没有<code>root</code>权限的，下面的配置安装主要是针对于<code>普通用户</code>。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /tmp</span><br><span class="line">$ wget http://www.ohse.de/uwe/releases/lrzsz-0.12.20.tar.gz</span><br><span class="line">$ tar zxvf lrzsz-0.12.20.tar.gz &amp;&amp; <span class="built_in">cd</span> lrzsz-0.12.20</span><br><span class="line">$ ./configure --prefix=/your_path/ &amp;&amp; make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+
 <h3 id="bashrc文件里添加路径"><a href="#bashrc文件里添加路径" class="headerlink" title="~/.bashrc文件里添加路径,"></a>~/.bashrc文件里添加路径,</h3><ul>
 <li>打开</li>
 </ul>
@@ -622,8 +623,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/05/24/life-daughter/" rel="prev" title="test">
-                test <i class="fa fa-chevron-right"></i>
+              <a href="/2019/05/24/life-daughter/" rel="prev" title="孩子对于父母意味着什么？">
+                孩子对于父母意味着什么？ <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -899,7 +900,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count" style="padding-left:5px; color: #e90f92;">全站共 68.9k 字</span>
+  <span class="post-count" style="padding-left:5px; color: #e90f92;">全站共 69.4k 字</span>
 </div>
 
         

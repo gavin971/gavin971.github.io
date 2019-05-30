@@ -388,7 +388,7 @@
           
             <span class="post-letters-count">
               &nbsp; | &nbsp;
-            <span>9,311 字</span>
+            <span>9,309 字</span>
               &nbsp; | &nbsp;
             <span>36 min</span>
             </span>
@@ -459,6 +459,7 @@
 <p>| Author: | jiqing Wu |<br>| email: | <a href="mailto:jiqingwu@gmail.com" target="_blank" rel="noopener">jiqingwu@gmail.com</a> |<br>| Date: | 2012-06-14 |</p>
 <p>vim 是我最喜欢的编辑器，也是 linux 下第二强大的编辑器。 虽然 emacs 是公认的世界第一，我认为使用 emacs 并没有使用 vi 进行编辑来得高效。 如果是初学 vi，运行一下 vimtutor 是个聪明的决定。 （如果你的系统环境不是中文，而你想使用中文的 vimtutor，就运行 vimtutor zh）</p>
 <a id="more"></a>
+
 <h1 id="1-关于Vim"><a href="#1-关于Vim" class="headerlink" title="1. 关于Vim"></a><a href="#id60">1. 关于Vim</a></h1><h2 id="1-1-Vim-的几种模式"><a href="#1-1-Vim-的几种模式" class="headerlink" title="1.1 Vim 的几种模式"></a><a href="#id60">1.1 Vim 的几种模式</a></h2><ul>
 <li>正常模式：可以使用快捷键命令，或按: 输入命令行。</li>
 <li>插入模式：可以输入文本，在正常模式下，按 i、a、o 等都可以进入插入模式。</li>
@@ -566,7 +567,7 @@
 <li>zt: 将当前行移动到屏幕顶端。</li>
 <li>zb: 将当前行移动到屏幕底端。</li>
 </ul>
-<h2 id="4-3-标记"><a href="#4-3-标记" class="headerlink" title="4.3 标记"></a><a href="#id66">4.3 标记</a></h2><p>使用标记可以快速移动。到达标记后，可以用 Ctrl+o 返回原来的位置。 Ctrl+o 和 Ctrl+i 很像浏览器上的 _后退_ 和 _前进_ 。</p>
+<h2 id="4-3-标记"><a href="#4-3-标记" class="headerlink" title="4.3 标记"></a><a href="#id66">4.3 标记</a></h2><p>使用标记可以快速移动。到达标记后，可以用 Ctrl+o 返回原来的位置。 Ctrl+o 和 Ctrl+i 很像浏览器上的 <em>后退</em> 和 <em>前进</em> 。</p>
 <ul>
 <li>m{a-z}: 标记光标所在位置，局部标记，只用于当前文件。</li>
 <li>m{A-Z}: 标记光标所在位置，全局标记。标记之后，退出 Vim， 重新启动，标记仍然有效。</li>
@@ -767,19 +768,28 @@
 <li>:tabm[ove] [N] – 移动标签页，移动到第 N 个标签页之后。 如 <cite>tabm 0</cite> 当前标签页，就会变成第一个标签页。</li>
 </ul>
 <h2 id="9-3-缓冲区"><a href="#9-3-缓冲区" class="headerlink" title="9.3 缓冲区"></a><a href="#id85">9.3 缓冲区</a></h2><ul>
-<li>:buffers 或: ls 或: files 显示缓冲区列表。</li>
-<li>ctrl+^：在最近两个缓冲区间切换。</li>
-<li>:bn – 下一个缓冲区。</li>
-<li>:bp – 上一个缓冲区。</li>
-<li>:bl – 最后一个缓冲区。</li>
-<li>:b[n] 或:[n]b – 切换到第 n 个缓冲区。</li>
-<li>:nbw(ipeout) – 彻底删除第 n 个缓冲区。</li>
-<li>:nbd(elete) – 删除第 n 个缓冲区，并未真正删除，还在 unlisted 列表中。</li>
+<li><p>:buffers 或: ls 或: files 显示缓冲区列表。</p>
+</li>
+<li><p>ctrl+^：在最近两个缓冲区间切换。</p>
+</li>
+<li><p>:bn – 下一个缓冲区。</p>
+</li>
+<li><p>:bp – 上一个缓冲区。</p>
+</li>
+<li><p>:bl – 最后一个缓冲区。</p>
+</li>
+<li><p>:b[n] 或:[n]b – 切换到第 n 个缓冲区。</p>
+</li>
+<li><p>:nbw(ipeout) – 彻底删除第 n 个缓冲区。</p>
+</li>
+<li><p>:nbd(elete) – 删除第 n 个缓冲区，并未真正删除，还在 unlisted 列表中。</p>
+</li>
 <li><p>:ba[ll] – 把所有的缓冲区在当前页中打开，每个缓冲区占一个窗口。</p>
 </li>
 <li><p>vim -o file1 file2: 水平分割窗口，同时打开 file1 和 file2</p>
 </li>
-<li>vim -O file1 file2: 垂直分割窗口，同时打开 file1 和 file2</li>
+<li><p>vim -O file1 file2: 垂直分割窗口，同时打开 file1 和 file2</p>
+</li>
 </ul>
 <h1 id="10-分屏编辑"><a href="#10-分屏编辑" class="headerlink" title="10. 分屏编辑"></a><a href="#id60">10. 分屏编辑</a></h1><h2 id="10-1-水平分割"><a href="#10-1-水平分割" class="headerlink" title="10.1 水平分割"></a><a href="#id87">10.1 水平分割</a></h2><ul>
 <li>:split(:sp) – 把当前窗水平分割成两个窗口。(CTRL-W s 或 CTRL-W CTRL-S) 注意如果在终端下，CTRL-S 可能会冻结终端，请按 CTRL-Q 继续。</li>
@@ -1615,7 +1625,7 @@ p 在文件2的光标所在处粘贴所拷贝的行
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count" style="padding-left:5px; color: #e90f92;">全站共 68.9k 字</span>
+  <span class="post-count" style="padding-left:5px; color: #e90f92;">全站共 69.4k 字</span>
 </div>
 
         
