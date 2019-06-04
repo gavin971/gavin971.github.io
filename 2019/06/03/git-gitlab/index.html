@@ -113,7 +113,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://gavin971.github.io/images/github2.jpg">
 <meta property="og:image" content="https://gavin971.github.io/images/my_wechat.jpg">
-<meta property="og:updated_time" content="2019-06-04T17:30:52.116Z">
+<meta property="og:updated_time" content="2019-06-04T17:33:08.207Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一台Mac上同时使用GitHub和Gitlab">
 <meta name="twitter:description" content="为了在Mac上同时使用github和gitlab,一般而言，都是不同的邮箱和用户名（公司/学校  | 个人），分别对应github和gitlab，所以，不做处理的话，git的全局变量会冲突报错。">
@@ -472,11 +472,11 @@
 <h2 id="我们还是对gitlab作局部声明："><a href="#我们还是对gitlab作局部声明：" class="headerlink" title="我们还是对gitlab作局部声明："></a>我们还是对gitlab作<strong>局部</strong>声明：</h2><blockquote>
 <p><code>git config --local user.name &quot;name_2&quot;</code><br><code>git config --local user.email &quot;xxxxxx@mail_2&quot;</code></p>
 </blockquote>
-<h2 id="可能会报错："><a href="#可能会报错：" class="headerlink" title="可能会报错："></a>可能会报错：</h2><h3 id="情况："><a href="#情况：" class="headerlink" title="情况："></a>情况：</h3><blockquote>
+<h2 id="可能会报错："><a href="#可能会报错：" class="headerlink" title="可能会报错："></a>可能会报错：</h2><h3 id="报错："><a href="#报错：" class="headerlink" title="报错："></a>报错：</h3><blockquote>
 <p><code>remote: HTTP Basic: Access denied</code><br><code>fatal: Authentication failed for &#39;http://gitlab.***.com/***.git/&#39;</code></p>
 </blockquote>
 <h3 id="处理办法：-MacOS系统下"><a href="#处理办法：-MacOS系统下" class="headerlink" title="处理办法：(MacOS系统下)"></a>处理办法：(MacOS系统下)</h3><p><code>sudo git config --system --unset credential.helper</code>  </p>
-<h3 id="报错："><a href="#报错：" class="headerlink" title="报错："></a>报错：</h3><blockquote>
+<h3 id="报错：-1"><a href="#报错：-1" class="headerlink" title="报错："></a>报错：</h3><blockquote>
 <p><code>remote: HTTP Basic: Access denied；remote: You must use a personal access token with ‘api’ scope for Git over HTTP.</code></p>
 </blockquote>
 <h3 id="处理办法：-MacOS系统下-1"><a href="#处理办法：-MacOS系统下-1" class="headerlink" title="处理办法：(MacOS系统下)"></a>处理办法：(MacOS系统下)</h3><p><code>GitLab设置个人秘钥，具体文末参考：[链接.3](http://copyfuture.com/blogs-details/9d530b015ea3e54b972f0b4a5db34b44)</code> </p>
@@ -764,7 +764,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#github的处理方案："><span class="nav-number">1.</span> <span class="nav-text">github的处理方案：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建repository-仓库"><span class="nav-number">1.1.</span> <span class="nav-text">创建repository(仓库)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我们还是对github作全局声明："><span class="nav-number">1.2.</span> <span class="nav-text">我们还是对github作全局声明：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub添加SSH-Key"><span class="nav-number">1.3.</span> <span class="nav-text">GitHub添加SSH Key</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#gitlab的处理方案："><span class="nav-number">2.</span> <span class="nav-text">gitlab的处理方案：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建repository-仓库-1"><span class="nav-number">2.1.</span> <span class="nav-text">创建repository(仓库)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我们还是对gitlab作局部声明："><span class="nav-number">2.2.</span> <span class="nav-text">我们还是对gitlab作局部声明：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可能会报错："><span class="nav-number">2.3.</span> <span class="nav-text">可能会报错：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#情况："><span class="nav-number">2.3.1.</span> <span class="nav-text">情况：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理办法：-MacOS系统下"><span class="nav-number">2.3.2.</span> <span class="nav-text">处理办法：(MacOS系统下)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#报错："><span class="nav-number">2.3.3.</span> <span class="nav-text">报错：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理办法：-MacOS系统下-1"><span class="nav-number">2.3.4.</span> <span class="nav-text">处理办法：(MacOS系统下)</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#github的处理方案："><span class="nav-number">1.</span> <span class="nav-text">github的处理方案：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建repository-仓库"><span class="nav-number">1.1.</span> <span class="nav-text">创建repository(仓库)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我们还是对github作全局声明："><span class="nav-number">1.2.</span> <span class="nav-text">我们还是对github作全局声明：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub添加SSH-Key"><span class="nav-number">1.3.</span> <span class="nav-text">GitHub添加SSH Key</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#gitlab的处理方案："><span class="nav-number">2.</span> <span class="nav-text">gitlab的处理方案：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建repository-仓库-1"><span class="nav-number">2.1.</span> <span class="nav-text">创建repository(仓库)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我们还是对gitlab作局部声明："><span class="nav-number">2.2.</span> <span class="nav-text">我们还是对gitlab作局部声明：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可能会报错："><span class="nav-number">2.3.</span> <span class="nav-text">可能会报错：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#报错："><span class="nav-number">2.3.1.</span> <span class="nav-text">报错：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理办法：-MacOS系统下"><span class="nav-number">2.3.2.</span> <span class="nav-text">处理办法：(MacOS系统下)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#报错：-1"><span class="nav-number">2.3.3.</span> <span class="nav-text">报错：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理办法：-MacOS系统下-1"><span class="nav-number">2.3.4.</span> <span class="nav-text">处理办法：(MacOS系统下)</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -831,7 +831,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count" style="padding-left:5px; color: #e90f92;">全站共 74.0k 字</span>
+  <span class="post-count" style="padding-left:5px; color: #e90f92;">全站共 78.6k 字</span>
 </div>
 
         
