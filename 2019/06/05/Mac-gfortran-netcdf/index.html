@@ -103,22 +103,23 @@
 
 
 
-<meta name="description" content="阅读建议：电脑端/iPad端阅读，按照文章左边栏三级标题来捋思路，安装过程输出可忽略。实际操作报错了，再按图索骥看细节！  从页面“Software for Manipulating or Displaying NetCDF Data”能找到几十种语言或者工具软件可以处理NetCDF（Network Common Data Form）的数据，有些软件是可以跨平台的，强烈推荐&amp;gt;&amp;gt;免费软件">
+<meta name="description" content="阅读建议：电脑端/iPad端阅读，按照文章左边栏三级标题来捋思路，安装过程输出可忽略。实际操作报错了，再按图索骥看细节！  本文简版同步发布于公众号『气象学家』。从页面“Software for Manipulating or Displaying NetCDF Data”能找到几十种语言或者工具软件可以处理NetCDF（Network Common Data Form）的数据，有些软件是可以跨平">
 <meta name="keywords" content="Fortran,gfortran,gcc,NetCDF">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac上如何使用Fortran来读写NetCDF数据文件">
 <meta property="og:url" content="https://gavin971.github.io/2019/06/05/Mac-gfortran-netcdf/index.html">
 <meta property="og:site_name" content="Climate2Weather">
-<meta property="og:description" content="阅读建议：电脑端/iPad端阅读，按照文章左边栏三级标题来捋思路，安装过程输出可忽略。实际操作报错了，再按图索骥看细节！  从页面“Software for Manipulating or Displaying NetCDF Data”能找到几十种语言或者工具软件可以处理NetCDF（Network Common Data Form）的数据，有些软件是可以跨平台的，强烈推荐&amp;gt;&amp;gt;免费软件">
+<meta property="og:description" content="阅读建议：电脑端/iPad端阅读，按照文章左边栏三级标题来捋思路，安装过程输出可忽略。实际操作报错了，再按图索骥看细节！  本文简版同步发布于公众号『气象学家』。从页面“Software for Manipulating or Displaying NetCDF Data”能找到几十种语言或者工具软件可以处理NetCDF（Network Common Data Form）的数据，有些软件是可以跨平">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://gavin971.github.io/images/panoply.jpg">
 <meta property="og:image" content="https://gavin971.github.io/images/homebrew.png">
 <meta property="og:image" content="https://gavin971.github.io/images/netcdf.png">
 <meta property="og:image" content="https://gavin971.github.io/images/my_wechat.jpg">
-<meta property="og:updated_time" content="2019-06-05T01:08:27.227Z">
+<meta property="og:image" content="https://gavin971.github.io/images/QQRR1.png">
+<meta property="og:updated_time" content="2019-06-05T06:07:21.553Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac上如何使用Fortran来读写NetCDF数据文件">
-<meta name="twitter:description" content="阅读建议：电脑端/iPad端阅读，按照文章左边栏三级标题来捋思路，安装过程输出可忽略。实际操作报错了，再按图索骥看细节！  从页面“Software for Manipulating or Displaying NetCDF Data”能找到几十种语言或者工具软件可以处理NetCDF（Network Common Data Form）的数据，有些软件是可以跨平台的，强烈推荐&amp;gt;&amp;gt;免费软件">
+<meta name="twitter:description" content="阅读建议：电脑端/iPad端阅读，按照文章左边栏三级标题来捋思路，安装过程输出可忽略。实际操作报错了，再按图索骥看细节！  本文简版同步发布于公众号『气象学家』。从页面“Software for Manipulating or Displaying NetCDF Data”能找到几十种语言或者工具软件可以处理NetCDF（Network Common Data Form）的数据，有些软件是可以跨平">
 <meta name="twitter:image" content="https://gavin971.github.io/images/panoply.jpg">
 
 
@@ -388,7 +389,7 @@
           
             <span class="post-letters-count">
               &nbsp; | &nbsp;
-            <span>4,932 字</span>
+            <span>4,948 字</span>
               &nbsp; | &nbsp;
             <span>29 min</span>
             </span>
@@ -454,7 +455,7 @@
       
         <p><strong><p align="center"><font color="#c8044b" size="2" face="黑体"><code>阅读建议：电脑端/iPad端阅读，按照文章左边栏三级标题来捋思路，安装过程输出可忽略。实际操作报错了，再按图索骥看细节！</code></font></p></strong><br><img src="/images/panoply.jpg" alt></p>
 <blockquote>
-<p><strong><font color="#0000ff">从页面<a href="https://www.unidata.ucar.edu/software/netcdf/software.html" target="_blank" rel="noopener">“Software for Manipulating or Displaying NetCDF Data”</a>能找到几十种语言或者工具软件可以处理NetCDF（<a href="https://www.unidata.ucar.edu/publications/factsheets/current/factsheet_netcdf.pdf" target="_blank" rel="noopener">Network Common Data Form</a>）的数据，有些软件是可以跨平台的，强烈推荐&gt;&gt;<a href="https://www.giss.nasa.gov/tools/panoply/" target="_blank" rel="noopener">免费软件Panoply</a>&lt;&lt;,对于NetCDF文件的可视化和简单的数据导出非常的优秀，Mac、Linux、Windows都能使用。当然，现在对于不同的处理要求和速度完全可以选择不同的工具方法处理NetCDF，Python/ncl对于NetCDF的读取和创建也已经非常得方便了。但是，目前就使用Fortran去调用NetCDF的Fortran API，处理速度上还是有很大的优势，所以，简单以MacOS为例，就Fortran处理NetCDF相关的库的安装和环境变量设置来做个简单的介绍，并用实例来加深理解，但是并不做深度解读，抛砖引玉而已。后面另开一篇文章就grib数据的处理做介绍（Python、NCL、wgrib2）。</font></strong></p>
+<p><strong><font color="#0000ff">本文简版同步发布于公众号『气象学家』。从页面<a href="https://www.unidata.ucar.edu/software/netcdf/software.html" target="_blank" rel="noopener">“Software for Manipulating or Displaying NetCDF Data”</a>能找到几十种语言或者工具软件可以处理NetCDF（<a href="https://www.unidata.ucar.edu/publications/factsheets/current/factsheet_netcdf.pdf" target="_blank" rel="noopener">Network Common Data Form</a>）的数据，有些软件是可以跨平台的，强烈推荐&gt;&gt;<a href="https://www.giss.nasa.gov/tools/panoply/" target="_blank" rel="noopener">免费软件Panoply</a>&lt;&lt;,对于NetCDF文件的可视化和简单的数据导出非常的优秀，Mac、Linux、Windows都能使用。当然，现在对于不同的处理要求和速度完全可以选择不同的工具方法处理NetCDF，Python/ncl对于NetCDF的读取和创建也已经非常得方便了。但是，目前就使用Fortran去调用NetCDF的Fortran API，处理速度上还是有很大的优势，所以，简单以MacOS为例，就Fortran处理NetCDF相关的库的安装和环境变量设置来做个简单的介绍，并用实例来加深理解，但是并不做深度解读，抛砖引玉而已。后面另开一篇文章就grib数据的处理做介绍（Python、NCL、wgrib2）。</font></strong></p>
 </blockquote>
 <a id="more"></a>
 
@@ -520,6 +521,8 @@
 <p>参考：</p>
 <p><a href="https://www.unidata.ucar.edu/software/netcdf/examples/programs/" target="_blank" rel="noopener">链接.1</a><br><a href="https://brew.sh/" target="_blank" rel="noopener">链接.2</a><br><a href="https://github.com/Homebrew/homebrew-core/blob/master/Formula/netcdf.rb" target="_blank" rel="noopener">链接.3</a><br><a href="https://github.com/dspelaez/install-netcdf-fortran/blob/master/install_netcdf.sh?1559670513694" target="_blank" rel="noopener">链接.4</a><br><a href="https://github.com/Unidata/netcdf-fortran/tree/master/examples?1559673099354" target="_blank" rel="noopener">链接.5</a><br><a href="https://www.jianshu.com/p/d86ce50ba547" target="_blank" rel="noopener">链接.6</a><br><a href="https://blog.csdn.net/h4x0r_007/article/details/46900293" target="_blank" rel="noopener">链接.7</a><br><a href="http://internetwork.net/wiki/20141227605.html" target="_blank" rel="noopener">链接.8</a><br><a href="https://www.esrl.noaa.gov/psd/data/gridded/netsubs_read.shtml" target="_blank" rel="noopener">链接.9</a><br><a href="https://people.sc.fsu.edu/~jburkardt/f_src/" target="_blank" rel="noopener">链接.10</a><br><a href="https://www.unidata.ucar.edu/software/netcdf/docs_rc/building_netcdf_fortran.html" target="_blank" rel="noopener">链接.11</a></p>
 <p><strong><p align="center"><font color="#c8044b" size="2" face="黑体">有任何问题都欢迎交流探讨，共同学习进步！</font></p></strong><br> <img src="/images/my_wechat.jpg" width="150" height="200" alt align="center"></p>
+ <img src="/images/QQRR1.png" width="150" height="200" alt align="center">
+
 
       
     </div>
