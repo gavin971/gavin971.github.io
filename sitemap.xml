@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://gavin971.github.io/2019/06/06/jupyter-hexo/</loc>
+    
+    <lastmod>2019-06-06T13:05:15.213Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://gavin971.github.io/2019/06/05/Mac-gfortran-netcdf/</loc>
     
     <lastmod>2019-06-05T07:33:14.383Z</lastmod>
