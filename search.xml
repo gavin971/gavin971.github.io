@@ -8,7 +8,7 @@
       <url>https://gavin971.github.io/2019/06/15/cmaps-python/</url>
       <content type="html"><![CDATA[<p><img src="/images/colormaps.png" alt></p>
 <blockquote>
-<p><strong><font color="#0000ff">本文同步发布于公众号『气象学家』<a href>传送门</a>。NCL中丰富的<a href="https://www.ncl.ucar.edu/Document/Graphics/color_table_gallery.shtml" target="_blank" rel="noopener">Color Table</a>，而在Python中matplotlib绘图工具包中默认的类型可能略显不足。所以，今天介绍一下Dr.🐱开源的cmaps库，即可将NCL的丰富多彩，完美地引入到Python绘图中来。另外，给Dr.🐱“打广告”，欢迎在GitHub（<a href="https://github.com/hhuangwx/cmaps" target="_blank" rel="noopener">&lt;&lt;项目地址&gt;&gt;https://github.com/hhuangwx/cmaps</a>）上Star或Fork.</font></strong></p>
+<p><strong><font color="#0000ff">本文同步发布于公众号『气象学家』<a href="https://mp.weixin.qq.com/s/mvnVXr65J-VRW2wQO-1ufg" target="_blank" rel="noopener">传送门</a>。NCL中丰富的<a href="https://www.ncl.ucar.edu/Document/Graphics/color_table_gallery.shtml" target="_blank" rel="noopener">Color Table</a>，而在Python中matplotlib绘图工具包中默认的类型可能略显不足。所以，今天介绍一下Dr.🐱开源的cmaps库，即可将NCL的丰富多彩，完美地引入到Python绘图中来。另外，给Dr.🐱“打广告”，欢迎在GitHub（<a href="https://github.com/hhuangwx/cmaps" target="_blank" rel="noopener">&lt;&lt;项目地址&gt;&gt;https://github.com/hhuangwx/cmaps</a>）上Star或Fork.</font></strong></p>
 </blockquote>
 <a id="more"></a>
 
