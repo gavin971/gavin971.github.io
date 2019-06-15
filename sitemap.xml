@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://gavin971.github.io/books/index.html</loc>
+    
+    <lastmod>2019-06-15T15:27:15.106Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://gavin971.github.io/2019/05/10/era5-download/</loc>
     
     <lastmod>2019-06-15T13:54:37.110Z</lastmod>
@@ -128,14 +135,14 @@
   </url>
   
   <url>
-    <loc>https://gavin971.github.io/2019/05/03/real-life/</loc>
+    <loc>https://gavin971.github.io/2019/05/03/passer-by/</loc>
     
     <lastmod>2019-05-03T05:51:55.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://gavin971.github.io/2019/05/03/passer-by/</loc>
+    <loc>https://gavin971.github.io/2019/05/03/real-life/</loc>
     
     <lastmod>2019-05-03T05:51:55.000Z</lastmod>
     
@@ -201,13 +208,6 @@
     <loc>https://gavin971.github.io/2019/03/28/tif-to-latlon/</loc>
     
     <lastmod>2019-04-04T09:20:23.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://gavin971.github.io/books/index.html</loc>
-    
-    <lastmod>2019-04-04T05:56:56.000Z</lastmod>
     
   </url>
   
@@ -352,14 +352,14 @@
   </url>
   
   <url>
-    <loc>https://gavin971.github.io/yu/css-hack.html</loc>
+    <loc>https://gavin971.github.io/tags/index.html</loc>
     
     <lastmod>2017-10-31T00:01:50.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://gavin971.github.io/tags/index.html</loc>
+    <loc>https://gavin971.github.io/yu/css-hack.html</loc>
     
     <lastmod>2017-10-31T00:01:50.000Z</lastmod>
     
