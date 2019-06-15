@@ -4,6 +4,61 @@
   
     
     <entry>
+      <title><![CDATA[Python中如何使用NCL的全部色表Colormaps？]]></title>
+      <url>https://gavin971.github.io/2019/06/15/cmaps-python/</url>
+      <content type="html"><![CDATA[<p><img src="/images/colormaps.png" alt></p>
+<blockquote>
+<p><strong><font color="#0000ff">本文同步发布于公众号『气象学家』<a href>传送门</a>。NCL中丰富的<a href="https://www.ncl.ucar.edu/Document/Graphics/color_table_gallery.shtml" target="_blank" rel="noopener">Color Table</a>，而在Python中matplotlib绘图工具包中默认的类型可能略显不足。所以，今天介绍一下Dr.🐱开源的cmaps库，即可将NCL的丰富多彩，完美地引入到Python绘图中来。另外，给Dr.🐱“打广告”，欢迎在GitHub（<a href="https://github.com/hhuangwx/cmaps" target="_blank" rel="noopener">&lt;&lt;项目地址&gt;&gt;https://github.com/hhuangwx/cmaps</a>）上Star或Fork.</font></strong></p>
+</blockquote>
+<a id="more"></a>
+
+
+<h3 id="cmaps简介"><a href="#cmaps简介" class="headerlink" title="cmaps简介"></a>cmaps简介</h3><p>Make it easier to use user defined colormaps in matplotlib. Default colormaps are from NCL website.</p>
+<p>Users can define a environmental variable CMAP_DIR pointing to the folder containing the self-defined rgb files.</p>
+<h3 id="安装-Installation"><a href="#安装-Installation" class="headerlink" title="安装 Installation"></a>安装 Installation</h3><blockquote>
+<p><code>pip install https://github.com/hhuangwx/cmaps/archive/master.zip</code></p>
+</blockquote>
+<blockquote>
+<p>or:</p>
+</blockquote>
+<blockquote>
+<p><code>git clone https://github.com/hhuangwx/cmaps.git</code><br><code>cd cmaps</code><br><code>python setup.py install</code></p>
+</blockquote>
+<h3 id="使用-Usage"><a href="#使用-Usage" class="headerlink" title="使用 Usage"></a>使用 Usage</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> cmaps</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = y = np.arange(<span class="number">-3.0</span>, <span class="number">3.01</span>, <span class="number">0.05</span>)</span><br><span class="line">X, Y = np.meshgrid(x, y)</span><br><span class="line"></span><br><span class="line">sigmax = sigmay = <span class="number">1.0</span></span><br><span class="line">mux = muy = sigmaxy=<span class="number">0.0</span></span><br><span class="line"></span><br><span class="line">Xmu = X-mux</span><br><span class="line">Ymu = Y-muy</span><br><span class="line"></span><br><span class="line">rho = sigmaxy/(sigmax*sigmay)</span><br><span class="line">z = Xmu**<span class="number">2</span>/sigmax**<span class="number">2</span> + Ymu**<span class="number">2</span>/sigmay**<span class="number">2</span> - <span class="number">2</span>*rho*Xmu*Ymu/(sigmax*sigmay)</span><br><span class="line">denom = <span class="number">2</span>*np.pi*sigmax*sigmay*np.sqrt(<span class="number">1</span>-rho**<span class="number">2</span>)</span><br><span class="line">Z = np.exp(-z/(<span class="number">2</span>*(<span class="number">1</span>-rho**<span class="number">2</span>))) / denom</span><br><span class="line"></span><br><span class="line">plt.pcolormesh(X,Y,Z,cmap=cmaps.WhiteBlueGreenYellowRed)</span><br><span class="line">plt.colorbar()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/cmaps1.png/" alt></p>
+<h3 id="罗列色图"><a href="#罗列色图" class="headerlink" title="罗列色图"></a>罗列色图</h3><p><code>List the colormaps using the code in the examples:</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cmaps</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> inspect</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line">matplotlib.rc(<span class="string">'text'</span>, usetex=<span class="keyword">False</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">list_cmaps</span><span class="params">()</span>:</span></span><br><span class="line">    attributes = inspect.getmembers(cmaps, <span class="keyword">lambda</span> _: <span class="keyword">not</span> (inspect.isroutine(_)))</span><br><span class="line">    colors = [_[<span class="number">0</span>] <span class="keyword">for</span> _ <span class="keyword">in</span> attributes <span class="keyword">if</span></span><br><span class="line">              <span class="keyword">not</span> (_[<span class="number">0</span>].startswith(<span class="string">'__'</span>) <span class="keyword">and</span> _[<span class="number">0</span>].endswith(<span class="string">'__'</span>))]</span><br><span class="line">    <span class="keyword">return</span> colors</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    color = list_cmaps()</span><br><span class="line"></span><br><span class="line">    a = np.outer(np.arange(<span class="number">0</span>, <span class="number">1</span>, <span class="number">0.001</span>), np.ones(<span class="number">10</span>))</span><br><span class="line">    plt.figure(figsize=(<span class="number">20</span>, <span class="number">20</span>))</span><br><span class="line">    plt.subplots_adjust(top=<span class="number">0.95</span>, bottom=<span class="number">0.05</span>, left=<span class="number">0.01</span>, right=<span class="number">0.99</span>)</span><br><span class="line">    ncmaps = len(color)</span><br><span class="line">    nrows = <span class="number">8</span></span><br><span class="line">    <span class="keyword">for</span> i, k <span class="keyword">in</span> enumerate(color):</span><br><span class="line">        plt.subplot(nrows, ncmaps // nrows + <span class="number">1</span>, i + <span class="number">1</span>)</span><br><span class="line">        plt.axis(<span class="string">'off'</span>)</span><br><span class="line">        plt.imshow(a, aspect=<span class="string">'auto'</span>, cmap=getattr(cmaps, k), origin=<span class="string">'lower'</span>)</span><br><span class="line">        plt.title(k, rotation=<span class="number">90</span>, fontsize=<span class="number">10</span>)</span><br><span class="line">        plt.title(k, fontsize=<span class="number">10</span>)</span><br><span class="line">    plt.savefig(<span class="string">'colormaps.png'</span>, dpi=<span class="number">300</span>)</span><br></pre></td></tr></table></figure>
+
+<p>参考：</p>
+<p><a href="https://www.ncl.ucar.edu/Document/Graphics/color_table_gallery.shtml" target="_blank" rel="noopener">链接.1</a><br><a href="https://github.com/hhuangwx/cmaps" target="_blank" rel="noopener">链接.2</a><br><a href="http://bbs.06climate.com/forum.php?mod=viewthread&tid=43521" target="_blank" rel="noopener">链接.3</a></p>
+<p><strong><p align="center"><font color="#c8044b" size="2" face="黑体">有任何问题都欢迎交流探讨，共同学习进步！</font></p></strong><br> <img src="/images/my_wechat.jpg" width="150" height="200" alt align="center"></p>
+ <img src="/images/QQRR1.png" width="300" height="250" alt align="center">
+
+]]></content>
+      
+        <categories>
+            
+            <category> 技术积累 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Python </tag>
+            
+            <tag> NCL </tag>
+            
+            <tag> Color Table </tag>
+            
+            <tag> Colormaps </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Jupyter notebook简介及嵌入Hexo博客中]]></title>
       <url>https://gavin971.github.io/2019/06/06/jupyter-hexo/</url>
       <content type="html"><![CDATA[<p><img src="/images/jupyter.jpeg" alt></p>
@@ -1576,7 +1631,7 @@ p 在文件2的光标所在处粘贴所拷贝的行
       <url>https://gavin971.github.io/2019/05/10/era5-download/</url>
       <content type="html"><![CDATA[<p><img src="/images/ERA5map4_0.png" alt></p>
 <blockquote>
-<p><strong><font color="#0000ff">方便下载ERA5的单层（single level）数据以及多层（pressure）数据，使用ECMWF的Python cds API去下载还是很方便和快捷的。目前，ERA5的数据能够提供1979年-Present了，而且是逐小时的数据，对于多层数据能够提供:</font></strong></p>
+<p><strong><font color="#0000ff">本文同步发布于公众号『气象学家』<a href="https://mp.weixin.qq.com/s/lOQ_6s8grFSY3TU6XcnO8w" target="_blank" rel="noopener">传送门</a>。方便下载ERA5的单层（single level）数据以及多层（pressure）数据，使用ECMWF的Python cds API去下载还是很方便和快捷的。目前，ERA5的数据能够提供1979年-Present了，而且是逐小时的数据，对于多层数据能够提供:</font></strong></p>
 </blockquote>
 <figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">'pressure_level</span><span class="symbol">':</span>[</span><br><span class="line">                      <span class="symbol">'1</span>',<span class="symbol">'2</span>',<span class="symbol">'3</span>',</span><br><span class="line">                      <span class="symbol">'5</span>',<span class="symbol">'7</span>',<span class="symbol">'10</span>',</span><br><span class="line">                      <span class="symbol">'20</span>',<span class="symbol">'30</span>',<span class="symbol">'50</span>',</span><br><span class="line">                      <span class="symbol">'70</span>',<span class="symbol">'100</span>',<span class="symbol">'125</span>',</span><br><span class="line">                      <span class="symbol">'150</span>',<span class="symbol">'175</span>',<span class="symbol">'200</span>',</span><br><span class="line">                      <span class="symbol">'225</span>',<span class="symbol">'250</span>',<span class="symbol">'300</span>',</span><br><span class="line">                      <span class="symbol">'350</span>',<span class="symbol">'400</span>',<span class="symbol">'450</span>',</span><br><span class="line">                      <span class="symbol">'500</span>',<span class="symbol">'550</span>',<span class="symbol">'600</span>',</span><br><span class="line">                      <span class="symbol">'650</span>',<span class="symbol">'700</span>',<span class="symbol">'750</span>',</span><br><span class="line">                      <span class="symbol">'775</span>',<span class="symbol">'800</span>',<span class="symbol">'825</span>',</span><br><span class="line">                      <span class="symbol">'850</span>',<span class="symbol">'875</span>',<span class="symbol">'900</span>',</span><br><span class="line">                      <span class="symbol">'925</span>',<span class="symbol">'950</span>',<span class="symbol">'975</span>',</span><br><span class="line">                      <span class="symbol">'1000</span>'</span><br><span class="line">                  ]</span><br></pre></td></tr></table></figure>
 

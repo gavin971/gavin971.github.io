@@ -103,21 +103,21 @@
 
 
 
-<meta name="description" content="方便下载ERA5的单层（single level）数据以及多层（pressure）数据，使用ECMWF的Python cds API去下载还是很方便和快捷的。目前，ERA5的数据能够提供1979年-Present了，而且是逐小时的数据，对于多层数据能够提供:  123456789101112131415&apos;pressure_level&apos;:[                      &apos;1&apos;,&apos;2">
+<meta name="description" content="本文同步发布于公众号『气象学家』传送门。方便下载ERA5的单层（single level）数据以及多层（pressure）数据，使用ECMWF的Python cds API去下载还是很方便和快捷的。目前，ERA5的数据能够提供1979年-Present了，而且是逐小时的数据，对于多层数据能够提供:  123456789101112131415&apos;pressure_level&apos;:[">
 <meta name="keywords" content="ERA5,ECMWF,Meteorological Data,Parallel Download,Python Script,CDSToolBox">
 <meta property="og:type" content="article">
 <meta property="og:title" content="并行下载ERA-5的Python脚本">
 <meta property="og:url" content="https://gavin971.github.io/2019/05/10/era5-download/index.html">
 <meta property="og:site_name" content="Climate2Weather">
-<meta property="og:description" content="方便下载ERA5的单层（single level）数据以及多层（pressure）数据，使用ECMWF的Python cds API去下载还是很方便和快捷的。目前，ERA5的数据能够提供1979年-Present了，而且是逐小时的数据，对于多层数据能够提供:  123456789101112131415&apos;pressure_level&apos;:[                      &apos;1&apos;,&apos;2">
+<meta property="og:description" content="本文同步发布于公众号『气象学家』传送门。方便下载ERA5的单层（single level）数据以及多层（pressure）数据，使用ECMWF的Python cds API去下载还是很方便和快捷的。目前，ERA5的数据能够提供1979年-Present了，而且是逐小时的数据，对于多层数据能够提供:  123456789101112131415&apos;pressure_level&apos;:[">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://gavin971.github.io/images/ERA5map4_0.png">
 <meta property="og:image" content="https://gavin971.github.io/images/era5_1.png">
 <meta property="og:image" content="https://gavin971.github.io/images/my_wechat.jpg">
-<meta property="og:updated_time" content="2019-05-16T23:05:24.000Z">
+<meta property="og:updated_time" content="2019-06-15T13:08:33.560Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="并行下载ERA-5的Python脚本">
-<meta name="twitter:description" content="方便下载ERA5的单层（single level）数据以及多层（pressure）数据，使用ECMWF的Python cds API去下载还是很方便和快捷的。目前，ERA5的数据能够提供1979年-Present了，而且是逐小时的数据，对于多层数据能够提供:  123456789101112131415&apos;pressure_level&apos;:[                      &apos;1&apos;,&apos;2">
+<meta name="twitter:description" content="本文同步发布于公众号『气象学家』传送门。方便下载ERA5的单层（single level）数据以及多层（pressure）数据，使用ECMWF的Python cds API去下载还是很方便和快捷的。目前，ERA5的数据能够提供1979年-Present了，而且是逐小时的数据，对于多层数据能够提供:  123456789101112131415&apos;pressure_level&apos;:[">
 <meta name="twitter:image" content="https://gavin971.github.io/images/ERA5map4_0.png">
 
 
@@ -387,7 +387,7 @@
           
             <span class="post-letters-count">
               &nbsp; | &nbsp;
-            <span>3,132 字</span>
+            <span>3,149 字</span>
               &nbsp; | &nbsp;
             <span>18 min</span>
             </span>
@@ -453,7 +453,7 @@
       
         <p><img src="/images/ERA5map4_0.png" alt></p>
 <blockquote>
-<p><strong><font color="#0000ff">方便下载ERA5的单层（single level）数据以及多层（pressure）数据，使用ECMWF的Python cds API去下载还是很方便和快捷的。目前，ERA5的数据能够提供1979年-Present了，而且是逐小时的数据，对于多层数据能够提供:</font></strong></p>
+<p><strong><font color="#0000ff">本文同步发布于公众号『气象学家』<a href="https://mp.weixin.qq.com/s/lOQ_6s8grFSY3TU6XcnO8w" target="_blank" rel="noopener">传送门</a>。方便下载ERA5的单层（single level）数据以及多层（pressure）数据，使用ECMWF的Python cds API去下载还是很方便和快捷的。目前，ERA5的数据能够提供1979年-Present了，而且是逐小时的数据，对于多层数据能够提供:</font></strong></p>
 </blockquote>
 <figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">'pressure_level</span><span class="symbol">':</span>[</span><br><span class="line">                      <span class="symbol">'1</span>',<span class="symbol">'2</span>',<span class="symbol">'3</span>',</span><br><span class="line">                      <span class="symbol">'5</span>',<span class="symbol">'7</span>',<span class="symbol">'10</span>',</span><br><span class="line">                      <span class="symbol">'20</span>',<span class="symbol">'30</span>',<span class="symbol">'50</span>',</span><br><span class="line">                      <span class="symbol">'70</span>',<span class="symbol">'100</span>',<span class="symbol">'125</span>',</span><br><span class="line">                      <span class="symbol">'150</span>',<span class="symbol">'175</span>',<span class="symbol">'200</span>',</span><br><span class="line">                      <span class="symbol">'225</span>',<span class="symbol">'250</span>',<span class="symbol">'300</span>',</span><br><span class="line">                      <span class="symbol">'350</span>',<span class="symbol">'400</span>',<span class="symbol">'450</span>',</span><br><span class="line">                      <span class="symbol">'500</span>',<span class="symbol">'550</span>',<span class="symbol">'600</span>',</span><br><span class="line">                      <span class="symbol">'650</span>',<span class="symbol">'700</span>',<span class="symbol">'750</span>',</span><br><span class="line">                      <span class="symbol">'775</span>',<span class="symbol">'800</span>',<span class="symbol">'825</span>',</span><br><span class="line">                      <span class="symbol">'850</span>',<span class="symbol">'875</span>',<span class="symbol">'900</span>',</span><br><span class="line">                      <span class="symbol">'925</span>',<span class="symbol">'950</span>',<span class="symbol">'975</span>',</span><br><span class="line">                      <span class="symbol">'1000</span>'</span><br><span class="line">                  ]</span><br></pre></td></tr></table></figure>
 
@@ -656,7 +656,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">41</span>
+              <span class="site-state-item-count">42</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -673,7 +673,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">81</span>
+                <span class="site-state-item-count">83</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -832,7 +832,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count" style="padding-left:5px; color: #e90f92;">全站共 79.5k 字</span>
+  <span class="post-count" style="padding-left:5px; color: #e90f92;">全站共 80.1k 字</span>
 </div>
 
         

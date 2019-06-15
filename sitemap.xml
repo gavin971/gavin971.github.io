@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://gavin971.github.io/2019/06/15/cmaps-python/</loc>
+    
+    <lastmod>2019-06-15T13:08:37.243Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://gavin971.github.io/2019/05/10/era5-download/</loc>
+    
+    <lastmod>2019-06-15T13:08:33.560Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://gavin971.github.io/2019/06/06/jupyter-hexo/</loc>
     
     <lastmod>2019-06-06T15:55:37.868Z</lastmod>
@@ -89,13 +103,6 @@
     <loc>https://gavin971.github.io/resources/index.html</loc>
     
     <lastmod>2019-05-16T23:15:32.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://gavin971.github.io/2019/05/10/era5-download/</loc>
-    
-    <lastmod>2019-05-16T23:05:24.000Z</lastmod>
     
   </url>
   
