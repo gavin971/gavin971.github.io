@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://gavin971.github.io/2019/04/29/gmt/</loc>
+    <lastmod>2019-06-23</lastmod>
+  </url>  <url>
     <loc>https://gavin971.github.io/2019/06/15/cmaps-python/</loc>
     <lastmod>2019-06-15</lastmod>
   </url>  <url>
@@ -43,9 +46,6 @@
     <loc>https://gavin971.github.io/2019/05/15/bbs06/</loc>
     <lastmod>2019-05-15</lastmod>
   </url>  <url>
-    <loc>https://gavin971.github.io/2019/04/29/gmt/</loc>
-    <lastmod>2019-05-10</lastmod>
-  </url>  <url>
     <loc>https://gavin971.github.io/2019/05/03/passer-by/</loc>
     <lastmod>2019-05-03</lastmod>
   </url>  <url>
@@ -58,10 +58,10 @@
     <loc>https://gavin971.github.io/2019/03/05/lynk/</loc>
     <lastmod>2019-04-14</lastmod>
   </url>  <url>
-    <loc>https://gavin971.github.io/2019/04/13/paper-3/</loc>
+    <loc>https://gavin971.github.io/2019/04/12/paper-2/</loc>
     <lastmod>2019-04-13</lastmod>
   </url>  <url>
-    <loc>https://gavin971.github.io/2019/04/12/paper-2/</loc>
+    <loc>https://gavin971.github.io/2019/04/13/paper-3/</loc>
     <lastmod>2019-04-13</lastmod>
   </url>  <url>
     <loc>https://gavin971.github.io/2019/04/05/paper-1/</loc>
