@@ -1,0 +1,1243 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="google-site-verification" content="_olLbqJsLPaypjGvvPnkJqjV5uDLUrmRKJ-aE5YTFnQ">
+<meta name="baidu-site-verification" content="eskIgPwJM1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Courier New:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Python,tianchi,Deep Learning,Machine Learning,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Climate2Weather" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon/favicon.ico?v=5.0.1">
+
+
+
+
+
+
+<meta name="description" content="排版麻烦，建议去公众号阅读，本文在『气象学家』同步推送传送门；随着人工智能的发展，拥有了越来越丰富的应用场景，气象行业也不例外，在突破传统预报方法的情况下，神经网络与深度学习来预报气象要素也取得了不错的效果，下面就给出一些比较典型的开源案例，条件允许不妨按图索骥实践一下，代码、数据、文献都给各位客官老爷一一奉上，也欢迎大家在圈内转载和分享！">
+<meta name="keywords" content="Python,tianchi,Deep Learning,Machine Learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="交叉新趋势|采用神经网络与深度学习来预报降水、温度等案例(附代码&#x2F;数据&#x2F;文献)">
+<meta property="og:url" content="https://gavin971.github.io/2019/08/10/deepL/index.html">
+<meta property="og:site_name" content="Climate2Weather">
+<meta property="og:description" content="排版麻烦，建议去公众号阅读，本文在『气象学家』同步推送传送门；随着人工智能的发展，拥有了越来越丰富的应用场景，气象行业也不例外，在突破传统预报方法的情况下，神经网络与深度学习来预报气象要素也取得了不错的效果，下面就给出一些比较典型的开源案例，条件允许不妨按图索骥实践一下，代码、数据、文献都给各位客官老爷一一奉上，也欢迎大家在圈内转载和分享！">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://gavin971.github.io/images/6233878-85081aea22301be3.png">
+<meta property="og:image" content="https://gavin971.github.io/images/my_wechat.jpg">
+<meta property="og:updated_time" content="2019-08-22T11:29:50.807Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="交叉新趋势|采用神经网络与深度学习来预报降水、温度等案例(附代码&#x2F;数据&#x2F;文献)">
+<meta name="twitter:description" content="排版麻烦，建议去公众号阅读，本文在『气象学家』同步推送传送门；随着人工智能的发展，拥有了越来越丰富的应用场景，气象行业也不例外，在突破传统预报方法的情况下，神经网络与深度学习来预报气象要素也取得了不错的效果，下面就给出一些比较典型的开源案例，条件允许不妨按图索骥实践一下，代码、数据、文献都给各位客官老爷一一奉上，也欢迎大家在圈内转载和分享！">
+<meta name="twitter:image" content="https://gavin971.github.io/images/6233878-85081aea22301be3.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://gavin971.github.io/2019/08/10/deepL/">
+
+
+<!-- 网页加载条 -->
+<script src="/js/src/pace.min.js"></script>
+ 
+  
+<script type="text/javascript" color="0,0,255" opacity="0.7" zindex="-2" count="70" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+
+<!-- <div class="bg_content">
+  <canvas id="canvas"></canvas>
+</div> -->   
+<!-- 配合后面的 <script type="text/javascript" src="/js/src/dynamic_bg.js"></script>  使用 -->
+
+
+  <title> 交叉新趋势|采用神经网络与深度学习来预报降水、温度等案例(附代码/数据/文献) | Climate2Weather </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+<!--   <a href="https://github.com/gavin971"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a> -->
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Climate2Weather</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">人生不妨大胆一点, 反正只有一次</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
+            
+            书籍
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-resources">
+          <a href="/resources" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-bell"></i> <br>
+            
+            资源
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br>
+            
+            留言
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+
+     
+
+
+
+
+
+
+
+
+
+
+     
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search fa-lg"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                交叉新趋势|采用神经网络与深度学习来预报降水、温度等案例(附代码/数据/文献)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2019-08-10T15:24:18+08:00" content="2019-08-10">
+              2019-08-10
+            </time>
+          </span>
+
+
+
+
+          
+            <span class="post-letters-count">
+              &nbsp; | &nbsp;
+            <span>7,404 字</span>
+              &nbsp; | &nbsp;
+            <span>27 min</span>
+            </span>
+          
+
+
+
+
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术积累/" itemprop="url" rel="index">
+                    <span itemprop="name">技术积累</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2019/08/10/deepL/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/10/deepL/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv">热度
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>℃
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/images/6233878-85081aea22301be3.png" alt></p>
+<blockquote>
+<p><strong><font color="#0000ff">排版麻烦，建议去公众号阅读，本文在『气象学家』同步推送<a href="https://mp.weixin.qq.com/s/_sQ1H9BT0n6GtmjeVk8hbw" target="_blank" rel="noopener">传送门</a>；随着人工智能的发展，拥有了越来越丰富的应用场景，气象行业也不例外，在突破传统预报方法的情况下，神经网络与深度学习来预报气象要素也取得了不错的效果，下面就给出一些比较典型的开源案例，条件允许不妨按图索骥实践一下，代码、数据、文献都给各位客官老爷一一奉上，也欢迎大家在圈内转载和分享！</font></strong></p>
+</blockquote>
+<a id="more"></a>
+
+
+<h3 id="前言介绍"><a href="#前言介绍" class="headerlink" title="前言介绍"></a>前言介绍</h3><p>本文所有的案例都是整理于互联网中，本文会提供相应的开源代码链接、数据集、相关论文。部分数据集可能需要申请才能获取。另外，就新旧方法的效果好坏也不是立马就能高下立判，但是无论是科研需求还是业务实践中去突破传统思维，用好新方法来解决旧问题都是非常值得一试的。其实，也无需先入为主地认为新方法效果就一定好，而传统方案就是一定是更差的，关键还在于应用技巧及方法的适用性。</p>
+<h3 id="典型案例"><a href="#典型案例" class="headerlink" title="典型案例"></a>典型案例</h3><h4 id="雷达回波外推和施行健的两篇降水预测文章介绍"><a href="#雷达回波外推和施行健的两篇降水预测文章介绍" class="headerlink" title="雷达回波外推和施行健的两篇降水预测文章介绍"></a>雷达回波外推和施行健的两篇降水预测文章介绍</h4><p>施行健，香港科技大学四年级博士，师从杨瓞仁教授。现于Amazon AWS Deep Learning组实习，岗位为应用科学家。他的主要研究方向为深度学习，时空序列分析和计算机视觉。<br>他是apache/mxnet的开发成员，同时是DMLC协会会员。</p>
+<p>雷达回波外推是一个还算处女的方向，本质上来说这就是一个视频序列预测视频序列的问题，比如这里的使用已知的 5 帧预测未来的 20 帧雷达回波序列(通常每6分钟采集一次)。所以这个问题是可以使用现有的一些处理视频的方法来解决的，例如 RNN 和 Conv3D 等能处理时空信息的结构。</p>
+<p>目前这个领域中文的一些资料很少有人介绍和总结。在这里Hzzone会介绍雷达回波外推这个问题、HKO-7数据集以及施行健的两篇 nips 文章，分别是 ConvLSTM 和 TrajGRU。</p>
+<p>Hzzone用 pytorch 实现了这两篇文章，并在 HKO-7数据集上取得了和施行健近似的结果。原始代码在HKO-7，使用 mxnet 实现，其中有 ConvGRU和TrajGRU，没有ConvLSTM。作者的代码实现了整个数据加载、训练和测试流程，封装的也非常好，Hzzone在实现时也使用了一部分施行健的代码，Hzzone认为自己的实现要更容易理解一些。</p>
+<p>代码挂在了 Github。如果你觉得这篇文章或代码对你有一定帮助，欢迎点赞这篇文章或 star 这个 repo。</p>
+<p>在开始之前，可以通过 Machine Learning for Spatiotemporal Sequence Forecasting and Its Application to Nowcasting 和 香港科技大学施行健：深度学习用于短临降雨预报的一个基准和一个新模型 | 分享总结 对雷达回波外推问题有一个比较清晰的认识。</p>
+<p><strong>数据集</strong><br>HKO-7 Dataset<br>雷达回波数据主要是通过天气雷达往四周发射电磁波并通过云层的反射得到，国内用的大多是多普勒雷达，下面是雷达的扫描示意图，天气雷达的覆盖区域是一个圆形区域：</p>
+<p>因为是通过反射得到的，所以雷达一般部署在空旷地区。如果四周出现了如建筑物、灰尘等物体，会在雷达回波中出现明显的噪声，使模型难以收敛。</p>
+<p>现在能找到的开源数据集主要有三个，其中两个来自于天池比赛，分别是 Tianchi CIKM AnalytiCup 2017 和 Tianchi IEEE ICDM 2018 全球气象AI挑战赛。这两个比赛最终目的不相同，但是数据集的含义是一样的，降水量等价于雷达反射的 dBZ。这两个比赛一些分享的经验，有一定参考意义，最主要的是 Tianchi IEEE ICDM 2018 全球气象AI挑战赛 这个比赛的主题才是雷达回波外推，但是没有找到开源的比较好的解决方案。</p>
+<p>如果希望使用到私有的数据集可以向本地的气象台询问，或者在 中国气象数据网 下载多普勒雷达基数据。后者我尝试过实名注册，个人用户每日限额 2M，想真正用是不可能的，只能采用前面介绍的方法，或者注册企业单位（可能收费）。</p>
+<p>最后则是 HKO-7 Dataset，这个数据集是施行健在 Deep Learning for Precipitation Nowcasting: A Benchmark and A New Model 针对雷达回波外推这个领域没有统一的 benchmark 而提出的一个数据集，来源于香港天文台。因为不开放所以需要申请，填张表就 OK，学生的话要找导师去申请，然后用工作邮箱发过去。</p>
+<p>这个数据集覆盖了香港周边的雷达回波数据，图片大小是  的灰度图，涵盖了 2009 到 2015 的 下雨天 的数据，812 天用于训练、50 天用于验证、131 天用于测试。更详细信息可以去阅读论文。</p>
+<p>首先数据集的转换关系是这样的：dBZ 是雷达的基本反射率（雷达扫出来的结果），然后通过  并裁剪到  之间转换成普通的 png 图片。这种转换对于最后的训练和测试没有多大的影响，只是个线性转换，在深度学习中这个范围才是更常见也更容易解决问题的。</p>
+<p>最后还有一种转换关系则是通过 Z-R 关系在 dBZ 和降水值 R（单位是 mm/h）之间转换：，， 通过线性回归计算。</p>
+<p>作者统计了全部数据集的降水值分布：</p>
+<p>由于降水值分布不均匀，并且大雨对现实生活的影响更大，所以 使用了一个加权损失函数 进行训练（这篇文章采用的是 MSE 和 MAE 之和）。</p>
+<p>在数据预处理上，除了以上介绍的，由于原始雷达回波数据还存在大量噪声，作者采用马氏距离去除噪声点，得到一个 mask 之后，只有正常数据才会参与训练和评估。因此整个数据集分成了原始 png 和对应的 mask 两个部分。</p>
+<p>具体过程是：计算每一张图片的均值  和协方差矩阵 ，然后计算出马氏距离：<br>去除掉马氏距离大于  和像素值在  之间的数据，最后得到一个掩膜就是正常的数据。第一步是为了去除一些离散点，因为存在噪声；第二步则是去除雷达监测范围以外的区域，因为雷达扫描区域是一个圆形的。最后的效果则是：</p>
+<p>作者采用的是用 5 帧预测未来的 20 帧。在训练的时候计算量非常大，我在实现过程中一颗 1070 的 batch_size 只能为 2，迭代 100000 次需要三天。由于这个数据量是完全足够的，所以不需要什么数据扩充，只做了一个归一化到 1 以内。</p>
+<p>我采用的是作者实现的数据加载的代码，训练时从数据集随机抽取连续的 25 帧（已知 5 帧，预测 20 帧），而评估时则是按 5 的窗口进行滑动，直到结束。这种方式在实际用的时候最好还是上多显卡进行训练，并且加载数据时采用 prefetcher 提前加载数据集，否则在训练的时候大部分时间都会用在数据加载上，浪费很多时间。关于如何加速训练可以参考 如何给你PyTorch里的Dataloader打鸡血。</p>
+<p>雷达回波外推的评价标准主要使用 HSS、CSI、POD 等指标，参考 评价标准，这几个指标和机器学习中的 precision 和 recall 类似，越高越好。其他的还有 MSE、MAE，施行健采用的 B-MSE 和 B-MAE 其实就是加权的 MSE、MAE，这两个指标越低越好。</p>
+<p>ConvLSTM<br>ConvLSTM 来源于 Convolutional LSTM Network: A Machine Learning Approach for Precipitation Nowcasting。</p>
+<p>传统的 FC-LSTM 将数据展开成一维进行预测，雷达回波数据存在大量冗余信息，FC-LSTM 无法处理，而且 FC-LSTM 只能提取时间序列信息，无法提取空间信息。</p>
+<p>ConvLSTM 使用卷积替换 FC-LSTM，利用卷积操作提取空间信息，FC-LSTM 和 ConvLSTM 的区别主要在输入 ，候选态 ，隐藏态  和三个门  都是三维张量，其中最后两个维度是 spatial 空间维度。如下图：</p>
+<p>对比两个结构的公式，LSTM 的公式:<br>ConvLSTM 的公式:</p>
+<p> 是卷积操作， 是哈达玛乘积。因此 FC-LSTM 与 ConvLSTM 的主要差别在于将矩阵乘法替换成了卷积操作，即 input-to-state 和 state-to-state 的转换中使用的是卷积而不是全连接。</p>
+<p>If we view the states as the hidden representations of moving objects, a ConvLSTM with a larger transitional kernel should be able to capture faster motions while one with a smaller kernel can capture slower motions. Also, if we adopt a similar view as [16], the inputs, cell outputs and hidden states of the traditional FC-LSTM represented by (2) may also be seen as 3D tensors with the last two dimensions being 1. In this sense, FC-LSTM is actually a special case of ConvLSTM with all features standing on a single cell.</p>
+<p>通过使用一个大的状态转换卷积核捕捉快速的运动，而小的卷积核捕捉慢的运动；当最后两个维度为 1 时，FC-LSTM 也可以视为一个特殊的 ConvLSTM，每一个单元格代表一个特征。</p>
+<p>Pytorch 实现可以参考 ConvLSTM，我合并了八次卷积操作，所以整个计算量和普通的卷积差不多，偏置项影响不大。</p>
+<p>TrajGRU<br>TrajGRU(Trajectory GRU) 来自于施行健的第二篇文章 Deep Learning for Precipitation Nowcasting: A Benchmark and A New Model ，在这篇文章中，作者提出了一个新的 Benchmark 也就是上面介绍的数据集，对比了 ConvGRU、不使用/使用加权损失函数训练、Conv2d、Conv3d 等几种方法，构建了一个 Encoder-Forecaster 模型。</p>
+<p>ConvGRU 类似于上面介绍的 ConvLSTM，只是将 LSTM 替换成了 GRU。</p>
+<p>而 TrajGRU 使用 GRU 结构，区别是首先使用了一个  的卷积层对隐藏态进行卷积提取光流，然后使用  的卷积层对光流进行卷积，建立一个动态的对应关系。</p>
+<p>按照作者的说法，普通卷积网络的对应关系不变，对于 local-invariant 的操作比较合适，而 local-variant 的操作比如旋转普通卷积是不够的。相比普通卷积固定的领域集，TrajGRU 可以有  个变化的领域集，并且参数要少于原来的普通卷积。我的想法是云层的运动与消散是动态的，一团云在某一帧的位置对应到下一帧的位置不一样，所以需要建立一个动态的链接。</p>
+<p>TrajGRU 的公式如下，首先使用一个子网络提取光流 ，然后使用 wrap 函数变换，有  个链接。</p>
+<p>wrap 函数的 mxnet 可以参考 traj_rnn.py#L14，pytorch 没有该函数，可以参考我的实现 trajGRU.py#L9。</p>
+<p>Encoder-Forecaster<br>这两篇文章都采用了一个 Encoder-Forecaster 模型，和普通的 Encoder-Decoder 模型还是不一样的。Encoder-Forecaster 分成两部分，分别是 Encoder(编码器)，Forecaster(预测器)，分别对应了 Encoder 和 Decoder。</p>
+<p>模型展开之后示意图如下：</p>
+<p>这是一个输入 2 帧，预测未来 2 帧的 RNN 展开后的结构图。Encoder-Forecaster 模型对应层次的 RNN 的 隐藏态 输入到下一层次之中，提取不同层次的时空信息。Downsample 和 Unsample 分别通过 Convolution 和 Deconvolution 实现。这里的 RNN 可以采用 ConvGRU、ConvLSTM 和 TrajGRU 等能提取时空信息的结构。</p>
+<p>Encoder 的初始隐藏态和 Forecaster 的初始输入为 0，因为这两个没有输入。最后的输出则通过一个  的卷积层进行回归。</p>
+<p>Deep Learning for Precipitation Nowcasting: A Benchmark and A New Model 的网络结构可以参考下图:</p>
+<p>通过实验发现，TrajGRU 取得了比 ConvGRU、Conv3d、光流法等方法更好的结果；所有深度学习方法都取得了比其他方法更好地结构；文中的 Baseline 是直接使用最后一帧的作为未来所有帧的预测结果。</p>
+<p>在训练时作者采用了一个 50 的梯度阶段，防止梯度爆炸。 还有一些更具体的参数，比如网络结构，学习率等可以参考我的实现 experiments/net_params.py。</p>
+<p><strong>总结</strong><br>我实现了 ConvLTSM 和 TrajGRU，取得了和作者接近的结果，有个疑问则是 ConvLTSM 取得了要比 TrajGRU 的更好地结果，而且因为合并了八个卷积所以运行速度也快得多。更具体的说明可以参考 关于 TrajGRU 的意义。</p>
+<p><strong>运行效果图如下：</strong></p>
+<p>虽然结果可能不错，在实际预测时还是发现了越往后的输出越暗，即越往后误差越大，参考 回复。</p>
+<p>如果更进一步改进，可以考虑对这一方面、运行速度的比较等进行论述。现在气象台采用的还是光流法，预测之后由专业人员进行判断是否有下雨天气。</p>
+<p>参考链接：<a href="https://hzzone.io/" target="_blank" rel="noopener">https://hzzone.io/</a></p>
+<h4 id="“基于雷达图像预测未来降水”模型"><a href="#“基于雷达图像预测未来降水”模型" class="headerlink" title="“基于雷达图像预测未来降水”模型"></a>“基于雷达图像预测未来降水”模型</h4><p>《基于雷达图像的短期降水预报》是由ACM顶级数据挖掘会议CIKM举办的数据科学竞赛。CIKM 2017以“智慧城市，智慧型国家”为主题，通过人工智能同各学科领域的交叉研究，通过技术手段有效管理城市。<br>本次 CIKM AnalytiCup 2017 由深圳气象局与阿里巴巴联合承办，旨在提升基于雷达回波外推数据的短期降水预报的准确性。比赛共吸引了来自全球1395个团队，来自清华大学的Marmot团队(姚易辰，李中杰)在比赛中脱颖而出，在复赛中以绝对优势排名第一。本文摘录了他们团队解题方案的核心思路予以展示。</p>
+<p>比赛官网：阿里天池大数据平台 <a href="https://link.jianshu.com/?t=https://tianchi.aliyun.com/competition/introduction.htm?spm=5176.100066.0.0.773ef42f8FXDoN&amp;raceId=231596" target="_blank" rel="noopener">https://link.jianshu.com/?t=https://tianchi.aliyun.com/competition/introduction.htm?spm=5176.100066.0.0.773ef42f8FXDoN&amp;raceId=231596</a><br>完整解题方案及代码:<a href="https://github.com/yaoyichen/CIKM-Cup-2017" target="_blank" rel="noopener">https://github.com/yaoyichen/CIKM-Cup-2017</a></p>
+<p>赛题目标</p>
+<p>赛题提供10,000组的雷达图像样本。每组样本包含60幅图像，为过去90分钟内(间隔6 min,共15帧)，分布在4个高度(0.5km, 1.5km, 2.5km, 3.5km)上的雷达反射率图像。</p>
+<p>每张雷达图像大小为[101,101]，对应的空间覆盖范围为101×101km。每个网格点记录的是雷达反射率因子值Z。反射率因子，表征气象目标对雷达波后向散射能力的强弱，散射强度一定程度上反映了气象目标内部降水粒子的尺度和数密度，进而推测其与降水量之间的联系。</p>
+<p><strong>目标：</strong>利用各个雷达站点在不同高度上的雷达历史图像序列，预测图像中心位于[50,50]坐标位置的目标站点未来1-2小时之间的地面总降水量，损失函数为降水量预测值与真实值的均方误差。</p>
+<p><strong>算法架构</strong><br>本次比赛的特点在于时空序列的预测，即给出了目标站点周围一定空间范围的历史信息，需要预测在站点坐标上未来的降水走势，因而搭建时空之间的关联特性为解决问题的重中之重。同时有别于一般的计算机视觉问题，此次比赛提供的气象图像，其沿着时空方向的演化规律会满足一定的守恒律及连续性限制，发现物理问题的特殊性并寻找对应的表征量也是解决问题的关键。<br>解决方案的流程分为前处理，特征提取，模型训练三个部分。前处理步骤中，完成局部图像的拼接，并通过SIFT描述子寻找时间方向的对应关系，获得云团运动的轨迹。特征描述中，将问题的特征归纳为3部分，分别为时间空间方向的矢量描述，云团形状的统计描述，及由云团轨迹外推得到目标站点的雷达反射率的空间图像描述。模型训练主模型采用了卷积神经网络CNN，图像部分采用2层卷积池化，随后将向量拉平到一维，即在全连接层与其余非图像类特征合并，共同输入到2个隐藏层的神经网络中。</p>
+<p><strong>图像拼接</strong><br>赛题给出的局部雷达图像，样本与样本之间并不完全独立，图像样本之间存在一定的重叠，可以通过模板匹配的方式寻找样本之间的坐标关联特性。通过样本之间的局部图像拼接，能够将一系列小范围的局部雷达图像恢复到空间更大范围的雷达图像，进而获得关于云团更加整体的特性。通过局部图像的拼接，能够获得如下两方面效果：</p>
+<p>为目标站点的时空轨迹追踪提供更大的空间延伸量。目标站点附近更大的空间图像范围，能够对应更长的时间外推量</p>
+<p>获得云团整体的结构，方便从更为宏观的视角提取特征描述云团形态</p>
+<p>图像拼接后瞬时流场图中，能看到显著的对流特性。即在空间某个固定坐标点上，由湍流脉动引起的反射率改变量要远小于大气对流运动产生的反射率变化量。我们也会着重利用这一特性，利用SIFT算子在时间方向的匹配，寻找每个空间点上对流速度矢量。</p>
+<p><strong>轨迹追踪</strong><br>根据流体力学中的泰勒冻结假设(Taylor Frozen Hypothesis)，认为流场中存在显著的时空关联特性。其认为雷达反射图，云团在短时间内趋向于在空间以当地平均对流速度平移，短时间内并不会发生外形或者反射强度的剧烈改变。即监测点x 处在未来τ 时刻后的雷达信号f，能够通过平均对流速度U，从当前时刻t 位于坐标的x-Uτ 的信号中体现：</p>
+<p>为了寻找每个空间坐标对应的对流速度U， 可以通过SIFT描述子在一定时间间隔内，在空间坐标上的匹配，寻找相同关键点在较短时间间隔δt 内像素的平移量δx,即得到空间每个位置处的对流速度。</p>
+<p>下图给出了相邻两帧图像上，SIFT描述子及相应的空间匹配关系。其中圆圈大小对应了关键点的特征尺度，圆圈中的刻度方向表征其主方向。两帧图像的匹配连线基本平行，即全场以一个近似相同的速度作对流运动。</p>
+<p><strong>特征提取</strong><br>特征包含时间外插反射率图像，时间空间的矢量，云团形状的统计描述三部分。</p>
+<p>时间外插反射率图像：由上述的图像拼接及轨迹追踪后，已经能够定位出全场的速度矢量见下图。以泰勒冻结假设和关键点匹配追踪到未来1.5个小时流场速度矢量后，能够外插未来每个坐标点的运动轨迹，即能够推测出未来位于目标站点上方的云团，在当前时刻雷达图像上的空间坐标。 图中白色圆圈坐标点的云团，会在1.5小时由图中对流矢量的作用下，运动到红色目标站点上方。因此截取空间轨迹上白点周围41×41大小，3个空间高度(1.5km,2.5km,3.5km)的局部图像作为卷积神经网络的图像输入。</p>
+<p><strong>时间和空间特征提取:</strong> 在时间和空间方向（高度方向）提取图像像素的统计值（平均值、最大值、极值点个数、方差等等），作为时空特征的描述输入CNN的全连接层。</p>
+<p><strong>全局云团形状特征提取:</strong> 某些特定的云层形态会对应典型降水事件。从拼接后的全局图像中提取云团形状的整体形态特征，有雷达反射率的直方图和统计类信息、云团运动速度和方向、加速度、流线曲率、SIFT描述子的直方图、监测点位置、检测点反射率与最大值比值等。</p>
+<p><strong>训练模型</strong></p>
+<p>卷积层的图像的输入为时间外推得到目标站点附近41×41的空间范围，采用较大的空间图像输入，希望能够包含轨迹预测的误差以及测评目标在1小时内的总降水量。图像部分采用2层卷积池化，随后将向量拉平到一维，即在全连接层与其余非图像类特征合并，共同输入到2个隐藏层的神经网络中。<br>模型通过dropout防止过拟合，取值为0.65，梯度下降采用的Adam优化算法。1200个迭代步后即达到稳定。</p>
+<p><strong>总结</strong><br>虽然之前参加过多次大数据竞赛，但初次接触图像类比赛能够获奖也是非常意外。本次解题方案并未使用Imagenet上较为流行的InceptionNet或者ResNet，用深度的图像卷积网络来做训练。而是针对气象问题的特殊性，针对时间空间间关联这一重要线索，采用传统的关键点提取SIFT方法与卷积神经网络CNN结合的形式预测目标站点的降水量。</p>
+<p>由于思路的特殊性，团队在未做调参的情况下已经能够大幅领先其他队伍。未来会对气象业务有更多探讨，用大数据力量推动气象预报的发展。感谢天池大数据平台组织比赛，感谢深圳气象局提供比赛数据，感谢CIKM2017组委会。<br>完整解题方案及代码:<a href="https://github.com/yaoyichen/CIKM-Cup-2017" target="_blank" rel="noopener">https://github.com/yaoyichen/CIKM-Cup-2017</a><br>深圳市气象局和阿里巴巴集团保留本次比赛数据的版权。 数据仅用于比赛和研究目的。 所有数据由深圳气象局提供，并已全部做过脱敏处理。</p>
+<p>参考链接：<a href="https://www.jianshu.com/p/8d2da83a22bc" target="_blank" rel="noopener">https://www.jianshu.com/p/8d2da83a22bc</a></p>
+<h4 id="MOS-X"><a href="#MOS-X" class="headerlink" title="MOS-X"></a>MOS-X</h4><p>Machine learning forecast model for WxChallenge</p>
+<p>在气象预报领域，MOS预报，也就是模式输出统计预报，是一种动力统计预报天气的方法。而MOS-X，就是用机器学习来做模式输出统计。</p>
+<p>每当WXchallenge宣布一个新预报地点，韦恩就用该城市过去6-7年的天气预报和实况数据来训练MOS-X，将历史预报与实际天气进行比较，来了解不同情况下的模式偏差，并对其订正。针对今年美国“最难预报城市”——科罗拉多州普韦布洛市的天气，MOS-X提供了最好的预报。</p>
+<p>　　而且，据竞赛官网上公布的历届个人冠军和成绩列表显示，韦恩-3.817的得分不仅是本届最高分，而且还打破了赛会纪录——三年前的最高分-4.058。目前，冠军的Python代码已经在开源平台GITHUB上全部公开。</p>
+<p>　　这也是该竞赛历史上计算机工具首次击败所有人类预测者。不过，由于WXchallenge规定，只有人类选手能参赛，MOS-X只好“借壳上市”。作为开发者的韦恩，替MOS-X领了一个特殊类别的奖杯。
+　　</p>
+<p>JONATHAN WEYN个人主页： <a href="https://atmos.washington.edu/~jweyn/" target="_blank" rel="noopener">https://atmos.washington.edu/~jweyn/</a><br>MOS-X的代码托管在GitHub上： <a href="https://github.com/jweyn/MOS-X" target="_blank" rel="noopener">https://github.com/jweyn/MOS-X</a><br>参考论文：<br>  Weyn, J. A., Durran, D. R., &amp; Caruana, R. (2019). Using deep learning to predict gridded 500-hPa geopotential height from historical weather data. JAMES, accepted.</p>
+<p>  Weyn, J. A., &amp; Durran, D. R. (2018). The scale dependence of initial-condition sensitivities in simulations of convective systems over the Southeastern US. Quarterly Journal of the Royal Meteorological Society. DOI</p>
+<p>  Weyn, J. A., &amp; Durran, D. R. (2018). Ensemble spread grows more rapidly in higher-resolution simulations of deep convection. Journal of the Atmospheric Sciences, 75(10), 3331-3345. DOI</p>
+<p>　　</p>
+<p>参考链接：<a href="http://www.cma.gov.cn/kppd/kppdqxwq/kppdqwys/201905/t20190509_524094.html" target="_blank" rel="noopener">http://www.cma.gov.cn/kppd/kppdqxwq/kppdqwys/201905/t20190509_524094.html</a></p>
+<h3 id="近期比赛"><a href="#近期比赛" class="headerlink" title="近期比赛"></a>近期比赛</h3><p>天池比赛（无奖金）</p>
+<p>比赛概况<br>在太平洋西侧，每年夏季会陆续生成一系列热带风暴，其中有些发展成为台风乃至于超级台风，一边旋转一边向亚洲东海岸移动。台风往往在东南亚国家、中国、日本、以及朝鲜半岛登陆，带来狂风暴雨，造成巨大的财产损失，时有人员伤亡。如果能够提早一两天预测到台风的发展强度、行进轨迹、乃至于降水在各地的实时详细分布，就有可能为各国人民提供宝贵预警时间，多做防灾减灾工作。</p>
+<p>赛题由马里兰大学博士宋宽构思设计，原始数据来源于日本气象厅葵花 8 号卫星的公开数据记录，由日本千叶大学进行第一轮数据处理，由宋宽博士进行第二轮数据处理。</p>
+<p>比赛以算法交流为出发点，尝试深度学习在气象卫星图像领域的应用，希望通过社区的力量为台风预警与防灾探索可能的方向。</p>
+<p>赛程安排<br>本次大赛分为初赛、复赛和决赛三个阶段，具体安排和要求如下：</p>
+<p>初赛（8月1日-9月9日，UTC+8）</p>
+<p>报名成功后，参赛队伍通过天池平台下载数据至本地调试算法，在线提交结果。若参赛队伍在一天内多次提交结果，新结果版本将覆盖旧版本。参赛地点不限。</p>
+<p>比赛提供标准训练数据集（含标注），供参赛选手训练算法模型；提供标准测试数据集（无标注），供参赛选手提交评测结果参与排名。</p>
+<p>初赛期间系统每天进行 2 次评测和排名，评测开始时间为当天 12:00 和 22:00，按照评测指标从高到低进行排序，定时更新排行榜；排行榜将选择参赛队伍在本阶段的历史最优成绩进行排名展示。</p>
+<p>复赛（9月10日—9月20日，UTC+8）</p>
+<p>复赛阶段测试数据不可见，采用 docker 镜像进行提交。由选手提交打包好的代码镜像来运行得出预测结果。</p>
+<p>复赛阶段限制每天可提交运行的次数。系统每天进行 1 次排名，排名时间为当天的 12:00，按照评测指标从高到低进行排序，定时更新排行榜。</p>
+<p>决赛与分享（9月20日—10月中旬，UTC+8）</p>
+<p>TOP团队分享发布代码和方案说明，供广大参赛者复现与讨论。若无法复现，将失去参赛资格。</p>
+<p>TOP团队模型将由新测试集运行出分。如果条件允许，将使用正在发生的台风卫星图像数据。</p>
+<p>同步安排钉钉群内直播分享答辩，每支队伍有 15 分钟的陈述时间和 10分 钟的问答时间。请准备相关的算法答辩材料，页数不少于 10 页。</p>
+<p>决赛分数将根据参赛队伍的算法成绩和答辩成绩加权得出。评分权重：复赛阶段 30%，决赛运行 30%，决赛答辩 40%。依据决赛分数评选出比赛名次并颁发证书。</p>
+<p>赛事后由出题人宋宽博士牵头，基于自愿参与的原则，可合作将优秀方案写成文章投稿。</p>
+<p>数据typhoon_data_list_20190722.txt，可以使用wget批量下载。</p>
+<p>参考链接：<a href="https://tianchi.aliyun.com/competition/entrance/231729/introduction" target="_blank" rel="noopener">https://tianchi.aliyun.com/competition/entrance/231729/introduction</a></p>
+<h3 id="推荐学习资料"><a href="#推荐学习资料" class="headerlink" title="推荐学习资料"></a>推荐学习资料</h3><blockquote>
+<p><strong>《神经网络与深度学习》</strong>，附代码、书籍PDF  <a href="https://nndl.github.io/" target="_blank" rel="noopener">https://nndl.github.io/</a></p>
+</blockquote>
+<blockquote>
+<p>GitHub深度学习最全资料集锦：<strong>Awesome Deep Learning</strong><br><a href="https://github.com/ChristosChristofidis/awesome-deep-learning" target="_blank" rel="noopener">https://github.com/ChristosChristofidis/awesome-deep-learning</a></p>
+</blockquote>
+<blockquote>
+<p><strong>《Deep Learning》</strong> by Yoshua Bengio, Ian Goodfellow and Aaron Courville (05/07/2015) 最为大家所熟知的是Bengio等人所著，又称深度学习圣经或花书。</p>
+</blockquote>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>1.<a href="https://hzzone.io/" target="_blank" rel="noopener">https://hzzone.io/</a><br>2.<a href="https://nndl.github.io/" target="_blank" rel="noopener">https://nndl.github.io/</a><br>3.<a href="https://github.com/jweyn/MOS-X" target="_blank" rel="noopener">https://github.com/jweyn/MOS-X</a><br>4.<a href="https://github.com/sxjscience/HKO-7" target="_blank" rel="noopener">https://github.com/sxjscience/HKO-7</a><br>5.<a href="https://yq.aliyun.com/articles/224039" target="_blank" rel="noopener">https://yq.aliyun.com/articles/224039</a><br>6.<a href="https://zhuanlan.zhihu.com/p/69316384" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/69316384</a><br>7.<a href="https://www.jianshu.com/p/8d2da83a22bc" target="_blank" rel="noopener">https://www.jianshu.com/p/8d2da83a22bc</a><br>8.<a href="https://www.leiphone.com/news/201712/GnlC56qEtbrIqmI2.html" target="_blank" rel="noopener">https://www.leiphone.com/news/201712/GnlC56qEtbrIqmI2.html</a><br>9.<a href="https://tianchi.aliyun.com/dataset/dataDetail?dataId=1085" target="_blank" rel="noopener">https://tianchi.aliyun.com/dataset/dataDetail?dataId=1085</a><br>10.<a href="https://tianchi.aliyun.com/competition/entrance/231662/information" target="_blank" rel="noopener">https://tianchi.aliyun.com/competition/entrance/231662/information</a><br>11.<a href="https://tianchi.aliyun.com/competition/entrance/231729/introduction" target="_blank" rel="noopener">https://tianchi.aliyun.com/competition/entrance/231729/introduction</a></p>
+<p><strong><p align="center"><font color="#c8044b" size="2" face="黑体">有任何问题都欢迎交流探讨，共同学习进步！</font></p></strong><br> <img src="/images/my_wechat.jpg" width="150" height="200" alt align="center"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+<blockquote class="blockquote-center" style="color: #ccc;">
+    -------------本文结束 <i class="fa fa-paw"></i> 感谢阅读-------------
+</blockquote>
+
+  <span id="inline-green" style="border-radius:3px;">作者</span>：<a class="link-blue" href="https://github.com/gavin971" target="_blank">Gavin</a><br>有问题请在相应<a class="link-blue" href="https://gavin971.github.io/" target="_blank">页面留言</a>(评论系统DISQUS需要"翻墙"才可见)<br>或者私信给我 <a class="link-blue" href="https://climate2weather.cc" target="_blank">GMAIL: zhpfu.atm@gmail.com</a>。
+
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>满分是10分的话，这篇文章你给几分</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/reward/reward_wechat.png" alt="Gavin WeChat Pay">
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/reward/reward_alipay.png" alt="Gavin Alipay">
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+          
+            <a href="/tags/tianchi/" rel="tag"><i class="fa fa-tag"></i> tianchi</a>
+          
+            <a href="/tags/Deep-Learning/" rel="tag"><i class="fa fa-tag"></i> Deep Learning</a>
+          
+            <a href="/tags/Machine-Learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/10/ipcc/" rel="next" title="利用新的观测数据后IPCC AR5结论是否变化？">
+                <i class="fa fa-chevron-left"></i> 利用新的观测数据后IPCC AR5结论是否变化？
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/10/nature2019/" rel="prev" title="Nature(2019)-地球系统科学领域的深度学习及其理解">
+                Nature(2019)-地球系统科学领域的深度学习及其理解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/avatar/avatar.png" alt="Gavin">
+          <p class="site-author-name" itemprop="name">Gavin</p>
+          <p class="site-description motion-element" itemprop="description">Still Waters Run Deep!</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">50</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">101</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/gavin971" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/Gavin_Fu971" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/escapelanzhou" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons">
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="/weblog" title="建站日志" target="_blank">建站日志</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://neveryu.github.io" title="Never_yu" target="_blank">Never_yu</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://novarizark.github.io/" title="LZN's Blog" target="_blank">LZN's Blog</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://ihtcboy.com" title="iHTCboy" target="_blank">iHTCboy</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言介绍"><span class="nav-number">1.</span> <span class="nav-text">前言介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#典型案例"><span class="nav-number">2.</span> <span class="nav-text">典型案例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#雷达回波外推和施行健的两篇降水预测文章介绍"><span class="nav-number">2.1.</span> <span class="nav-text">雷达回波外推和施行健的两篇降水预测文章介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#“基于雷达图像预测未来降水”模型"><span class="nav-number">2.2.</span> <span class="nav-text">“基于雷达图像预测未来降水”模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MOS-X"><span class="nav-number">2.3.</span> <span class="nav-text">MOS-X</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#近期比赛"><span class="nav-number">3.</span> <span class="nav-text">近期比赛</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#推荐学习资料"><span class="nav-number">4.</span> <span class="nav-text">推荐学习资料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+      <!-- hack一个虚线出来 -->
+      <section style="border-top:1px dotted #ccc;height:10px;"></section>
+      
+<script type="text/javascript" src="//ra.revolvermaps.com/0/0/6.js?i=031trf1l7h9&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
+
+
+  !添加了公众号二维码，主页能显示，在其他页面失效！
+  <div class="widget-wrap">
+    <img src="images/Wechat_OF.jpeg" width="100%" height="100%">  
+  </div>
+
+
+
+      
+      
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">您是第<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>个小伙伴</span>
+  
+
+  
+    <span class="site-pv">本站总浏览<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        <div class="copyright">
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-thumbs-up"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gavin</span>
+</div>
+
+<!--<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io" rel="external nofollow">Hexo</a> 强力驱动
+</div>
+-->
+
+<div class="theme-info">
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Pisces
+  </a>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count" style="padding-left:5px; color: #e90f92;">全站共 107.4k 字</span>
+</div>
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'www-climate2weather-cc';
+      var disqus_identifier = '2019/08/10/deepL/';
+      var disqus_title = "交叉新趋势|采用神经网络与深度学习来预报降水、温度等案例(附代码/数据/文献)";
+      var disqus_url = 'https://gavin971.github.io/2019/08/10/deepL/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+
+<!-- <script type="text/javascript" src="/js/src/dynamic_bg.js"></script> -->
+<!-- <script type="text/javascript" src="/js/three/three-waves.min.js"></script> -->
+  <!-- 按需加载背景 -->
+  <!-- <!-- 按需加载背景 -->
+<!-- 识别手机或电脑的js开始 -->  
+<script type="text/javascript">   
+(function(){  
+var res = GetRequest();  
+var par = res['index'];  
+if(par!='gfan'){  
+  var ua=navigator.userAgent.toLowerCase();  
+  var contains=function (a, b){  
+      if(a.indexOf(b)!=-1){return true;}  
+  };   
+  if((contains(ua,"android") && contains(ua,"mobile"))||(contains(ua,"android") && contains(ua,"mozilla"))||(contains(ua,"android") && contains(ua,"opera"))||contains(ua,"ucweb7")||contains(ua,"iphone")){
+    return false;
+  } else {
+    $.getScript("/js/src/particle.js?v=5.0.1");
+  }
+}  
+})();  
+function GetRequest() {  
+var url = location.search;
+var theRequest = new Object();  
+if (url.indexOf("?") != -1) {  
+  var str = url.substr(1);  
+  strs = str.split("&");  
+  for(var i = 0; i < strs.length; i ++) {  
+    theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);  
+  }  
+}  
+return theRequest;  
+}  
+</script>  
+<!-- 识别手机或电脑的js结束 -->   -->
+  <!-- 页面点击小红心 -->
+<!--   <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js?v=5.0.1"></script> -->
+  <!-- 页面移动stars -->
+  <!-- <script type="text/javascript" src="/js/src/jquery-stars.js?v=5.0.1"></script>
+<script type="text/javascript">
+jQuery('body').jstars({
+	image_path: '/images',
+	image: 'candy-cane-stars.png',
+	style: 'white',
+	width: 34,
+	height: 34,
+	delay: 700,
+	frequency: 5
+});
+</script> -->
+  <script type="text/javascript">var OriginTitile=document.title,st;document.addEventListener("visibilitychange",function(){document.hidden?(document.title="Geek is sexy!",clearTimeout(st)):(document.title="Wecome Back! "+OriginTitile,st=setTimeout(function(){document.title=OriginTitile},4e3))})</script>
+
+</body>
+</html>

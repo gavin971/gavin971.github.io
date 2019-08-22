@@ -1,0 +1,1188 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="google-site-verification" content="_olLbqJsLPaypjGvvPnkJqjV5uDLUrmRKJ-aE5YTFnQ">
+<meta name="baidu-site-verification" content="eskIgPwJM1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Courier New:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Deep Learning,Machine Learning,Nature,Earth Science,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Climate2Weather" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon/favicon.ico?v=5.0.1">
+
+
+
+
+
+
+<meta name="description" content="本文在『气象学家』同步推送传送门；机器学习方法越来越多地用于日益增长的地理空间数据流中提取相应的模型特征和深入特点，但是目前的方法在系统行为受制于时空背景时还不能得到最优的方案。在这里，主要目的并不是改进经典的机器学习算法，我们主张这些背景线索应该成为深度学习一部分（一种可以自动提取时空特征的方法）来更深地获取地球科学领域难题的过程理解，提升季节预报或者多时间尺度长距空间相关模拟的可预报能力，">
+<meta name="keywords" content="Deep Learning,Machine Learning,Nature,Earth Science">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nature(2019)-地球系统科学领域的深度学习及其理解">
+<meta property="og:url" content="https://gavin971.github.io/2019/08/10/nature2019/index.html">
+<meta property="og:site_name" content="Climate2Weather">
+<meta property="og:description" content="本文在『气象学家』同步推送传送门；机器学习方法越来越多地用于日益增长的地理空间数据流中提取相应的模型特征和深入特点，但是目前的方法在系统行为受制于时空背景时还不能得到最优的方案。在这里，主要目的并不是改进经典的机器学习算法，我们主张这些背景线索应该成为深度学习一部分（一种可以自动提取时空特征的方法）来更深地获取地球科学领域难题的过程理解，提升季节预报或者多时间尺度长距空间相关模拟的可预报能力，">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://gavin971.github.io/images/EA-1.png">
+<meta property="og:image" content="https://gavin971.github.io/images/EA-0.jpeg">
+<meta property="og:image" content="https://gavin971.github.io/images/EA-1.png">
+<meta property="og:image" content="https://gavin971.github.io/images/EA-2.png">
+<meta property="og:image" content="https://gavin971.github.io/images/EA-3.png">
+<meta property="og:image" content="https://gavin971.github.io/images/EA-4.png">
+<meta property="og:image" content="https://gavin971.github.io/images/my_wechat.jpg">
+<meta property="og:updated_time" content="2019-08-22T11:25:20.752Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Nature(2019)-地球系统科学领域的深度学习及其理解">
+<meta name="twitter:description" content="本文在『气象学家』同步推送传送门；机器学习方法越来越多地用于日益增长的地理空间数据流中提取相应的模型特征和深入特点，但是目前的方法在系统行为受制于时空背景时还不能得到最优的方案。在这里，主要目的并不是改进经典的机器学习算法，我们主张这些背景线索应该成为深度学习一部分（一种可以自动提取时空特征的方法）来更深地获取地球科学领域难题的过程理解，提升季节预报或者多时间尺度长距空间相关模拟的可预报能力，">
+<meta name="twitter:image" content="https://gavin971.github.io/images/EA-1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://gavin971.github.io/2019/08/10/nature2019/">
+
+
+<!-- 网页加载条 -->
+<script src="/js/src/pace.min.js"></script>
+ 
+  
+<script type="text/javascript" color="0,0,255" opacity="0.7" zindex="-2" count="70" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+
+<!-- <div class="bg_content">
+  <canvas id="canvas"></canvas>
+</div> -->   
+<!-- 配合后面的 <script type="text/javascript" src="/js/src/dynamic_bg.js"></script>  使用 -->
+
+
+  <title> Nature(2019)-地球系统科学领域的深度学习及其理解 | Climate2Weather </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+<!--   <a href="https://github.com/gavin971"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a> -->
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Climate2Weather</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">人生不妨大胆一点, 反正只有一次</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
+            
+            书籍
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-resources">
+          <a href="/resources" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-bell"></i> <br>
+            
+            资源
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br>
+            
+            留言
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+
+     
+
+
+
+
+
+
+
+
+
+
+     
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search fa-lg"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Nature(2019)-地球系统科学领域的深度学习及其理解
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2019-08-10T15:24:32+08:00" content="2019-08-10">
+              2019-08-10
+            </time>
+          </span>
+
+
+
+
+          
+            <span class="post-letters-count">
+              &nbsp; | &nbsp;
+            <span>3,825 字</span>
+              &nbsp; | &nbsp;
+            <span>15 min</span>
+            </span>
+          
+
+
+
+
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/文献阅读/" itemprop="url" rel="index">
+                    <span itemprop="name">文献阅读</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2019/08/10/nature2019/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/10/nature2019/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv">热度
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>℃
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/images/EA-1.png" alt></p>
+<blockquote>
+<p><strong><font color="#0000ff">本文在『气象学家』同步推送<a href="https://mp.weixin.qq.com/s/4V4jj4LWmf0uSwNSluGnTg" target="_blank" rel="noopener">传送门</a>；机器学习方法越来越多地用于日益增长的地理空间数据流中提取相应的模型特征和深入特点，但是目前的方法在系统行为受制于时空背景时还不能得到最优的方案。在这里，主要目的并不是改进经典的机器学习算法，我们主张这些背景线索应该成为深度学习一部分（一种可以自动提取时空特征的方法）来更深地获取地球科学领域难题的过程理解，提升季节预报或者多时间尺度长距空间相关模拟的可预报能力，譬如，下一步将建立混合模型方法，将物理过程模式与数据驱动型机器学习的通用性耦合起来。</font></strong></p>
+</blockquote>
+<a id="more"></a>
+
+
+<blockquote>
+<p><strong>Title</strong>：<strong><font color="#0000ff">Deep learning and process understanding for data-driven Earth system science</font></strong></p>
+<br>
+**标题**：**<font color="#0000ff">"数据驱动型"地球系统科学领域的深度学习及其过程理解 </font>**
+
+<br>
+**作者**：Markus reichstein**<font color="#f40707"><sup>1,2*</sup></font>**, Gustau camps-valls**<font color="#f40707">
+<sup>3</sup></font>**,     Bjorn stevens**<font color="#f40707"><sup>4</sup></font>**, Martin Jung**<font color="#f40707"><sup>1</sup></font>**,    Joachim Denzler**<font color="#f40707"><sup>2,5</sup></font>**,   Nuno carvalhais**<font color="#f40707"><sup>1,6</sup></font>**,   and Prabhat**<font color="#f40707"><sup>7</sup></font>**
+
+<br>
+**<font color="#f40707"><sup>1</sup></font>**    Department of Biogeochemical Integration, Max Planck Institute for Biogeochemistry, Jena, Germany.
+
+<p><strong><font color="#f40707"><sup>2</sup></font></strong>Michael-Stifel-Center Jena for Data-driven and Simulation Science, Jena, Germany.</p>
+<p><strong><font color="#f40707"><sup>3</sup></font></strong>Image Processing Laboratory (IPL), University of València, Valencia, Spain.</p>
+<p><strong><font color="#f40707"><sup>4</sup></font></strong>Max Planck Institute for Meteorology, Hamburg, Germany. </p>
+<p><strong><font color="#f40707"><sup>5</sup></font></strong>Computer Vision Group, Computer Science, Friedrich Schiller University, Jena, Germany.</p>
+<p><strong><font color="#f40707"><sup>6</sup></font></strong>CENSE, Departamento de Ciências e Engenharia do Ambiente, Faculdade de Ciências e Tecnologia, Universidade NOVA de Lisboa, Lisbon, Portugal.</p>
+<p><strong><font color="#f40707"><sup>7</sup></font></strong>National Energy Research Supercomputing Center, Lawrence Berkeley National Laboratory, Berkeley, CA, USA.</p>
+<p><strong><font color="#f40707"><sup></sup></font></strong> E-mail: <a href="mailto:mreichstein@bgc-jena.mpg.de" target="_blank" rel="noopener">mreichstein@bgc-jena.mpg.de</a></p>
+<br>
+**杂志**：Nature，volume 566, pages195–204 (2019) 
+
+<br>
+**DOI**： [**<font color="#0000ff">https://doi.org/10.1038/s41586-019-0912-1</font>**](https://doi.org/10.1038/s41586-019-0912-1)
+</blockquote>
+<hr>
+
+<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>Machine learning approaches are increasingly used to extract patterns and insights from the ever-increasing stream of geospatial data, but current approaches may not be optimal when system behaviour is dominated by spatial or temporal context. Here, rather than amending classical machine learning, we argue that these contextual cues should be used as part of deep learning (an approach that is able to extract spatio-temporal features automatically) to gain further process understanding of Earth system science problems, improving the predictive ability of seasonal forecasting and modelling of long-range spatial connections across multiple timescales, for example. The next step will be a hybrid modelling approach, coupling physical process models with the versatility of data-driven machine learning.</p>
+<h3 id="原文摘要"><a href="#原文摘要" class="headerlink" title="原文摘要"></a>原文摘要</h3><p>机器学习方法越来越多地用于日益增长的地理空间数据流中提取相应的模型特征和深入特点，但是目前的方法在系统行为受制于时空背景时还不能得到最优的方案。在这里，主要目的并不是改进经典的机器学习算法，我们主张这些背景线索应该成为深度学习一部分（一种可以自动提取时空特征的方法）来更深地获取地球科学领域难题的过程理解，提升季节预报或者多时间尺度长距空间相关模拟的可预报能力，譬如，下一步将建立混合模型方法，将物理过程模式与数据驱动型机器学习的通用性耦合起来。</p>
+<h3 id="背景信息"><a href="#背景信息" class="headerlink" title="背景信息"></a>背景信息</h3><p>人类总是致力于预测和理解这个世界，能够进行更好预测的能力在不同的领域都有很大的竞争优势（譬如，天气、疾病、金融市场）。人类从过去古希腊时代哲学推理到中世纪占卜的伪科学方法，到现代科学论述包括假设检验、理论发展和计算机建模，这些都是以统计和物理关系，即相关定律为基础的。天气预报的成功是地球科学领域的一段佳话，主要依赖于理论的完善、现代的一整套观测系统、日益增长的计算能力，使得海量的数据能够同化到数值模式中来。即便如此，对于天气的准确预报也只停留在天的尺度，还达不到精准预测月尺度。季节预测以及一些极端事件（譬如，洪水、火灾）和一些更长时间尺度的预测还是面临着巨大的挑战。</p>
+<p>与此同时，地球系统数据在激增，CMIP5数据集是广泛用于周期性气候评估的科学基础，模式输出的数据总量超过3PB，【1PB = 1,000 TB (兆) = 1,000,000 GB (十亿)】， 而下一代CMIP6数据总量超过30PB。巨大的数据量在处理起来充满了挑战，其统计特性里包含了大量的不确定性。地球科学领域海量的数据也具备大数据四大特征：volume, velocity, variety and veracity（体积，速度，多样性和准确性），例如各种遥感、定点观测、模式数据。如今面临挑战就是如何从这些大数据中提取并解读信息，因为信息收集速度远大于人们所能消化的速度。数据的增多并未带对系统预测能力的提高，科学家需要对数据进行理解。在这种背景下，机器学习就是一种极佳的选择。</p>
+<p>日益丰富的工具用于机器学习和AI，但是他们还需要进一步完善才能用于地球科学的分析，地球系统科学面临新的机遇与挑战，以及新型方法的需求，特别是特别是近年来对时空背景和不确定性的研究。</p>
+<p>那么对于地球科学领域的科学家在未来面临的不可回避问题就是：<strong>1.提取海量激增数据中的有用信息；2.遵循相关的物理定律前提下，相比于传统的同化方法能够从数值模式中获取更多有效特征。</strong></p>
+<p>文章主要综述内容就是介绍地球科学领域的机器学习方法的发展，尤其是深度学习的——自动提取抽象的时空特征，其具有非常大的潜力来克服当前诸多阻碍机器学习广泛应用的局限性。本文罗列了当前最具有前景，且与物理模型结合具有挑战的机器学习方法。</p>
+<h3 id="主体内容"><a href="#主体内容" class="headerlink" title="主体内容"></a>主体内容</h3><p>（1）<strong>地学中最先进的机器学习。</strong>诸如神经网络、随机森林方法很早就应用于地学中的分类、变化检测、土壤制图问题。但这些应用是针对空间，在时间上是相对静态的，但地球是不断变化的。机器学习回归方法在时间动态上具有优势，比如具有隐含层的人工神经网络，可预测碳通量在时间与空间上的变化。但这些应用也存在一些问题需要注意，比如外推能力，抽样或数据偏见，忽视混杂因素，统计关联与因果关系等。经典的机器学习方法需要一些先验知识确定一些时空相关feature，而不能自动探索数据的时空特征。一些时空动态特征比如“记忆效应”可以作为feature手动加入到传统机器学习中，但最新的深度学习已经没有这些限制。<br>（2）<strong>深度学习在地球系统科学中的机遇。</strong>深度学习已在其他领域得到了众多应用，但在地学中的应用还处于初级阶段。已有一些研究显示深度学习可以很好的提取时空特征，比如极端天气，而不需要很多人类干预。这也可用于城市变化的遥感自动提取。深度学习方法通常被划分为空间学习（例如，用于对象分类的卷积神经网络）和序列学习（例如，语音识别），但两者逐渐融合，可应用视频与动作识别问题。这些问题类似于地学中随时间变化的多维度结构，例如有序降水对流与植被状态。虽然有很大应用前景，但应用于时空变化的大气海洋传输或植被动态还有待发展。<br>（3）<strong>深度学习在地球系统科学中的挑战。</strong>虽然传统深度学习的应用对象与地学现象有很大相似性，但也存在重要区别。比如高光谱、多波段就比基于三原色RGB的计算机图像识别复杂很多，此外还有带噪音、有缺测的卫星数据。另外，波段、时间与空间维度的集合也会带来计算量的挑战。计算机图片中识别可大量“狗”，“猫”现成训练样本，而地学中没有类似被标记的大量训练样本，如干旱。对外，作者总结出五大挑战，分别来自可解释性、物理一致性、数据的复杂与确定性、缺少标记样本、以及计算需求。若这些挑战能解决，那么深度学习将对地学带来巨大改变。近期最有前景的应用是”临近预报“(nowcasting)，未来是长期预测。作者认为深度学习将很快成为地学中分类与时空预测问题的主要方法。<br>（4） <strong>与物理建模集成。</strong>物理建模（理论驱动）与机器学习建模（数据驱动）过去往往被认为是两个领域，具有不同范式。但其实两种方法可以相互补充的，前者外推能力强，后者更灵活可发现新规律。作者提出二种方法可结合的几个潜在点：改善参数化、用机器学习“替代”物理模型中子模块、模型与观测的不匹配分析，约束子模型、代替模型或仿真。<br>（5）<strong>推动科学发展。</strong>机器学习方法无疑给分类和预测问题带来大幅提高。机器学习的数据驱动方法还可从数据中挖掘出过去不知道的新信息，从而推动新机制新认识的产生。<br>（6）<strong>文章结语。</strong>地球科学大数据时代机器学习很有用，但也存在应用挑战，作者对此提出四点建议：识别数据的特殊性、推论的合理性和可解释性、不确定性估计、针对复杂物理模式进行验证。未来过程模型与机器学习将进一步结合。数据驱动的机器学习不会替代物理模型，但是会起到补充和丰富的作用，最终实现混合建模。<br> (以上六点总结引自李老师，<a href="https://mp.weixin.qq.com/s/uL4C3birbbFQ-UhntuTgRg" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/uL4C3birbbFQ-UhntuTgRg</a>)</p>
+<h3 id="图文"><a href="#图文" class="headerlink" title="图文"></a>图文</h3><p> 名词解释<br><img src="/images/EA-0.jpeg" alt></p>
+<p> 图. 1 地球科学背景下面临的大数据挑战</p>
+<p><img src="/images/EA-1.png" alt></p>
+<p>Data size now exceeds 100 petabytes, and is growing quasi-exponentially (tapering of the figure to the right indicates decreasing data size.) The speed of change exceeds 5 petabytes a year; data are taken at frequencies of up to 10 Hz or more; reprocessing and versioning are common challenges. Data sources can be one- to four-dimensional, spatially integrated, from the organ level (such as leaves) to the global level. Earth has diverse observational systems, from remote sensing to in situ observation. The uncertainty of data can stem from observational errors or conceptual inconsistencies.</p>
+<p>Fig. 2: 左边是四个深度学习典型的应用情景，右边是可用于对应的地球科学问题</p>
+<p><img src="/images/EA-2.png" alt></p>
+<p>a, Object recognition in images links to classification of extreme weather patterns using a unified convolutional neural network on climate simulation data41. b, Super-resolution applications relate to statistical downscaling of climate model output72. c, Video prediction is similar to short-term forecasting of Earth system variables. Right image, courtesy of Sujan Koirala and Paul Bodesheim, Max Planck Institute for Biogeochemistry. d, Language translation links to modelling of dynamic time series (ref. 96 and figure 11 in ref. 97). Left image, courtesy of Stephen Merity (figure 1 in <a href="https://smerity.com/articles/2016/google_nmt_arch.html" target="_blank" rel="noopener">https://smerity.com/articles/2016/google_nmt_arch.html</a>).</p>
+<p>Fig. 3: 数值物理模型和机器学习的联系<br><img src="/images/EA-3.png" alt><br>An abstraction of a part of a physical system—for example, an Earth system model—is depicted here. The model consists of submodels; each submodel has parameters and forcing variables as inputs and produces output, which can be input (forcing) to another sub-model. Data-driven learning approaches can be helpful in various instances, as indicated by the circled numbers. For example, the circle labelled 2 represents hybrid modelling. See the text for more detail. ML, machine learning.</p>
+<p>Fig. 4: 将混合模型建立解释为在添加一个或多个物理层的多层神经网络，使模型在物理上更加真实，从而深化深度学习体系结构。<br><img src="/images/EA-4.png" alt><br>a, The multilayer neural network, with n the number of neural layers and m the number of physical layers. b and c are concrete examples of hybrid modelling (circle 2 in Fig. 3). b, Prediction of sea-surface temperatures, where a motion field of the water is learned with a convolutional–deconvolutional neural network, and the motion field is further processed with a physical model to predict future states. Adapted from figure 1 of de Bezenac et al.68. c, A biological regulation process (opening of the stomatal ‘valves’ controlling water vapour flux from the leaves) is modelled with a recurrent neural network. Then a physical diffusion model is used to estimate transpiration, which in turn influences some of the drivers, such as soil moisture. The basic scheme in a is inspired by figure 1.5 in Goodfellow et al.98 and redrawn.</p>
+<h3 id="人工智能、深度学习、机器学习区别"><a href="#人工智能、深度学习、机器学习区别" class="headerlink" title="人工智能、深度学习、机器学习区别"></a>人工智能、深度学习、机器学习区别</h3><p>人工智能(AI)是一个总括合集概念，涵盖从最早的逻辑结构的有效老式人工智能 (Good Old-Fashioned Artificial Intelligence，简称GOFAI)，到最新的联结结构的深度学习(DL)。</p>
+<p>机器学习(ML)是 人工智能(AI)的子集，涵盖一切有关数据训练的学习算法研究，包括多年来发展的一整套成熟技术，比如：</p>
+<p>线性回归（Linear Regression，数理统计中回归分析方法）；<br>K均值（K-means，基于原型的目标函数聚类方法）；<br>决策树（Decision Trees，直观运用概率分析的一种图解法）；<br>随机森林（Random Forest，包含多个决策树的分类器）；<br>PCA（Principal Component Analysis，主成分分析，一种多变量分析方法）；<br>SVM（Support Vector Machine，支持向量机，一种监督式学习的方法）；<br>ANN（Artificial Neural Networks，人工神经网络，一种运算模型）。<br>深度学习(DL)则起源于人工神经网络(ANN)。</p>
+<p>人工神经网络(ANN)是60年代早期发明的技术，一些机器学习(ML)从业者曾接触过，他们对深度学习(DL)的第一印象可能是：这不过是多层结构的人工神经网络(ANN)而已。此外，深度学习(DL)的成功主要是基于大量可用的数据以及更强大的计算引擎比如 GPU（Graphic Processing Units）的出现。这当然是真的，深度学习(DL)的出现基本上是受益于大数据及计算能力的发展，然而，由此得出深度学习(DL)只是一个比支持向量机(SVM)或决策树更好的算法的结论，类似于只见树木，不见森林。</p>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>建议：这篇综述文章值得反复阅读，适当把相关参考引用文献挑选一部分阅读，去了解相关机器学习/深度学习专业名词。并思考两三个问题：</p>
+<p>1.自己研究的领域有哪些部分是具备海量数据？<br>2.用深度学习是否能够应用，并在以往传统基础上去改进？<br>3.用深度学习的办法来解决新旧问题，需要搭建怎样的软硬件框架？</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://doi.org/10.1038/s41586-019-0912-1" target="_blank" rel="noopener">链接.1</a><br><a href="https://mp.weixin.qq.com/s/uL4C3birbbFQ-UhntuTgRg" target="_blank" rel="noopener">链接.2</a><br><a href="https://www.zhinengl.com/2017/01/deep-learning-different-from-machine-learning/" target="_blank" rel="noopener">链接.3</a></p>
+<h3 id="文末彩蛋"><a href="#文末彩蛋" class="headerlink" title="文末彩蛋"></a>文末彩蛋</h3><p>1.文章PDF原文获取（回复：“geo_ml”）<br>2.相关的书籍获取（回复：“books_ml”PDF图书资源源自网络，侵删！）</p>
+<p><strong><p align="center"><font color="#c8044b" size="2" face="黑体">有任何问题都欢迎交流探讨，共同学习进步！</font></p></strong><br> <img src="/images/my_wechat.jpg" width="150" height="200" alt align="center"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+<blockquote class="blockquote-center" style="color: #ccc;">
+    -------------本文结束 <i class="fa fa-paw"></i> 感谢阅读-------------
+</blockquote>
+
+  <span id="inline-green" style="border-radius:3px;">作者</span>：<a class="link-blue" href="https://github.com/gavin971" target="_blank">Gavin</a><br>有问题请在相应<a class="link-blue" href="https://gavin971.github.io/" target="_blank">页面留言</a>(评论系统DISQUS需要"翻墙"才可见)<br>或者私信给我 <a class="link-blue" href="https://climate2weather.cc" target="_blank">GMAIL: zhpfu.atm@gmail.com</a>。
+
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>满分是10分的话，这篇文章你给几分</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/reward/reward_wechat.png" alt="Gavin WeChat Pay">
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/reward/reward_alipay.png" alt="Gavin Alipay">
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Deep-Learning/" rel="tag"><i class="fa fa-tag"></i> Deep Learning</a>
+          
+            <a href="/tags/Machine-Learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
+          
+            <a href="/tags/Nature/" rel="tag"><i class="fa fa-tag"></i> Nature</a>
+          
+            <a href="/tags/Earth-Science/" rel="tag"><i class="fa fa-tag"></i> Earth Science</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/10/deepL/" rel="next" title="交叉新趋势|采用神经网络与深度学习来预报降水、温度等案例(附代码/数据/文献)">
+                <i class="fa fa-chevron-left"></i> 交叉新趋势|采用神经网络与深度学习来预报降水、温度等案例(附代码/数据/文献)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/10/julia/" rel="prev" title="Julia编程语言助力天气/气候模式">
+                Julia编程语言助力天气/气候模式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/avatar/avatar.png" alt="Gavin">
+          <p class="site-author-name" itemprop="name">Gavin</p>
+          <p class="site-description motion-element" itemprop="description">Still Waters Run Deep!</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">50</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">101</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/gavin971" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/Gavin_Fu971" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/escapelanzhou" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons">
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="/weblog" title="建站日志" target="_blank">建站日志</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://neveryu.github.io" title="Never_yu" target="_blank">Never_yu</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://novarizark.github.io/" title="LZN's Blog" target="_blank">LZN's Blog</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://ihtcboy.com" title="iHTCboy" target="_blank">iHTCboy</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原文摘要"><span class="nav-number">2.</span> <span class="nav-text">原文摘要</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#背景信息"><span class="nav-number">3.</span> <span class="nav-text">背景信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主体内容"><span class="nav-number">4.</span> <span class="nav-text">主体内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图文"><span class="nav-number">5.</span> <span class="nav-text">图文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#人工智能、深度学习、机器学习区别"><span class="nav-number">6.</span> <span class="nav-text">人工智能、深度学习、机器学习区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">7.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">8.</span> <span class="nav-text">参考</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文末彩蛋"><span class="nav-number">9.</span> <span class="nav-text">文末彩蛋</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+      <!-- hack一个虚线出来 -->
+      <section style="border-top:1px dotted #ccc;height:10px;"></section>
+      
+<script type="text/javascript" src="//ra.revolvermaps.com/0/0/6.js?i=031trf1l7h9&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
+
+
+  !添加了公众号二维码，主页能显示，在其他页面失效！
+  <div class="widget-wrap">
+    <img src="images/Wechat_OF.jpeg" width="100%" height="100%">  
+  </div>
+
+
+
+      
+      
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">您是第<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>个小伙伴</span>
+  
+
+  
+    <span class="site-pv">本站总浏览<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        <div class="copyright">
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-thumbs-up"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gavin</span>
+</div>
+
+<!--<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io" rel="external nofollow">Hexo</a> 强力驱动
+</div>
+-->
+
+<div class="theme-info">
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Pisces
+  </a>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count" style="padding-left:5px; color: #e90f92;">全站共 107.4k 字</span>
+</div>
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'www-climate2weather-cc';
+      var disqus_identifier = '2019/08/10/nature2019/';
+      var disqus_title = "Nature(2019)-地球系统科学领域的深度学习及其理解";
+      var disqus_url = 'https://gavin971.github.io/2019/08/10/nature2019/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+
+<!-- <script type="text/javascript" src="/js/src/dynamic_bg.js"></script> -->
+<!-- <script type="text/javascript" src="/js/three/three-waves.min.js"></script> -->
+  <!-- 按需加载背景 -->
+  <!-- <!-- 按需加载背景 -->
+<!-- 识别手机或电脑的js开始 -->  
+<script type="text/javascript">   
+(function(){  
+var res = GetRequest();  
+var par = res['index'];  
+if(par!='gfan'){  
+  var ua=navigator.userAgent.toLowerCase();  
+  var contains=function (a, b){  
+      if(a.indexOf(b)!=-1){return true;}  
+  };   
+  if((contains(ua,"android") && contains(ua,"mobile"))||(contains(ua,"android") && contains(ua,"mozilla"))||(contains(ua,"android") && contains(ua,"opera"))||contains(ua,"ucweb7")||contains(ua,"iphone")){
+    return false;
+  } else {
+    $.getScript("/js/src/particle.js?v=5.0.1");
+  }
+}  
+})();  
+function GetRequest() {  
+var url = location.search;
+var theRequest = new Object();  
+if (url.indexOf("?") != -1) {  
+  var str = url.substr(1);  
+  strs = str.split("&");  
+  for(var i = 0; i < strs.length; i ++) {  
+    theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);  
+  }  
+}  
+return theRequest;  
+}  
+</script>  
+<!-- 识别手机或电脑的js结束 -->   -->
+  <!-- 页面点击小红心 -->
+<!--   <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js?v=5.0.1"></script> -->
+  <!-- 页面移动stars -->
+  <!-- <script type="text/javascript" src="/js/src/jquery-stars.js?v=5.0.1"></script>
+<script type="text/javascript">
+jQuery('body').jstars({
+	image_path: '/images',
+	image: 'candy-cane-stars.png',
+	style: 'white',
+	width: 34,
+	height: 34,
+	delay: 700,
+	frequency: 5
+});
+</script> -->
+  <script type="text/javascript">var OriginTitile=document.title,st;document.addEventListener("visibilitychange",function(){document.hidden?(document.title="Geek is sexy!",clearTimeout(st)):(document.title="Wecome Back! "+OriginTitile,st=setTimeout(function(){document.title=OriginTitile},4e3))})</script>
+
+</body>
+</html>
