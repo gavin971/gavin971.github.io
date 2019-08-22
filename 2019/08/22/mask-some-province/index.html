@@ -1,0 +1,1149 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="google-site-verification" content="_olLbqJsLPaypjGvvPnkJqjV5uDLUrmRKJ-aE5YTFnQ">
+<meta name="baidu-site-verification" content="eskIgPwJM1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Courier New:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Python,cartopy,Mask,QGIS,ArcGIS,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Climate2Weather" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon/favicon.ico?v=5.0.1">
+
+
+
+
+
+
+<meta name="description" content="本文在『气象学家』同步推送传送门；上一期对Python绘制气象实用地图做了比较详细的介绍，尽管已经能够满足部分需求了，但是，在实际的应用需求中，可能还是别的需求，那么，今天就手把手教大家如何绘制几个省份的白化等值线contour地图。另外，对上一期进行补充，谈谈一些小技巧。最后，对于QGIS强烈安利一波，不光它是免费的，而且跨平台，也能够完美的支持Python3.7了，能够替代大部分日常使用的">
+<meta name="keywords" content="Python,cartopy,Mask,QGIS,ArcGIS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python绘制气象实用地图(续)">
+<meta property="og:url" content="https://gavin971.github.io/2019/08/22/mask-some-province/index.html">
+<meta property="og:site_name" content="Climate2Weather">
+<meta property="og:description" content="本文在『气象学家』同步推送传送门；上一期对Python绘制气象实用地图做了比较详细的介绍，尽管已经能够满足部分需求了，但是，在实际的应用需求中，可能还是别的需求，那么，今天就手把手教大家如何绘制几个省份的白化等值线contour地图。另外，对上一期进行补充，谈谈一些小技巧。最后，对于QGIS强烈安利一波，不光它是免费的，而且跨平台，也能够完美的支持Python3.7了，能够替代大部分日常使用的">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://gavin971.github.io/images/West_China_mask.png">
+<meta property="og:image" content="https://gavin971.github.io/images/West_China_mask.png">
+<meta property="og:image" content="https://gavin971.github.io/images/my_wechat.jpg">
+<meta property="og:updated_time" content="2019-08-22T11:40:33.216Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python绘制气象实用地图(续)">
+<meta name="twitter:description" content="本文在『气象学家』同步推送传送门；上一期对Python绘制气象实用地图做了比较详细的介绍，尽管已经能够满足部分需求了，但是，在实际的应用需求中，可能还是别的需求，那么，今天就手把手教大家如何绘制几个省份的白化等值线contour地图。另外，对上一期进行补充，谈谈一些小技巧。最后，对于QGIS强烈安利一波，不光它是免费的，而且跨平台，也能够完美的支持Python3.7了，能够替代大部分日常使用的">
+<meta name="twitter:image" content="https://gavin971.github.io/images/West_China_mask.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://gavin971.github.io/2019/08/22/mask-some-province/">
+
+
+<!-- 网页加载条 -->
+<script src="/js/src/pace.min.js"></script>
+ 
+  
+<script type="text/javascript" color="0,0,255" opacity="0.7" zindex="-2" count="70" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+
+<!-- <div class="bg_content">
+  <canvas id="canvas"></canvas>
+</div> -->   
+<!-- 配合后面的 <script type="text/javascript" src="/js/src/dynamic_bg.js"></script>  使用 -->
+
+
+  <title> Python绘制气象实用地图(续) | Climate2Weather </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+<!--   <a href="https://github.com/gavin971"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a> -->
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Climate2Weather</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">人生不妨大胆一点, 反正只有一次</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
+            
+            书籍
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-resources">
+          <a href="/resources" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-bell"></i> <br>
+            
+            资源
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br>
+            
+            留言
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+
+     
+
+
+
+
+
+
+
+
+
+
+     
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search fa-lg"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Python绘制气象实用地图(续)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2019-08-22T19:32:59+08:00" content="2019-08-22">
+              2019-08-22
+            </time>
+          </span>
+
+
+
+
+          
+            <span class="post-letters-count">
+              &nbsp; | &nbsp;
+            <span>2,275 字</span>
+              &nbsp; | &nbsp;
+            <span>12 min</span>
+            </span>
+          
+
+
+
+
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术积累/" itemprop="url" rel="index">
+                    <span itemprop="name">技术积累</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2019/08/22/mask-some-province/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/22/mask-some-province/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv">热度
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>℃
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/images/West_China_mask.png" alt></p>
+<blockquote>
+<p><strong><font color="#0000ff">本文在『气象学家』同步推送<a href="https://mp.weixin.qq.com/s/YCMaa9glBc65Aaj-bUoaXg" target="_blank" rel="noopener">传送门</a>；上一期对<a href="https://mp.weixin.qq.com/s/cxom-jX-acAMJUM9PBLqQA" target="_blank" rel="noopener">Python绘制气象实用地图</a>做了比较详细的介绍，尽管已经能够满足部分需求了，但是，在实际的应用需求中，可能还是别的需求，那么，今天就手把手教大家如何绘制几个省份的白化等值线contour地图。另外，对上一期进行补充，谈谈一些小技巧。最后，对于QGIS强烈安利一波，不光它是免费的，而且跨平台，也能够完美的支持Python3.7了，能够替代大部分日常使用的ArcGIS功能，用起来不算很笨重！</font></strong></p>
+</blockquote>
+<a id="more"></a>
+
+
+<p>目标：绘制西部的几个省份，并且mask掉其它区域，地图上支持中文，绘制经纬度网格线，附带经纬度信息。<br>工具：Python3.6+、ArcGIS/QGIS、Shapfile、一系列相关的Python库、测试数据</p>
+<h2 id="第一步：制作底图"><a href="#第一步：制作底图" class="headerlink" title="第一步：制作底图"></a>第一步：制作底图</h2><p>利用单独省份的Shapefile文件，制作一个shp文件包含新疆、西藏、甘肃、青海、四川，ArcGIS操作很简单不做介绍，至于QGIS我之前基本无从下手，相关的中文资料也很少，还是Google了“how to make shapefile in qgis”得到了解决方案，具体可以参考:<a href="https://www.igismap.com/merge-two-shapefile-qgis/" target="_blank" rel="noopener">链接</a>,该帖子已经比较详细的做了介绍。只不过需要提醒一下，在“Merge Shapefiles”窗口中选中之前一同导入的各省份shp文件之后，窗口会奇怪的置底，需要移开当前界面才会发现其隐藏之处，不是闪退哦！再选定坐标系方案，最好和原来的shp文件一致。<strong>我在文末会提供相应的地图文件</strong>！</p>
+<h2 id="第二步：如何调试程序"><a href="#第二步：如何调试程序" class="headerlink" title="第二步：如何调试程序"></a>第二步：如何调试程序</h2><h3 id="1-使用jupyter-notebook；-推荐"><a href="#1-使用jupyter-notebook；-推荐" class="headerlink" title="1.使用jupyter notebook；(推荐)"></a>1.使用jupyter notebook；(推荐)</h3><p>直接加载如下脚本，然后运行就好，代码附上：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding=utf-8</span></span><br><span class="line"><span class="keyword">from</span> mpl_toolkits.basemap <span class="keyword">import</span> Basemap</span><br><span class="line"><span class="keyword">from</span> matplotlib.path <span class="keyword">import</span> Path</span><br><span class="line"><span class="keyword">from</span> matplotlib.patches <span class="keyword">import</span> PathPatch</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> osgeo <span class="keyword">import</span> gdal</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cartopy.crs <span class="keyword">as</span> ccrs</span><br><span class="line"><span class="keyword">import</span> shapefile</span><br><span class="line"><span class="keyword">import</span> matplotlib <span class="keyword">as</span> mpl</span><br><span class="line"><span class="keyword">import</span> xarray <span class="keyword">as</span> xr</span><br><span class="line"><span class="keyword">from</span> matplotlib.font_manager <span class="keyword">import</span> FontProperties</span><br><span class="line"><span class="keyword">import</span> netCDF4 <span class="keyword">as</span> nc</span><br><span class="line"><span class="keyword">from</span> cartopy.mpl.gridliner <span class="keyword">import</span> LONGITUDE_FORMATTER, LATITUDE_FORMATTER</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line">ZHfont = matplotlib.font_manager.FontProperties(fname=<span class="string">'/Users/zhpfu/Documents/fonts/SimSun.ttf'</span>)</span><br><span class="line"></span><br><span class="line">plt.rcParams.update(&#123;<span class="string">'font.size'</span>: <span class="number">20</span>&#125;)</span><br><span class="line">fig = plt.figure(figsize=[<span class="number">12</span>,<span class="number">18</span>]) </span><br><span class="line">ax = fig.add_subplot(<span class="number">111</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">basemask</span><span class="params">(cs, ax, map, shpfile)</span>:</span></span><br><span class="line"></span><br><span class="line">    sf = shapefile.Reader(shpfile)</span><br><span class="line">    vertices = []</span><br><span class="line">    codes = []</span><br><span class="line">    <span class="keyword">for</span> shape_rec <span class="keyword">in</span> sf.shapeRecords():</span><br><span class="line">        <span class="keyword">if</span> shape_rec.record[<span class="number">0</span>] &gt;= <span class="number">0</span>:  </span><br><span class="line">            pts = shape_rec.shape.points</span><br><span class="line">            prt = list(shape_rec.shape.parts) + [len(pts)]</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(len(prt) - <span class="number">1</span>):</span><br><span class="line">                <span class="keyword">for</span> j <span class="keyword">in</span> range(prt[i], prt[i+<span class="number">1</span>]):</span><br><span class="line">                    vertices.append(map(pts[j][<span class="number">0</span>], pts[j][<span class="number">1</span>]))</span><br><span class="line">                codes += [Path.MOVETO]</span><br><span class="line">                codes += [Path.LINETO] * (prt[i+<span class="number">1</span>] - prt[i] <span class="number">-2</span>)</span><br><span class="line">                codes += [Path.CLOSEPOLY]</span><br><span class="line">            clip = Path(vertices, codes)</span><br><span class="line">            clip = PathPatch(clip, transform = ax.transData)    </span><br><span class="line">    <span class="keyword">for</span> contour <span class="keyword">in</span> cs.collections:</span><br><span class="line">        contour.set_clip_path(clip)    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">makedegreelabel</span><span class="params">(degreelist)</span>:</span></span><br><span class="line">    labels=[str(x)+<span class="string">u'°E'</span> <span class="keyword">for</span> x <span class="keyword">in</span> degreelist]</span><br><span class="line">    <span class="keyword">return</span> labels</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ds = xr.open_dataset(<span class="string">'EC-Interim_monthly_2018.nc'</span>)</span><br><span class="line">lat = ds.latitude</span><br><span class="line">lon = ds.longitude</span><br><span class="line">data = (ds[<span class="string">'t2m'</span>][<span class="number">0</span>,::<span class="number">-1</span>,:] - <span class="number">273.15</span>) <span class="comment"># 把温度转换为℃</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># [west,east,south,north]</span></span><br><span class="line">m = Basemap(llcrnrlon=<span class="number">70.</span>,</span><br><span class="line">    llcrnrlat=<span class="number">25</span>,</span><br><span class="line">    urcrnrlon=<span class="number">110</span>,</span><br><span class="line">    urcrnrlat=<span class="number">50</span>,</span><br><span class="line">    resolution = <span class="keyword">None</span>, </span><br><span class="line">    projection = <span class="string">'cyl'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cbar_kwargs = &#123;</span><br><span class="line">    <span class="string">'orientation'</span>: <span class="string">'horizontal'</span>,</span><br><span class="line">    <span class="string">'label'</span>: <span class="string">'Temperature(℃)'</span>,</span><br><span class="line">    <span class="string">'ticks'</span>: np.arange(<span class="number">-30</span>,<span class="number">30</span>+<span class="number">1</span>,<span class="number">10</span>),</span><br><span class="line">    <span class="string">'pad'</span>: <span class="number">-0.35</span>,</span><br><span class="line">    <span class="string">'shrink'</span>: <span class="number">0.9</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 画图</span></span><br><span class="line">levels = np.arange(<span class="number">-30</span>,<span class="number">30</span>+<span class="number">1</span>,<span class="number">1</span>) </span><br><span class="line">cs = data.plot.contourf(ax=ax,levels=levels,cbar_kwargs=cbar_kwargs, cmap=<span class="string">'Spectral_r'</span>)</span><br><span class="line"></span><br><span class="line">m.readshapefile(<span class="string">'west'</span>,<span class="string">'West'</span>,color=<span class="string">'k'</span>,linewidth=<span class="number">1.2</span>)</span><br><span class="line">basemask(cs, ax, m, <span class="string">'west'</span>) </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># draw parallels and meridians.</span></span><br><span class="line"><span class="comment"># label parallels on right and top</span></span><br><span class="line"><span class="comment"># meridians on bottom and left</span></span><br><span class="line">parallels = np.arange(<span class="number">25.</span>,<span class="number">50.</span>+<span class="number">1</span>,<span class="number">5.</span>)</span><br><span class="line"><span class="comment"># labels = [left,right,top,bottom]</span></span><br><span class="line">m.drawparallels(parallels,labels=[<span class="keyword">True</span>,<span class="keyword">True</span>,<span class="keyword">True</span>,<span class="keyword">True</span>],color=<span class="string">'dimgrey'</span>,dashes=[<span class="number">2</span>, <span class="number">3</span>],fontsize= <span class="number">14</span>)  <span class="comment"># ha= 'right'</span></span><br><span class="line">meridians = np.arange(<span class="number">70.</span>,<span class="number">110.</span>+<span class="number">1</span>,<span class="number">5.</span>)</span><br><span class="line">m.drawmeridians(meridians,labels=[<span class="keyword">True</span>,<span class="keyword">True</span>,<span class="keyword">False</span>,<span class="keyword">True</span>],color=<span class="string">'dimgrey'</span>,dashes=[<span class="number">2</span>, <span class="number">3</span>],fontsize= <span class="number">14</span>)</span><br><span class="line"></span><br><span class="line">plt.ylabel(<span class="string">''</span>)    <span class="comment">#Remove the defult  lat / lon label  </span></span><br><span class="line">plt.xlabel(<span class="string">''</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.rcParams.update(&#123;<span class="string">'font.size'</span>:<span class="number">25</span>&#125;)</span><br><span class="line">ax.set_title(<span class="string">u'中国西部地区部分省份'</span>,color=<span class="string">'blue'</span>,fontsize= <span class="number">25</span> ,fontproperties=ZHfont) <span class="comment"># 2m Temperature</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#经度：87.68 ， 纬度：43.77</span></span><br><span class="line">bill0 = <span class="number">87.68</span></span><br><span class="line">tip0  =  <span class="number">43.77</span></span><br><span class="line">plt.scatter(bill0, tip0,marker=<span class="string">'.'</span>,s=<span class="number">120</span> ,color =<span class="string">"r"</span>,zorder=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#经度：103.73 ， 纬度：36.03</span></span><br><span class="line">bill1 =  <span class="number">103.73</span></span><br><span class="line">tip1  = <span class="number">36.03</span></span><br><span class="line">plt.scatter(bill1, tip1,marker=<span class="string">'.'</span>,s=<span class="number">120</span> ,color =<span class="string">"r"</span> ,zorder=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#经度：101.74 ， 纬度：36.56</span></span><br><span class="line">bill2 =  <span class="number">101.74</span></span><br><span class="line">tip2  = <span class="number">36.56</span></span><br><span class="line">plt.scatter(bill2, tip2,marker=<span class="string">'.'</span>,s=<span class="number">120</span> ,color =<span class="string">"r"</span>,zorder=<span class="number">2</span> )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">bill3 =  <span class="number">104.1</span></span><br><span class="line">tip3  = <span class="number">30.65</span></span><br><span class="line">plt.scatter(bill3, tip3,marker=<span class="string">'.'</span>,s=<span class="number">120</span> ,color =<span class="string">"r"</span>,zorder=<span class="number">2</span> )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">bill4 =  <span class="number">91.11</span></span><br><span class="line">tip4  = <span class="number">29.97</span></span><br><span class="line"></span><br><span class="line">plt.scatter(bill4, tip4,marker=<span class="string">'.'</span>,s=<span class="number">120</span> ,color =<span class="string">"r"</span>,zorder=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.rcParams.update(&#123;<span class="string">'font.size'</span>:<span class="number">18</span>&#125;)</span><br><span class="line"></span><br><span class="line">plt.text(bill0<span class="number">-2.0</span>, tip0+<span class="number">0.3</span>, <span class="string">u"乌鲁木齐"</span>,fontsize= <span class="number">18</span> ,color =<span class="string">"r"</span>,fontproperties=ZHfont)</span><br><span class="line">plt.text(bill1<span class="number">-1.</span>, tip1+<span class="number">0.3</span>, <span class="string">u"兰州"</span>    ,fontsize= <span class="number">18</span> ,color =<span class="string">"r"</span>,fontproperties=ZHfont)</span><br><span class="line">plt.text(bill2<span class="number">-1.</span>, tip2+<span class="number">0.3</span>, <span class="string">u"西宁"</span>    ,fontsize= <span class="number">18</span> ,color =<span class="string">"r"</span>,fontproperties=ZHfont)</span><br><span class="line">plt.text(bill3<span class="number">-1.</span>, tip3+<span class="number">0.3</span>, <span class="string">u"成都"</span>    ,fontsize= <span class="number">18</span> ,color =<span class="string">"r"</span>,fontproperties=ZHfont)</span><br><span class="line">plt.text(bill4<span class="number">-1.</span>, tip4+<span class="number">0.3</span>, <span class="string">u"拉萨"</span>    ,fontsize= <span class="number">18</span> ,color =<span class="string">"r"</span>,fontproperties=ZHfont)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Save &amp; Show figure</span></span><br><span class="line">plt.savefig(<span class="string">"West_China_mask.png"</span>, dpi=<span class="number">300</span>, bbox_inches=<span class="string">'tight'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>出图效果：</p>
+<p><img src="/images/West_China_mask.png" alt></p>
+<h3 id="2-直接在终端使用python-xxx-py运行；"><a href="#2-直接在终端使用python-xxx-py运行；" class="headerlink" title="2.直接在终端使用python xxx.py运行；"></a>2.直接在终端使用python xxx.py运行；</h3><p>需要注意的地方：很多人发现输出的图片是没有经纬度的坐标信息附加在网格线两端的，怎么调都还是出不来。并且若是设置为出图显示，还会发现绘制的图怎么都挪不到最顶层。这个问题怎么解决？答案是，在脚本最顶部添加两行：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#代码头部</span><br><span class="line">import os,sys</span><br><span class="line"></span><br><span class="line">#代码尾部</span><br><span class="line">(filename, extension) = os<span class="selector-class">.path</span><span class="selector-class">.splitext</span>(os<span class="selector-class">.path</span><span class="selector-class">.basename</span>(sys<span class="selector-class">.argv</span>[<span class="number">0</span>]))</span><br><span class="line">plt.savefig(filename+<span class="string">".png"</span>, dpi=<span class="number">600</span>, bbox_inches=<span class="string">'tight'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>你会发现看图置顶的问题解决了，而且网格线两端也会正常出现经纬度信息。当然，jupyter notebook是不会出现这个问题的。至于什么原因大家可以去自行了解一下。还是那句话，遇到错误信息了，最值得信赖的还是Google大法，学会如何使用Google，绝对是对debug有极大好处的。<br>代码附上：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding=utf-8</span></span><br><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line">matplotlib.use(<span class="string">'TkAgg'</span>)</span><br><span class="line"><span class="keyword">import</span> os,sys</span><br><span class="line"><span class="keyword">from</span> mpl_toolkits.basemap <span class="keyword">import</span> Basemap</span><br><span class="line"><span class="keyword">from</span> matplotlib.path <span class="keyword">import</span> Path</span><br><span class="line"><span class="keyword">from</span> matplotlib.patches <span class="keyword">import</span> PathPatch</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> osgeo <span class="keyword">import</span> gdal</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cartopy.crs <span class="keyword">as</span> ccrs</span><br><span class="line"><span class="keyword">import</span> shapefile</span><br><span class="line"><span class="keyword">import</span> matplotlib <span class="keyword">as</span> mpl</span><br><span class="line"><span class="keyword">import</span> xarray <span class="keyword">as</span> xr</span><br><span class="line"><span class="keyword">from</span> matplotlib.font_manager <span class="keyword">import</span> FontProperties</span><br><span class="line"><span class="keyword">import</span> netCDF4 <span class="keyword">as</span> nc</span><br><span class="line"><span class="keyword">from</span> cartopy.mpl.gridliner <span class="keyword">import</span> LONGITUDE_FORMATTER, LATITUDE_FORMATTER</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line">ZHfont = matplotlib.font_manager.FontProperties(fname=<span class="string">'/Users/zhpfu/Documents/fonts/SimSun.ttf'</span>)</span><br><span class="line"></span><br><span class="line">plt.rcParams.update(&#123;<span class="string">'font.size'</span>: <span class="number">20</span>&#125;)</span><br><span class="line">fig = plt.figure(figsize=[<span class="number">12</span>,<span class="number">18</span>]) </span><br><span class="line">ax = fig.add_subplot(<span class="number">111</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">basemask</span><span class="params">(cs, ax, map, shpfile)</span>:</span></span><br><span class="line"></span><br><span class="line">    sf = shapefile.Reader(shpfile)</span><br><span class="line">    vertices = []</span><br><span class="line">    codes = []</span><br><span class="line">    <span class="keyword">for</span> shape_rec <span class="keyword">in</span> sf.shapeRecords():</span><br><span class="line">        <span class="keyword">if</span> shape_rec.record[<span class="number">0</span>] &gt;= <span class="number">0</span>:  </span><br><span class="line">            pts = shape_rec.shape.points</span><br><span class="line">            prt = list(shape_rec.shape.parts) + [len(pts)]</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(len(prt) - <span class="number">1</span>):</span><br><span class="line">                <span class="keyword">for</span> j <span class="keyword">in</span> range(prt[i], prt[i+<span class="number">1</span>]):</span><br><span class="line">                    vertices.append(map(pts[j][<span class="number">0</span>], pts[j][<span class="number">1</span>]))</span><br><span class="line">                codes += [Path.MOVETO]</span><br><span class="line">                codes += [Path.LINETO] * (prt[i+<span class="number">1</span>] - prt[i] <span class="number">-2</span>)</span><br><span class="line">                codes += [Path.CLOSEPOLY]</span><br><span class="line">            clip = Path(vertices, codes)</span><br><span class="line">            clip = PathPatch(clip, transform = ax.transData)    </span><br><span class="line">    <span class="keyword">for</span> contour <span class="keyword">in</span> cs.collections:</span><br><span class="line">        contour.set_clip_path(clip)    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">makedegreelabel</span><span class="params">(degreelist)</span>:</span></span><br><span class="line">    labels=[str(x)+<span class="string">u'°E'</span> <span class="keyword">for</span> x <span class="keyword">in</span> degreelist]</span><br><span class="line">    <span class="keyword">return</span> labels</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ds = xr.open_dataset(<span class="string">'EC-Interim_monthly_2018.nc'</span>)</span><br><span class="line">lat = ds.latitude</span><br><span class="line">lon = ds.longitude</span><br><span class="line">data = (ds[<span class="string">'t2m'</span>][<span class="number">0</span>,::<span class="number">-1</span>,:] - <span class="number">273.15</span>) <span class="comment"># 把温度转换为℃</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># [west,east,south,north]</span></span><br><span class="line">m = Basemap(llcrnrlon=<span class="number">70.</span>,</span><br><span class="line">    llcrnrlat=<span class="number">25</span>,</span><br><span class="line">    urcrnrlon=<span class="number">110</span>,</span><br><span class="line">    urcrnrlat=<span class="number">50</span>,</span><br><span class="line">    resolution = <span class="keyword">None</span>, </span><br><span class="line">    projection = <span class="string">'cyl'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cbar_kwargs = &#123;</span><br><span class="line">    <span class="string">'orientation'</span>: <span class="string">'horizontal'</span>,</span><br><span class="line">    <span class="string">'label'</span>: <span class="string">'Temperature(℃)'</span>,</span><br><span class="line">    <span class="string">'ticks'</span>: np.arange(<span class="number">-30</span>,<span class="number">30</span>+<span class="number">1</span>,<span class="number">10</span>),</span><br><span class="line">    <span class="string">'pad'</span>: <span class="number">-0.35</span>,</span><br><span class="line">    <span class="string">'shrink'</span>: <span class="number">0.9</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 画图</span></span><br><span class="line">levels = np.arange(<span class="number">-30</span>,<span class="number">30</span>+<span class="number">1</span>,<span class="number">1</span>) </span><br><span class="line">cs = data.plot.contourf(ax=ax,levels=levels,cbar_kwargs=cbar_kwargs, cmap=<span class="string">'Spectral_r'</span>)</span><br><span class="line"></span><br><span class="line">m.readshapefile(<span class="string">'west'</span>,<span class="string">'West'</span>,color=<span class="string">'k'</span>,linewidth=<span class="number">1.2</span>)</span><br><span class="line">basemask(cs, ax, m, <span class="string">'west'</span>) </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># draw parallels and meridians.</span></span><br><span class="line"><span class="comment"># label parallels on right and top</span></span><br><span class="line"><span class="comment"># meridians on bottom and left</span></span><br><span class="line">parallels = np.arange(<span class="number">25.</span>,<span class="number">50.</span>+<span class="number">1</span>,<span class="number">5.</span>)</span><br><span class="line"><span class="comment"># labels = [left,right,top,bottom]</span></span><br><span class="line">m.drawparallels(parallels,labels=[<span class="keyword">True</span>,<span class="keyword">True</span>,<span class="keyword">True</span>,<span class="keyword">True</span>],color=<span class="string">'dimgrey'</span>,dashes=[<span class="number">2</span>, <span class="number">3</span>],fontsize= <span class="number">14</span>)  <span class="comment"># ha= 'right'</span></span><br><span class="line">meridians = np.arange(<span class="number">70.</span>,<span class="number">110.</span>+<span class="number">1</span>,<span class="number">5.</span>)</span><br><span class="line">m.drawmeridians(meridians,labels=[<span class="keyword">True</span>,<span class="keyword">True</span>,<span class="keyword">False</span>,<span class="keyword">True</span>],color=<span class="string">'dimgrey'</span>,dashes=[<span class="number">2</span>, <span class="number">3</span>],fontsize= <span class="number">14</span>)</span><br><span class="line"></span><br><span class="line">plt.ylabel(<span class="string">''</span>)    <span class="comment">#Remove the defult  lat / lon label  </span></span><br><span class="line">plt.xlabel(<span class="string">''</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.rcParams.update(&#123;<span class="string">'font.size'</span>:<span class="number">25</span>&#125;)</span><br><span class="line">ax.set_title(<span class="string">u'中国西部地区部分省份'</span>,color=<span class="string">'blue'</span>,fontsize= <span class="number">25</span> ,fontproperties=ZHfont) <span class="comment"># 2m Temperature</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#经度：87.68 ， 纬度：43.77</span></span><br><span class="line">bill0 = <span class="number">87.68</span></span><br><span class="line">tip0  =  <span class="number">43.77</span></span><br><span class="line">plt.scatter(bill0, tip0,marker=<span class="string">'.'</span>,s=<span class="number">120</span> ,color =<span class="string">"r"</span>,zorder=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#经度：103.73 ， 纬度：36.03</span></span><br><span class="line">bill1 =  <span class="number">103.73</span></span><br><span class="line">tip1  = <span class="number">36.03</span></span><br><span class="line">plt.scatter(bill1, tip1,marker=<span class="string">'.'</span>,s=<span class="number">120</span> ,color =<span class="string">"r"</span> ,zorder=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#经度：101.74 ， 纬度：36.56</span></span><br><span class="line">bill2 =  <span class="number">101.74</span></span><br><span class="line">tip2  = <span class="number">36.56</span></span><br><span class="line">plt.scatter(bill2, tip2,marker=<span class="string">'.'</span>,s=<span class="number">120</span> ,color =<span class="string">"r"</span>,zorder=<span class="number">2</span> )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">bill3 =  <span class="number">104.1</span></span><br><span class="line">tip3  = <span class="number">30.65</span></span><br><span class="line">plt.scatter(bill3, tip3,marker=<span class="string">'.'</span>,s=<span class="number">120</span> ,color =<span class="string">"r"</span>,zorder=<span class="number">2</span> )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">bill4 =  <span class="number">91.11</span></span><br><span class="line">tip4  = <span class="number">29.97</span></span><br><span class="line"></span><br><span class="line">plt.scatter(bill4, tip4,marker=<span class="string">'.'</span>,s=<span class="number">120</span> ,color =<span class="string">"r"</span>,zorder=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.rcParams.update(&#123;<span class="string">'font.size'</span>:<span class="number">18</span>&#125;)</span><br><span class="line"></span><br><span class="line">plt.text(bill0<span class="number">-2.0</span>, tip0+<span class="number">0.3</span>, <span class="string">u"乌鲁木齐"</span>,fontsize= <span class="number">18</span> ,color =<span class="string">"r"</span>,fontproperties=ZHfont)</span><br><span class="line">plt.text(bill1<span class="number">-1.</span>, tip1+<span class="number">0.3</span>, <span class="string">u"兰州"</span>    ,fontsize= <span class="number">18</span> ,color =<span class="string">"r"</span>,fontproperties=ZHfont)</span><br><span class="line">plt.text(bill2<span class="number">-1.</span>, tip2+<span class="number">0.3</span>, <span class="string">u"西宁"</span>    ,fontsize= <span class="number">18</span> ,color =<span class="string">"r"</span>,fontproperties=ZHfont)</span><br><span class="line">plt.text(bill3<span class="number">-1.</span>, tip3+<span class="number">0.3</span>, <span class="string">u"成都"</span>    ,fontsize= <span class="number">18</span> ,color =<span class="string">"r"</span>,fontproperties=ZHfont)</span><br><span class="line">plt.text(bill4<span class="number">-1.</span>, tip4+<span class="number">0.3</span>, <span class="string">u"拉萨"</span>    ,fontsize= <span class="number">18</span> ,color =<span class="string">"r"</span>,fontproperties=ZHfont)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Save &amp; Show figure</span></span><br><span class="line">(filename, extension) = os.path.splitext(os.path.basename(sys.argv[<span class="number">0</span>]))</span><br><span class="line">plt.savefig(filename+<span class="string">".png"</span>, dpi=<span class="number">600</span>, bbox_inches=<span class="string">'tight'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<h2 id="地图、测试数据链接"><a href="#地图、测试数据链接" class="headerlink" title="地图、测试数据链接"></a>地图、测试数据链接</h2><p><code>链接:https://pan.baidu.com/s/1cTIk6j0E0SMpZZkdIG-_tg  密码:9g31</code></p>
+<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><p><a href="https://www.igismap.com/merge-two-shapefile-qgis/" target="_blank" rel="noopener">链接.1</a><br><a href="https://mp.weixin.qq.com/s/cxom-jX-acAMJUM9PBLqQA" target="_blank" rel="noopener">链接.2</a></p>
+<p><strong><p align="center"><font color="#c8044b" size="2" face="黑体">有任何问题都欢迎交流探讨，共同学习进步！</font></p></strong><br> <img src="/images/my_wechat.jpg" width="150" height="200" alt align="center"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+<blockquote class="blockquote-center" style="color: #ccc;">
+    -------------本文结束 <i class="fa fa-paw"></i> 感谢阅读-------------
+</blockquote>
+
+  <span id="inline-green" style="border-radius:3px;">作者</span>：<a class="link-blue" href="https://github.com/gavin971" target="_blank">Gavin</a><br>有问题请在相应<a class="link-blue" href="https://gavin971.github.io/" target="_blank">页面留言</a>(评论系统DISQUS需要"翻墙"才可见)<br>或者私信给我 <a class="link-blue" href="https://climate2weather.cc" target="_blank">GMAIL: zhpfu.atm@gmail.com</a>。
+
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>满分是10分的话，这篇文章你给几分</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/reward/reward_wechat.png" alt="Gavin WeChat Pay">
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/reward/reward_alipay.png" alt="Gavin Alipay">
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+          
+            <a href="/tags/cartopy/" rel="tag"><i class="fa fa-tag"></i> cartopy</a>
+          
+            <a href="/tags/Mask/" rel="tag"><i class="fa fa-tag"></i> Mask</a>
+          
+            <a href="/tags/QGIS/" rel="tag"><i class="fa fa-tag"></i> QGIS</a>
+          
+            <a href="/tags/ArcGIS/" rel="tag"><i class="fa fa-tag"></i> ArcGIS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/10/weekly20190817/" rel="next" title="weekly20190817">
+                <i class="fa fa-chevron-left"></i> weekly20190817
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/22/stf-subx/" rel="prev" title="斯坦福大学使用机器学习做次季节温度/降水预报">
+                斯坦福大学使用机器学习做次季节温度/降水预报 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/avatar/avatar.png" alt="Gavin">
+          <p class="site-author-name" itemprop="name">Gavin</p>
+          <p class="site-description motion-element" itemprop="description">Still Waters Run Deep!</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">106</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/gavin971" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/Gavin_Fu971" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/escapelanzhou" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons">
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="/weblog" title="建站日志" target="_blank">建站日志</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://neveryu.github.io" title="Never_yu" target="_blank">Never_yu</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://novarizark.github.io/" title="LZN's Blog" target="_blank">LZN's Blog</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://ihtcboy.com" title="iHTCboy" target="_blank">iHTCboy</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步：制作底图"><span class="nav-number">1.</span> <span class="nav-text">第一步：制作底图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步：如何调试程序"><span class="nav-number">2.</span> <span class="nav-text">第二步：如何调试程序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-使用jupyter-notebook；-推荐"><span class="nav-number">2.1.</span> <span class="nav-text">1.使用jupyter notebook；(推荐)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-直接在终端使用python-xxx-py运行；"><span class="nav-number">2.2.</span> <span class="nav-text">2.直接在终端使用python xxx.py运行；</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#地图、测试数据链接"><span class="nav-number">3.</span> <span class="nav-text">地图、测试数据链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考："><span class="nav-number">4.</span> <span class="nav-text">参考：</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+      <!-- hack一个虚线出来 -->
+      <section style="border-top:1px dotted #ccc;height:10px;"></section>
+      
+<script type="text/javascript" src="//ra.revolvermaps.com/0/0/6.js?i=031trf1l7h9&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
+
+
+  !添加了公众号二维码，主页能显示，在其他页面失效！
+  <div class="widget-wrap">
+    <img src="images/Wechat_OF.jpeg" width="100%" height="100%">  
+  </div>
+
+
+
+      
+      
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">您是第<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>个小伙伴</span>
+  
+
+  
+    <span class="site-pv">本站总浏览<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        <div class="copyright">
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-thumbs-up"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gavin</span>
+</div>
+
+<!--<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io" rel="external nofollow">Hexo</a> 强力驱动
+</div>
+-->
+
+<div class="theme-info">
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Pisces
+  </a>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count" style="padding-left:5px; color: #e90f92;">全站共 110.8k 字</span>
+</div>
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'www-climate2weather-cc';
+      var disqus_identifier = '2019/08/22/mask-some-province/';
+      var disqus_title = "Python绘制气象实用地图(续)";
+      var disqus_url = 'https://gavin971.github.io/2019/08/22/mask-some-province/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+
+<!-- <script type="text/javascript" src="/js/src/dynamic_bg.js"></script> -->
+<!-- <script type="text/javascript" src="/js/three/three-waves.min.js"></script> -->
+  <!-- 按需加载背景 -->
+  <!-- <!-- 按需加载背景 -->
+<!-- 识别手机或电脑的js开始 -->  
+<script type="text/javascript">   
+(function(){  
+var res = GetRequest();  
+var par = res['index'];  
+if(par!='gfan'){  
+  var ua=navigator.userAgent.toLowerCase();  
+  var contains=function (a, b){  
+      if(a.indexOf(b)!=-1){return true;}  
+  };   
+  if((contains(ua,"android") && contains(ua,"mobile"))||(contains(ua,"android") && contains(ua,"mozilla"))||(contains(ua,"android") && contains(ua,"opera"))||contains(ua,"ucweb7")||contains(ua,"iphone")){
+    return false;
+  } else {
+    $.getScript("/js/src/particle.js?v=5.0.1");
+  }
+}  
+})();  
+function GetRequest() {  
+var url = location.search;
+var theRequest = new Object();  
+if (url.indexOf("?") != -1) {  
+  var str = url.substr(1);  
+  strs = str.split("&");  
+  for(var i = 0; i < strs.length; i ++) {  
+    theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);  
+  }  
+}  
+return theRequest;  
+}  
+</script>  
+<!-- 识别手机或电脑的js结束 -->   -->
+  <!-- 页面点击小红心 -->
+<!--   <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js?v=5.0.1"></script> -->
+  <!-- 页面移动stars -->
+  <!-- <script type="text/javascript" src="/js/src/jquery-stars.js?v=5.0.1"></script>
+<script type="text/javascript">
+jQuery('body').jstars({
+	image_path: '/images',
+	image: 'candy-cane-stars.png',
+	style: 'white',
+	width: 34,
+	height: 34,
+	delay: 700,
+	frequency: 5
+});
+</script> -->
+  <script type="text/javascript">var OriginTitile=document.title,st;document.addEventListener("visibilitychange",function(){document.hidden?(document.title="Geek is sexy!",clearTimeout(st)):(document.title="Wecome Back! "+OriginTitile,st=setTimeout(function(){document.title=OriginTitile},4e3))})</script>
+
+</body>
+</html>
