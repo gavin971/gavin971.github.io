@@ -4,6 +4,197 @@
   
     
     <entry>
+      <title><![CDATA[气象学家周报-第二期]]></title>
+      <url>https://gavin971.github.io/2019/09/10/weekly20190909/</url>
+      <content type="html"><![CDATA[<p><img src="/images/weekly.png" alt></p>
+<blockquote>
+<p><strong><font color="#0000ff">汇集近期整理的资源，作为日常备份</font></strong></p>
+</blockquote>
+<a id="more"></a>
+
+
+<p>#气象学术</p>
+<ul>
+<li><a href="https://sites.google.com/a/ualberta.ca/hail/home" target="_blank" rel="noopener">美国气象雷达部分介绍：The Alberta Hail Project Meteorological and Barge-Humphries Radar Archive</a></li>
+<li><a href="https://www.sciencedirect.com/science/article/pii/S0169809516300412#f0005" target="_blank" rel="noopener">Sensitivity of boundary-layer variables to PBL schemes in the WRF model based on surface meteorological observations, lidar, and radiosondes during the HygrA-CD campaign</a></li>
+<li><a href="https://pdfs.semanticscholar.org/f490/bc26b80a232b2a8ec524a9b7e54085ad92e1.pdf" target="_blank" rel="noopener">Wind Prediction Modelling and Validation Using Coherent Doppler LIDAR<br>Data</a></li>
+<li><a href="http://qikan.camscma.cn/qxkjhzdt/ch/reader/issue_list.aspx" target="_blank" rel="noopener">气象科技合作动态</a></li>
+<li><a href="http://www.caac.gov.cn/PHONE/XXGK_17/XXGK/GFXWJ/201511/t20151102_8215.html" target="_blank" rel="noopener">民用机场风温廓线雷达系统技术规范</a></li>
+<li><a href="https://news.uchicago.edu/story/data-science-aims-find-next-el-nino" target="_blank" rel="noopener">Data science aims to find next El Niño
+</a></li>
+<li><a href="http://www.ccafs-climate.org/bias_correction/#Quantile_Mapping" target="_blank" rel="noopener">Bias-Correction,Method Description</a></li>
+<li><a href="http://stanford.edu/~pauloo/" target="_blank" rel="noopener">Paulo Orenstein PhD candidate in Statistics Stanford University</a></li>
+<li><a href="https://onlinelibrary.wiley.com/doi/full/10.1002/wcc.567" target="_blank" rel="noopener">S2S reboot: An argument for greater inclusion of machine learning in subseasonal to seasonal forecasts</a></li>
+<li><a href="https://journals.ametsoc.org/toc/amsm/59" target="_blank" rel="noopener">AMS100周年专刊A Century of Progress in Atmospheric and Related Sciences: Celebrating the American Meteorological Society Centennial</a></li>
+<li><a href="https://arxiv.org/pdf/1406.4756.pdf" target="_blank" rel="noopener">天气聚类-Weather Forecasting using Incremental K-means Clustering</a></li>
+<li><a href="https://link.springer.com/content/pdf/10.1007%2Fs00382-019-04980-1.pdf" target="_blank" rel="noopener">动力和热力的误差订正方案：A bias‑corrected projection for the changes in East Asian summer<br>monsoon rainfall under global warming</a></li>
+<li><a href="https://www.kaggle.com/coryjog/example-wind-analysis-in-python" target="_blank" rel="noopener">Example Wind Resource Assessment Using Python</a></li>
+<li><a href="https://www3.nd.edu/~dynamics/materhorn/PDF/papers/waf-2013Pu.pdf" target="_blank" rel="noopener">Examination of Errors in Near-Surface Temperature and Wind from WRF<br>Numerical Simulations in Regions of Complex Terrain</a></li>
+<li><a href="https://www.hydrol-earth-syst-sci.net/21/2649/2017/hess-21-2649-2017.pdf" target="_blank" rel="noopener">Scaled distribution mapping: a bias correction method that<br>preserves raw climate model projected changes</a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+</ul>
+<p>#气象编程</p>
+<ul>
+<li><a href="https://github.com/ARM-DOE/pyart" target="_blank" rel="noopener">美国雷达数据处理可视化包：The Python-ARM Radar Toolkit.</a></li>
+<li><a href="https://github.com/bugsuse/pyart" target="_blank" rel="noopener">修改版本支持S波段气象雷达：包含sband_archive模块</a></li>
+<li><a href="https://mp.weixin.qq.com/s/HcZT5Lh527YExx243jcCOw" target="_blank" rel="noopener">气象雷达数据处理和风场反演</a></li>
+<li><a href="https://github.com/bugsuse/mradar" target="_blank" rel="noopener">处理雷达数据的matlab程序包,包含文档说明</a></li>
+<li><a href="http://wiki.rac.manchester.ac.uk/community/WRF/public/Post_processing" target="_blank" rel="noopener">Using NCL And VAPOR For Post-Processing Of WRF-Chem Data</a></li>
+<li><a href="https://github.com/samwisehawkins/wrftools" target="_blank" rel="noopener">wrftools:A scripting framework for running the WRF model, mainly designed to support operational forecasts.
+</a></li>
+<li><a href="https://www.ncl.ucar.edu/Applications/wrfvapor.shtml" target="_blank" rel="noopener">Using NCL with VAPOR to analyze WRF-ARW data in 3D</a></li>
+<li><a href="https://github.com/NCAR/VAPOR" target="_blank" rel="noopener">VAPOR is the Visualization and Analysis Platform for Ocean, Atmosphere, and Solar Researchers https://www.vapor.ucar.edu/</a> </li>
+<li><a href="https://www.earthdatascience.org/courses/earth-analytics-python/lidar-raster-data/open-lidar-raster-python/" target="_blank" rel="noopener">Open, Plot and Explore Lidar Data in Raster Format with Python</a></li>
+<li><a href="https://www.earthdatascience.org/courses/" target="_blank" rel="noopener">👍Earth Data Science Courses &amp; Workshops</a>，Current Courses:<ul>
+<li><a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/" target="_blank" rel="noopener">Intro to Earth Data Science</a></li>
+<li><a href="https://www.earthdatascience.org/courses/earth-analytics-python/" target="_blank" rel="noopener">Earth Analytics Python Course</a></li>
+<li><a href="https://www.earthdatascience.org/courses/earth-analytics-bootcamp/" target="_blank" rel="noopener">Earth Analytics Bootcamp Course</a></li>
+</ul>
+</li>
+<li><a href="https://pypi.org/project/lidar/" target="_blank" rel="noopener">lidar is a toolset for terrain and hydrological analysis using digital elevation models (DEMs). It is particularly useful for analyzing high-resolution topographic data, such as DEMs derived from Light Detection and Ranging (LiDAR) data.</a></li>
+<li><a href="http://bbs.06climate.com/forum.php?mod=group&fid=101" target="_blank" rel="noopener">风廓线雷达(风廓线仪)</a></li>
+<li><a href="http://bbs.06climate.com/forum.php?mod=viewthread&tid=2255" target="_blank" rel="noopener">风廓线雷达终端显示软件</a></li>
+<li><a href="https://github.com/e-WindLidar/Lidaco" target="_blank" rel="noopener">Lidaco (Wind Lidar Data Converter) is a library and executable that enables a modular writing of data converters.</a></li>
+<li><a href="https://www.kaggle.com/coryjog/example-wind-analysis-in-python" target="_blank" rel="noopener">风资源评估：Example Wind Resource Assessment Using Python</a></li>
+<li><a href="https://github.com/manninenaj/HALO_lidar_toolbox" target="_blank" rel="noopener">HALO_lidar_toolbox</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/27884659" target="_blank" rel="noopener">测风激光雷达系统，让你更加科学地了解“风”</a></li>
+<li><a href="https://github.com/NREL/L-TERRA" target="_blank" rel="noopener">Lidar Turbulence Error Reduction Algorithm (L-TERRA), a Python toolbox that reads in lidar data and applies a series of turbulence intensity (TI) corrections. More information on the corrections used in L-TERRA</a></li>
+<li><a href="https://github.com/paulo-o/forecast_rodeo" target="_blank" rel="noopener">Improving Subseasonal Forecasting in the Western US with Machine Learning
+</a> </li>
+<li><a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/CEFZLV" target="_blank" rel="noopener">Reconstructed Precipitation and Temperature CFSv2 Forecasts for 2011-2018</a></li>
+<li><a href="http://nicolasfauchereau.github.io/climatecode/posts/wavelet-analysis-in-python/" target="_blank" rel="noopener">小波分析Python计算和绘图Wavelet analysis in Python</a></li>
+<li><a href="https://pcjericks.github.io/py-gdalogr-cookbook/index.html" target="_blank" rel="noopener">the Python GDAL/OGR Cookbook</a></li>
+<li><a href="https://www.varunpant.com/posts/how-to-create-fishnets-or-geospatial-grids" target="_blank" rel="noopener">How To Create Fishnets Or Geospatial Grids</a></li>
+<li><a href="https://gis.stackexchange.com/questions/273607/creating-fishnet-using-python" target="_blank" rel="noopener">Creating fishnet using Python?</a></li>
+<li><a href="https://www.jianshu.com/p/60336a644248" target="_blank" rel="noopener">利用聚类分析简单的气象数据缺省值处理模块</a></li>
+<li><a href="http://fcode.cn/guide-45-1.html" target="_blank" rel="noopener">FAQ之Fortran文件行列与二维数组行列</a></li>
+<li><a href="https://github.com/st186/Weather-Data-Clustering-Using-k-means/blob/master/Weather_Data_Clustering_Using_K-Means.ipynb" target="_blank" rel="noopener">Weather-Data-Clustering-Using-k-means</a></li>
+<li><a href="https://github.com/fchollet/deep-learning-with-python-notebooks" target="_blank" rel="noopener">Jupyter notebooks for the code samples of the book “Deep Learning with Python”</a></li>
+<li><a href="https://mp.weixin.qq.com/s/6oE9xpFj_xXzcGqxCctzRg" target="_blank" rel="noopener">Python绘制气象实用地图(附代码和测试数据)</a></li>
+<li><a href="https://mp.weixin.qq.com/s/8I0pbiuecmapKsS5IjHpoQ" target="_blank" rel="noopener">Cartopy调用天地图作为底图</a> </li>
+<li><a href="https://www.net-analysis.com/blog/cartopylayout.html" target="_blank" rel="noopener">Cartopy and Map Layout</a></li>
+<li><a href="https://www.net-analysis.com/blog/gallery.html" target="_blank" rel="noopener">python可视化博客net-analysis.com Data Analysis Blog</a></li>
+<li><a href="https://makersportal.com/blog/2018/11/25/goes-r-satellite-latitude-and-longitude-grid-projection-algorithm" target="_blank" rel="noopener">GOES-R Satellite Latitude and Longitude Grid Projection Algorithm</a></li>
+<li><a href="https://code-examples.net/en/tags" target="_blank" rel="noopener">Code Examples</a></li>
+<li><a href="http://www.sc.eso.org/~bdias/pycoffee/" target="_blank" rel="noopener">The PyCoffee is an informal coffee break at ESO/Vitacura library</a></li>
+<li><a href="https://yt-project.org/doc/index.html" target="_blank" rel="noopener">yt is a community-developed analysis and visualization toolkit for volumetric data.</a></li>
+<li><a href="https://latexsearch.arnavbansal.dev/" target="_blank" rel="noopener">LaTex在线公式搜索引擎</a></li>
+<li><a href="https://wizardforcel.gitbooks.io/matplotlib-intro-tut/content/matplotlib/26.html" target="_blank" rel="noopener">Matplotlib 入门教程</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/63171810" target="_blank" rel="noopener">Anaconda软件安装流程</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/36398337" target="_blank" rel="noopener">[Python]Anaconda安装和使用指南</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/62987192" target="_blank" rel="noopener">搭建机器学习 Python 环境的正确姿势</a></li>
+<li><a href="https://waynehfut.com/2019/04/10/dlenvwithconda/#2-配置方法" target="_blank" rel="noopener">博客-使用Anaconda配置机器学习环境</a></li>
+<li><a href="http://www.i-lightning.cn/post/comprehensive_air_quality_model_with_extensions/" target="_blank" rel="noopener">CAMx:空气质量预报模型</a></li>
+<li><a href="https://github.com/apache/incubator-echarts" target="_blank" rel="noopener">A powerful, interactive charting and visualization library for browser</a></li>
+<li><a href="https://github.com/apache/incubator-echarts/tree/master/extension/bmap" target="_blank" rel="noopener">ECharts 百度地图扩展</a></li>
+<li><a href="https://github.com/ecomfe/echarts-wordcloud" target="_blank" rel="noopener">词云-ECharts wordcloud extension based on wordcloud2.js</a></li>
+<li><a href="https://www.ctolib.com/Wind-Speed-Analysis.html" target="_blank" rel="noopener">用于风速和风向的联合分布的一个优雅的概率模型</a></li>
+<li><a href="https://www.osgeo.cn/matplotlib/index.html#" target="_blank" rel="noopener">Matplotlib版本的中文文档 3.0.3 .</a></li>
+<li><a href="https://medium.com/@Vincentropy/a-practical-intro-to-colors-in-python-496737f23568" target="_blank" rel="noopener">A Practical Introduction to Colors in Python</a></li>
+<li><a href="https://pypi.org/project/colormap/" target="_blank" rel="noopener">colormap：Utilities to ease manipulation of matplotlib colormaps and color codecs (e.g., hex2rgb)</a></li>
+<li><a href="https://plot.ly/matplotlib/colors-and-colormaps/" target="_blank" rel="noopener">https://pypi.org/project/colormap/</a></li>
+<li><a href="https://jdherman.github.io/colormap/" target="_blank" rel="noopener">👍COLORMAP：Create a custom colormap by dragging points on the RGB intensity curves.</a></li>
+<li><a href="https://scipy-cookbook.readthedocs.io" target="_blank" rel="noopener">SciPy Cookbook</a></li>
+<li><a href="https://github.com/j08lue/pycpt" target="_blank" rel="noopener">Python tools to load and handle cpt (GMT format) color maps for use with matplotlib, e.g. from cpt-city</a></li>
+<li><a href="https://www.rootopen.com/git/5b8ba95664fec049aff8fda5" target="_blank" rel="noopener">用于加载和处理用于matplotlib的cpt（GMT格式）颜色映射的Python工具，例如来自cpt-city</a></li>
+<li><a href="http://www.fabiocrameri.ch/resources/%2BREADME_ScientificColourmaps.pdf" target="_blank" rel="noopener">PDF：Scientific colour maps</a></li>
+<li><a href="https://jakevdp.github.io/PythonDataScienceHandbook/04.06-customizing-legends.html" target="_blank" rel="noopener">Customizing Plot Legends</a></li>
+<li><a href="https://residentmario.github.io/geoplot/index.html" target="_blank" rel="noopener">👍geoplot: geospatial data visualization</a></li>
+<li><a href="https://www.matplotlib.org.cn/gallery/images_contours_and_fields/contourf_log.html" target="_blank" rel="noopener">Matplotlib 中文文档</a></li>
+</ul>
+<p>#气象数据</p>
+<ul>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+<li><a href></a></li>
+</ul>
+<p>#技不压身</p>
+<ul>
+<li><a href="https://nndl.github.io" target="_blank" rel="noopener">神经网络与深度学习</a></li>
+<li><a href="https://nndl.github.io/ppt/神经网络与深度学习-3小时.pptx" target="_blank" rel="noopener">神经网络与深度学习-3小时.pptx</a></li>
+<li><a href="http://www.sohu.com/a/229979375_129720" target="_blank" rel="noopener">从基础概念到数学公式，这是一份520页的机器学习笔记（图文并茂）</a></li>
+<li><a href="https://github.com/Avik-Jain/100-Days-Of-ML-Code" target="_blank" rel="noopener">机器学习 100 天</a></li>
+<li><a href="https://allenai.org/papers/papers-aristo-2019.html" target="_blank" rel="noopener">AI答题正确率超过90%，From ‘F’ to ‘A’ on the N.Y. Regents Science Exams: An Overview of the Aristo Project</a></li>
+<li><a href="https://github.com/yifeikong/reverse-interview-zh" target="_blank" rel="noopener">反向面试-技术面试最后反问面试官的话</a></li>
+<li><a href="https://github.com/DoubleLabyrinth/Xmanager-keygen/blob/master/Xmanager-keygen.py" target="_blank" rel="noopener">Xmanager-keygen秘钥生成器</a></li>
+<li><a href="https://t.co/YrwcvzHsgp?amp=1" target="_blank" rel="noopener">微软终端工具和编辑器的新字体：Cascadia Code，支持编程连字特性。</a></li>
+</ul>
+<p>#推荐书籍</p>
+<ul>
+<li><a href="https://learnku.com/" target="_blank" rel="noopener">开源技术书籍网站推荐</a></li>
+<li><a href="https://yabook.org" target="_blank" rel="noopener">PDF图书下载网站，免费，包含很多计算机类型的</a></li>
+<li><a href="https://www.080910t.com/2018/10/15/mathematics-for-machine-learning/" target="_blank" rel="noopener">机器学习的数学基础（PDF书籍）</a></li>
+<li><a href="https://learnku.com/docs/python-guide/2018" target="_blank" rel="noopener">开源书籍：Python 最佳实践指南 2018 </a></li>
+<li><a href="https://learnku.com/docs/pymotw" target="_blank" rel="noopener">Python 3 标准库实例教程</a></li>
+<li><a href="https://docs.python.org/zh-cn/3/index.html" target="_blank" rel="noopener">Python 3.7.4 中文文档</a></li>
+</ul>
+<p>#大道至简</p>
+<ul>
+<li></li>
+</ul>
+<p><strong><p align="center"><font color="#c8044b" size="2" face="黑体">有任何问题都欢迎交流探讨，共同学习进步！</font></p></strong><br> <img src="/images/my_wechat.jpg" width="150" height="200" alt align="center"></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 学习资源 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Life </tag>
+            
+            <tag> Python </tag>
+            
+            <tag> Progrmme </tag>
+            
+            <tag> Meteorology </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[斯坦福大学使用机器学习做次季节温度/降水预报]]></title>
       <url>https://gavin971.github.io/2019/08/22/stf-subx/</url>
       <content type="html"><![CDATA[<p><img src="/images/subX-3.png" alt></p>
@@ -642,8 +833,8 @@
     </entry>
     
     <entry>
-      <title><![CDATA[气象学家周报-201908010]]></title>
-      <url>https://gavin971.github.io/2019/08/04/weekly201908011/</url>
+      <title><![CDATA[气象学家周报-第一期]]></title>
+      <url>https://gavin971.github.io/2019/08/04/weekly20190801/</url>
       <content type="html"><![CDATA[<p><img src="/images/weekly.png" alt></p>
 <blockquote>
 <p><strong><font color="#0000ff">汇集20190804到20190810一周期间整理的资源，作为日常备份</font></strong></p>
